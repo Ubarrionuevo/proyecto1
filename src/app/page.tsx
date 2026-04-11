@@ -120,7 +120,7 @@ export default function Home() {
               .carousel-ramos {
                 display: flex;
                 width: max-content;
-                animation: scrollRamos 12s linear infinite;
+                animation: scrollRamos 40s linear infinite;
               }
               .carousel-ramos:hover {
                 animation-play-state: paused;
