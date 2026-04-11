@@ -4,12 +4,27 @@ import { useState, useEffect } from 'react';
 
 export default function Home() {
   const [showFloating, setShowFloating] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  // Imágenes de ramos (agregar más según se agreguen fotos)
+  const ramosImages = [
+    '/ramos.golosinas.jpg',
+    '/ramos.golosinas2.jpg',
+  ];
 
   useEffect(() => {
     const handleScroll = () => setShowFloating(window.scrollY > 300);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Rotación automática de imágenes
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % ramosImages.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [ramosImages.length]);
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-pink-50 to-rose-100">
@@ -72,11 +87,26 @@ export default function Home() {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-lg sm:text-xl font-bold text-gray-800 mb-4">Elegí el tuyo</h2>
           
-          <img
-            src="/ramos.golosinas.jpg"
-            alt="Ramos disponibles"
-            className="rounded-xl w-full max-w-md mx-auto mb-4 shadow-lg"
-          />
+          <div className="relative">
+            <img
+              key={currentImageIndex}
+              src={ramosImages[currentImageIndex]}
+              alt={`Ramo modelo ${currentImageIndex + 1}`}
+              className="rounded-xl w-full max-w-md mx-auto mb-4 shadow-lg transition-opacity duration-500"
+              style={{ opacity: 1 }}
+            />
+            
+            {/* Indicadores */}
+            <div className="flex justify-center gap-2 mt-2 mb-4">
+              {ramosImages.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentImageIndex(index)}
+                  className={`w-2 h-2 rounded-full transition-all ${index === currentImageIndex ? 'bg-pink-500 w-4' : 'bg-gray-300'}`}
+                />
+              ))}
+            </div>
+          </div>
           
           <a
             href="https://wa.me/5493834903387?text=Hola! Quiero ver opciones de ramos de golosinas"
