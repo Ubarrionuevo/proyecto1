@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 export default function Home() {
   const [showFloating, setShowFloating] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   
   // Imágenes de ramos
   const ramosImages = [
@@ -23,10 +24,14 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Rotación automática de imágenes
+  // Rotación automática con slide suave
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % ramosImages.length);
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentImageIndex((prev) => (prev + 1) % ramosImages.length);
+        setIsTransitioning(false);
+      }, 300);
     }, 3000);
     return () => clearInterval(interval);
   }, [ramosImages.length]);
@@ -92,25 +97,49 @@ export default function Home() {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-lg sm:text-xl font-bold text-gray-800 mb-4">Elegí el tuyo</h2>
           
-          <div className="relative">
-            <img
-              key={currentImageIndex}
-              src={ramosImages[currentImageIndex]}
-              alt={`Ramo modelo ${currentImageIndex + 1}`}
-              className="rounded-xl w-full max-w-md mx-auto mb-4 shadow-lg transition-opacity duration-500"
-              style={{ opacity: 1 }}
-            />
-            
-            {/* Indicadores */}
-            <div className="flex justify-center gap-2 mt-2 mb-4">
-              {ramosImages.map((_, index) => (
-                <button
+          <div className="relative overflow-hidden rounded-2xl">
+            <div 
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
+            >
+              {ramosImages.map((src, index) => (
+                <img
                   key={index}
-                  onClick={() => setCurrentImageIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-all ${index === currentImageIndex ? 'bg-pink-500 w-4' : 'bg-gray-300'}`}
+                  src={src}
+                  alt={`Ramo ${index + 1}`}
+                  className="w-full max-w-md mx-auto flex-shrink-0"
                 />
               ))}
             </div>
+            
+            {/* Flechas */}
+            <button 
+              onClick={() => setCurrentImageIndex(prev => prev === 0 ? ramosImages.length - 1 : prev - 1)}
+              className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 hover:bg-white rounded-full shadow-lg flex items-center justify-center text-gray-600"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button 
+              onClick={() => setCurrentImageIndex(prev => (prev + 1) % ramosImages.length)}
+              className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 hover:bg-white rounded-full shadow-lg flex items-center justify-center text-gray-600"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+          
+          {/* Indicadores */}
+          <div className="flex justify-center gap-2 mt-4 mb-4">
+            {ramosImages.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentImageIndex(index)}
+                className={`h-2 rounded-full transition-all ${index === currentImageIndex ? 'bg-pink-500 w-6' : 'bg-gray-300 w-2'}`}
+              />
+            ))}
           </div>
           
           <a
