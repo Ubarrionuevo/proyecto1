@@ -104,54 +104,36 @@ export default function Home() {
         </div>
       </section>
 
-      {/* VARIACIONES DE RAMOS */}
+      {/* VARIACIONES DE RAMOS - CARRUSEL */}
       <section className="py-8 px-4 bg-white">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-lg sm:text-xl font-bold text-gray-800 mb-4">Elegí el tuyo</h2>
           
-          <div className="relative overflow-hidden rounded-2xl">
-            <div 
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
-            >
-              {ramosImages.map((src, index) => (
+          <div className="overflow-hidden rounded-2xl">
+            <style jsx>{`
+              @keyframes scrollRamos {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+              }
+              .carousel-ramos {
+                display: flex;
+                width: max-content;
+                animation: scrollRamos 15s linear infinite;
+              }
+              .carousel-ramos:hover {
+                animation-play-state: paused;
+              }
+            `}</style>
+            <div className="carousel-ramos gap-4">
+              {[...ramosImages, ...ramosImages, ...ramosImages, ...ramosImages].map((src, index) => (
                 <img
                   key={index}
                   src={src}
-                  alt={`Ramo ${index + 1}`}
-                  className="w-full max-w-md mx-auto flex-shrink-0"
+                  alt={`Ramo`}
+                  className="h-48 sm:h-56 md:h-64 rounded-xl flex-shrink-0 shadow-lg object-cover w-[200px] sm:w-[250px] md:w-[300px]"
                 />
               ))}
             </div>
-            
-            {/* Flechas */}
-            <button 
-              onClick={() => setCurrentImageIndex(prev => prev === 0 ? ramosImages.length - 1 : prev - 1)}
-              className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 hover:bg-white rounded-full shadow-lg flex items-center justify-center text-gray-600"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            <button 
-              onClick={() => setCurrentImageIndex(prev => (prev + 1) % ramosImages.length)}
-              className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 hover:bg-white rounded-full shadow-lg flex items-center justify-center text-gray-600"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          </div>
-          
-          {/* Indicadores */}
-          <div className="flex justify-center gap-2 mt-4 mb-4">
-            {ramosImages.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentImageIndex(index)}
-                className={`h-2 rounded-full transition-all ${index === currentImageIndex ? 'bg-pink-500 w-6' : 'bg-gray-300 w-2'}`}
-              />
-            ))}
           </div>
           
           <a
