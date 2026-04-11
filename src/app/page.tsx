@@ -13,9 +13,21 @@ export default function Home() {
     '/ramos.golosinas2.jpg',
     '/ramos.golosinas22.jpg',
     '/ramos.golosinas.definitivo.jpg',
-    '/ramos.golosinas.jpg',
-    '/ramos.golosinas2.jpg',
-    '/ramos.golosinas22.jpg',
+  ];
+
+  // Imágenes de clientes (duplicadas para loop infinito)
+  const clientImages = [
+    '/WhatsApp Image 2025-11-14 at 16.48.51.jpeg',
+    '/WhatsApp Image 2026-01-05 at 11.17.56.jpeg',
+    '/WhatsApp Image 2026-01-05 at 11.17.57 (1).jpeg',
+    '/WhatsApp Image 2026-04-10 at 9.18.49 PM.jpeg',
+    '/WhatsApp Image 2026-04-10 at 9.18.50 PM.jpeg',
+    '/WhatsApp Image 2026-04-10 at 9.18.50 PM (1).jpeg',
+    '/WhatsApp Image 2026-04-10 at 9.18.51 PM.jpeg',
+    '/WhatsApp Image 2026-04-10 at 9.18.51 PM (1).jpeg',
+    '/WhatsApp Image 2026-04-10 at 9.18.51 PM (2).jpeg',
+    '/WhatsApp Image 2026-04-10 at 9.18.52 PM.jpeg',
+    '/WhatsApp Image 2025-11-29 at 21.17.56 (1).jpeg',
   ];
 
   useEffect(() => {
@@ -167,31 +179,24 @@ export default function Home() {
                 0% { transform: translateX(0); }
                 100% { transform: translateX(-50%); }
               }
-              .carousel { animation: scroll 20s linear infinite; }
-              .carousel:hover { animation-play-state: paused; }
+              .carousel-track {
+                display: flex;
+                width: max-content;
+                animation: scroll 30s linear infinite;
+              }
+              .carousel-track:hover {
+                animation-play-state: paused;
+              }
             `}</style>
-            <div className="carousel flex gap-4">
-              <img src="/WhatsApp Image 2025-11-14 at 16.48.51.jpeg" alt="Cliente feliz" className="h-32 sm:h-40 rounded-xl flex-shrink-0 shadow-lg" />
-              <img src="/WhatsApp Image 2026-01-05 at 11.17.56.jpeg" alt="Cliente feliz" className="h-32 sm:h-40 rounded-xl flex-shrink-0 shadow-lg" />
-              <img src="/WhatsApp Image 2026-01-05 at 11.17.57 (1).jpeg" alt="Cliente feliz" className="h-32 sm:h-40 rounded-xl flex-shrink-0 shadow-lg" />
-              <img src="/WhatsApp Image 2026-04-10 at 9.18.49 PM.jpeg" alt="Cliente feliz" className="h-32 sm:h-40 rounded-xl flex-shrink-0 shadow-lg" />
-              <img src="/WhatsApp Image 2026-04-10 at 9.18.50 PM.jpeg" alt="Cliente feliz" className="h-32 sm:h-40 rounded-xl flex-shrink-0 shadow-lg" />
-              <img src="/WhatsApp Image 2026-04-10 at 9.18.50 PM (1).jpeg" alt="Cliente feliz" className="h-32 sm:h-40 rounded-xl flex-shrink-0 shadow-lg" />
-              <img src="/WhatsApp Image 2026-04-10 at 9.18.51 PM.jpeg" alt="Cliente feliz" className="h-32 sm:h-40 rounded-xl flex-shrink-0 shadow-lg" />
-              <img src="/WhatsApp Image 2026-04-10 at 9.18.51 PM (1).jpeg" alt="Cliente feliz" className="h-32 sm:h-40 rounded-xl flex-shrink-0 shadow-lg" />
-              <img src="/WhatsApp Image 2026-04-10 at 9.18.51 PM (2).jpeg" alt="Cliente feliz" className="h-32 sm:h-40 rounded-xl flex-shrink-0 shadow-lg" />
-              <img src="/WhatsApp Image 2026-04-10 at 9.18.52 PM.jpeg" alt="Cliente feliz" className="h-32 sm:h-40 rounded-xl flex-shrink-0 shadow-lg" />
-              {/* Duplicado */}
-              <img src="/WhatsApp Image 2025-11-14 at 16.48.51.jpeg" alt="Cliente feliz" className="h-32 sm:h-40 rounded-xl flex-shrink-0 shadow-lg" />
-              <img src="/WhatsApp Image 2026-01-05 at 11.17.56.jpeg" alt="Cliente feliz" className="h-32 sm:h-40 rounded-xl flex-shrink-0 shadow-lg" />
-              <img src="/WhatsApp Image 2026-01-05 at 11.17.57 (1).jpeg" alt="Cliente feliz" className="h-32 sm:h-40 rounded-xl flex-shrink-0 shadow-lg" />
-              <img src="/WhatsApp Image 2026-04-10 at 9.18.49 PM.jpeg" alt="Cliente feliz" className="h-32 sm:h-40 rounded-xl flex-shrink-0 shadow-lg" />
-              <img src="/WhatsApp Image 2026-04-10 at 9.18.50 PM.jpeg" alt="Cliente feliz" className="h-32 sm:h-40 rounded-xl flex-shrink-0 shadow-lg" />
-              <img src="/WhatsApp Image 2026-04-10 at 9.18.50 PM (1).jpeg" alt="Cliente feliz" className="h-32 sm:h-40 rounded-xl flex-shrink-0 shadow-lg" />
-              <img src="/WhatsApp Image 2026-04-10 at 9.18.51 PM.jpeg" alt="Cliente feliz" className="h-32 sm:h-40 rounded-xl flex-shrink-0 shadow-lg" />
-              <img src="/WhatsApp Image 2026-04-10 at 9.18.51 PM (1).jpeg" alt="Cliente feliz" className="h-32 sm:h-40 rounded-xl flex-shrink-0 shadow-lg" />
-              <img src="/WhatsApp Image 2026-04-10 at 9.18.51 PM (2).jpeg" alt="Cliente feliz" className="h-32 sm:h-40 rounded-xl flex-shrink-0 shadow-lg" />
-              <img src="/WhatsApp Image 2026-04-10 at 9.18.52 PM.jpeg" alt="Cliente feliz" className="h-32 sm:h-40 rounded-xl flex-shrink-0 shadow-lg" />
+            <div className="carousel-track gap-4">
+              {[...clientImages, ...clientImages, ...clientImages].map((img, index) => (
+                <img 
+                  key={index} 
+                  src={img} 
+                  alt="Cliente feliz" 
+                  className="h-32 sm:h-40 rounded-xl flex-shrink-0 shadow-lg object-cover w-[140px] sm:w-[180px]" 
+                />
+              ))}
             </div>
           </div>
         </div>
