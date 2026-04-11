@@ -6,10 +6,15 @@ export default function Home() {
   const [showFloating, setShowFloating] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
-  // Imágenes de ramos (agregar más según se agreguen fotos)
+  // Imágenes de ramos
   const ramosImages = [
     '/ramos.golosinas.jpg',
     '/ramos.golosinas2.jpg',
+    '/ramos.golosinas22.jpg',
+    '/ramos.golosinas3.jpg',
+    '/ramos.golosinas4.jpg',
+    '/ramos.golosinas5.jpg',
+    '/ramos.golosinas6.jpg',
   ];
 
   useEffect(() => {
