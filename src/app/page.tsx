@@ -12,10 +12,10 @@ export default function Home() {
     '/ramos.golosinas.jpg',
     '/ramos.golosinas2.jpg',
     '/ramos.golosinas22.jpg',
-    '/ramos.golosinas3.jpg',
-    '/ramos.golosinas4.jpg',
-    '/ramos.golosinas5.jpg',
-    '/ramos.golosinas6.jpg',
+    '/ramos.golosinas.definitivo.jpg',
+    '/ramos.golosinas.jpg',
+    '/ramos.golosinas2.jpg',
+    '/ramos.golosinas22.jpg',
   ];
 
   useEffect(() => {
