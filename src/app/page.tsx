@@ -28,57 +28,74 @@ function WhatsAppIcon({ className = "w-5 h-5" }: { className?: string }) {
 
 function ProductCard({ product }: { product: Product }) {
   const [currentImage, setCurrentImage] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
   
   useEffect(() => {
     if (product.images.length <= 1) return;
     const interval = setInterval(() => {
       setCurrentImage(prev => (prev + 1) % product.images.length);
-    }, 3000);
+    }, 4000);
     return () => clearInterval(interval);
   }, [product.images.length]);
 
   return (
-    <div className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col">
-      {product.badge && (
-        <div className={`absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white z-10 ${
-          product.badge === 'MÁS VENDIDO' ? 'bg-pink-500' : 'bg-amber-500'
-        }`}>
-          {product.badge === 'MÁS VENDIDO' ? '⭐ ' : '✨ '}{product.badge}
-        </div>
-      )}
-      <div className="relative">
+    <div 
+      className="bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      style={{ transform: isHovered ? 'translateY(-4px)' : 'translateY(0)' }}
+    >
+      <div className="relative overflow-hidden rounded-t-3xl">
+        {product.badge && (
+          <div className={`absolute top-4 left-4 px-4 py-1.5 rounded-full text-xs font-bold z-10 shadow-lg ${
+            product.badge === 'MÁS VENDIDO' 
+              ? 'bg-gradient-to-r from-pink-500 to-rose-500 text-white' 
+              : 'bg-gradient-to-r from-amber-400 to-amber-500 text-white'
+          }`}>
+            {product.badge === 'MÁS VENDIDO' ? '⭐ ' : '✨ '}{product.badge}
+          </div>
+        )}
         <img
           src={product.images[currentImage]}
           alt={product.name}
-          className="w-full h-48 sm:h-56 object-cover"
+          className="w-full h-56 sm:h-64 object-cover transition-transform duration-500"
+          style={{ transform: isHovered ? 'scale(1.05)' : 'scale(1)' }}
           loading="lazy"
         />
         {product.images.length > 1 && (
-          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5">
             {product.images.map((_, idx) => (
-              <span key={idx} className={`w-2 h-2 rounded-full ${idx === currentImage ? 'bg-white' : 'bg-white/50'}`} />
+              <span key={idx} className={`w-2 h-2 rounded-full transition-all ${idx === currentImage ? 'bg-white w-4' : 'bg-white/50'}`} />
             ))}
           </div>
         )}
       </div>
-      <div className="p-4 flex flex-col flex-1">
-        <h3 className="font-bold text-gray-800 mb-1">{product.name}</h3>
+      
+      <div className="p-6 flex flex-col flex-1">
+        <h3 className="font-bold text-xl text-gray-800 mb-2">{product.name}</h3>
+        
         {product.price && (
-          <p className="text-pink-500 font-semibold text-sm mb-2">{product.price}</p>
+          <p className="text-lg font-semibold bg-gradient-to-r from-pink-500 to-rose-500 bg-clip-text text-transparent mb-3">
+            {product.price}
+          </p>
         )}
-        <p className="text-gray-600 text-sm mb-3 line-clamp-2">{product.description}</p>
-        <ul className="text-xs text-gray-500 mb-4 space-y-1">
+        
+        <p className="text-gray-500 text-sm mb-4 leading-relaxed">{product.description}</p>
+        
+        <ul className="text-sm text-gray-400 mb-6 space-y-2">
           {product.benefits.slice(0, 3).map((benefit, idx) => (
-            <li key={idx} className="flex items-center gap-1">
-              <span className="text-pink-500">✓</span> {benefit}
+            <li key={idx} className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 bg-pink-400 rounded-full"></span> 
+              {benefit}
             </li>
           ))}
         </ul>
+        
         <a
           href={getWhatsAppUrl(product.name)}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-auto bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-full font-bold text-sm flex items-center justify-center gap-2 transition-all hover:scale-[1.02] shadow-md"
+          className="mt-auto bg-green-500 hover:bg-green-600 active:bg-green-700 text-white px-6 py-4 rounded-2xl font-bold text-sm flex items-center justify-center gap-2 transition-all duration-200 shadow-lg shadow-green-500/25 hover:shadow-green-500/40 hover:shadow-xl"
         >
           <WhatsAppIcon className="w-5 h-5" />
           Encargar por WhatsApp
@@ -90,97 +107,141 @@ function ProductCard({ product }: { product: Product }) {
 
 export default function Home() {
   const [showFloating, setShowFloating] = useState(false);
-  const carouselRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => setShowFloating(window.scrollY > 300);
+    const handleScroll = () => setShowFloating(window.scrollY > 400);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-pink-50 to-rose-100 pb-20">
+    <main className="min-h-screen bg-gradient-to-b from-stone-50 to-rose-50/30 pb-24">
       
-      {/* HERO - OPTIMIZADO */}
-      <section className="min-h-[85vh] flex flex-col justify-center px-4 text-center relative">
-        <span className="absolute top-4 left-1/2 -translate-x-1/2 bg-red-500 text-white text-xs font-bold px-4 py-1.5 rounded-full animate-pulse">
-          🔥 Entrega hoy en Catamarca
-        </span>
-        
-        <div className="max-w-lg mx-auto pt-16">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-800 mb-3">
-            Ramos de Golosinas
-            <span className="block text-pink-500 text-2xl sm:text-3xl">regalería</span>
-          </h1>
-          
-          <p className="text-lg sm:text-xl text-gray-600 mb-2">
-            El regalo que enamora
-          </p>
-          
-          <div className="flex justify-center gap-4 mb-4 text-xs sm:text-sm text-gray-500">
-            <span>✓ +100 entregas</span>
-            <span>✓ Hechos con amor</span>
+      {/* HEADER */}
+      <header className="py-4 px-6 bg-white/80 backdrop-blur-md sticky top-0 z-40 border-b border-gray-100">
+        <div className="max-w-6xl mx-auto flex items-center justify-between">
+          <div>
+            <h1 className="text-xl font-bold text-gray-800">Regalería</h1>
+            <p className="text-xs text-pink-500 font-medium">Regalos que enamoran</p>
           </div>
-          
-          <img
-            src="/ramos.golosinas.jpg"
-            alt="Ramo de golosinas"
-            className="rounded-2xl w-full max-w-sm mx-auto mb-6 shadow-2xl"
-            loading="eager"
-          />
-          
           <a
             href={getWhatsAppUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full text-lg font-bold flex items-center justify-center gap-3 mx-auto shadow-xl hover:shadow-2xl transition-all hover:scale-105 w-full max-w-sm"
+            className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 transition-all hover:scale-105"
           >
-            <WhatsAppIcon className="w-6 h-6" />
-            Pedir por WhatsApp
+            <WhatsAppIcon className="w-4 h-4" />
+            <span className="hidden sm:inline">Contactar</span>
           </a>
-          
-          <p className="text-xs text-gray-500 mt-3">Responemos en minutos 💬</p>
+        </div>
+      </header>
+
+      {/* HERO */}
+      <section className="py-16 sm:py-24 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            
+            {/* Hero Content */}
+            <div className="text-center lg:text-left order-2 lg:order-1">
+              <span className="inline-block bg-rose-100 text-rose-600 text-xs font-bold px-4 py-1.5 rounded-full mb-4">
+                🔥 Entrega el mismo día
+              </span>
+              
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-4 leading-tight">
+                Ramos de
+                <span className="block bg-gradient-to-r from-pink-500 to-rose-500 bg-clip-text text-transparent">
+                  Golosinas
+                </span>
+              </h1>
+              
+              <p className="text-lg sm:text-xl text-gray-500 mb-6 max-w-md mx-auto lg:mx-0">
+                El regalo perfecto para sorprender. Hechos con amor y entregados en el día en Catamarca.
+              </p>
+              
+              <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-8 text-sm text-gray-400">
+                <span className="flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xs">✓</span>
+                  +100 entregas
+                </span>
+                <span className="flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xs">✓</span>
+                  Hechos con amor
+                </span>
+                <span className="flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xs">✓</span>
+                  Envío en el día
+                </span>
+              </div>
+              
+              <a
+                href={getWhatsAppUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 active:bg-green-700 text-white px-8 py-4 rounded-2xl text-lg font-bold transition-all hover:scale-105 shadow-xl shadow-green-500/30"
+              >
+                <WhatsAppIcon className="w-6 h-6" />
+                Pedir por WhatsApp
+              </a>
+            </div>
+            
+            {/* Hero Image */}
+            <div className="order-1 lg:order-2">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-pink-200 to-rose-300 rounded-[3rem] blur-3xl opacity-30 transform rotate-6"></div>
+                <img
+                  src="/ramos.golosinas.jpg"
+                  alt="Ramo de golosinas"
+                  className="relative rounded-[2.5rem] shadow-2xl w-full max-w-md mx-auto"
+                  loading="eager"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* RAMOS - CATÁLOGO PRINCIPAL */}
-      <section className="py-10 px-4 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">
-              🌹 Nuestros Ramos
+      {/* RAMOS */}
+      <section className="py-16 sm:py-24 px-6 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="text-pink-500 font-semibold text-sm uppercase tracking-wider">Nuestros productos</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 mb-4">
+              🌹 Ramos de Golosinas
             </h2>
-            <p className="text-gray-600">Elegí el tuyo y encargalo ahora</p>
+            <p className="text-gray-500 max-w-lg mx-auto">
+              Cada ramo está diseñado para hacer feliz a quien más querés
+            </p>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {ramosProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
           
-          <div className="text-center mt-8">
+          <div className="text-center mt-12">
             <a
               href={getWhatsAppUrl('Ramos de Golosinas')}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-pink-500 hover:bg-pink-600 text-white px-8 py-3 rounded-full font-bold inline-flex items-center gap-2 transition-all hover:scale-105 shadow-lg"
+              className="inline-flex items-center gap-2 text-pink-500 hover:text-pink-600 font-semibold transition-colors"
             >
               <WhatsAppIcon />
-              Consultá por otros diseños
+              Consultá por diseños personalizados
             </a>
           </div>
         </div>
       </section>
 
-      {/* CARRUSEL DE CLIENTES */}
-      <section className="py-10 px-4 bg-gradient-to-r from-pink-500 to-rose-500">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-xl text-white text-center mb-6 font-bold">
+      {/* SOCIAL PROOF */}
+      <section className="py-16 sm:py-24 bg-gradient-to-br from-pink-500 to-rose-600">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-2xl sm:text-3xl text-white text-center mb-4 font-bold">
             💖 +100 familias ya confian en nosotros
           </h2>
+          <p className="text-pink-100 text-center mb-10">Ellos ya descubrieron el regalo perfecto</p>
           
-          <div className="overflow-hidden" ref={carouselRef}>
+          <div className="overflow-hidden rounded-2xl">
             <style jsx>{`
               @keyframes scrollClients {
                 0% { transform: translateX(0); }
@@ -188,20 +249,20 @@ export default function Home() {
               }
               .carousel-clients {
                 display: flex;
-                width: max-content;
-                animation: scrollClients 50s linear infinite;
+                gap: 1rem;
+                animation: scrollClients 60s linear infinite;
               }
               .carousel-clients:hover {
                 animation-play-state: paused;
               }
             `}</style>
-            <div className="carousel-clients gap-4">
+            <div className="carousel-clients">
               {[...clientImages, ...clientImages].map((img, index) => (
                 <img 
                   key={index} 
                   src={img} 
                   alt="Cliente feliz con su regalo" 
-                  className="h-32 sm:h-40 rounded-xl flex-shrink-0 shadow-lg object-cover w-[140px] sm:w-[180px]" 
+                  className="h-40 sm:h-52 rounded-2xl object-cover flex-shrink-0 shadow-xl w-[160px] sm:w-[200px]" 
                   loading="lazy"
                 />
               ))}
@@ -210,18 +271,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* DESAYUNOS - SECUNDARIO */}
-      <section className="py-10 px-4 bg-rose-50">
+      {/* DESAYUNOS */}
+      <section className="py-16 sm:py-24 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-8">
-            <span className="text-xs text-gray-500 font-medium uppercase tracking-wide">También tenemos</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mt-1">
+          <div className="text-center mb-12">
+            <span className="text-amber-500 font-semibold text-sm uppercase tracking-wider">También tenemos</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 mb-4">
               ☕ Desayunos Sorpresa
             </h2>
-            <p className="text-gray-600">Para empezar el día con una sonrisa</p>
+            <p className="text-gray-500 max-w-lg mx-auto">
+              La mejor forma de empezar el día
+            </p>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
             {desayunoProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
@@ -229,73 +292,106 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CÓMO FUNCIONA */}
-      <section className="py-10 px-4 bg-white">
-        <div className="max-w-lg mx-auto">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-800 text-center mb-6">
-            ¿Cómo hacer tu pedido?
+      {/* HOW IT WORKS */}
+      <section className="py-16 sm:py-24 px-6 bg-white">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-center mb-4">
+            ¿Cómo funciona?
           </h2>
+          <p className="text-gray-500 text-center mb-12 max-w-lg mx-auto">
+            Es más fácil de lo que pensás
+          </p>
           
-          <div className="space-y-3">
-            <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl">
-              <span className="w-10 h-10 bg-pink-500 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">1</span>
-              <div>
-                <p className="font-semibold text-gray-800">Elegí tu regalo</p>
-                <p className="text-sm text-gray-500">Browse our catalog and pick your favorite</p>
+          <div className="grid sm:grid-cols-3 gap-6 sm:gap-8">
+            <div className="text-center p-6">
+              <div className="w-16 h-16 bg-pink-100 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-pink-500">
+                1
               </div>
+              <h3 className="font-bold text-gray-800 mb-2">Elegí tu regalo</h3>
+              <p className="text-sm text-gray-500">Browse our catalog and find the perfect gift</p>
             </div>
-            <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl">
-              <span className="w-10 h-10 bg-pink-500 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">2</span>
-              <div>
-                <p className="font-semibold text-gray-800">Escribinos por WhatsApp</p>
-                <p className="text-sm text-gray-500">Encargate el tuyo en segundos</p>
+            <div className="text-center p-6">
+              <div className="w-16 h-16 bg-pink-100 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-pink-500">
+                2
               </div>
+              <h3 className="font-bold text-gray-800 mb-2">Escribinos</h3>
+              <p className="text-sm text-gray-500">Contactanos por WhatsApp</p>
             </div>
-            <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl">
-              <span className="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">3</span>
-              <div>
-                <p className="font-semibold text-gray-800">Recibilo en el día</p>
-                <p className="text-sm text-gray-500">Entrega en San Fernando del Valle de Catamarca</p>
+            <div className="text-center p-6">
+              <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-green-500">
+                3
               </div>
+              <h3 className="font-bold text-gray-800 mb-2">Recibilo</h3>
+              <p className="text-sm text-gray-500">Entrega el mismo día en Catamarca</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA FINAL */}
-      <section className="py-16 px-4 text-center bg-gradient-to-b from-pink-50 to-rose-100">
-        <div className="max-w-lg mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">
-            ¿Listo para sorprender?
+      {/* FINAL CTA */}
+      <section className="py-20 sm:py-32 px-6 bg-gradient-to-b from-stone-50 to-rose-50/30">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            ¿Listo para<br/>
+            <span className="bg-gradient-to-r from-pink-500 to-rose-500 bg-clip-text text-transparent">
+              sorprender?
+            </span>
           </h2>
-          <p className="text-gray-500 mb-6">Los #1 en regalos de Catamarca</p>
+          <p className="text-gray-500 mb-10 text-lg">
+            Los #1 en regalos de Catamarca
+          </p>
           
           <a
             href={getWhatsAppUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-green-500 hover:bg-green-600 text-white px-10 py-4 rounded-full text-lg font-bold inline-flex items-center gap-3 shadow-xl hover:shadow-2xl transition-all hover:scale-105"
+            className="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 active:bg-green-700 text-white px-10 py-5 rounded-2xl text-xl font-bold transition-all hover:scale-105 shadow-2xl shadow-green-500/30"
           >
-            <WhatsAppIcon className="w-6 h-6" />
+            <WhatsAppIcon className="w-7 h-7" />
             Quiero mi regalo
           </a>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="py-6 px-4 bg-gray-800 text-center text-gray-400 text-sm">
-        <p>💝 Regalos que enamoran en Catamarca</p>
-        <p className="mt-1">WhatsApp: +54 9 383 490-3387</p>
+      <footer className="py-12 px-6 bg-gray-900 text-center">
+        <div className="max-w-6xl mx-auto">
+          <h3 className="text-xl font-bold text-white mb-2">Regalería</h3>
+          <p className="text-gray-400 text-sm mb-4">Regalos que enamoran en San Fernando del Valle de Catamarca</p>
+          <a 
+            href={`https://wa.me/${WHATSAPP_NUMBER}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-pink-400 hover:text-pink-300 transition-colors"
+          >
+            WhatsApp: +54 9 383 490-3387
+          </a>
+        </div>
       </footer>
 
-      {/* CTA FLOTANTE */}
+      {/* FLOATING WHATSAPP BUTTON */}
       <a
         href={getWhatsAppUrl()}
         target="_blank"
         rel="noopener noreferrer"
-        className={`fixed bottom-4 right-4 sm:bottom-6 sm:right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl z-50 transition-all duration-300 hover:scale-110 ${showFloating ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}
+        className={`fixed bottom-6 right-6 sm:bottom-8 sm:right-8 bg-green-500 text-white p-4 rounded-full shadow-2xl z-50 transition-all duration-500 ${
+          showFloating 
+            ? 'opacity-100 translate-y-0 scale-100' 
+            : 'opacity-0 translate-y-8 scale-50 pointer-events-none'
+        }`}
+        style={{
+          boxShadow: '0 0 0 0 rgba(34, 197, 94, 0.7)',
+          animation: 'pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite'
+        }}
         aria-label="Contactar por WhatsApp"
       >
+        <style jsx>{`
+          @keyframes pulse-ring {
+            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(34, 197, 94, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+          }
+        `}</style>
         <WhatsAppIcon className="w-8 h-8" />
       </a>
     </main>
