@@ -15,8 +15,24 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Regalos que emocionan 🎁",
-  description: "Ramos de golosinas y desayunos personalizados con entrega en el día",
+  title: "Ramos de Golosinas | Regalos que enamoran - Catamarca",
+  description: "Ramos de golosinas personalizados y desayunos sorpresa con entrega en el día en San Fernando del Valle de Catamarca. Hechos con amor, el regalo perfecto.",
+  keywords: ["ramos de golosinas", "regalos Catamarca", "desayunos sorpresa", "regalería", "San Fernando del Valle de Catamarca"],
+  openGraph: {
+    title: "Ramos de Golosinas | Regalos que enamoran",
+    description: "Ramos de golosinas personalizados y desayunos sorpresa con entrega en el día. ¡Encargate el tuyo!",
+    type: "website",
+    locale: "es_AR",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ramos de Golosinas | Regalos que enamoran",
+    description: "Ramos de golosinas personalizados y desayunos sorpresa con entrega en el día.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -25,7 +41,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" suppressHydrationWarning>
+    <html lang="es">
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+      </head>
       <body className={`${nunito.variable} ${poppins.variable} font-sans antialiased`}>
         {children}
       </body>
