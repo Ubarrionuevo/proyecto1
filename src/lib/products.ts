@@ -6,6 +6,7 @@ export interface Product {
   description: string;
   benefits: string[];
   images: string[];
+  video?: string;
   price?: string;
   badge?: string;
   featured?: boolean;
@@ -23,12 +24,11 @@ export const products: Product[] = [
       'Entrega en el día',
     ],
     images: [
-      '/ramos.golosinas.jpg',
-      '/ramos.golosinas2.jpg',
-      '/ramos.golosinas22.jpg',
-      '/ramos.golosinas.definitivo.jpg',
+      '/ramocomun.png',
+      '/ramocomun1.png',
+      '/ramocomun2.png',
     ],
-    price: 'Desde $8.000',
+    price: 'Desde $21.000',
     featured: true,
     badge: 'MÁS VENDIDO',
   },
@@ -44,61 +44,29 @@ export const products: Product[] = [
       'Entrega prioritaria',
     ],
     images: [
-      '/ramos.golosinas2.jpg',
-      '/ramos.golosinas.definitivo.jpg',
+      '/ramooso.png',
+      '/ramos.golosinas.definitivo.jpeg',
     ],
-    price: 'Desde $15.000',
+    price: 'Desde $25.000',
     badge: 'PREMIUM',
   },
   {
-    id: 'ramos-romantico',
-    name: 'Ramo Romántico',
-    description: 'Diseñado para expresar amor. Ideal para anniversarios y fechas especiales.',
+    id: 'ramos-nuevo',
+    name: 'Ramo Nueva Edición',
+    description: 'El diseño más fresco y moderno. Ideal para los que buscan algo diferente y único.',
     benefits: [
-      '20+ golosinas',
-      'Rosas de chocolate',
-      'Diseño romántico exclusivo',
-      'Tarjeta personalizada',
+      '25+ golosinas premium',
+      'Packaging innovador',
+      'Diseño exclusivo',
+      'Video de presentación',
     ],
     images: [
-      '/ramos.golosinas22.jpg',
-      '/ramos.golosinas.jpg',
+      '/ramos.golosinas3.jpg',
+      '/ramos.golosinas4.jpg',
     ],
-    price: 'Desde $12.000',
-  },
-  {
-    id: 'desayuno-clasico',
-    name: 'Desayuno Sorpresa Clásico',
-    description: 'Un desayuno completo para empezar el día con energía y amor. Perfecto para sorpresas.',
-    benefits: [
-      'Café o té a elección',
-      'Medialunas frescas',
-      'Jugo de naranja natural',
-      'Fruta de estación',
-      'Empaque térmico',
-    ],
-    images: [
-      '/download.jpg',
-    ],
-    price: 'Desde $6.000',
-  },
-  {
-    id: 'desayuno-premium',
-    name: 'Desayuno Sorpresa Premium',
-    description: 'La experiencia más completa con productos gourmet y decoración especial.',
-    benefits: [
-      'Café premium',
-      'Torta artesanal',
-      'Champagne sin alcohol',
-      'Flores frescas',
-      'Canasta decorada',
-      'Tarjeta personalizada',
-    ],
-    images: [
-      '/download.jpg',
-    ],
-    price: 'Desde $12.000',
-    badge: 'PREMIUM',
+    video: '/video.mp4',
+    price: 'Desde $22.000',
+    badge: 'NUEVO MODELO',
   },
 ];
 
@@ -111,11 +79,7 @@ export const getWhatsAppUrl = (productName?: string) => {
 };
 
 export const ramosProducts = products.filter(p => 
-  ['ramos-clasico', 'ramos-premium', 'ramos-romantico'].includes(p.id)
-);
-
-export const desayunoProducts = products.filter(p => 
-  ['desayuno-clasico', 'desayuno-premium'].includes(p.id)
+  ['ramos-clasico', 'ramos-premium', 'ramos-nuevo'].includes(p.id)
 );
 
 export const featuredProduct = products.find(p => p.featured) || products[0];

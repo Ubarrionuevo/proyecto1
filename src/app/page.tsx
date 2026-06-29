@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
-import { products, ramosProducts, desayunoProducts, getWhatsAppUrl, Product } from '@/lib/products';
+import { useState, useEffect } from 'react';
+import { ramosProducts, getWhatsAppUrl, Product } from '@/lib/products';
 
 const WHATSAPP_NUMBER = '5493834903387';
 const clientImages = [
@@ -14,8 +14,13 @@ const clientImages = [
   '/WhatsApp Image 2026-04-10 at 9.18.51 PM.jpeg',
   '/WhatsApp Image 2026-04-10 at 9.18.51 PM (1).jpeg',
   '/WhatsApp Image 2026-04-10 at 9.18.51 PM (2).jpeg',
-  '/WhatsApp Image 2026-04-10 at 9.18.52 PM.jpeg',
-  '/WhatsApp Image 2025-11-29 at 21.17.56 (1).jpeg',
+  '/cliente1.png',
+  '/cliente2.png',
+  '/cliente3.png',
+  '/cliente4.png',
+  '/cliente5.png',
+  '/cliente6.png',
+  '/cliente7.png',
 ];
 
 function WhatsAppIcon({ className = "w-5 h-5" }: { className?: string }) {
@@ -40,64 +45,68 @@ function ProductCard({ product }: { product: Product }) {
 
   return (
     <div 
-      className="bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col"
+      className="bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col border border-gray-100/80"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       style={{ transform: isHovered ? 'translateY(-4px)' : 'translateY(0)' }}
     >
-      <div className="relative overflow-hidden rounded-t-3xl">
+      <div className="relative overflow-hidden rounded-t-2xl">
         {product.badge && (
-          <div className={`absolute top-4 left-4 px-4 py-1.5 rounded-full text-xs font-bold z-10 shadow-lg ${
+          <div className={`absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-semibold z-10 shadow-sm ${
             product.badge === 'MÁS VENDIDO' 
-              ? 'bg-gradient-to-r from-pink-500 to-rose-500 text-white' 
-              : 'bg-gradient-to-r from-amber-400 to-amber-500 text-white'
+              ? 'bg-pink-500 text-white' 
+              : product.badge === 'NUEVO MODELO'
+              ? 'bg-emerald-500 text-white'
+              : 'bg-amber-500 text-white'
           }`}>
-            {product.badge === 'MÁS VENDIDO' ? '⭐ ' : '✨ '}{product.badge}
+            {product.badge === 'MÁS VENDIDO' ? '⭐ ' : product.badge === 'NUEVO MODELO' ? '🆕 ' : '✨ '}{product.badge}
           </div>
         )}
-        <img
-          src={product.images[currentImage]}
-          alt={product.name}
-          className="w-full h-56 sm:h-64 object-cover transition-transform duration-500"
-          style={{ transform: isHovered ? 'scale(1.05)' : 'scale(1)' }}
-          loading="lazy"
-        />
-        {product.images.length > 1 && (
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5">
+        {product.video ? (
+          <video
+            src={product.video}
+            className="w-full h-48 sm:h-56 lg:h-64 object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+        ) : (
+          <img
+            src={product.images[currentImage]}
+            alt={product.name}
+            className="w-full h-48 sm:h-56 lg:h-64 object-cover transition-transform duration-700"
+            style={{ transform: isHovered ? 'scale(1.06)' : 'scale(1)' }}
+            loading="lazy"
+          />
+        )}
+        {product.images.length > 1 && !product.video && (
+          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
             {product.images.map((_, idx) => (
-              <span key={idx} className={`w-2 h-2 rounded-full transition-all ${idx === currentImage ? 'bg-white w-4' : 'bg-white/50'}`} />
+              <span key={idx} className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${idx === currentImage ? 'bg-white w-4' : 'bg-white/50'}`} />
             ))}
           </div>
         )}
       </div>
       
-      <div className="p-6 flex flex-col flex-1">
-        <h3 className="font-bold text-xl text-gray-800 mb-2">{product.name}</h3>
+      <div className="p-5 sm:p-6 flex flex-col flex-1">
+        <h3 className="font-bold text-lg sm:text-xl text-gray-900 mb-2">{product.name}</h3>
         
         {product.price && (
-          <p className="text-lg font-semibold bg-gradient-to-r from-pink-500 to-rose-500 bg-clip-text text-transparent mb-3">
+          <p className="text-xl sm:text-2xl font-bold text-pink-600 mb-3">
             {product.price}
           </p>
         )}
         
-        <p className="text-gray-500 text-sm mb-4 leading-relaxed">{product.description}</p>
-        
-        <ul className="text-sm text-gray-400 mb-6 space-y-2">
-          {product.benefits.slice(0, 3).map((benefit, idx) => (
-            <li key={idx} className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 bg-pink-400 rounded-full"></span> 
-              {benefit}
-            </li>
-          ))}
-        </ul>
+        <p className="text-gray-500 text-sm sm:text-base mb-5 leading-relaxed">{product.description}</p>
         
         <a
           href={getWhatsAppUrl(product.name)}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-auto bg-green-500 hover:bg-green-600 active:bg-green-700 text-white px-6 py-4 rounded-2xl font-bold text-sm flex items-center justify-center gap-2 transition-all duration-200 shadow-lg shadow-green-500/25 hover:shadow-green-500/40 hover:shadow-xl"
+          className="mt-auto bg-green-500 hover:bg-green-600 active:bg-green-700 text-white px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl font-semibold text-sm sm:text-base flex items-center justify-center gap-2 transition-all duration-200 hover:shadow-md hover:shadow-green-500/20 active:scale-[0.98] touch-target"
         >
-          <WhatsAppIcon className="w-5 h-5" />
+          <WhatsAppIcon className="w-4 sm:w-5 h-4 sm:h-5" />
           Encargar por WhatsApp
         </a>
       </div>
@@ -115,83 +124,87 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-stone-50 to-rose-50/30 pb-24">
+    <main className="min-h-screen bg-gray-50">
       
       {/* HEADER */}
-      <header className="py-4 px-6 bg-white/80 backdrop-blur-md sticky top-0 z-40 border-b border-gray-100">
+      <header className="py-3 sm:py-4 px-4 sm:px-6 bg-white/80 backdrop-blur-md sticky top-0 z-40 border-b border-gray-100 min-h-[56px]">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div>
-            <h1 className="text-xl font-bold text-gray-800">Regalería</h1>
-            <p className="text-xs text-pink-500 font-medium">Regalos que enamoran</p>
+            <h1 className="text-lg sm:text-xl font-bold text-gray-800">LAPRINCESA.CTA</h1>
+            <p className="text-[10px] sm:text-xs text-pink-500 font-medium">Regalos que enamoran</p>
           </div>
           <a
             href={getWhatsAppUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 transition-all hover:scale-105"
+            className="bg-green-500 hover:bg-green-600 text-white px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold flex items-center gap-1.5 sm:gap-2 transition-all hover:scale-105 min-h-[36px] sm:min-h-[44px] touch-target"
           >
-            <WhatsAppIcon className="w-4 h-4" />
+            <WhatsAppIcon className="w-3.5 sm:w-4 h-3.5 sm:h-4" />
             <span className="hidden sm:inline">Contactar</span>
           </a>
         </div>
       </header>
 
-      {/* HERO */}
-      <section className="py-16 sm:py-24 px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      {/* PRODUCTO DESTACADO - EDICIÓN LIMITADA */}
+      <section className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             
             {/* Hero Content */}
-            <div className="text-center lg:text-left order-2 lg:order-1">
-              <span className="inline-block bg-rose-100 text-rose-600 text-xs font-bold px-4 py-1.5 rounded-full mb-4">
-                🔥 Entrega el mismo día
+            <div className="text-center lg:text-left order-2 lg:order-1 animate-slide-up">
+              <span className="inline-block bg-amber-50 text-amber-700 text-xs sm:text-sm font-semibold px-3 sm:px-4 py-1.5 rounded-full mb-4 sm:mb-5 border border-amber-200/50">
+                ⏳ Por tiempo limitado
               </span>
               
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-4 leading-tight">
-                Ramos de
-                <span className="block bg-gradient-to-r from-pink-500 to-rose-500 bg-clip-text text-transparent">
-                  Golosinas
+              <h1 className="fluid-h1 font-bold text-gray-900 mb-2 sm:mb-3">
+                🏆 Edición
+                <span className="block bg-gradient-to-r from-amber-500 to-amber-400 bg-clip-text text-transparent">
+                  Limitada
                 </span>
               </h1>
               
-              <p className="text-lg sm:text-xl text-gray-500 mb-6 max-w-md mx-auto lg:mx-0">
-                El regalo perfecto para sorprender. Hechos con amor y entregados en el día en Catamarca.
+              <p className="text-2xl sm:text-3xl font-bold text-amber-600 mb-4 sm:mb-5">
+                $23.000
               </p>
               
-              <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-8 text-sm text-gray-400">
+              <p className="text-base sm:text-lg lg:text-xl text-gray-500 mb-8 sm:mb-10 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+                El ramo de golosinas inspirado en el Mundial. El regalo perfecto para sorprender a cualquier fanático del fútbol. Disponible por tiempo limitado.
+              </p>
+              
+              <div className="flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-6 mb-8 sm:mb-10 text-sm text-gray-400">
                 <span className="flex items-center gap-2">
-                  <span className="w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xs">✓</span>
-                  +100 entregas
+                  <span className="w-5 h-5 bg-amber-50 text-amber-600 rounded-full flex items-center justify-center text-[10px] border border-amber-200/50">★</span>
+                  Edición exclusiva
                 </span>
                 <span className="flex items-center gap-2">
-                  <span className="w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xs">✓</span>
-                  Hechos con amor
+                  <span className="w-5 h-5 bg-amber-50 text-amber-600 rounded-full flex items-center justify-center text-[10px] border border-amber-200/50">★</span>
+                  Stock limitado
                 </span>
                 <span className="flex items-center gap-2">
-                  <span className="w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xs">✓</span>
+                  <span className="w-5 h-5 bg-green-50 text-green-600 rounded-full flex items-center justify-center text-[10px] border border-green-200/50">✓</span>
                   Envío en el día
                 </span>
               </div>
               
               <a
-                href={getWhatsAppUrl()}
+                href={getWhatsAppUrl('Ramo Mundialista')}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 active:bg-green-700 text-white px-8 py-4 rounded-2xl text-lg font-bold transition-all hover:scale-105 shadow-xl shadow-green-500/30"
+                className="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 active:bg-green-700 text-white px-7 sm:px-9 py-3.5 sm:py-4 rounded-xl text-base sm:text-lg font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-green-500/25 active:scale-[0.98] touch-target"
               >
-                <WhatsAppIcon className="w-6 h-6" />
+                <WhatsAppIcon className="w-5 h-5" />
                 Pedir por WhatsApp
               </a>
             </div>
             
             {/* Hero Image */}
-            <div className="order-1 lg:order-2">
+            <div className="order-1 lg:order-2 animate-slide-up animate-delay-200">
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-pink-200 to-rose-300 rounded-[3rem] blur-3xl opacity-30 transform rotate-6"></div>
+                <div className="absolute -inset-4 bg-gradient-to-br from-amber-100/40 to-amber-50/20 rounded-[3rem] blur-2xl"></div>
                 <img
-                  src="/ramos.golosinas.jpg"
-                  alt="Ramo de golosinas"
-                  className="relative rounded-[2.5rem] shadow-2xl w-full max-w-md mx-auto"
+                  src="/RamoMundialista.jpeg"
+                  alt="Ramo Mundialista - Edición Limitada"
+                  className="relative rounded-2xl sm:rounded-3xl shadow-sm w-full max-w-lg mx-auto object-cover aspect-[4/3] sm:aspect-auto"
                   loading="eager"
                 />
               </div>
@@ -201,143 +214,103 @@ export default function Home() {
       </section>
 
       {/* RAMOS */}
-      <section className="py-16 sm:py-24 px-6 bg-white">
+      <section className="py-12 sm:py-20 lg:py-24 px-4 sm:px-6 bg-white">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="text-pink-500 font-semibold text-sm uppercase tracking-wider">Nuestros productos</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 mb-4">
+          <div className="text-center mb-10 sm:mb-12">
+            <span className="text-pink-500 font-semibold text-xs sm:text-sm uppercase tracking-wider">Nuestros productos</span>
+            <h2 className="fluid-h2 font-bold text-gray-900 mt-2 mb-4">
               🌹 Ramos de Golosinas
             </h2>
-            <p className="text-gray-500 max-w-lg mx-auto">
+            <p className="text-sm sm:text-base text-gray-500 max-w-lg mx-auto leading-relaxed">
               Cada ramo está diseñado para hacer feliz a quien más querés
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {ramosProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-2xl mx-auto">
+            {ramosProducts.map((product, i) => (
+              <div key={product.id} className={i === ramosProducts.length - 1 && ramosProducts.length % 2 !== 0 ? 'md:col-span-2 md:flex md:justify-center' : ''}>
+                <div className={i === ramosProducts.length - 1 && ramosProducts.length % 2 !== 0 ? 'w-full md:w-1/2' : ''}>
+                  <ProductCard product={product} />
+                </div>
+              </div>
             ))}
           </div>
           
-          <div className="text-center mt-12">
+          <div className="text-center mt-8 sm:mt-12">
             <a
               href={getWhatsAppUrl('Ramos de Golosinas')}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-pink-500 hover:text-pink-600 font-semibold transition-colors"
+              className="inline-flex items-center gap-2 text-pink-500 hover:text-pink-600 font-semibold transition-colors text-sm sm:text-base touch-target"
             >
-              <WhatsAppIcon />
+              <WhatsAppIcon className="w-4 h-4" />
               Consultá por diseños personalizados
             </a>
           </div>
         </div>
       </section>
 
-      {/* SOCIAL PROOF */}
-      <section className="py-16 sm:py-24 bg-gradient-to-br from-pink-500 to-rose-600">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-2xl sm:text-3xl text-white text-center mb-4 font-bold">
-            💖 +100 familias ya confian en nosotros
-          </h2>
-          <p className="text-pink-100 text-center mb-10">Ellos ya descubrieron el regalo perfecto</p>
+      {/* SOCIAL PROOF - GALERÍA */}
+      <section className="py-16 sm:py-24 lg:py-28 px-4 sm:px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="fluid-h2 font-bold text-gray-900 mb-3">
+              💖 Familias ya confían en nosotros
+            </h2>
+            <p className="text-gray-500 text-sm sm:text-base">Ellos ya descubrieron el regalo perfecto</p>
+          </div>
           
-          <div className="overflow-hidden rounded-2xl">
+          <div className="bg-white rounded-2xl sm:rounded-3xl p-3 sm:p-4 lg:p-6 shadow-sm border border-gray-100/80">
             <style jsx>{`
-              @keyframes scrollClients {
-                0% { transform: translateX(0); }
-                100% { transform: translateX(-50%); }
+              @keyframes float {
+                0%, 100% { transform: translateY(0px); }
+                50% { transform: translateY(-6px); }
               }
-              .carousel-clients {
-                display: flex;
-                gap: 1rem;
-                animation: scrollClients 60s linear infinite;
+              @keyframes float-delayed {
+                0%, 100% { transform: translateY(0px); }
+                50% { transform: translateY(-4px); }
               }
-              .carousel-clients:hover {
-                animation-play-state: paused;
-              }
+              .gallery-item:nth-child(4n+1) { animation: float 5s ease-in-out infinite; }
+              .gallery-item:nth-child(4n+2) { animation: float-delayed 4s ease-in-out infinite 0.5s; }
+              .gallery-item:nth-child(4n+3) { animation: float 4.5s ease-in-out infinite 1s; }
+              .gallery-item:nth-child(4n+4) { animation: float-delayed 3.5s ease-in-out infinite 0.3s; }
             `}</style>
-            <div className="carousel-clients">
-              {[...clientImages, ...clientImages].map((img, index) => (
-                <img 
-                  key={index} 
-                  src={img} 
-                  alt="Cliente feliz con su regalo" 
-                  className="h-40 sm:h-52 rounded-2xl object-cover flex-shrink-0 shadow-xl w-[160px] sm:w-[200px]" 
-                  loading="lazy"
-                />
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3">
+              {clientImages.map((img, index) => (
+                <div 
+                  key={index}
+                  className="gallery-item aspect-square overflow-hidden rounded-xl sm:rounded-2xl shadow-sm"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <img 
+                    src={img} 
+                    alt="Cliente feliz" 
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </div>
               ))}
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* DESAYUNOS */}
-      <section className="py-16 sm:py-24 px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="text-amber-500 font-semibold text-sm uppercase tracking-wider">También tenemos</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 mb-4">
-              ☕ Desayunos Sorpresa
-            </h2>
-            <p className="text-gray-500 max-w-lg mx-auto">
-              La mejor forma de empezar el día
+          
+          <div className="text-center mt-6 sm:mt-8">
+            <p className="text-gray-400 text-xs sm:text-sm">
+              Y muchos más clientes satisfechos en Catamarca 💝
             </p>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
-            {desayunoProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* HOW IT WORKS */}
-      <section className="py-16 sm:py-24 px-6 bg-white">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-center mb-4">
-            ¿Cómo funciona?
-          </h2>
-          <p className="text-gray-500 text-center mb-12 max-w-lg mx-auto">
-            Es más fácil de lo que pensás
-          </p>
-          
-          <div className="grid sm:grid-cols-3 gap-6 sm:gap-8">
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-pink-100 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-pink-500">
-                1
-              </div>
-              <h3 className="font-bold text-gray-800 mb-2">Elegí tu regalo</h3>
-              <p className="text-sm text-gray-500">Browse our catalog and find the perfect gift</p>
-            </div>
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-pink-100 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-pink-500">
-                2
-              </div>
-              <h3 className="font-bold text-gray-800 mb-2">Escribinos</h3>
-              <p className="text-sm text-gray-500">Contactanos por WhatsApp</p>
-            </div>
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-green-500">
-                3
-              </div>
-              <h3 className="font-bold text-gray-800 mb-2">Recibilo</h3>
-              <p className="text-sm text-gray-500">Entrega el mismo día en Catamarca</p>
-            </div>
           </div>
         </div>
       </section>
 
       {/* FINAL CTA */}
-      <section className="py-20 sm:py-32 px-6 bg-gradient-to-b from-stone-50 to-rose-50/30">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+      <section className="py-20 sm:py-28 lg:py-36 px-4 sm:px-6">
+        <div className="max-w-xl mx-auto text-center">
+          <h2 className="fluid-h1 font-bold text-gray-900 mb-4">
             ¿Listo para<br/>
             <span className="bg-gradient-to-r from-pink-500 to-rose-500 bg-clip-text text-transparent">
               sorprender?
             </span>
           </h2>
-          <p className="text-gray-500 mb-10 text-lg">
+          <p className="text-gray-500 mb-10 sm:mb-12 text-base sm:text-lg">
             Los #1 en regalos de Catamarca
           </p>
           
@@ -345,27 +318,53 @@ export default function Home() {
             href={getWhatsAppUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 active:bg-green-700 text-white px-10 py-5 rounded-2xl text-xl font-bold transition-all hover:scale-105 shadow-2xl shadow-green-500/30"
+            className="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 active:bg-green-700 text-white px-9 sm:px-12 py-4 sm:py-5 rounded-xl text-lg sm:text-xl font-semibold transition-all duration-200 hover:shadow-xl hover:shadow-green-500/25 active:scale-[0.98] touch-target"
           >
-            <WhatsAppIcon className="w-7 h-7" />
+            <WhatsAppIcon className="w-6 h-6" />
             Quiero mi regalo
           </a>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="py-12 px-6 bg-gray-900 text-center">
+      <footer className="py-12 sm:py-16 pb-20 sm:pb-24 px-4 sm:px-6 lg:px-8 bg-gray-900">
         <div className="max-w-6xl mx-auto">
-          <h3 className="text-xl font-bold text-white mb-2">Regalería</h3>
-          <p className="text-gray-400 text-sm mb-4">Regalos que enamoran en San Fernando del Valle de Catamarca</p>
-          <a 
-            href={`https://wa.me/${WHATSAPP_NUMBER}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-pink-400 hover:text-pink-300 transition-colors"
-          >
-            WhatsApp: +54 9 383 490-3387
-          </a>
+          <div className="border-t border-gray-800 pt-10 sm:pt-12">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12 text-center sm:text-left">
+              <div>
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">LAPRINCESA.CTA</h3>
+                <p className="text-gray-400 text-sm leading-relaxed max-w-xs mx-auto sm:mx-0">
+                  Regalos que enamoran en San Fernando del Valle de Catamarca
+                </p>
+              </div>
+              <div>
+                <h4 className="text-white font-semibold text-sm mb-3 uppercase tracking-wider">Contacto</h4>
+                <a 
+                  href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-500 text-white px-4 py-2 rounded-xl text-sm font-medium transition-colors touch-target"
+                >
+                  <WhatsAppIcon className="w-4 h-4" />
+                  +54 9 383 490-3387
+                </a>
+              </div>
+              <div>
+                <h4 className="text-white font-semibold text-sm mb-3 uppercase tracking-wider">Links</h4>
+                <div className="flex flex-col gap-2">
+                  <a
+                    href={getWhatsAppUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-pink-400 hover:text-pink-300 transition-colors text-sm touch-target"
+                  >
+                    Hacé tu pedido
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p className="text-gray-600 text-xs text-center mt-10 sm:mt-12">© {new Date().getFullYear()} LAPRINCESA.CTA. Todos los derechos reservados.</p>
         </div>
       </footer>
 
@@ -374,7 +373,7 @@ export default function Home() {
         href={getWhatsAppUrl()}
         target="_blank"
         rel="noopener noreferrer"
-        className={`fixed bottom-6 right-6 sm:bottom-8 sm:right-8 bg-green-500 text-white p-4 rounded-full shadow-2xl z-50 transition-all duration-500 ${
+        className={`fixed bottom-4 right-4 sm:bottom-6 lg:bottom-8 sm:right-6 lg:right-8 bg-green-500 text-white p-3.5 sm:p-4 rounded-full shadow-2xl z-50 transition-all duration-500 ${
           showFloating 
             ? 'opacity-100 translate-y-0 scale-100' 
             : 'opacity-0 translate-y-8 scale-50 pointer-events-none'
