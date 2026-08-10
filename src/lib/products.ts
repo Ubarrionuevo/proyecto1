@@ -54,49 +54,53 @@ export const clientPhotos = [
 ];
 
 // Producto Secundario: Ramos de Golosinas
-export const ramosProducts = [
+export const ramosProducts: Array<{
+  id: string;
+  images: string[];
+  video?: string;
+  name: string;
+  description: string;
+  price: string;
+}> = [
   {
     id: "ramo-clasico",
-    images: ["/RamoMundialista.jpeg"],
+    images: ["/ramos.golosinas.jpg"],
     name: "Ramo Clásico de Golosinas",
-    badge: "El Favorito",
-    description: "Más de 20 golosinas y chocolates seleccionados, armados con envoltorio de lujo y dedicado a medida.",
+    description: "Un ramo clásico con golosinas irresistibles y un diseño elegante.",
     price: "$21.000"
   },
-  {
-    id: "ramo-oso",
-    images: ["/ramooso.png"],
-    name: "Ramo con Oso de Peluche",
-    badge: "Incluye Peluche",
-    description: "El ramo ideal para abrazar dos veces: golosinas riquísimas acompañadas de un peluche tierno.",
-    price: "$22.000"
-  },
+ 
   {
     id: "ramo-chocolates",
     images: ["/ramos.golosinas.definitivo.jpeg"],
+    video: "/WhatsApp Video 2026-06-28 at 8.47.33 PM.mp4",
     name: "Ramo de Chocolates",
-    badge: "Edición Especial",
-    description: "Chocolates de primeras marcas presentados en un ramo que se roba todas las miradas.",
-    price: "$23.000"
-  }
+    description: "Un gesto elegante con chocolates que enamoran desde el primer vistazo.",
+    price: "$24.000"
+  },
+   {
+    id: "ramo-oso",
+    images: ["/ramooso.png"],
+    name: "Ramo con Oso de Peluche",
+    description: "Una combinación tierna y dulce con peluche incluido.",
+    price: "$26.000"
+  },
 ];
 
 // Modelos de Desayuno a Domicilio
 export const desayunoModels = [
   {
     id: "desayuno-sorpresa",
-    name: "Desayuno Sorpresa",
-    price: "$40.000",
-    badge: "El Clásico",
-    description: "Café o té caliente, delicias dulces y saladas artesanales, taza personalizada y nota escrita a mano.",
+    name: "Desayuno Caja de Madera",
+    price: "$39.000",
+    description: "Una sorpresa cálida y elegante, pensada para regalar en cualquier ocasión.",
     image: "/desayuno.jpeg"
   },
   {
     id: "desayuno-aniversario",
-    name: "Desayuno Aniversario",
-    price: "$40.000",
-    badge: "Especial",
-    description: "Todo el cariño del desayuno a domicilio con detalles extra y una presentación pensada para emocionar.",
-    image: "/WhatsApp Image 2025-11-29 at 21.17.56 (1).jpeg"
+    name: "Desayuno Caja de Cartón",
+    price: "$36.000",
+    description: "Un detalle especial con presentación premium y un toque inolvidable.",
+    image: "/desayunocajacarton.jpeg"
   }
 ];

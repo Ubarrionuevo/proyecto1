@@ -31,17 +31,23 @@ export default function AdditionalGifts() {
               key={product.id}
               className="bg-[#FFFDF9] rounded-3xl overflow-hidden border border-[#F7D0D0]/80 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col"
             >
-              {/* Product Image */}
+              {/* Product Media */}
               <div className="relative h-52 overflow-hidden bg-[#FFFDF9]">
-                <img
-                  src={product.images[0]}
-                  alt={product.name}
-                  className="w-full h-full object-contain p-2"
-                />
-                {product.badge && (
-                  <span className="absolute top-3 left-3 bg-[#D93864] text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-xs">
-                    {product.badge}
-                  </span>
+                {product.video ? (
+                  <video
+                    src={product.video}
+                    className="w-full h-full object-contain p-2"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  />
+                ) : (
+                  <img
+                    src={product.images[0]}
+                    alt={product.name}
+                    className="w-full h-full object-contain p-2"
+                  />
                 )}
               </div>
 
