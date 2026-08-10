@@ -57,21 +57,6 @@ export default function Hero() {
               </span>
             </div>
 
-            <div className="mt-5 w-full max-w-xl">
-              <p className="mb-4 rounded-2xl border border-[#F7D0D0] bg-[#FFF5F7] px-4 py-3 text-center text-sm font-bold uppercase tracking-[0.25em] text-[#D93864] shadow-sm lg:text-left lg:text-base motion-safe:animate-pulse">
-                Si sos de otra provincia y querés regalar a alguien de Catamarca, somos tu mejor opción
-              </p>
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2">
-                {['Córdoba', 'Mendoza', 'Santa Cruz', 'La Rioja', 'Santiago del Estero', 'Buenos Aires', 'Salta', 'Bolivia'].map((place, index) => (
-                  <span
-                    key={place}
-                    className={`inline-flex items-center rounded-full border border-[#F7D0D0] bg-[#FFFDF9] px-3 py-1.5 text-xs font-semibold text-[#6B4E5B] shadow-xs ${index % 2 === 0 ? 'motion-safe:animate-pulse' : 'motion-safe:animate-bounce'}`}
-                  >
-                    {place}
-                  </span>
-                ))}
-              </div>
-            </div>
 
           </div>
 
