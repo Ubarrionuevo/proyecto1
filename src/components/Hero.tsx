@@ -1,92 +1,120 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
-import { getWhatsAppUrl, mainDesayuno } from '@/lib/products';
-import { WhatsAppIcon, HeartIcon } from './Icons';
+import { getWhatsAppUrl, contact } from '@/lib/products';
+import StickerButton from './ui/StickerButton';
+import { GoogleGIcon, StarIcon } from './Icons';
+
+/* Las tres fotos que abren la web. Todas verticales, como las reales. */
+const bandPhotos = [
+  { src: '/desayuno.jpeg', caption: 'Caja de madera', span: 'sm:col-span-5', h: 'h-[300px] sm:h-[420px]' },
+  { src: '/ramocomun.png', caption: 'Ramo común', span: 'sm:col-span-4', h: 'h-[240px] sm:h-[340px]' },
+  { src: '/ramooso.png', caption: 'Ramo con oso', span: 'sm:col-span-3', h: 'h-[280px] sm:h-[380px]' },
+];
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden py-10 sm:py-16 lg:py-20 px-4 sm:px-6">
-      {/* Delicate background blobs */}
-      <div className="absolute top-0 right-0 -z-10 w-96 h-96 bg-[#FCE8E8] rounded-full blur-3xl opacity-70 pointer-events-none transform translate-x-1/3 -translate-y-1/3"></div>
-      <div className="absolute bottom-0 left-0 -z-10 w-80 h-80 bg-[#F0F5F1] rounded-full blur-3xl opacity-60 pointer-events-none transform -translate-x-1/3 translate-y-1/3"></div>
+    <section>
+      {/* Barra utilitaria */}
+      <div className="border-b border-rule">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-2.5 flex items-center justify-between text-[11px] uppercase tracking-[0.14em] font-semibold text-ink-soft">
+          <span className="truncate">Desayunos a domicilio · Catamarca</span>
+          <span className="hidden sm:inline">{contact.hours}</span>
+        </div>
+      </div>
 
-      <div className="max-w-6xl mx-auto">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          
-          {/* Left Column: Emotional Pitch & Primary Action */}
-          <div className="lg:col-span-7 text-center lg:text-left flex flex-col items-center lg:items-start">
-            
-            {/* Category & Location Badge */}
-            <div className="inline-flex items-center gap-2 bg-[#FFFDF9] border border-[#F7D0D0] text-[#D93864] px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold mb-5 shadow-xs">
-              <span className="w-2 h-2 rounded-full bg-[#D93864] animate-ping" />
-              <span>Regalos a Domicilio en Catamarca</span>
-            </div>
+      {/* Masthead */}
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 pt-12 sm:pt-20 pb-10 sm:pb-14">
+        <div className="grid lg:grid-cols-12 gap-x-8 gap-y-10">
+          {/* Titular */}
+          <div className="lg:col-span-7">
+            <span className="label">Regalería · San Fernando del Valle</span>
 
-            {/* Emotional Main Title */}
-            <h1 className="font-display font-bold fluid-hero-title text-[#2D1520] mb-4 tracking-tight">
-              Un desayuno a domicilio pensado para decir <span className="text-[#D93864] relative inline-block">‘te quiero’.</span>
+            <h1 className="display-xl mt-4 text-ink">
+              Regalos que
+              <br />
+              <span className="text-berry italic">se sienten</span>
+              <span className="text-rule">.</span>
             </h1>
+          </div>
 
-            {/* Supporting Copy */}
-            <p className="text-base sm:text-lg lg:text-xl text-[#6B4E5B] mb-8 leading-relaxed max-w-xl">
-              {mainDesayuno.subtitle}
+          {/* Bajada + accion, alineadas a la linea de base del titular */}
+          <div className="lg:col-span-5 lg:pt-16">
+            <p className="text-[17px] sm:text-lg leading-relaxed text-ink-soft max-w-md">
+              Café o té caliente, delicias artesanales, taza personalizada y una nota escrita a
+              mano. Vos imaginás el momento; nosotras lo dejamos en la puerta.
             </p>
 
-            {/* Core Action: Single Conversion Goal */}
-            <div className="w-full sm:w-auto flex flex-col sm:flex-row items-center gap-3">
-              <a
-                href={getWhatsAppUrl('desayuno a domicilio')}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto bg-[#D93864] hover:bg-[#C22B55] text-white px-7 py-4 rounded-2xl font-bold text-base sm:text-lg flex items-center justify-center gap-3 shadow-md hover:shadow-lg transition-all duration-200 active:scale-[0.98] touch-target group"
+            <div className="mt-7 flex flex-wrap gap-4">
+              <StickerButton href={getWhatsAppUrl('un desayuno a domicilio')} size="lg">
+                Quiero armar mi regalo
+              </StickerButton>
+
+              <StickerButton
+                href="/catalogo"
+                variant="outline"
+                size="lg"
+                icon="none"
               >
-                <WhatsAppIcon className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
-                <span>Quiero armar mi desayuno</span>
-              </a>
+                Ver el catálogo
+              </StickerButton>
             </div>
-
-            {/* Reassurance pills */}
-            <div className="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs sm:text-sm text-[#5B7A62]">
-              <span className="flex items-center gap-1.5 font-medium bg-[#F0F5F1] px-3 py-1 rounded-full border border-[#D5E3D8]">
-                <HeartIcon className="w-4 h-4 text-[#7D9B84]" />
-                100% Personalizado a su gusto
-              </span>
-              <span className="flex items-center gap-1.5 font-medium bg-[#F0F5F1] px-3 py-1 rounded-full border border-[#D5E3D8]">
-                🚚 Entrega puntual a domicilio
-              </span>
-            </div>
-
-
           </div>
+        </div>
 
-          {/* Right Column: Protagonist Real Delivery Photo */}
-          <div className="lg:col-span-5 relative mt-4 lg:mt-0">
-            <div className="relative mx-auto max-w-md lg:max-w-none">
-              
-              {/* Photo Frame & Delicate Styling */}
-              <div className="relative rounded-3xl overflow-hidden shadow-xl border-4 border-[#FFFDF9] transform rotate-1 hover:rotate-0 transition-transform duration-500 bg-[#FAF6F0]">
-                <img
-                  src={mainDesayuno.heroImage}
-                  alt={mainDesayuno.alt}
-                  className="w-full h-80 sm:h-96 lg:h-[420px] object-contain p-2"
-                />
-                
-                {/* Floating Ribbon / Label on Photo */}
-                <div className="absolute bottom-4 left-4 right-4 bg-[#FFFDF9]/95 backdrop-blur-md p-3.5 rounded-2xl border border-[#F7D0D0]/80 shadow-md flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-[#FCE8E8] flex items-center justify-center text-[#D93864] shrink-0 font-bold">
-                    ☕
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold text-[#2D1520]">Desayuno a Domicilio Real</p>
-                    <p className="text-[11px] text-[#6B4E5B]">Llevado directo a su puerta en Catamarca</p>
-                  </div>
+        {/* Cifras, separadas por filetes */}
+        <div className="mt-12 sm:mt-16 border-t border-rule grid grid-cols-3">
+          {[
+            { v: '+100', l: 'entregas hechas' },
+            { v: contact.rating, l: 'en Google Maps' },
+            { v: String(contact.reviews), l: 'opiniones' },
+          ].map((stat, i) => (
+            <div
+              key={stat.l}
+              className={`py-5 ${i > 0 ? 'border-l border-rule pl-4 sm:pl-6' : ''}`}
+            >
+              <p className="font-display text-3xl sm:text-4xl font-semibold text-ink leading-none">
+                {stat.v}
+              </p>
+              <p className="label mt-2">{stat.l}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Banda de fotos a sangre, alturas desiguales */}
+      <div className="border-t border-rule">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-8 sm:py-12">
+          <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-6">
+            {bandPhotos.map((photo) => (
+              <figure key={photo.src} className={`${photo.span} group`}>
+                <div className={`${photo.h} overflow-hidden bg-paper-deep`}>
+                  <img
+                    src={photo.src}
+                    alt={photo.caption}
+                    className="w-full h-full object-cover"
+                    loading="eager"
+                  />
                 </div>
-              </div>
-
-            </div>
+                <figcaption className="label mt-2.5 border-t border-rule pt-2">
+                  {photo.caption}
+                </figcaption>
+              </figure>
+            ))}
           </div>
 
+          <div className="mt-8 flex items-center gap-2 text-[13px] text-ink-soft">
+            <GoogleGIcon className="w-4 h-4 shrink-0" />
+            <span className="flex items-center gap-px" aria-label="5 de 5 estrellas">
+              {[0, 1, 2, 3, 4].map((i) => (
+                <StarIcon key={i} className="w-3.5 h-3.5 text-butter-deep" />
+              ))}
+            </span>
+            <span>
+              <span className="font-bold text-ink">{contact.rating}</span> · {contact.reviews}{' '}
+              opiniones en Google Maps
+            </span>
+          </div>
         </div>
       </div>
     </section>

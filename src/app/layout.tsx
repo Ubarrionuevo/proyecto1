@@ -1,33 +1,32 @@
 import type { Metadata, Viewport } from "next";
-import { Fredoka, Nunito } from "next/font/google";
+import { Karla } from "next/font/google";
 import "./globals.css";
 
-const fredoka = Fredoka({
-  variable: "--font-fredoka",
+/* Una sola tipografia en toda la web. Se cargan tambien los italicos porque
+   varias citas y titulares los usan en cursiva. */
+const karla = Karla({
+  variable: "--font-karla",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-});
-
-const nunito = Nunito({
-  variable: "--font-nunito",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
   title: "Desayunos a Domicilio en Catamarca | LaPrincesaCta - Regalos que se sienten",
-  description: "Desayunos a domicilio en San Fernando del Valle de Catamarca. Sorprendé a quien más querés con un desayuno especial, cuidado y llevado hasta su puerta. Coordiná por WhatsApp.",
+  description:
+    "Desayunos a domicilio en San Fernando del Valle de Catamarca. Sorprendé a quien más querés con un desayuno especial, cuidado y llevado hasta su puerta. Coordiná por WhatsApp.",
   keywords: [
     "desayunos a domicilio Catamarca",
     "desayunos sorpresa Catamarca",
     "regalos a domicilio Catamarca",
     "LaPrincesaCta",
     "ramos de golosinas Catamarca",
-    "regalería Catamarca"
+    "regalería Catamarca",
   ],
   openGraph: {
     title: "Desayunos a Domicilio en Catamarca | LaPrincesaCta",
-    description: "Vos imaginás el momento; nosotras lo hacemos llegar a su puerta. Desayunos a domicilio hechos con amor.",
+    description:
+      "Vos imaginás el momento; nosotras lo hacemos llegar a su puerta. Desayunos a domicilio hechos con amor.",
     type: "website",
     locale: "es_AR",
   },
@@ -46,7 +45,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#FAF6F0",
+  themeColor: "#F7F1EA",
 };
 
 export default function RootLayout({
@@ -59,10 +58,9 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className={`${fredoka.variable} ${nunito.variable} font-sans antialiased bg-[#FAF6F0] text-[#2D1520]`}>
+      <body className={`${karla.variable} font-body antialiased`}>
         {children}
       </body>
     </html>
   );
 }
-

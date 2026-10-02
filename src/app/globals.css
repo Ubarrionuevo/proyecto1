@@ -1,117 +1,489 @@
 @import "tailwindcss";
 
-:root {
-  --font-fredoka: 'Fredoka', cursive, sans-serif;
-  --font-nunito: 'Nunito', sans-serif;
-  
-  /* Brand Palette */
-  --bg-cream: #FAF6F0;
-  --bg-card: #FFFDF9;
-  --text-plum: #2D1520;
-  --text-muted: #6B4E5B;
-  --color-berry: #D93864;
-  --color-berry-dark: #C22B55;
-  --color-plum-deep: #2A111C;
-  --color-blush: #FCE8E8;
-  --color-blush-border: #F7D0D0;
-  --color-sage: #7D9B84;
-  --color-sage-bg: #F0F5F1;
-  --color-whatsapp: #25D366;
+@theme {
+  /* Paleta clara: papel crema + tinta vino.
+     Todo el sitio va sobre fondo claro; el vino se usa para texto y
+     acentos, nunca como fondo de seccion completa. */
+  --color-paper: #f7f1ea;
+  --color-paper-deep: #efe6da;
+  --color-paper-card: #fdfaf6;
+  --color-ink: #3d1e33;
+  --color-ink-soft: #6f5263;
+  --color-rule: #ddcbbd;
+  --color-rule-soft: #ece1d6;
+
+  /* Acentos: calidos, sin azul ni verde frio */
+  --color-berry: #c0304f;
+  --color-berry-deep: #9e2540;
+  --color-butter: #d6a244;
+  /* Version oscura del butter: sobre fondo claro el color original
+     no llega a 4.5:1 y el texto queda ilegible. */
+  --color-butter-deep: #8a6318;
+  --color-wa: #1fa855;
+
+  /* Una sola tipografia en toda la web: Karla para todo.
+     --font-display se mantiene como alias para no romper las clases
+     .font-display / .display-* que ya existen en los componentes. */
+  --font-display: var(--font-karla), system-ui, -apple-system, sans-serif;
+  --font-body: var(--font-karla), system-ui, -apple-system, sans-serif;
+
+  /* Textura de papel: SVG embebido, grano fino, se repite */
+  --texture-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E/filter%3E%3Crect width='180' height='180' filter='url(%23g)' opacity='0.055'/%3E%3C/svg%3E");
 }
 
 body {
-  font-family: var(--font-nunito);
-  background-color: var(--bg-cream);
-  color: var(--text-plum);
+  font-family: var(--font-body);
+  background-color: var(--color-paper);
+  background-image: var(--texture-grain);
+  color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
-h1, h2, h3, h4, h5, h6, .font-display {
-  font-family: var(--font-fredoka);
-  letter-spacing: -0.01em;
+/* Una sola fuente en toda la web. Karla para titulos y para texto.
+   Tracking un poco apretado para que los titulares grandes no se abran. */
+h1,
+h2,
+h3,
+h4,
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.015em;
 }
 
-/* Typography Helpers */
-.fluid-hero-title {
-  font-size: clamp(2rem, 5.5vw, 3.75rem);
-  line-height: 1.15;
+/* ── Editorial primitives ─────────────────────────────────────── */
+
+/* Micro-label en versalitas, uso de imprenta */
+.label {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
 }
 
-.fluid-section-title {
-  font-size: clamp(1.75rem, 4vw, 2.75rem);
-  line-height: 1.2;
+/* Numeral de seccion */
+.num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 0.85;
+  color: var(--color-rule);
 }
 
-/* Custom Utilities */
-.bg-cream { background-color: #FAF6F0; }
-.bg-card { background-color: #FFFDF9; }
-.text-plum { color: #2D1520; }
-.text-muted-plum { color: #6B4E5B; }
-.bg-berry { background-color: #D93864; }
-.bg-berry-hover:hover { background-color: #C22B55; }
-.bg-plum-deep { background-color: #2A111C; }
-.border-blush { border-color: #F7D0D0; }
-.bg-blush { background-color: #FCE8E8; }
-.bg-sage-soft { background-color: #F0F5F1; }
-.text-sage { color: #5B7A62; }
-
-/* Keyframes for Motion & Infinite Marquee */
-@keyframes marqueeLeft {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
+/* Filete: hairline en vez de sombra */
+.rule-t {
+  border-top: 1px solid var(--color-rule);
+}
+.rule-b {
+  border-bottom: 1px solid var(--color-rule);
 }
 
-@keyframes marqueeRight {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0%); }
+/* Botón sticker: relleno sólido + sombra dura desplazada (serigrafía) */
+.sticker {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: var(--color-berry);
+  color: #fff;
+  font-weight: 700;
+  border-radius: 3px;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 0 var(--color-ink);
+  transition:
+    transform 140ms ease,
+    box-shadow 140ms ease,
+    background-color 140ms ease;
+}
+@media (hover: hover) {
+  .sticker:hover {
+    background: var(--color-berry-deep);
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 0 var(--color-ink);
+  }
+}
+/* Press: el boton baja hacia la mesa y la sombra se comprime.
+   90ms para que se sienta inmediato, sin delay perceptible. */
+.sticker:active {
+  transform: translate(2px, 2px) scale(0.985);
+  box-shadow: 1px 1px 0 0 var(--color-ink);
+  transition-duration: 90ms;
+}
+.sticker:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 3px;
 }
 
-@keyframes floatSoft {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-6px); }
+/* Varianteoutline: fondo papel, borde tinta */
+.sticker-outline {
+  background: transparent;
+  color: var(--color-ink);
+  box-shadow: 4px 4px 0 0 var(--color-ink);
 }
-
-@keyframes pulseGlow {
-  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
-  70% { box-shadow: 0 0 0 16px rgba(37, 211, 102, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-}
-
-.animate-marquee-left {
-  display: flex;
-  width: max-content;
-  animation: marqueeLeft 35s linear infinite;
-}
-
-.animate-marquee-left:hover {
-  animation-play-state: paused;
-}
-
-.animate-marquee-right {
-  display: flex;
-  width: max-content;
-  animation: marqueeRight 35s linear infinite;
-}
-
-.animate-marquee-right:hover {
-  animation-play-state: paused;
-}
-
-.animate-float {
-  animation: floatSoft 4s ease-in-out infinite;
-}
-
-.animate-pulse-glow {
-  animation: pulseGlow 2.5s infinite;
-}
-
-/* Touch targets */
-@media (pointer: coarse) {
-  .touch-target {
-    min-height: 48px;
-    min-width: 48px;
+@media (hover: hover) {
+  .sticker-outline:hover {
+    background: var(--color-ink);
+    color: var(--color-paper);
   }
 }
 
+/* Variante WhatsApp: verde, misma sombra dura */
+.sticker-wa {
+  background: var(--color-wa);
+  box-shadow: 4px 4px 0 0 var(--color-ink);
+}
+@media (hover: hover) {
+  .sticker-wa:hover {
+    background: #198f47;
+  }
+}
+
+/* Botones de destinos: grilla flexible que baja a varias filas.
+   Cada destino es un enlace real a WhatsApp, con alto tactil minimo,
+   texto que puede partirse y sin ancho fijo para evitar overflow. */
+.destino-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.625rem;
+  min-width: 0;
+}
+.destino-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 1 auto;
+  min-width: 0;
+  min-height: 48px;
+  max-width: 100%;
+  padding: 0.7rem 1.05rem;
+  border: 1px solid var(--color-rule);
+  border-radius: 999px;
+  background: var(--color-paper-card);
+  color: var(--color-ink);
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.15;
+  text-align: center;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 0 var(--color-ink);
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease;
+}
+.destino-chip--pais {
+  border-color: var(--color-berry-deep);
+  color: var(--color-berry-deep);
+}
+@media (hover: hover) {
+  .destino-chip:hover {
+    transform: translate(-1px, -1px);
+    background: var(--color-ink);
+    border-color: var(--color-ink);
+    color: var(--color-paper);
+    box-shadow: 3px 3px 0 0 var(--color-ink);
+  }
+}
+.destino-chip:active {
+  transform: translate(1px, 1px);
+  box-shadow: 0 0 0 0 var(--color-ink);
+  transition-duration: 90ms;
+}
+.destino-chip:focus-visible {
+  outline: 2px solid var(--color-berry-deep);
+  outline-offset: 3px;
+}
+
+/* Subrayado a mano alzada para enlaces de texto.
+   Crece desde 0 para que se vea "dibujándose" al hover. */
+.link-underline {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-underline:hover,
+.link-underline:focus-visible {
+  background-size: 100% 1px;
+}
+
+/* Texto en cursiva para citas y notas */
+.quote {
+  font-family: var(--font-body);
+  font-style: italic;
+}
+
+/* Tamano display fluido, sin escala agresiva de "tech" */
+.display-xl {
+  font-size: clamp(2.5rem, 9vw, 6.5rem);
+  line-height: 0.92;
+}
+.display-lg {
+  font-size: clamp(2rem, 6vw, 4rem);
+  line-height: 1;
+}
+.display-md {
+  font-size: clamp(1.5rem, 3.6vw, 2.25rem);
+  line-height: 1.12;
+}
+
+/* Polaroid: marco de papel, rotacion sutil, sombra fisica minima.
+   La rotacion va por variable CSS (--rot) y no por transform inline, para que
+   el hover pueda recomponer el transform sin que el inline lo pise. */
+.polaroid {
+  --rot: 0deg;
+  background: var(--color-paper-card);
+  padding: 9px 9px 34px;
+  box-shadow: 0 1px 3px rgb(36 26 20 / 0.14);
+  transform: rotate(var(--rot));
+  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 320ms ease;
+}
+@media (hover: hover) {
+  .polaroid:hover {
+    transform: rotate(0deg) translateY(-4px);
+    box-shadow: 0 8px 18px rgb(36 26 20 / 0.16);
+  }
+  .polaroid:hover .zoom-media {
+    transform: scale(1.045);
+  }
+}
+/* En tactil no hay hover: el rotate original se mantiene siempre. */
+@media (pointer: coarse) {
+  .polaroid:hover {
+    transform: rotate(var(--rot));
+    box-shadow: 0 1px 3px rgb(36 26 20 / 0.14);
+  }
+  .polaroid:hover .zoom-media {
+    transform: none;
+  }
+}
+
+/* Zoom muy leve de la foto dentro de un contenedor con overflow hidden.
+   Solo transform, nunca width/height, para no provocar layout shift.
+   Sin will-change: hay muchas imagenes en la pagina y promoverlas todas a
+   capas propia consume memoria sin aportar, ya que la transicion es corta. */
+.zoom-media {
+  transition: transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.zoom-host:hover .zoom-media,
+.zoom-host:focus-within .zoom-media {
+  transform: scale(1.045);
+}
+
+/* Fila de producto: fondo tenue + desplazamiento minimo al hover. */
+.lift-row {
+  transition: background-color 220ms ease, transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+@media (hover: hover) {
+  .lift-row:hover {
+    background-color: color-mix(in srgb, var(--color-paper-card) 70%, transparent);
+    transform: translateX(3px);
+  }
+}
+
+/* ── Motion: entradas al hacer scroll ───────────────────────── */
+
+/* Un solo reveal por seccion, con stagger manual por hijo.
+   opacity + translate3d: no toca el layout, no genera CLS. */
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, var(--reveal-y, 14px), 0);
+  transition: opacity 560ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 560ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal.is-in {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Entrada del bloque superior: se anima al montar, sin esperar IntersectionObserver. */
+.rise {
+  opacity: 0;
+  animation: rise-in 720ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--rise-delay, 0ms);
+}
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Marquee lento para collage de fotos */
+@keyframes drift-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+@keyframes drift-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.marquee-left {
+  display: flex;
+  width: max-content;
+  animation: drift-left 90s linear infinite;
+}
+.marquee-right {
+  display: flex;
+  width: max-content;
+  animation: drift-right 90s linear infinite;
+}
+.marquee-left:hover,
+.marquee-right:hover {
+  animation-play-state: paused;
+}
+
+/* Marquee de texto: mas rapido que el de fotos, se lee como una cinta.
+   Se detiene si el cursor esta encima para poder copiar un destino. */
+.ticker-left {
+  display: flex;
+  width: max-content;
+  animation: drift-left 34s linear infinite;
+}
+.ticker-right {
+  display: flex;
+  width: max-content;
+  animation: drift-right 34s linear infinite;
+}
+.ticker-left:hover,
+.ticker-right:hover {
+  animation-play-state: paused;
+}
+
+/* Carrusel horizontal con scroll nativo: el autoplay lo mueve el componente
+   por JS, el usuario lo desliza con el dedo. Sin scrollbar visible, con snap
+   suave y sin propagar el gesto horizontal a la pagina. */
+.carousel {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overscroll-behavior-x: contain;
+  /* Snap APAGADO por defecto: con snap activo el navegador re-engancha cada
+     escritura programada de scrollLeft y el autoplay queda clavado.
+     El componente prende .snap-on solo mientras el usuario lo manipula. */
+  scroll-snap-type: none;
+  -webkit-overflow-scrolling: touch;
+}
+.carousel.snap-on {
+  scroll-snap-type: x proximity;
+}
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+.carousel-track {
+  display: flex;
+  width: max-content;
+  align-items: stretch;
+}
+.carousel-copy {
+  display: flex;
+  align-items: stretch;
+}
+/* El margen (y no gap) hace que scrollWidth sea exactamente 2x el set,
+   que es lo que el loop del autoplay necesita para no saltar. */
+.carousel-slide {
+  flex: 0 0 auto;
+  min-width: 0;
+  scroll-snap-align: center;
+  margin-right: var(--carousel-gap, 1rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-left,
+  .marquee-right,
+  .ticker-left,
+  .ticker-right {
+    animation: none;
+  }
+  /* Sin autoplay no hay nada que pelee con el snap: se prende para que el
+     swipe manual termine alineado. */
+  .carousel,
+  .carousel.snap-on {
+    scroll-snap-type: x proximity;
+  }
+
+  /* Los reveals deben quedar visibles: si no, el contenido nunca aparece. */
+  .reveal,
+  .rise {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .polaroid {
+    transition: none;
+  }
+  .zoom-media,
+  .lift-row,
+  .link-underline,
+  .destino-chip,
+  .sticker {
+    transition: none;
+  }
+}
+
+/* Estrellas del rating: se encienden en cascada al hover del bloque.
+   Cada estrella tiene su propio delay, asi que "crecen" de izquierda a
+   derecha en vez de aparecer todas juntas. */
+.stars-hover .star {
+  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 220ms ease;
+  transform-origin: 50% 60%;
+}
+@media (hover: hover) {
+  .stars-hover:hover .star {
+    transform: scale(1.18);
+  }
+  .stars-hover:hover .star:nth-child(1) {
+    transition-delay: 0ms;
+  }
+  .stars-hover:hover .star:nth-child(2) {
+    transition-delay: 40ms;
+  }
+  .stars-hover:hover .star:nth-child(3) {
+    transition-delay: 80ms;
+  }
+  .stars-hover:hover .star:nth-child(4) {
+    transition-delay: 120ms;
+  }
+  .stars-hover:hover .star:nth-child(5) {
+    transition-delay: 160ms;
+  }
+}
+
+/* Objetivo táctil en mobile */
+@media (pointer: coarse) {
+  .touch-target {
+    min-height: 48px;
+  }
+  /* Sin hover en tactil: el desplazamiento de fila sobra y puede quedar pegado. */
+  .lift-row:hover {
+    transform: none;
+  }
+}

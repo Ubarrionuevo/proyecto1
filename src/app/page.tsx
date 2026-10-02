@@ -2,21 +2,25 @@
 
 import React from 'react';
 import Navbar from '@/components/Navbar';
-import Hero from '@/components/Hero';
-import ClientsMotion from '@/components/ClientsMotion';
+import GeoBanner from '@/components/GeoBanner';
 import SolutionSection from '@/components/SolutionSection';
 import AdditionalGifts from '@/components/AdditionalGifts';
+import ClientsMotion from '@/components/ClientsMotion';
+import ProvinciasSection from '@/components/ProvinciasSection';
+import AdditionalCta from '@/components/AdditionalCta';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#FAF6F0] text-[#2D1520] font-sans antialiased selection:bg-[#FCE8E8] selection:text-[#D93864]">
+    <main className="min-h-screen bg-paper text-ink">
       <Navbar />
-      <Hero />
+      <GeoBanner />
       <SolutionSection />
-      <ClientsMotion />
       <AdditionalGifts />
+      <ClientsMotion number="03" />
+      <ProvinciasSection />
+      <AdditionalCta />
       <Footer />
       <FloatingWhatsApp />
     </main>

@@ -1,42 +1,48 @@
 'use client';
 
 import React from 'react';
-import { getWhatsAppUrl, ramosProducts } from '@/lib/products';
-import { WhatsAppIcon } from './Icons';
+import { ramos, getWhatsAppUrl } from '@/lib/products';
+import SectionHead from './ui/SectionHead';
+import StickerButton from './ui/StickerButton';
+import Reveal from './ui/Reveal';
 
+/* Cada ramo es una tarjeta protagonista: imagen grande arriba, producto y
+   precio visibles, CTA inmediato e informacion complementaria despues. */
 export default function AdditionalGifts() {
   return (
-    <section className="py-16 sm:py-24 px-4 sm:px-6 bg-[#FAF6F0] border-t border-[#F7D0D0]/40">
-      <div className="max-w-5xl mx-auto">
-        
-        {/* Title */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="text-[#D93864] font-bold text-xs uppercase tracking-wider bg-[#FCE8E8] px-3.5 py-1 rounded-full inline-block mb-3">
-            Opciones Complementarias
-          </span>
-          
-          <h2 className="font-display font-bold fluid-section-title text-[#2D1520] mb-4">
-            Ramos de golosinas y regalos que también cuentan una historia.
-          </h2>
+    <section id="ramos" className="border-t border-rule bg-paper-deep py-16 sm:py-24 scroll-mt-20">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8">
+        <Reveal>
+          <SectionHead
+            number="02"
+            label="Ramos de golosinas"
+            title={
+              <>
+                Chocolates, golosinas
+                <br className="hidden sm:block" /> y peluches armados a mano.
+              </>
+            }
+            intro="Se suman a cualquier desayuno o van solos. Decinos el tema y lo armamos como vos lo quieras."
+          />
+        </Reveal>
 
-          <p className="text-base text-[#6B4E5B] leading-relaxed">
-            Podés sumar un ramo de golosinas o chocolate para acompañar tu desayuno a domicilio y hacerlo aún más inolvidable.
-          </p>
-        </div>
-
-        {/* 3 Product Cards */}
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
-          {ramosProducts.map((product) => (
-            <div
-              key={product.id}
-              className="bg-[#FFFDF9] rounded-3xl overflow-hidden border border-[#F7D0D0]/80 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col"
+        <div className="mt-12 sm:mt-16 grid gap-14 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-16">
+          {ramos.map((ramo, idx) => (
+            <Reveal
+              key={ramo.id}
+              as="article"
+              delay={Math.min(idx * 80, 240)}
+              className="min-w-0"
             >
-              {/* Product Media */}
-              <div className="relative h-52 overflow-hidden bg-[#FFFDF9]">
-                {product.video ? (
+              {/* Foto grande: mantiene marco polaroid y proporcion vertical */}
+              <figure
+                className="polaroid w-full"
+                style={{ '--rot': idx % 2 === 0 ? '-1.5deg' : '1.5deg' } as React.CSSProperties}
+              >
+                {ramo.video ? (
                   <video
-                    src={product.video}
-                    className="w-full h-full object-contain p-2"
+                    src={ramo.video}
+                    className="w-full aspect-[3/4] object-cover"
                     autoPlay
                     muted
                     loop
@@ -44,59 +50,54 @@ export default function AdditionalGifts() {
                   />
                 ) : (
                   <img
-                    src={product.images[0]}
-                    alt={product.name}
-                    className="w-full h-full object-contain p-2"
+                    src={ramo.images[0]}
+                    alt={ramo.name}
+                    className="zoom-media w-full aspect-[3/4] object-cover"
+                    loading="lazy"
                   />
                 )}
-              </div>
+              </figure>
 
-              {/* Product Details */}
-              <div className="p-6 flex flex-col flex-1 justify-between">
-                <div>
-                  <h3 className="font-display font-bold text-lg text-[#2D1520] mb-2">
-                    {product.name}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-[#6B4E5B] mb-4 leading-relaxed">
-                    {product.description}
+              {/* Producto visible */}
+              <div className="mt-6 border-t border-rule pt-5">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="min-w-0">
+                    {ramo.tag && (
+                      <span className="label text-berry text-[10px]">{ramo.tag}</span>
+                    )}
+                    <h3 className="font-display text-2xl sm:text-3xl font-semibold text-ink mt-1">
+                      {ramo.name}
+                    </h3>
+                  </div>
+                  <p className="font-display text-2xl sm:text-3xl font-semibold text-berry leading-none shrink-0">
+                    {ramo.price}
                   </p>
                 </div>
+                <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">
+                  {ramo.description}
+                </p>
 
-                <div className="pt-3 border-t border-[#F7D0D0]/50 flex items-center justify-between">
-                  <span className="font-bold text-[#D93864] text-base">
-                    {product.price}
-                  </span>
-                  <a
-                    href={getWhatsAppUrl(`Ramo de Golosinas - ${product.name}`)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs bg-[#FCE8E8] hover:bg-[#F7D0D0] text-[#D93864] font-bold px-3 py-1.5 rounded-full transition-colors flex items-center gap-1"
-                  >
-                    <span>Sumar regalo</span>
-                    <WhatsAppIcon className="w-3.5 h-3.5 fill-current" />
-                  </a>
-                </div>
+                <StickerButton
+                  href={getWhatsAppUrl(`el ${ramo.name}`)}
+                  variant="outline"
+                  size="md"
+                  className="mt-5 w-full sm:w-auto"
+                >
+                  Quiero este
+                </StickerButton>
+
+                <p className="mt-4 text-sm leading-relaxed text-ink-soft/80 max-w-prose hidden md:block">
+                  {ramo.detail}
+                </p>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
 
-        {/* Single Goal Reminder */}
-        <div className="text-center bg-[#FFFDF9] p-6 rounded-2xl border border-[#F7D0D0]/80 max-w-xl mx-auto">
-          <p className="text-xs sm:text-sm text-[#6B4E5B] mb-3">
-            💡 ¿Querés combinar un desayuno a domicilio con un ramo de golosinas?
-          </p>
-          <a
-            href={getWhatsAppUrl('combo de desayuno a domicilio + ramo de golosinas')}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-[#D93864] hover:text-[#C22B55] font-bold text-sm underline transition-colors"
-          >
-            <span>Consultar por combo especial en WhatsApp</span>
-            <WhatsAppIcon className="w-4 h-4 fill-current" />
-          </a>
-        </div>
-
+        <p className="mt-8 text-sm text-ink-soft max-w-prose">
+          ¿Necesitás algo que no esté en la lista? También lo armamos: escribinos y contanos qué
+          tenés en mente.
+        </p>
       </div>
     </section>
   );

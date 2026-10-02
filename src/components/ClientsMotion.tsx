@@ -2,73 +2,59 @@
 
 import React from 'react';
 import { clientPhotos } from '@/lib/products';
+import Polaroid from './ui/Polaroid';
+import SectionHead from './ui/SectionHead';
+import Reveal from './ui/Reveal';
+import Carousel from './ui/Carousel';
 
-export default function ClientsMotion() {
-  const rowA = [...clientPhotos, ...clientPhotos];
-  const rowB = [...clientPhotos.slice().reverse(), ...clientPhotos.slice().reverse()];
+/* Rotaciones fijas: el collage se ve tombeado a mano, no alineado. */
+const rotations = [-3, 2.5, -1.5, 3, -2.5, 1.5, -3, 2, -1, 2.5, -2, 3];
 
+/* Una sola fila en carrusel, mobile-first: en celular se ve una polaroid
+   grande (mas un asomo de la siguiente, para insinuar que hay mas) y en
+   desktop entran tres. Nada de comprimir fotos para que entren todas. */
+export default function ClientsMotion({
+  number,
+  label = 'Los que ya nos eligieron',
+  title = 'Fotos reales de entregas.',
+  intro = 'Ninguna está retocada: son personas de Catamarca que recibieron una sorpresa un día cualquiera.',
+}: {
+  number?: string;
+  label?: string;
+  title?: string;
+  intro?: string;
+}) {
   return (
-    <section className="py-12 sm:py-16 bg-[#FFFDF9] border-t border-[#F7D0D0]/50 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4 mb-10 text-center">
-        <span className="text-[#5B7A62] font-bold text-xs sm:text-sm uppercase tracking-wider bg-[#F0F5F1] px-3.5 py-1 rounded-full inline-block mb-3">
-          Nuestros Clientes
-        </span>
-        <h2 className="font-display font-bold fluid-section-title text-[#2D1520] mb-2">
-          Mira a quiénes ya sorprendimos
-        </h2>
+    <section
+      id="clientes"
+      className="border-t border-rule py-16 sm:py-24 overflow-hidden scroll-mt-20"
+    >
+      <div className="max-w-6xl mx-auto px-5 sm:px-8">
+        <Reveal>
+          <SectionHead number={number} label={label} title={title} intro={intro} />
+        </Reveal>
       </div>
 
-      {/* Collage de fotos con motion en dos direcciones */}
-      <div className="space-y-3 sm:space-y-4">
-
-        {/* Fila 1: hacia la izquierda */}
-        <div className="relative w-full overflow-hidden py-1">
-          <div className="absolute top-0 bottom-0 left-0 w-10 sm:w-24 bg-gradient-to-r from-[#FFFDF9] to-transparent z-10 pointer-events-none" />
-          <div className="absolute top-0 bottom-0 right-0 w-10 sm:w-24 bg-gradient-to-l from-[#FFFDF9] to-transparent z-10 pointer-events-none" />
-
-          <div className="animate-marquee-left flex gap-3 sm:gap-4">
-            {rowA.map((item, idx) => (
-              <figure
-                key={idx}
-                className={`shrink-0 rounded-2xl overflow-hidden border border-[#F7D0D0]/80 shadow-xs bg-[#FFFDF9] flex items-center justify-center ${
-                  idx % 3 === 0 ? 'w-40 sm:w-60 h-48 sm:h-64' : idx % 3 === 1 ? 'w-44 sm:w-64 h-52 sm:h-72' : 'w-36 sm:w-52 h-44 sm:h-60'
-                }`}
-              >
-                <img
-                  src={item.image}
-                  alt={item.tag}
-                  className="w-full h-full object-contain p-2"
-                  loading="lazy"
-                />
-              </figure>
-            ))}
-          </div>
-        </div>
-
-        {/* Fila 2: hacia la derecha */}
-        <div className="relative w-full overflow-hidden py-1">
-          <div className="absolute top-0 bottom-0 left-0 w-10 sm:w-24 bg-gradient-to-r from-[#FFFDF9] to-transparent z-10 pointer-events-none" />
-          <div className="absolute top-0 bottom-0 right-0 w-10 sm:w-24 bg-gradient-to-l from-[#FFFDF9] to-transparent z-10 pointer-events-none" />
-
-          <div className="animate-marquee-right flex gap-3 sm:gap-4">
-            {rowB.map((item, idx) => (
-              <figure
-                key={idx}
-                className={`shrink-0 rounded-2xl overflow-hidden border border-[#F7D0D0]/80 shadow-xs bg-[#FFFDF9] flex items-center justify-center ${
-                  idx % 3 === 0 ? 'w-36 sm:w-52 h-44 sm:h-60' : idx % 3 === 1 ? 'w-44 sm:w-64 h-48 sm:h-68' : 'w-40 sm:w-60 h-52 sm:h-72'
-                }`}
-              >
-                <img
-                  src={item.image}
-                  alt={item.tag}
-                  className="w-full h-full object-contain p-2"
-                  loading="lazy"
-                />
-              </figure>
-            ))}
-          </div>
-        </div>
-
+      <div className="relative mt-12 overflow-hidden">
+        <div className="absolute inset-y-0 left-0 w-10 sm:w-24 bg-gradient-to-r from-paper to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-10 sm:w-24 bg-gradient-to-l from-paper to-transparent z-10 pointer-events-none" />
+        <Carousel
+          label="Fotos reales de entregas a clientes"
+          items={clientPhotos}
+          keyOf={(photo, i) => `${photo.image}-${i}`}
+          speed={64}
+          gap="1.25rem"
+          className="px-5 sm:px-8"
+          renderSlide={(photo, i) => (
+            <Polaroid
+              src={photo.image}
+              caption={photo.tag}
+              rotate={rotations[i % rotations.length]}
+              className="w-[min(76vw,300px)] sm:w-[300px] lg:w-[330px] shrink-0"
+              imgClassName="aspect-[3/4]"
+            />
+          )}
+        />
       </div>
     </section>
   );

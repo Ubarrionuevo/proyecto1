@@ -1,37 +1,36 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { getWhatsAppUrl } from '@/lib/products';
 import { WhatsAppIcon } from './Icons';
 
+/* Boton fijo sin pulso: aparece al hacer scroll y se expande al hover.
+   La etiqueta de texto evita depender solo del icono. */
 export default function FloatingWhatsApp() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [visible, setVisible] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 250) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+  React.useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 500);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
     <a
-      href={getWhatsAppUrl('desayuno a domicilio')}
+      href={getWhatsAppUrl('un regalo')}
       target="_blank"
       rel="noopener noreferrer"
-      className={`fixed bottom-[calc(env(safe-area-inset-bottom)_+_1.25rem)] right-4 sm:right-6 z-50 bg-[#25D366] text-white p-3.5 sm:p-4 rounded-full shadow-2xl transition-all duration-300 flex items-center justify-center touch-target animate-pulse-glow ${
-        isVisible
-          ? 'opacity-100 translate-y-0 scale-100'
-          : 'opacity-0 translate-y-6 scale-75 pointer-events-none'
-      }`}
-      aria-label="Consultar por Desayuno a Domicilio en WhatsApp"
+      aria-label="Escribinos por WhatsApp"
+      className={`group fixed bottom-5 right-5 z-50 flex items-center gap-0 overflow-hidden bg-wa text-white pl-3.5 pr-3.5 py-3.5 rounded-full border-2 border-ink transition-[opacity,transform,max-width] duration-300 ${
+        visible
+          ? 'opacity-100 translate-y-0 max-w-[13rem]'
+          : 'opacity-0 translate-y-4 max-w-0 pointer-events-none'
+      } hover:max-w-[16rem]`}
     >
-      <WhatsAppIcon className="w-7 h-7 sm:w-8 sm:h-8 fill-current" />
+      <WhatsAppIcon className="w-6 h-6 shrink-0" />
+      <span className="whitespace-nowrap text-sm font-bold pl-2.5 max-w-[11rem]">
+        Escribinos
+      </span>
     </a>
   );
 }

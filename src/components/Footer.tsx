@@ -1,40 +1,101 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
-import { getWhatsAppUrl } from '@/lib/products';
-import { WhatsAppIcon, MapPinIcon } from './Icons';
+import Link from 'next/link';
+import { getWhatsAppUrl, contact } from '@/lib/products';
+import { GoogleGIcon, StarIcon, WhatsAppIcon } from './Icons';
+import Reveal from './ui/Reveal';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1A0A12] text-[#FCE8E8]/80 py-12 px-4 sm:px-6 border-t border-[#3B1E2B]">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-        
-        <div>
-          <span className="font-display font-bold text-2xl text-white block mb-1">
-            LaPrincesa<span className="text-[#D93864]">Cta</span>
-          </span>
-          <p className="text-xs text-[#FAF6F0]/70 flex items-center justify-center md:justify-start gap-1">
-            <MapPinIcon className="w-3.5 h-3.5 text-[#7D9B84]" />
-            Desayunos a Domicilio en San Fernando del Valle de Catamarca
-          </p>
+    <footer className="bg-paper-deep text-ink">
+      {/* Rejilla editorial de 3 columnas con filetes */}
+      <div className="max-w-6xl mx-auto px-5 sm:px-8">
+        <div className="grid sm:grid-cols-3 gap-y-10 gap-x-8 py-14">
+          <Reveal y={10}>
+            <p className="font-display text-2xl font-semibold text-ink">
+              LaPrincesa<span className="text-berry-deep">Cta</span>
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-ink/55 max-w-xs">
+              Desayunos a domicilio y ramos de golosinas en San Fernando del Valle de Catamarca.
+            </p>
+          </Reveal>
+
+          <Reveal delay={80} y={10} className="sm:border-l sm:border-ink/15 sm:pl-8">
+            <span className="label text-ink/40">Contacto</span>
+            <ul className="mt-4 space-y-2.5 text-sm">
+              <li>
+                <a
+                  href={contact.phoneHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-underline text-ink hover:text-berry-deep"
+                >
+                  {contact.phoneDisplay}
+                </a>
+              </li>
+              <li className="text-ink/55">{contact.hours}</li>
+              <li className="text-ink/55">{contact.city}</li>
+            </ul>
+          </Reveal>
+
+          <Reveal delay={160} y={10} className="sm:border-l sm:border-ink/15 sm:pl-8">
+            <span className="label text-ink/40">Secciones</span>
+            <ul className="mt-4 space-y-2.5 text-sm">
+              {[
+                { href: '#desayunos', label: 'Desayunos' },
+                { href: '#ramos', label: 'Ramos' },
+                { href: '#clientes', label: 'Clientes' },
+                { href: '/catalogo', label: 'Catálogo' },
+              ].map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="link-underline text-ink/70 hover:text-ink"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
         </div>
 
-        <div className="flex items-center gap-4">
+        {/* Rating */}
+        <Reveal
+          y={8}
+          className="border-t border-ink/15 py-6 flex flex-wrap items-center justify-between gap-4"
+        >
+          <div className="stars-hover flex items-center gap-2 text-sm text-ink/60">
+            <GoogleGIcon className="w-4 h-4" />
+            <span className="flex items-center gap-px" aria-label="5 de 5 estrellas">
+              {[0, 1, 2, 3, 4].map((i) => (
+                <StarIcon key={i} className="star w-3.5 h-3.5 text-berry-deep" />
+              ))}
+            </span>
+            <span>
+              <span className="font-bold text-ink">{contact.rating}</span> · {contact.reviews}{' '}
+              opiniones
+            </span>
+          </div>
+
           <a
-            href={getWhatsAppUrl('desayuno a domicilio')}
+            href={getWhatsAppUrl('un regalo')}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-full transition-all"
+            className="sticker sticker-wa px-5 py-2.5 text-[13px]"
           >
-            <WhatsAppIcon className="w-4 h-4 fill-current" />
-            <span>Consultar por WhatsApp</span>
+            <WhatsAppIcon className="w-4 h-4" />
+            Escribinos
           </a>
-        </div>
-
+        </Reveal>
       </div>
 
-      <div className="max-w-6xl mx-auto mt-8 pt-6 border-t border-[#3B1E2B]/60 text-center text-[11px] text-[#FAF6F0]/40">
-        © {new Date().getFullYear()} LaPrincesaCta. Vos imaginás el momento; nosotras lo hacemos llegar a domicilio. Todos los derechos reservados.
+      <div className="border-t border-ink/15">
+        <p className="max-w-6xl mx-auto px-5 sm:px-8 py-5 text-[11px] text-ink/35">
+          © {new Date().getFullYear()} LaPrincesaCta. Vos imaginás el momento; nosotras lo hacemos
+          llegar a domicilio.
+        </p>
       </div>
     </footer>
   );
