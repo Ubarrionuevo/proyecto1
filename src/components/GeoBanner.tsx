@@ -4,6 +4,7 @@ import React from 'react';
 import { cobertura, getWhatsAppUrl, contact } from '@/lib/products';
 import StickerButton from './ui/StickerButton';
 import Carousel from './ui/Carousel';
+import Reveal from './ui/Reveal';
 
 export default function GeoBanner() {
   return (
@@ -32,8 +33,9 @@ export default function GeoBanner() {
             className="mt-5 text-[15px] text-ink-soft max-w-lg mx-auto leading-relaxed rise"
             style={{ '--rise-delay': '160ms' } as React.CSSProperties}
           >
-            Nos escriben de toda la Argentina y de otros países. Vos lo encargás desde donde
-            estés; nosotras lo dejamos en la puerta en San Fernando del Valle.
+            Nos encargan regalos desde toda la Argentina y otros países para sorprender a
+            familiares y personas queridas que están en Catamarca. Vos lo pedís desde donde
+            estés; nosotras lo preparamos y lo llevamos hasta su puerta.
           </p>
 
           <div
@@ -49,10 +51,11 @@ export default function GeoBanner() {
           </div>
 
           <p
-            className="mt-5 text-[13px] text-ink-soft rise"
+            className="mt-5 text-sm text-ink-soft rise"
             style={{ '--rise-delay': '320ms' } as React.CSSProperties}
           >
-            {contact.rating} en Google Maps · {contact.reviews} opiniones
+            <strong className="font-bold text-ink">{contact.rating}/5</strong> en Google Maps ·{' '}
+            <strong className="font-bold text-ink">{contact.reviews} opiniones</strong>
           </p>
         </div>
       </div>
@@ -61,11 +64,14 @@ export default function GeoBanner() {
           Carrusel lento en loop: en mobile se ve una parte y el resto aparece
           al pasar; tambien se puede deslizar con el dedo. Cada destino abre
           WhatsApp con el mensaje ya armado. */}
-      <div className="mt-10 text-center px-5 sm:px-8">
-        <h3 className="display-md text-ink">También nos compran desde</h3>
+      <div className="mt-12 text-center px-5 sm:px-8">
+        <Reveal>
+          <span className="label text-berry-deep">Clientes de todo el país</span>
+          <h3 className="display-md text-ink mt-3">También nos compran desde</h3>
+        </Reveal>
       </div>
 
-      <div className="relative mt-6 overflow-hidden">
+      <div className="relative mt-7 overflow-hidden">
         <div className="absolute inset-y-0 left-0 w-14 sm:w-24 bg-gradient-to-r from-paper to-transparent z-10 pointer-events-none" />
         <div className="absolute inset-y-0 right-0 w-14 sm:w-24 bg-gradient-to-l from-paper to-transparent z-10 pointer-events-none" />
         <Carousel
@@ -76,7 +82,7 @@ export default function GeoBanner() {
           ]}
           keyOf={(place) => place.name}
           speed={48}
-          gap="0.75rem"
+          gap="1rem"
           className="px-5 sm:px-8"
           renderSlide={(place, _i, copy) => (
             <a

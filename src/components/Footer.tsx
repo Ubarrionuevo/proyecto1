@@ -34,7 +34,9 @@ export default function Footer() {
                   {contact.phoneDisplay}
                 </a>
               </li>
-              <li className="text-ink/55">{contact.hours}</li>
+              <li className="text-ink/55">
+                <strong className="font-bold text-ink">{contact.hours}</strong>
+              </li>
               <li className="text-ink/55">{contact.city}</li>
             </ul>
           </Reveal>

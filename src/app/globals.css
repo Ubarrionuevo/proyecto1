@@ -118,17 +118,22 @@ h4,
   outline-offset: 3px;
 }
 
-/* Varianteoutline: fondo papel, borde tinta */
+/* Variante outline: texto y sombra en berry (#c0304f), fondo transparente.
+   Colores fijos en hover y press: solo se mueve la sombra, no cambian. */
 .sticker-outline {
   background: transparent;
-  color: var(--color-ink);
-  box-shadow: 4px 4px 0 0 var(--color-ink);
+  color: var(--color-berry);
+  box-shadow: 4px 4px 0 0 var(--color-berry);
 }
 @media (hover: hover) {
   .sticker-outline:hover {
-    background: var(--color-ink);
-    color: var(--color-paper);
+    background: transparent;
+    color: var(--color-berry);
+    box-shadow: 6px 6px 0 0 var(--color-berry);
   }
+}
+.sticker-outline:active {
+  box-shadow: 1px 1px 0 0 var(--color-berry);
 }
 
 /* Variante WhatsApp: verde, misma sombra dura */

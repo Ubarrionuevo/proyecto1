@@ -10,9 +10,9 @@ export const contact = {
   phoneDisplay: '+54 9 3834 90-3387',
   phoneHref: `https://wa.me/${WHATSAPP_NUMBER}`,
   city: 'San Fernando del Valle de Catamarca',
-  hours: 'Lunes a sábado, 8 a 20 h',
+  hours: 'Lunes a domingo, 8 a 23 h',
   rating: '5.0',
-  reviews: 28,
+  reviews: 32,
 };
 
 /* ── Cobertura: de dónde nos compran ────────────────────────────

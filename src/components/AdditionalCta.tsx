@@ -39,7 +39,8 @@ export default function AdditionalCta() {
 
         <Reveal delay={220}>
           <p className="mt-6 text-[13px] text-ink-soft">
-            {contact.phoneDisplay} · {contact.hours}
+            {contact.phoneDisplay} ·{' '}
+            <strong className="font-bold text-ink">{contact.hours}</strong>
           </p>
         </Reveal>
       </div>
