@@ -49,12 +49,12 @@ export default function GeoBanner() {
                 className="destino-chip touch-target"
               >
                 {place.flag === 'it' && (
-                  <span className="w-5 h-5 rounded-full overflow-hidden shrink-0 ring-1 ring-ink/15">
+                  <span className="w-5 h-5 rounded-[2px] overflow-hidden shrink-0 ring-1 ring-ink/15">
                     <ItalyFlagIcon className="w-full h-full" />
                   </span>
                 )}
                 {place.flag === 'bo' && (
-                  <span className="w-5 h-5 rounded-full overflow-hidden shrink-0 ring-1 ring-ink/15">
+                  <span className="w-5 h-5 rounded-[2px] overflow-hidden shrink-0 ring-1 ring-ink/15">
                     <BoliviaFlagIcon className="w-full h-full" />
                   </span>
                 )}
