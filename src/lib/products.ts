@@ -46,6 +46,21 @@ export const provinceOrigen = [
 
 export const paisesOrigen = ['Italia', 'Bolivia'];
 
+/* Destinos destacados del hero: van con banderita los paises; las provincias
+   van como chip con nombre porque sus banderas no son reconocibles. */
+export const destinosDestacados: { name: string; flag?: 'it' | 'bo' }[] = [
+  { name: 'Mendoza' },
+  { name: 'San Juan' },
+  { name: 'San Luis' },
+  { name: 'Santiago del Estero' },
+  { name: 'Neuquén' },
+  { name: 'Salta' },
+  { name: 'Córdoba' },
+  { name: 'Buenos Aires' },
+  { name: 'Italia', flag: 'it' },
+  { name: 'Bolivia', flag: 'bo' },
+];
+
 export const cobertura = {
   provinces: provinceOrigen,
   countries: paisesOrigen,

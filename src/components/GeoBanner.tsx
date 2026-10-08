@@ -1,8 +1,9 @@
 'use client';
 
 import React from 'react';
-import { getWhatsAppUrl, contact } from '@/lib/products';
+import { destinosDestacados, getWhatsAppUrl, contact } from '@/lib/products';
 import StickerButton from './ui/StickerButton';
+import { ItalyFlagIcon, BoliviaFlagIcon } from './Icons';
 
 export default function GeoBanner() {
   return (
@@ -29,13 +30,42 @@ export default function GeoBanner() {
             className="mt-5 text-[15px] text-ink-soft max-w-lg mx-auto leading-relaxed rise"
             style={{ '--rise-delay': '160ms' } as React.CSSProperties}
           >
-            Pedilo desde donde estés, aunque sea para un familiar en Catamarca:
-            nosotras lo preparamos y lo llevamos hasta su puerta.
+            Pedilo desde donde estés.
           </p>
+
+          {/* Destinos destacados: banderitas para Italia y Bolivia, chips con
+              nombre para las provincias. Cada uno abre WhatsApp. */}
+          <div
+            className="mt-6 flex flex-wrap items-center justify-center gap-2.5 rise"
+            style={{ '--rise-delay': '230ms' } as React.CSSProperties}
+          >
+            {destinosDestacados.map((place) => (
+              <a
+                key={place.name}
+                href={getWhatsAppUrl(`un regalo desde ${place.name}`)}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Escribinos por WhatsApp desde ${place.name}`}
+                className="destino-chip touch-target"
+              >
+                {place.flag === 'it' && (
+                  <span className="w-5 h-5 rounded-full overflow-hidden shrink-0 ring-1 ring-ink/15">
+                    <ItalyFlagIcon className="w-full h-full" />
+                  </span>
+                )}
+                {place.flag === 'bo' && (
+                  <span className="w-5 h-5 rounded-full overflow-hidden shrink-0 ring-1 ring-ink/15">
+                    <BoliviaFlagIcon className="w-full h-full" />
+                  </span>
+                )}
+                {place.name}
+              </a>
+            ))}
+          </div>
 
           <div
             className="mt-7 flex flex-wrap items-center justify-center gap-4 rise"
-            style={{ '--rise-delay': '240ms' } as React.CSSProperties}
+            style={{ '--rise-delay': '300ms' } as React.CSSProperties}
           >
             <StickerButton href={getWhatsAppUrl('un desayuno a domicilio')} size="lg">
               Quiero armar mi regalo
@@ -47,7 +77,7 @@ export default function GeoBanner() {
 
           <p
             className="mt-5 text-sm text-ink-soft rise"
-            style={{ '--rise-delay': '320ms' } as React.CSSProperties}
+            style={{ '--rise-delay': '370ms' } as React.CSSProperties}
           >
             <strong className="font-bold text-ink">{contact.rating}/5</strong> en Google Maps ·{' '}
             <strong className="font-bold text-ink">{contact.reviews} opiniones</strong>

@@ -62,3 +62,25 @@ export function ArrowIcon({ className = 'w-4 h-4' }: { className?: string }) {
     </svg>
   );
 }
+
+/* Banderas dibujadas en SVG (sin emojis: en Windows los de bandera no se ven).
+   Versiones planas sin escudos, pensadas para insignias chicas. */
+export function ItalyFlagIcon({ className = 'w-5 h-5' }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 3 2" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <rect width="1" height="2" x="0" fill="#009246" />
+      <rect width="1" height="2" x="1" fill="#ffffff" />
+      <rect width="1" height="2" x="2" fill="#ce2b37" />
+    </svg>
+  );
+}
+
+export function BoliviaFlagIcon({ className = 'w-5 h-5' }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 3 2" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <rect width="3" height="0.68" y="0" fill="#d52b1e" />
+      <rect width="3" height="0.67" y="0.68" fill="#f9e300" />
+      <rect width="3" height="0.65" y="1.35" fill="#007934" />
+    </svg>
+  );
+}
