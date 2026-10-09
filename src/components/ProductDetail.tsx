@@ -38,7 +38,7 @@ export default function ProductDetail({ data }: { data: ProductPageData }) {
           productJsonLd({
             name: `${seoName} a domicilio en Catamarca`,
             description: `${product.description} ${product.detail}`,
-            image: product.images[0],
+            image: product.images[0].src,
             price: product.price,
             urlPath,
           }),
@@ -61,12 +61,14 @@ export default function ProductDetail({ data }: { data: ProductPageData }) {
 
         {/* Galería con las fotos reales del producto */}
         <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6">
-          {product.images.map((src, i) => (
+          {product.images.map((image, i) => (
             <Polaroid
-              key={src}
-              src={src}
+              key={image.src}
+              src={image.src}
+              alt={image.alt}
               rotate={i % 2 === 0 ? -1.5 : 1.5}
               priority={i === 0}
+              sizes="(max-width: 640px) 50vw, 360px"
               className="w-full"
               imgClassName="aspect-[3/4]"
             />
@@ -84,7 +86,7 @@ export default function ProductDetail({ data }: { data: ProductPageData }) {
                 loop
                 playsInline
                 preload="none"
-                poster={product.images[0]}
+                poster={product.images[0].src}
               />
             </figure>
           )}

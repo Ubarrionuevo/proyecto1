@@ -5,6 +5,7 @@ import { ramos, getWhatsAppUrl } from '@/lib/products';
 import SectionHead from './ui/SectionHead';
 import StickerButton from './ui/StickerButton';
 import Reveal from './ui/Reveal';
+import Polaroid from './ui/Polaroid';
 
 /* Cada ramo es una tarjeta protagonista: imagen grande arriba, producto y
    precio visibles, CTA inmediato e informacion complementaria despues. */
@@ -35,11 +36,11 @@ export default function AdditionalGifts() {
               className="min-w-0"
             >
               {/* Foto grande: mantiene marco polaroid y proporcion vertical */}
-              <figure
-                className="polaroid w-full"
-                style={{ '--rot': idx % 2 === 0 ? '-1.5deg' : '1.5deg' } as React.CSSProperties}
-              >
-                {ramo.video ? (
+              {ramo.video ? (
+                <figure
+                  className="polaroid w-full"
+                  style={{ '--rot': idx % 2 === 0 ? '-1.5deg' : '1.5deg' } as React.CSSProperties}
+                >
                   <video
                     src={ramo.video}
                     className="w-full aspect-[3/4] object-cover"
@@ -47,16 +48,20 @@ export default function AdditionalGifts() {
                     muted
                     loop
                     playsInline
+                    preload="none"
+                    poster={ramo.images[0].src}
                   />
-                ) : (
-                  <img
-                    src={ramo.images[0]}
-                    alt={ramo.name}
-                    className="zoom-media w-full aspect-[3/4] object-cover"
-                    loading="lazy"
-                  />
-                )}
-              </figure>
+                </figure>
+              ) : (
+                <Polaroid
+                  src={ramo.images[0].src}
+                  alt={ramo.images[0].alt}
+                  rotate={idx % 2 === 0 ? -1.5 : 1.5}
+                  sizes="(max-width: 640px) 100vw, 520px"
+                  className="w-full"
+                  imgClassName="aspect-[3/4]"
+                />
+              )}
 
               {/* Producto visible */}
               <div className="mt-6 border-t border-rule pt-5">

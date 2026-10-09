@@ -7,9 +7,9 @@ import { GoogleGIcon, StarIcon } from './Icons';
 
 /* Las tres fotos que abren la web. Todas verticales, como las reales. */
 const bandPhotos = [
-  { src: '/desayuno.jpeg', caption: 'Caja de madera', span: 'sm:col-span-5', h: 'h-[300px] sm:h-[420px]' },
-  { src: '/ramocomun.png', caption: 'Ramo común', span: 'sm:col-span-4', h: 'h-[240px] sm:h-[340px]' },
-  { src: '/ramooso.png', caption: 'Ramo con oso', span: 'sm:col-span-3', h: 'h-[280px] sm:h-[380px]' },
+  { src: '/desayuno-sorpresa-caja-de-madera-catamarca.webp', caption: 'Caja de madera', span: 'sm:col-span-5', h: 'h-[300px] sm:h-[420px]' },
+  { src: '/ramo-comun-golosinas-catamarca-1.webp', caption: 'Ramo común', span: 'sm:col-span-4', h: 'h-[240px] sm:h-[340px]' },
+  { src: '/ramo-oso-peluche-catamarca-1.webp', caption: 'Ramo con oso', span: 'sm:col-span-3', h: 'h-[280px] sm:h-[380px]' },
 ];
 
 export default function Hero() {

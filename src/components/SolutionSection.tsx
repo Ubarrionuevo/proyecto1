@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { desayunos, getWhatsAppUrl } from '@/lib/products';
 import SectionHead from './ui/SectionHead';
 import StickerButton from './ui/StickerButton';
@@ -41,7 +42,7 @@ export default function SolutionSection() {
             >
               <div className="min-w-0">
                 <div
-                  className={`zoom-host w-full overflow-hidden bg-paper-deep ${
+                  className={`zoom-host relative w-full overflow-hidden bg-paper-deep ${
                     idx === 0
                       ? 'h-[440px] sm:h-[560px] lg:h-[600px]'
                       : 'h-[400px] sm:h-[480px] lg:h-[520px]'
@@ -55,13 +56,16 @@ export default function SolutionSection() {
                       muted
                       loop
                       playsInline
+                      preload="none"
                     />
                   ) : (
-                    <img
-                      src={product.images[0]}
-                      alt={product.name}
-                      className="zoom-media w-full h-full object-cover"
-                      loading="lazy"
+                    <Image
+                      src={product.images[0].src}
+                      alt={product.images[0].alt}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 660px"
+                      priority={idx === 0}
+                      className="zoom-media object-cover"
                     />
                   )}
                 </div>

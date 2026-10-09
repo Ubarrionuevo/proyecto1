@@ -9,6 +9,7 @@ import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import SectionHead from '@/components/ui/SectionHead';
 import StickerButton from '@/components/ui/StickerButton';
 import Reveal from '@/components/ui/Reveal';
+import Polaroid from '@/components/ui/Polaroid';
 import { GoogleGIcon, StarIcon } from '@/components/Icons';
 
 type Filter = 'todos' | 'desayunos' | 'ramos';
@@ -119,8 +120,8 @@ export default function CatalogoClient() {
                 className="lift-row grid grid-cols-12 gap-x-4 sm:gap-x-6 items-start py-6 sm:py-8 border-b border-rule"
               >
                 <div className="col-span-3 sm:col-span-2">
-                  <figure className="polaroid" style={{ '--rot': '-1.5deg' } as React.CSSProperties}>
-                    {item.video ? (
+                  {item.video ? (
+                    <figure className="polaroid" style={{ '--rot': '-1.5deg' } as React.CSSProperties}>
                       <video
                         src={item.video}
                         className="w-full aspect-[3/4] object-cover"
@@ -128,16 +129,20 @@ export default function CatalogoClient() {
                         muted
                         loop
                         playsInline
+                        preload="none"
+                        poster={item.images[0].src}
                       />
-                    ) : (
-                      <img
-                        src={item.images[0]}
-                        alt={item.name}
-                        className="zoom-media w-full aspect-[3/4] object-cover"
-                        loading="lazy"
-                      />
-                    )}
-                  </figure>
+                    </figure>
+                  ) : (
+                    <Polaroid
+                      src={item.images[0].src}
+                      alt={item.images[0].alt}
+                      rotate={-1.5}
+                      sizes="(max-width: 640px) 30vw, 190px"
+                      className="w-full"
+                      imgClassName="aspect-[3/4]"
+                    />
+                  )}
                 </div>
 
                 <div className="col-span-9 sm:col-span-5">

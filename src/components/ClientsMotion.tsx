@@ -45,10 +45,12 @@ export default function ClientsMotion({
           speed={64}
           gap="1.25rem"
           className="px-5 sm:px-8"
-          renderSlide={(photo, i) => (
+          renderSlide={(photo, i, copy) => (
             <Polaroid
               src={photo.image}
               caption={photo.tag}
+              alt={photo.alt}
+              decorative={copy === 1}
               rotate={rotations[i % rotations.length]}
               className="w-[min(76vw,300px)] sm:w-[300px] lg:w-[330px] shrink-0"
               imgClassName="aspect-[3/4]"

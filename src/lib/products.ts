@@ -70,13 +70,15 @@ export const cobertura = {
   total: provinceOrigen.length + paisesOrigen.length,
 };
 
+export type ProductImage = { src: string; alt: string };
+
 export type Product = {
   id: string;
   name: string;
   price: string;
   description: string;
   detail: string;
-  images: string[];
+  images: ProductImage[];
   video?: string;
   tag?: string;
 };
@@ -91,7 +93,20 @@ export const desayunos: Product[] = [
     description: 'La que más pedimos. Una caja de madera con todo ordenado y bien envuelta.',
     detail:
       'Café o té bien caliente, delicias artesanales, una taza y una nota escrita a mano. La madera se queda: muchas familias la vuelven a usar para guardar cosas.',
-    images: ['/desayuno.jpeg', '/cliente1.png', '/cliente4.png'],
+    images: [
+      {
+        src: '/desayuno-sorpresa-caja-de-madera-catamarca.webp',
+        alt: 'Desayuno sorpresa en caja de madera entregado a domicilio en Catamarca',
+      },
+      {
+        src: '/foto-cliente-caja-madera-catamarca-1.webp',
+        alt: 'Desayuno en caja de madera recibido por una clienta en Catamarca',
+      },
+      {
+        src: '/foto-cliente-caja-madera-catamarca-2.webp',
+        alt: 'Caja de madera con desayuno completo para regalar',
+      },
+    ],
     tag: 'La más pedida',
   },
   {
@@ -101,7 +116,20 @@ export const desayunos: Product[] = [
     description: 'La misma sorpresa, con presentación de cartón premium.',
     detail:
       'Café, delicias, taza personalizada y la nota a mano. Sale un poco menos que la de madera y se ve igual de lindo en la puerta.',
-    images: ['/desayunocajacarton.jpeg', '/cliente2.png', '/cliente7.png'],
+    images: [
+      {
+        src: '/desayuno-sorpresa-caja-de-carton-catamarca.webp',
+        alt: 'Desayuno sorpresa en caja de cartón premium entregado en Catamarca',
+      },
+      {
+        src: '/foto-cliente-caja-carton-catamarca-1.webp',
+        alt: 'Desayuno en caja de cartón entregado a domicilio',
+      },
+      {
+        src: '/foto-cliente-caja-carton-catamarca-2.webp',
+        alt: 'Caja de cartón con desayuno sorpresa entregada en puerta',
+      },
+    ],
   },
 ];
 
@@ -115,7 +143,20 @@ export const ramos: Product[] = [
     description: 'El ramo de siempre, bien armado y con la combinación que más gusta.',
     detail:
       'Golosinas de todo tipo armadas en forma de ramo y envueltas para regalar. Es el que más enviamos a las familias.',
-    images: ['/ramocomun.png', '/ramocomun1.png', '/ramocomun2.png'],
+    images: [
+      {
+        src: '/ramo-comun-golosinas-catamarca-1.webp',
+        alt: 'Ramo común de golosinas armado y envuelto para regalar',
+      },
+      {
+        src: '/ramo-comun-golosinas-catamarca-2.webp',
+        alt: 'Detalle del armado del ramo común de golosinas',
+      },
+      {
+        src: '/ramo-comun-golosinas-catamarca-3.webp',
+        alt: 'Ramo común de golosinas con moño, listo para entregar',
+      },
+    ],
     tag: 'Más vendido',
   },
   {
@@ -125,7 +166,16 @@ export const ramos: Product[] = [
     description: 'Para los que no se pierden un partido. Camiseta, escudos y golosinas.',
     detail:
       'Armado con los colores que pida tu club y la camiseta adentro. Se arma por pedido: decinos tu equipo y lo dejamos a tu manera.',
-    images: ['/RamoMundialista.jpeg', '/ramos.golosinas.jpg'],
+    images: [
+      {
+        src: '/ramo-futbolero-golosinas-catamarca-1.webp',
+        alt: 'Ramo futbolero de golosinas con camiseta y escudos del club',
+      },
+      {
+        src: '/ramo-futbolero-golosinas-catamarca-2.webp',
+        alt: 'Detalle de golosinas y escudos del ramo futbolero',
+      },
+    ],
   },
   {
     id: 'ramo-chocolates',
@@ -134,8 +184,17 @@ export const ramos: Product[] = [
     description: 'Un gesto elegante con chocolates que enamoran desde el primer vistazo.',
     detail:
       'Todo chocolate, con envuelto fino y un moño que no se deshace en el camino. Se ve premium incluso sin decir el precio.',
-    images: ['/ramos.golosinas.definitivo.jpeg', '/ramos.golosinas2.jpg'],
-    video: '/WhatsApp Video 2026-06-28 at 8.47.33 PM.mp4',
+    images: [
+      {
+        src: '/ramo-chocolates-catamarca-1.webp',
+        alt: 'Ramo de chocolates con envuelto fino y moño',
+      },
+      {
+        src: '/ramo-chocolates-catamarca-2.webp',
+        alt: 'Detalle del moño del ramo de chocolates',
+      },
+    ],
+    video: '/video-ramo-chocolates-catamarca.mp4',
   },
   {
     id: 'ramo-oso',
@@ -144,7 +203,16 @@ export const ramos: Product[] = [
     description: 'Una combinación tierna: golosinas y un oso de peluche adentro.',
     detail:
       'El ramo con peluche es el que más se regala para novios y para chicas. El oso va envuelto para que llegue entero.',
-    images: ['/ramooso.png', '/ramos.golosinas3.jpg'],
+    images: [
+      {
+        src: '/ramo-oso-peluche-catamarca-1.webp',
+        alt: 'Ramo con oso de peluche entre golosinas',
+      },
+      {
+        src: '/ramo-oso-peluche-catamarca-2.webp',
+        alt: 'Detalle del peluche envuelto del ramo con oso',
+      },
+    ],
   },
 ];
 
@@ -159,15 +227,59 @@ export const stats = [
 /* ── Fotos reales de clientes ────────────────────────────────── */
 
 export const clientPhotos = [
-  { image: '/cliente1.png', tag: 'Caja de madera' },
-  { image: '/cliente2.png', tag: 'Caja de cartón' },
-  { image: '/cliente3.png', tag: 'Ramo de golosinas' },
-  { image: '/cliente4.png', tag: 'Caja de madera' },
-  { image: '/cliente5.png', tag: 'Ramo común' },
-  { image: '/cliente6.png', tag: 'Ramo con oso' },
-  { image: '/cliente7.png', tag: 'Caja de cartón' },
-  { image: '/WhatsApp Image 2026-01-05 at 11.17.57 (1).jpeg', tag: 'Aniversario' },
-  { image: '/WhatsApp Image 2026-04-10 at 9.18.50 PM.jpeg', tag: 'Desayuno sorpresa' },
-  { image: '/WhatsApp Image 2026-04-10 at 9.18.51 PM.jpeg', tag: 'Ramo golosinas' },
-  { image: '/WhatsApp Image 2025-11-14 at 16.48.51.jpeg', tag: 'Cumpleaños' },
+  {
+    image: '/foto-cliente-caja-madera-catamarca-1.webp',
+    tag: 'Caja de madera',
+    alt: 'Desayuno en caja de madera recibido por una clienta en Catamarca',
+  },
+  {
+    image: '/foto-cliente-caja-carton-catamarca-1.webp',
+    tag: 'Caja de cartón',
+    alt: 'Desayuno en caja de cartón entregado a domicilio',
+  },
+  {
+    image: '/foto-cliente-ramo-golosinas-catamarca-1.webp',
+    tag: 'Ramo de golosinas',
+    alt: 'Ramo de golosinas entregado a un cliente',
+  },
+  {
+    image: '/foto-cliente-caja-madera-catamarca-2.webp',
+    tag: 'Caja de madera',
+    alt: 'Caja de madera con desayuno completo para regalar',
+  },
+  {
+    image: '/foto-cliente-ramo-comun-catamarca.webp',
+    tag: 'Ramo común',
+    alt: 'Ramo común de golosinas entregado a una familia',
+  },
+  {
+    image: '/foto-cliente-ramo-oso-catamarca.webp',
+    tag: 'Ramo con oso',
+    alt: 'Ramo con oso de peluche regalado en Catamarca',
+  },
+  {
+    image: '/foto-cliente-caja-carton-catamarca-2.webp',
+    tag: 'Caja de cartón',
+    alt: 'Caja de cartón con desayuno sorpresa entregada en puerta',
+  },
+  {
+    image: '/foto-cliente-aniversario-catamarca.webp',
+    tag: 'Aniversario',
+    alt: 'Desayuno sorpresa de aniversario entregado en Catamarca',
+  },
+  {
+    image: '/foto-cliente-desayuno-sorpresa-catamarca.webp',
+    tag: 'Desayuno sorpresa',
+    alt: 'Desayuno sorpresa entregado de mañana en Catamarca',
+  },
+  {
+    image: '/foto-cliente-ramo-golosinas-catamarca-2.webp',
+    tag: 'Ramo golosinas',
+    alt: 'Ramo de golosinas entregado como regalo en Catamarca',
+  },
+  {
+    image: '/foto-cliente-cumpleanos-catamarca.webp',
+    tag: 'Cumpleaños',
+    alt: 'Desayuno sorpresa de cumpleaños en caja de cartón en Catamarca',
+  },
 ];
