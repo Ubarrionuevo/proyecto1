@@ -1,18 +1,21 @@
-const WHATSAPP_NUMBER = '5493834903387';
+import { siteConfig } from './site';
+
+const WHATSAPP_NUMBER = siteConfig.whatsappNumber;
 
 export const getWhatsAppUrl = (producto: string = 'regalo a domicilio') => {
   const message = `¡Hola! Vengo de la web y quiero consultar por ${producto} 🌸`;
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 };
 
+/* Contacto y prueba social: salen de siteConfig para no tener dos fuentes. */
 export const contact = {
-  brand: 'LaPrincesaCta',
-  phoneDisplay: '+54 9 3834 90-3387',
-  phoneHref: `https://wa.me/${WHATSAPP_NUMBER}`,
-  city: 'San Fernando del Valle de Catamarca',
-  hours: 'Lunes a domingo, 8 a 23 h',
-  rating: '5.0',
-  reviews: 32,
+  brand: siteConfig.name,
+  phoneDisplay: siteConfig.phoneDisplay,
+  phoneHref: siteConfig.phoneHref,
+  city: siteConfig.city,
+  hours: siteConfig.hours,
+  rating: siteConfig.googleRating,
+  reviews: siteConfig.googleReviews,
 };
 
 /* ── Cobertura: de dónde nos compran ────────────────────────────
