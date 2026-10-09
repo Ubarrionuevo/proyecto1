@@ -3,8 +3,18 @@
 import React from 'react';
 import Link from 'next/link';
 import { getWhatsAppUrl, contact } from '@/lib/products';
+import { siteConfig } from '@/lib/site';
 import { GoogleGIcon, StarIcon, WhatsAppIcon } from './Icons';
 import Reveal from './ui/Reveal';
+
+const pageLinks = [
+  { href: '/', label: 'Inicio' },
+  { href: '/catalogo', label: 'Catálogo y precios' },
+  { href: '/desayunos-sorpresa-catamarca', label: 'Desayunos sorpresa' },
+  { href: '/ramos-de-golosinas-catamarca', label: 'Ramos de golosinas' },
+  { href: '/dia-de-la-madre', label: 'Día de la Madre' },
+  { href: '/enviar-regalo-a-catamarca', label: 'Enviar regalo a Catamarca' },
+];
 
 export default function Footer() {
   return (
@@ -44,12 +54,7 @@ export default function Footer() {
           <Reveal delay={160} y={10} className="sm:border-l sm:border-ink/15 sm:pl-8">
             <span className="label text-ink/40">Secciones</span>
             <ul className="mt-4 space-y-2.5 text-sm">
-              {[
-                { href: '#desayunos', label: 'Desayunos' },
-                { href: '#ramos', label: 'Ramos' },
-                { href: '#clientes', label: 'Clientes' },
-                { href: '/catalogo', label: 'Catálogo' },
-              ].map((link) => (
+              {pageLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -62,6 +67,38 @@ export default function Footer() {
             </ul>
           </Reveal>
         </div>
+
+        {/* Redes: solo si hay URL en siteConfig */}
+        {(siteConfig.instagramUrl || siteConfig.facebookUrl) && (
+          <div className="border-t border-ink/15 py-6">
+            <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+              {siteConfig.instagramUrl && (
+                <li>
+                  <a
+                    href={siteConfig.instagramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link-underline font-bold text-ink"
+                  >
+                    Instagram
+                  </a>
+                </li>
+              )}
+              {siteConfig.facebookUrl && (
+                <li>
+                  <a
+                    href={siteConfig.facebookUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link-underline font-bold text-ink"
+                  >
+                    Facebook
+                  </a>
+                </li>
+              )}
+            </ul>
+          </div>
+        )}
 
         {/* Rating */}
         <Reveal

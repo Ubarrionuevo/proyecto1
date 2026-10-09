@@ -7,20 +7,17 @@ import { getWhatsAppUrl, contact } from '@/lib/products';
 import { GoogleGIcon, StarIcon, MenuIcon, CloseIcon } from './Icons';
 
 const navLinks = [
-  { href: '#desayunos', label: 'Desayunos' },
-  { href: '#ramos', label: 'Ramos' },
-  { href: '#clientes', label: 'Clientes' },
+  { href: '/desayunos-sorpresa-catamarca', label: 'Desayunos' },
+  { href: '/ramos-de-golosinas-catamarca', label: 'Ramos' },
   { href: '/catalogo', label: 'Catálogo' },
+  { href: '/dia-de-la-madre', label: 'Día de la Madre' },
+  { href: '/enviar-regalo-a-catamarca', label: 'Enviar regalo' },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-
-  /* En /catalogo los anchors #desayunos y #ramos no existen: resolvemos al Home. */
-  const resolveHref = (href: string) =>
-    href.startsWith('#') && pathname !== '/' ? `/${href}` : href;
 
   /* Estado de scroll para la transicion de la barra. Pasa por un listener
      pasivo y solo guarda un booleano: no fuerza re-renders por pixel. */
@@ -65,11 +62,12 @@ export default function Navbar() {
           </Link>
 
           {/* Links de escritorio */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
-                href={resolveHref(link.href)}
+                href={link.href}
+                aria-current={pathname === link.href ? 'page' : undefined}
                 className="link-underline text-[13px] font-semibold text-ink-soft hover:text-ink transition-colors"
               >
                 {link.label}
@@ -127,7 +125,7 @@ export default function Navbar() {
             {navLinks.map((link, i) => (
               <Link
                 key={link.href}
-                href={resolveHref(link.href)}
+                href={link.href}
                 onClick={() => setOpen(false)}
                 className="rise py-3.5 font-display text-xl text-ink border-b border-rule-soft last:border-0 transition-[color,transform] duration-200 hover:text-berry active:scale-[0.98]"
                 style={{ '--rise-delay': `${i * 35}ms` } as React.CSSProperties}
