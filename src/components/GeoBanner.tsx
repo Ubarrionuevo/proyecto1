@@ -12,18 +12,18 @@ export default function GeoBanner() {
         {/* Titular del banner. Entrada escalonada: pregunta -> promesa -> bajada ->
             CTA -> rating, con 80ms entre cada bloque. */}
         <div className="text-center">
-          <h2
+          <h1
             className="display-lg text-ink mx-auto text-balance rise"
             style={{ '--rise-delay': '0ms' } as React.CSSProperties}
           >
-            ¿Estás lejos?
-          </h2>
+            Desayunos sorpresa a domicilio en Catamarca
+          </h1>
 
           <p
             className="display-md mt-1 text-berry italic rise"
             style={{ '--rise-delay': '80ms' } as React.CSSProperties}
           >
-            El regalo llega igual.
+            ¿Estás lejos? El regalo llega igual.
           </p>
 
           <p

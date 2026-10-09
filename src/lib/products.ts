@@ -119,8 +119,8 @@ export const ramos: Product[] = [
     tag: 'Más vendido',
   },
   {
-    id: 'ramo-mundialista',
-    name: 'Ramo Mundialista',
+    id: 'ramo-futbolero',
+    name: 'Ramo Futbolero',
     price: '$28.000',
     description: 'Para los que no se pierden un partido. Camiseta, escudos y golosinas.',
     detail:
@@ -153,7 +153,7 @@ export const ramos: Product[] = [
 export const stats = [
   { value: '+100', label: 'entregas hechas' },
   { value: '5.0', label: 'en Google Maps' },
-  { value: '28', label: 'opiniones' },
+  { value: '33', label: 'opiniones' },
 ];
 
 /* ── Fotos reales de clientes ────────────────────────────────── */
