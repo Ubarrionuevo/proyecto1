@@ -79,7 +79,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3 sm:gap-5">
             <div className="stars-hover hidden sm:flex items-center gap-1.5">
               <GoogleGIcon className="w-4 h-4" />
-              <span className="flex items-center gap-px" aria-label="5 de 5 estrellas">
+              <span className="flex items-center gap-px" role="img" aria-label="5 de 5 estrellas">
                 {[0, 1, 2, 3, 4].map((i) => (
                   <StarIcon key={i} className="star w-3 h-3 text-butter-deep" />
                 ))}

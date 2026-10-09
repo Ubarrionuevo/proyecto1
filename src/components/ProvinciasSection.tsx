@@ -52,7 +52,7 @@ export default function ProvinciasSection() {
                 Un cliente que vive en Italia nos confió el desayuno de su mamá acá. Nos escribió,
                 lo armamos y se lo entregamos.
               </blockquote>
-              <figcaption className="label mt-4 text-ink/45">
+              <figcaption className="label mt-4">
                 Ya nos pasó — y lo hacemos de nuevo
               </figcaption>
             </Reveal>
@@ -69,12 +69,12 @@ export default function ProvinciasSection() {
                   y={10}
                   className="grid grid-cols-12 gap-4 py-6 border-b border-ink/20"
                 >
-                  <span className="col-span-2 sm:col-span-1 font-display text-2xl text-berry-deep/70 leading-none">
+                  <span className="col-span-2 sm:col-span-1 font-display text-2xl text-berry-deep leading-none">
                     {step.n}
                   </span>
                   <div className="col-span-10 sm:col-span-11">
                     <h3 className="font-display text-lg sm:text-xl text-ink">{step.t}</h3>
-                    <p className="mt-1.5 text-sm leading-relaxed text-ink/60 max-w-md">
+                    <p className="mt-1.5 text-sm leading-relaxed text-ink-soft max-w-md">
                       {step.d}
                     </p>
                   </div>

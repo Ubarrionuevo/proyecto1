@@ -22,7 +22,13 @@ export default function SectionHead({
 
   return (
     <div className={`flex flex-col ${alignCls} max-w-3xl`}>
-      {number && <span className="num text-[4.5rem] sm:text-[6.5rem] mb-2">{number}</span>}
+      {/* Numeral puramente decorativo: oculto a lectores (el label ya anuncia
+          la sección) y así no cuenta para contraste. */}
+      {number && (
+        <span aria-hidden="true" className="num text-[4.5rem] sm:text-[6.5rem] mb-2">
+          {number}
+        </span>
+      )}
 
       <span className={`label ${onDark ? 'text-paper/50' : ''}`}>{label}</span>
 

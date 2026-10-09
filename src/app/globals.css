@@ -19,7 +19,9 @@
   /* Version oscura del butter: sobre fondo claro el color original
      no llega a 4.5:1 y el texto queda ilegible. */
   --color-butter-deep: #8a6318;
-  --color-wa: #1fa855;
+  /* Verde WhatsApp oscurecido para que el texto blanco llegue a 4.5:1.
+     Sigue siendo verde WhatsApp a simple vista. */
+  --color-wa: #146c3c;
 
   /* Una sola tipografia en toda la web: Karla para todo.
      --font-display se mantiene como alias para no romper las clases
@@ -65,12 +67,13 @@ h4,
   color: var(--color-ink-soft);
 }
 
-/* Numeral de seccion */
+/* Numeral de seccion: topo suave pero con contraste 3:1+ para texto grande
+   sobre papel y papel-profundo. Sigue viéndose apagado junto al titular. */
 .num {
   font-family: var(--font-display);
   font-weight: 700;
   line-height: 0.85;
-  color: var(--color-rule);
+  color: #937d6a;
 }
 
 /* Filete: hairline en vez de sombra */
@@ -143,7 +146,7 @@ h4,
 }
 @media (hover: hover) {
   .sticker-wa:hover {
-    background: #198f47;
+    background: #0f5c33;
   }
 }
 

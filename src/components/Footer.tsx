@@ -26,13 +26,13 @@ export default function Footer() {
             <p className="font-display text-2xl font-semibold text-ink">
               LaPrincesa<span className="text-berry-deep">Cta</span>
             </p>
-            <p className="mt-3 text-sm leading-relaxed text-ink/55 max-w-xs">
+            <p className="mt-3 text-sm leading-relaxed text-ink-soft max-w-xs">
               Desayunos a domicilio y ramos de golosinas en San Fernando del Valle de Catamarca.
             </p>
           </Reveal>
 
           <Reveal delay={80} y={10} className="sm:border-l sm:border-ink/15 sm:pl-8">
-            <span className="label text-ink/40">Contacto</span>
+            <span className="label">Contacto</span>
             <ul className="mt-4 space-y-2.5 text-sm">
               <li>
                 <a
@@ -44,21 +44,21 @@ export default function Footer() {
                   {contact.phoneDisplay}
                 </a>
               </li>
-              <li className="text-ink/55">
+              <li>
                 <strong className="font-bold text-ink">{contact.hours}</strong>
               </li>
-              <li className="text-ink/55">{contact.city}</li>
+              <li className="text-ink-soft">{contact.city}</li>
             </ul>
           </Reveal>
 
           <Reveal delay={160} y={10} className="sm:border-l sm:border-ink/15 sm:pl-8">
-            <span className="label text-ink/40">Secciones</span>
+            <span className="label">Secciones</span>
             <ul className="mt-4 space-y-2.5 text-sm">
               {pageLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="link-underline text-ink/70 hover:text-ink"
+                    className="link-underline text-ink-soft hover:text-ink"
                   >
                     {link.label}
                   </Link>
@@ -105,9 +105,9 @@ export default function Footer() {
           y={8}
           className="border-t border-ink/15 py-6 flex flex-wrap items-center justify-between gap-4"
         >
-          <div className="stars-hover flex items-center gap-2 text-sm text-ink/60">
+          <div className="stars-hover flex items-center gap-2 text-sm text-ink-soft">
             <GoogleGIcon className="w-4 h-4" />
-            <span className="flex items-center gap-px" aria-label="5 de 5 estrellas">
+            <span className="flex items-center gap-px" role="img" aria-label="5 de 5 estrellas">
               {[0, 1, 2, 3, 4].map((i) => (
                 <StarIcon key={i} className="star w-3.5 h-3.5 text-berry-deep" />
               ))}
@@ -131,7 +131,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-ink/15">
-        <p className="max-w-6xl mx-auto px-5 sm:px-8 py-5 text-[11px] text-ink/35">
+          <p className="max-w-6xl mx-auto px-5 sm:px-8 py-5 text-[11px] text-ink-soft">
           © {new Date().getFullYear()} LaPrincesaCta. Vos imaginás el momento; nosotras lo hacemos
           llegar a domicilio.
         </p>

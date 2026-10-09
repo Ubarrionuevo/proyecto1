@@ -65,7 +65,7 @@ export default function CatalogoClient() {
 
                 <div className="mt-6 flex items-center gap-2 text-[13px] text-ink-soft">
                   <GoogleGIcon className="w-4 h-4" />
-                  <span className="flex items-center gap-px" aria-label="5 de 5 estrellas">
+                  <span className="flex items-center gap-px" role="img" aria-label="5 de 5 estrellas">
                     {[0, 1, 2, 3, 4].map((i) => (
                       <StarIcon key={i} className="w-3.5 h-3.5 text-butter-deep" />
                     ))}

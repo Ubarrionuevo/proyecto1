@@ -121,7 +121,7 @@ export default function EnviarRegaloPage() {
               key={paso.n}
               className="grid grid-cols-12 gap-4 py-6 border-b border-rule"
             >
-              <span className="col-span-2 sm:col-span-1 font-display text-2xl text-berry-deep/70 leading-none">
+              <span className="col-span-2 sm:col-span-1 font-display text-2xl text-berry-deep leading-none">
                 {paso.n}
               </span>
               <div className="col-span-10 sm:col-span-11">
