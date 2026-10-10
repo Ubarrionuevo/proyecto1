@@ -3,6 +3,7 @@
 import React from 'react';
 import { destinosDestacados, getWhatsAppUrl, contact } from '@/lib/products';
 import StickerButton from './ui/StickerButton';
+import Carousel from './ui/Carousel';
 import { ItalyFlagIcon, BoliviaFlagIcon } from './Icons';
 
 export default function GeoBanner() {
@@ -32,37 +33,55 @@ export default function GeoBanner() {
           >
             Pedilo desde donde estés.
           </p>
+        </div>
+      </div>
 
-          {/* Destinos destacados: banderitas para Italia y Bolivia, chips con
-              nombre para las provincias. Cada uno abre WhatsApp. */}
-          <div
-            className="mt-6 flex flex-wrap items-center justify-center gap-2.5 rise"
-            style={{ '--rise-delay': '230ms' } as React.CSSProperties}
-          >
-            {destinosDestacados.map((place) => (
-              <a
-                key={place.name}
-                href={getWhatsAppUrl(`un regalo desde ${place.name}`)}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Escribinos por WhatsApp desde ${place.name}`}
-                className="destino-chip touch-target"
-              >
-                {place.flag === 'it' && (
-                  <span className="w-5 h-5 rounded-[2px] overflow-hidden shrink-0 ring-1 ring-ink/15">
-                    <ItalyFlagIcon className="w-full h-full" />
-                  </span>
-                )}
-                {place.flag === 'bo' && (
-                  <span className="w-5 h-5 rounded-[2px] overflow-hidden shrink-0 ring-1 ring-ink/15">
-                    <BoliviaFlagIcon className="w-full h-full" />
-                  </span>
-                )}
-                {place.name}
-              </a>
-            ))}
-          </div>
+      {/* Destinos destacados en carrusel infinito de derecha a izquierda:
+          banderitas para Italia y Bolivia, chips con nombre para las
+          provincias. Cada uno abre WhatsApp. No se frena nunca (ni con el
+          mouse): solo cede mientras se arrastra con el dedo. */}
+      <div
+        className="relative mt-6 overflow-hidden rise"
+        style={{ '--rise-delay': '230ms' } as React.CSSProperties}
+      >
+        <div className="absolute inset-y-0 left-0 w-14 sm:w-24 bg-gradient-to-r from-paper to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-14 sm:w-24 bg-gradient-to-l from-paper to-transparent z-10 pointer-events-none" />
+        <Carousel
+          label="Provincias y países desde donde nos compran"
+          items={destinosDestacados}
+          keyOf={(place) => place.name}
+          speed={40}
+          gap="0.75rem"
+          pauseOnHover={false}
+          className="px-5 sm:px-8"
+          renderSlide={(place, _i, copy) => (
+            <a
+              key={place.name}
+              href={getWhatsAppUrl(`un regalo desde ${place.name}`)}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Escribinos por WhatsApp desde ${place.name}`}
+              tabIndex={copy === 1 ? -1 : undefined}
+              className="destino-chip touch-target"
+            >
+              {place.flag === 'it' && (
+                <span className="w-5 h-5 rounded-[2px] overflow-hidden shrink-0 ring-1 ring-ink/15">
+                  <ItalyFlagIcon className="w-full h-full" />
+                </span>
+              )}
+              {place.flag === 'bo' && (
+                <span className="w-5 h-5 rounded-[2px] overflow-hidden shrink-0 ring-1 ring-ink/15">
+                  <BoliviaFlagIcon className="w-full h-full" />
+                </span>
+              )}
+              {place.name}
+            </a>
+          )}
+        />
+      </div>
 
+      <div className="max-w-6xl mx-auto px-5 sm:px-8">
+        <div className="text-center">
           <div
             className="mt-7 flex flex-wrap items-center justify-center gap-4 rise"
             style={{ '--rise-delay': '300ms' } as React.CSSProperties}

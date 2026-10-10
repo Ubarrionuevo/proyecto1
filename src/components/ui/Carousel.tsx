@@ -21,6 +21,7 @@ export default function Carousel<T>({
   speed = 32,
   gap = '1rem',
   className = '',
+  pauseOnHover = true,
 }: {
   label: string;
   items: T[];
@@ -29,6 +30,9 @@ export default function Carousel<T>({
   speed?: number;
   gap?: string;
   className?: string;
+  /* pauseOnHover false: ni el mouse lo frena (solo cede mientras se arrastra
+     con el dedo o se usa el teclado, para no pelear con el usuario). */
+  pauseOnHover?: boolean;
 }) {
   const scrollerRef = useRef<HTMLDivElement>(null);
   const pausedRef = useRef(false);
@@ -58,6 +62,7 @@ export default function Carousel<T>({
   };
 
   const onMouseEnter = () => {
+    if (!pauseOnHover) return;
     if (window.matchMedia('(hover: hover)').matches) pause();
   };
 
