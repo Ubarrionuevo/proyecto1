@@ -28,12 +28,9 @@ export default function AdditionalCta() {
           </p>
         </Reveal>
 
-        <Reveal delay={130} className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Reveal delay={130} className="mt-9 flex items-center justify-center">
           <StickerButton href={getWhatsAppUrl('un regalo')} size="lg">
             Quiero mi regalo
-          </StickerButton>
-          <StickerButton href="/catalogo" variant="outline" size="lg" icon="none">
-            Ver el catálogo
           </StickerButton>
         </Reveal>
 

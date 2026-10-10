@@ -83,14 +83,11 @@ export default function GeoBanner() {
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         <div className="text-center">
           <div
-            className="mt-7 flex flex-wrap items-center justify-center gap-4 rise"
+            className="mt-7 flex items-center justify-center rise"
             style={{ '--rise-delay': '300ms' } as React.CSSProperties}
           >
             <StickerButton href={getWhatsAppUrl('un desayuno a domicilio')} size="lg">
               Quiero armar mi regalo
-            </StickerButton>
-            <StickerButton href="/catalogo" variant="outline" size="lg" icon="none">
-              Ver el catálogo
             </StickerButton>
           </div>
 
