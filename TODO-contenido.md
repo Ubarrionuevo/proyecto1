@@ -25,9 +25,11 @@ Nada de lo de abajo está publicado en la web. Son datos que faltan y que
 
 ## Productos (lo que falte por producto va acá, no se publica sin confirmar)
 - [ ] Contenido detallado, medidas, sabores y opciones de cada desayuno y ramo.
-- [ ] Precios confirmados: Caja de Madera $39.000, Caja de Cartón $36.000,
-      Ramo Común $21.000, Ramo con Oso $26.000, Ramo de Chocolates $24.000,
-      Ramo Futbolero $28.000.
+- [ ] Precios confirmados (hoy NO se muestran en la web): Caja de Madera $39.000,
+      Caja de Cartón $36.000, Ramo Común $21.000, Ramo con Oso $26.000,
+      Ramo de Chocolates $24.000, Ramo Futbolero $28.000. Siguen cargados en
+      `products.ts` pero ocultos: para volver a mostrarlos, poner
+      `showPrices: true` en `src/lib/site.ts`.
 
 ## Medición
 - [ ] ID de GA4 (para `NEXT_PUBLIC_GA_ID`).

@@ -9,7 +9,7 @@ import Reveal from './ui/Reveal';
 
 const pageLinks = [
   { href: '/', label: 'Inicio' },
-  { href: '/catalogo', label: 'Catálogo y precios' },
+  { href: '/catalogo', label: 'Catálogo' },
   { href: '/desayunos-sorpresa-catamarca', label: 'Desayunos sorpresa' },
   { href: '/ramos-de-golosinas-catamarca', label: 'Ramos de golosinas' },
   { href: '/dia-de-la-madre', label: 'Día de la Madre' },
@@ -33,22 +33,19 @@ export default function Footer() {
 
           <Reveal delay={80} y={10} className="sm:border-l sm:border-ink/15 sm:pl-8">
             <span className="label">Contacto</span>
-            <ul className="mt-4 space-y-2.5 text-sm">
-              <li>
-                <a
-                  href={contact.phoneHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="link-underline text-ink hover:text-berry-deep"
-                >
-                  {contact.phoneDisplay}
-                </a>
-              </li>
-              <li>
-                <strong className="font-bold text-ink">{contact.hours}</strong>
-              </li>
-              <li className="text-ink-soft">{contact.city}</li>
-            </ul>
+            <p className="mt-4 text-sm text-ink">
+              <a
+                href={contact.phoneHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-underline text-ink hover:text-berry-deep"
+              >
+                {contact.phoneDisplay}
+              </a>
+              <span className="text-ink-soft"> · </span>
+              <strong className="font-bold text-ink">{contact.hours}</strong>
+            </p>
+            <p className="mt-2 text-sm text-ink-soft">{contact.city}</p>
           </Reveal>
 
           <Reveal delay={160} y={10} className="sm:border-l sm:border-ink/15 sm:pl-8">
@@ -131,7 +128,8 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-ink/15">
-          <p className="max-w-6xl mx-auto px-5 sm:px-8 py-5 text-[11px] text-ink-soft">
+          {/* pb extra en mobile: deja aire para el botón flotante de WhatsApp. */}
+          <p className="max-w-6xl mx-auto px-5 sm:px-8 pt-5 pb-24 sm:pb-5 text-[11px] text-ink-soft">
           © {new Date().getFullYear()} LaPrincesaCta. Vos imaginás el momento; nosotras lo hacemos
           llegar a domicilio.
         </p>

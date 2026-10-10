@@ -45,7 +45,7 @@ export default function Reviews() {
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {reviews.map((review) => (
             <figure key={review.name} className="border border-rule bg-paper-card p-6">
-              <blockquote className="quote text-[15px] leading-relaxed text-ink">
+              <blockquote className="quote text-base leading-relaxed text-ink">
                 {review.text}
               </blockquote>
               <figcaption className="label mt-4">

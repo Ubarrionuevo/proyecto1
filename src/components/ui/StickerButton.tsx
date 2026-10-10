@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { WhatsAppIcon } from '@/components/Icons';
 
 type Variant = 'berry' | 'outline' | 'wa';
@@ -40,21 +41,35 @@ export default function StickerButton({
     lg: 'w-5 h-5',
   };
 
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      /* wrap permite que un CTA largo baje a dos lineas en pantallas chicas;
-         por defecto se mantiene en una linea para no romper la transicion. */
-      className={`${variants[variant]} ${sizes[size]} shrink-0 ${wrap ? 'whitespace-normal text-center leading-snug' : 'whitespace-nowrap'} ${className}`}
-    >
+  /* wrap permite que un CTA largo baje a dos lineas en pantallas chicas;
+     por defecto se mantiene en una linea para no romper la transicion.
+     Los enlaces externos (WhatsApp) abren en pestaña nueva; los internos
+     navegan con el router de Next. */
+  const classes = `${variants[variant]} ${sizes[size]} shrink-0 ${wrap ? 'whitespace-normal text-center leading-snug' : 'whitespace-nowrap'} ${className}`;
+  const isExternal = /^https?:\/\//.test(href);
+
+  const content = (
+    <>
       {icon === 'whatsapp' && (
         <span className="shrink-0 transition-transform duration-200 ease-out group-hover:rotate-6">
           <WhatsAppIcon className={iconSizes[size]} />
         </span>
       )}
       <span>{children}</span>
-    </a>
+    </>
+  );
+
+  if (isExternal) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className={classes}>
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <Link href={href} className={classes}>
+      {content}
+    </Link>
   );
 }

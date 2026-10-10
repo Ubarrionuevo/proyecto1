@@ -18,58 +18,6 @@ export const contact = {
   reviews: siteConfig.googleReviews,
 };
 
-/* ── Cobertura: de dónde nos compran ────────────────────────────
-   IMPORTANTE: esta lista dice de dónde NOS ESCRIBEN los clientes.
-   Los regalos siempre se entregan en San Fernando del Valle.
-   Editar acá para sumar o sacar destinos. */
-
-export const provinceOrigen = [
-  'Córdoba',
-  'Santiago del Estero',
-  'Tucumán',
-  'Mendoza',
-  'Buenos Aires',
-  'Santa Cruz',
-  'Salta',
-  'Santa Fe',
-  'Entre Ríos',
-  'Corrientes',
-  'Chaco',
-  'Formosa',
-  'Jujuy',
-  'La Rioja',
-  'San Juan',
-  'San Luis',
-  'La Pampa',
-  'Neuquén',
-  'Río Negro',
-  'Chubut',
-  'Tierra del Fuego',
-];
-
-export const paisesOrigen = ['Italia', 'Bolivia'];
-
-/* Destinos destacados del hero: van con banderita los paises; las provincias
-   van como chip con nombre porque sus banderas no son reconocibles. */
-export const destinosDestacados: { name: string; flag?: 'it' | 'bo' }[] = [
-  { name: 'Mendoza' },
-  { name: 'San Juan' },
-  { name: 'San Luis' },
-  { name: 'Santiago del Estero' },
-  { name: 'Neuquén' },
-  { name: 'Salta' },
-  { name: 'Córdoba' },
-  { name: 'Buenos Aires' },
-  { name: 'Italia', flag: 'it' },
-  { name: 'Bolivia', flag: 'bo' },
-];
-
-export const cobertura = {
-  provinces: provinceOrigen,
-  countries: paisesOrigen,
-  total: provinceOrigen.length + paisesOrigen.length,
-};
-
 export type ProductImage = { src: string; alt: string };
 
 export type Product = {

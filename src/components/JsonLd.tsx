@@ -77,17 +77,17 @@ export function breadcrumbJsonLd(items: { name: string; path?: string }[]) {
   };
 }
 
+/* Product sin Offer: la web no publica precios, así que el schema tampoco
+   los declara. Sin aggregateRating ni review propias. */
 export function productJsonLd({
   name,
   description,
   image,
-  price,
   urlPath,
 }: {
   name: string;
   description: string;
   image: string;
-  price: string;
   urlPath: string;
 }) {
   return {
@@ -97,14 +97,7 @@ export function productJsonLd({
     description,
     image: [`${siteConfig.url}${image}`],
     brand: { '@type': 'Brand', name: siteConfig.name },
-    offers: {
-      '@type': 'Offer',
-      url: `${siteConfig.url}${urlPath}`,
-      priceCurrency: 'ARS',
-      /* Precios como "$39.000": se normalizan a número para el schema. */
-      price: price.replace(/[$.]/g, ''),
-      availability: 'https://schema.org/InStock',
-    },
+    url: `${siteConfig.url}${urlPath}`,
   };
 }
 

@@ -91,6 +91,8 @@ h4,
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
+  /* Alto tactil minimo (>=44px) en todas las variantes, tambien en size sm. */
+  min-height: 44px;
   background: var(--color-berry);
   color: #fff;
   font-weight: 700;
@@ -148,65 +150,6 @@ h4,
   .sticker-wa:hover {
     background: #0f5c33;
   }
-}
-
-/* Botones de destinos: grilla flexible que baja a varias filas.
-   Cada destino es un enlace real a WhatsApp, con alto tactil minimo,
-   texto que puede partirse y sin ancho fijo para evitar overflow. */
-.destino-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.625rem;
-  min-width: 0;
-}
-.destino-chip {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 1 auto;
-  min-width: 0;
-  min-height: 48px;
-  max-width: 100%;
-  padding: 0.7rem 1.05rem;
-  border: 1px solid var(--color-rule);
-  border-radius: 3px;
-  background: var(--color-paper-card);
-  color: var(--color-ink);
-  font-weight: 700;
-  font-size: 0.95rem;
-  line-height: 1.15;
-  text-align: center;
-  overflow-wrap: anywhere;
-  cursor: pointer;
-  box-shadow: 2px 2px 0 0 var(--color-ink);
-  transition:
-    transform 160ms ease,
-    box-shadow 160ms ease,
-    background-color 160ms ease,
-    border-color 160ms ease;
-}
-.destino-chip--pais {
-  border-color: var(--color-berry-deep);
-  color: var(--color-berry-deep);
-}
-@media (hover: hover) {
-  .destino-chip:hover {
-    transform: translate(-1px, -1px);
-    background: var(--color-ink);
-    border-color: var(--color-ink);
-    color: var(--color-paper);
-    box-shadow: 3px 3px 0 0 var(--color-ink);
-  }
-}
-.destino-chip:active {
-  transform: translate(1px, 1px);
-  box-shadow: 0 0 0 0 var(--color-ink);
-  transition-duration: 90ms;
-}
-.destino-chip:focus-visible {
-  outline: 2px solid var(--color-berry-deep);
-  outline-offset: 3px;
 }
 
 /* Subrayado a mano alzada para enlaces de texto.
@@ -450,7 +393,6 @@ h4,
   .zoom-media,
   .lift-row,
   .link-underline,
-  .destino-chip,
   .sticker {
     transition: none;
   }

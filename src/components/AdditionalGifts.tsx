@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { ramos, getWhatsAppUrl } from '@/lib/products';
+import { siteConfig } from '@/lib/site';
 import SectionHead from './ui/SectionHead';
 import StickerButton from './ui/StickerButton';
 import Reveal from './ui/Reveal';
@@ -74,11 +75,13 @@ export default function AdditionalGifts() {
                       {ramo.name}
                     </h3>
                   </div>
-                  <p className="font-display text-2xl sm:text-3xl font-semibold text-berry leading-none shrink-0">
-                    {ramo.price}
-                  </p>
+                  {siteConfig.showPrices && (
+                    <p className="font-display text-2xl sm:text-3xl font-semibold text-berry leading-none shrink-0">
+                      {ramo.price}
+                    </p>
+                  )}
                 </div>
-                <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">
+                <p className="mt-3 text-base leading-relaxed text-ink-soft">
                   {ramo.description}
                 </p>
 

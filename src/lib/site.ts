@@ -13,6 +13,10 @@ export const siteConfig = {
   region: 'Catamarca',
   country: 'AR',
   hours: 'Lunes a domingo, 8 a 23 h',
+  /* Cuando es false, la UI no muestra precios en ningún lado (los datos de
+     precio siguen en products.ts). Se activa de nuevo en true cuando el
+     dueño quiera publicarlos. */
+  showPrices: false,
   googleRating: '5.0',
   googleReviews: 33,
   googleMapsUrl: '',

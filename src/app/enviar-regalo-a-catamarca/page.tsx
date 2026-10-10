@@ -7,8 +7,7 @@ import Faq from '@/components/Faq';
 import JsonLd, { faqJsonLd, breadcrumbJsonLd } from '@/components/JsonLd';
 import StickerButton from '@/components/ui/StickerButton';
 import { enviarRegaloFaqs } from '@/lib/faqs';
-import { destinosDestacados, getWhatsAppUrl, contact } from '@/lib/products';
-import { ItalyFlagIcon, BoliviaFlagIcon } from '@/components/Icons';
+import { getWhatsAppUrl, contact } from '@/lib/products';
 
 export const metadata: Metadata = {
   title: 'Enviar Regalos a Catamarca desde Afuera | LaPrincesaCta',
@@ -61,7 +60,7 @@ const pasos = [
 
 export default function EnviarRegaloPage() {
   return (
-    <main className="min-h-screen bg-paper text-ink">
+    <main className="min-h-dvh bg-paper text-ink">
       <JsonLd data={[breadcrumbJsonLd(crumbs), faqJsonLd(enviarRegaloFaqs)]} />
       <Navbar />
       <Breadcrumbs items={crumbs} />
@@ -71,7 +70,7 @@ export default function EnviarRegaloPage() {
         <h1 className="display-lg mt-4 text-ink text-balance">
           Enviá un regalo a Catamarca desde donde estés
         </h1>
-        <div className="mt-6 space-y-5 text-[15px] sm:text-base leading-relaxed text-ink-soft max-w-prose">
+        <div className="mt-6 space-y-5 text-base leading-relaxed text-ink-soft max-w-prose">
           <p>
             ¿Estás lejos? El regalo llega igual. Nos encargan regalos desde toda la Argentina
             y de otros países para sorprender a familiares y personas queridas que están en
@@ -83,36 +82,6 @@ export default function EnviarRegaloPage() {
             Neuquén, Salta, Córdoba, Buenos Aires, Italia y Bolivia. No necesitás estar
             físicamente en Catamarca: con un mensaje de WhatsApp alcanza.
           </p>
-        </div>
-
-        <div className="mt-8">
-          <span className="label">Tocá tu lugar y escribinos</span>
-          <div className="mt-4 flex flex-wrap gap-2.5">
-            {destinosDestacados.map((place) => (
-              <a
-                key={place.name}
-                href={getWhatsAppUrl(
-                  `un regalo para un familiar en Catamarca (escribo desde ${place.name})`
-                )}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Escribinos por WhatsApp desde ${place.name}`}
-                className="destino-chip touch-target"
-              >
-                {place.flag === 'it' && (
-                  <span className="w-5 h-5 rounded-[2px] overflow-hidden shrink-0 ring-1 ring-ink/15">
-                    <ItalyFlagIcon className="w-full h-full" />
-                  </span>
-                )}
-                {place.flag === 'bo' && (
-                  <span className="w-5 h-5 rounded-[2px] overflow-hidden shrink-0 ring-1 ring-ink/15">
-                    <BoliviaFlagIcon className="w-full h-full" />
-                  </span>
-                )}
-                {place.name}
-              </a>
-            ))}
-          </div>
         </div>
 
         <div className="mt-12 border-t border-rule">

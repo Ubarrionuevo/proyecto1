@@ -5,11 +5,11 @@ import { productPages } from '@/lib/product-pages';
 export const metadata: Metadata = {
   title: 'Ramo Común de Golosinas | LaPrincesaCta',
   description:
-    'Ramo común de golosinas armado a mano en Catamarca: la combinación que más gusta, envuelto para regalar. $21.000. Pedí por WhatsApp.',
+    'Ramo común de golosinas armado a mano en Catamarca: la combinación que más gusta, envuelto para regalar. Pedí por WhatsApp.',
   alternates: { canonical: '/ramos/ramo-comun' },
   openGraph: {
     title: 'Ramo Común de Golosinas | LaPrincesaCta',
-    description: 'Ramo común de golosinas armado a mano en Catamarca. $21.000. Pedí por WhatsApp.',
+    description: 'Ramo común de golosinas armado a mano en Catamarca. Pedí por WhatsApp.',
     url: '/ramos/ramo-comun',
     type: 'article',
     locale: 'es_AR',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Ramo Común de Golosinas | LaPrincesaCta',
-    description: 'Ramo común de golosinas armado a mano en Catamarca. $21.000.',
+    description: 'Ramo común de golosinas armado a mano en Catamarca.',
   },
 };
 

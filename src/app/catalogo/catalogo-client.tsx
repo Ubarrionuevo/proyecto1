@@ -1,7 +1,8 @@
 ﻿'use client';
 
 import React, { useState } from 'react';
-import { desayunos, ramos, contact, getWhatsAppUrl, type Product } from '@/lib/products';
+import { desayunos, ramos, getWhatsAppUrl, type Product } from '@/lib/products';
+import { siteConfig } from '@/lib/site';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ClientsMotion from '@/components/ClientsMotion';
@@ -10,7 +11,6 @@ import SectionHead from '@/components/ui/SectionHead';
 import StickerButton from '@/components/ui/StickerButton';
 import Reveal from '@/components/ui/Reveal';
 import Polaroid from '@/components/ui/Polaroid';
-import { GoogleGIcon, StarIcon } from '@/components/Icons';
 
 type Filter = 'todos' | 'desayunos' | 'ramos';
 
@@ -30,7 +30,7 @@ export default function CatalogoClient() {
   const visible = filter === 'todos' ? catalog : catalog.filter((p) => p.category === filter);
 
   return (
-    <main className="min-h-screen bg-paper text-ink">
+    <main className="min-h-dvh bg-paper text-ink">
       <Navbar />
 
       {/* 1. Banner */}
@@ -43,38 +43,17 @@ export default function CatalogoClient() {
                 <h1 className="display-lg mt-4 text-ink">
                   Todo lo que armamos,
                   <br />
-                  <span className="text-berry italic">con precio.</span>
+                  <span className="text-berry italic">listo para regalar.</span>
                 </h1>
               </Reveal>
             </div>
 
             <div className="lg:col-span-5 lg:pt-12">
               <Reveal delay={110}>
-                <p className="text-[15px] sm:text-base leading-relaxed text-ink-soft max-w-sm">
+                <p className="text-base leading-relaxed text-ink-soft max-w-sm">
                   Desayunos y ramos con el detalle de lo que incluyen. Si ninguno es lo que
                   buscabas, escribinos y lo armamos a tu manera.
                 </p>
-
-                <StickerButton
-                  href={getWhatsAppUrl('un regalo del catálogo')}
-                  className="mt-6"
-                  size="md"
-                >
-                  Quiero armar un regalo
-                </StickerButton>
-
-                <div className="mt-6 flex items-center gap-2 text-[13px] text-ink-soft">
-                  <GoogleGIcon className="w-4 h-4" />
-                  <span className="flex items-center gap-px" role="img" aria-label="5 de 5 estrellas">
-                    {[0, 1, 2, 3, 4].map((i) => (
-                      <StarIcon key={i} className="w-3.5 h-3.5 text-butter-deep" />
-                    ))}
-                  </span>
-                  <span>
-                    <span className="font-bold text-ink">{contact.rating}</span> ·{' '}
-                    {contact.reviews} opiniones
-                  </span>
-                </div>
               </Reveal>
             </div>
           </div>
@@ -85,9 +64,9 @@ export default function CatalogoClient() {
       <section className="py-14 sm:py-20">
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
           <SectionHead
-            label="Lista de precios"
+            label="Catálogo"
             title="Elegí uno y pedilo por WhatsApp."
-            intro="Los precios son los de lista. Por cantidades, temas especiales o entrega en otra ciudad, consultanos."
+            intro="Por cantidades, temas especiales o entrega en otra ciudad, consultanos."
           />
 
           {/* Filtro como tabs con filete, no pills */}
@@ -145,7 +124,7 @@ export default function CatalogoClient() {
                   )}
                 </div>
 
-                <div className="col-span-9 sm:col-span-5">
+                <div className={`col-span-9 ${siteConfig.showPrices ? 'sm:col-span-5' : 'sm:col-span-7'}`}>
                   <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                     <h2 className="font-display text-xl sm:text-2xl font-semibold text-ink">
                       {item.name}
@@ -162,14 +141,20 @@ export default function CatalogoClient() {
                   </p>
                 </div>
 
-                <div className="col-span-7 sm:col-span-2 mt-4 sm:mt-0 sm:text-right">
-                  <p className="font-display text-2xl sm:text-3xl font-semibold text-berry leading-none">
-                    {item.price}
-                  </p>
-                  <p className="label mt-1.5 sm:hidden">Precio</p>
-                </div>
+                {siteConfig.showPrices && (
+                  <div className="col-span-7 sm:col-span-2 mt-4 sm:mt-0 sm:text-right">
+                    <p className="font-display text-2xl sm:text-3xl font-semibold text-berry leading-none">
+                      {item.price}
+                    </p>
+                    <p className="label mt-1.5 sm:hidden">Precio</p>
+                  </div>
+                )}
 
-                <div className="col-span-5 sm:col-span-3 flex sm:justify-end mt-4 sm:mt-0">
+                <div
+                  className={`flex sm:justify-end mt-4 sm:mt-0 ${
+                    siteConfig.showPrices ? 'col-span-5 sm:col-span-3' : 'col-span-12 sm:col-span-3'
+                  }`}
+                >
                   <StickerButton
                     href={getWhatsAppUrl(`el ${item.name}`)}
                     size="sm"
@@ -215,35 +200,6 @@ export default function CatalogoClient() {
         title="También nos llegan desde lejos."
         intro="Personas de Catamarca y de todo el país que recibieron su regalo en la puerta."
       />
-
-      {/* 4. CTA final */}
-      <section className="border-t border-rule py-16 sm:py-24">
-        <div className="max-w-3xl mx-auto px-5 sm:px-8 text-center">
-          <Reveal>
-            <SectionHead
-              label="Cuando quieras"
-              title={
-                <>
-                  Escribinos y lo armamos
-                  <br className="hidden sm:block" /> para el día que elijas.
-                </>
-              }
-              align="center"
-            />
-            <p className="mt-6 text-[15px] text-ink-soft max-w-md mx-auto leading-relaxed">
-              Contanos para quién es y qué día. Te respondemos con opciones y formas de pago en el
-              momento.
-            </p>
-          </Reveal>
-          <Reveal delay={130}>
-            <div className="mt-8">
-              <StickerButton href={getWhatsAppUrl('un regalo')} size="lg">
-                Quiero mi regalo
-              </StickerButton>
-            </div>
-          </Reveal>
-        </div>
-      </section>
 
       <Footer />
       <FloatingWhatsApp />

@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { clientPhotos } from '@/lib/products';
 import Polaroid from './ui/Polaroid';
 import SectionHead from './ui/SectionHead';
@@ -10,9 +11,9 @@ import Carousel from './ui/Carousel';
 /* Rotaciones fijas: el collage se ve tombeado a mano, no alineado. */
 const rotations = [-3, 2.5, -1.5, 3, -2.5, 1.5, -3, 2, -1, 2.5, -2, 3];
 
-/* Una sola fila en carrusel, mobile-first: en celular se ve una polaroid
-   grande (mas un asomo de la siguiente, para insinuar que hay mas) y en
-   desktop entran tres. Nada de comprimir fotos para que entren todas. */
+/* En desktop, una sola fila en carrusel: entran tres polaroids con asomo.
+   En mobile se muestra una grilla con todas las fotos, una vez cada una,
+   recortadas en cuadrado: sin scroll horizontal ni autoplay. */
 export default function ClientsMotion({
   number,
   label = 'Los que ya nos eligieron',
@@ -35,7 +36,29 @@ export default function ClientsMotion({
         </Reveal>
       </div>
 
-      <div className="relative mt-12 overflow-hidden">
+      {/* Mobile: grilla con todas las fotos, cada una una sola vez, en
+          cuadrados recortados. Sin autoplay ni scroll horizontal. */}
+      <div className="lg:hidden max-w-6xl mx-auto px-5 sm:px-8 mt-10">
+        <ul className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          {clientPhotos.map((photo) => (
+            <li
+              key={photo.image}
+              className="relative aspect-square overflow-hidden border border-rule bg-paper-deep"
+            >
+              <Image
+                src={photo.image}
+                alt={photo.alt}
+                fill
+                sizes="(max-width: 640px) 50vw, 33vw"
+                className="object-cover"
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Desktop: carrusel lento con marco polaroid (se mantiene como está). */}
+      <div className="hidden lg:block relative mt-12 overflow-hidden">
         <div className="absolute inset-y-0 left-0 w-10 sm:w-24 bg-gradient-to-r from-paper to-transparent z-10 pointer-events-none" />
         <div className="absolute inset-y-0 right-0 w-10 sm:w-24 bg-gradient-to-l from-paper to-transparent z-10 pointer-events-none" />
         <Carousel

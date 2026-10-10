@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { desayunos, getWhatsAppUrl } from '@/lib/products';
+import { siteConfig } from '@/lib/site';
 import SectionHead from './ui/SectionHead';
 import StickerButton from './ui/StickerButton';
 import Reveal from './ui/Reveal';
@@ -77,9 +78,11 @@ export default function SolutionSection() {
                       {product.name}
                     </h3>
                   </div>
-                  <p className="font-display text-2xl sm:text-3xl font-semibold text-berry leading-none shrink-0">
-                    {product.price}
-                  </p>
+                  {siteConfig.showPrices && (
+                    <p className="font-display text-2xl sm:text-3xl font-semibold text-berry leading-none shrink-0">
+                      {product.price}
+                    </p>
+                  )}
                 </div>
 
                 <StickerButton
@@ -90,7 +93,7 @@ export default function SolutionSection() {
                   Quiero este
                 </StickerButton>
 
-                <p className="mt-4 text-[15px] leading-relaxed text-ink-soft max-w-prose">
+                <p className="mt-4 text-base leading-relaxed text-ink-soft max-w-prose">
                   {product.detail}
                 </p>
               </div>

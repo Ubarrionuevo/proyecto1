@@ -5,11 +5,11 @@ import { productPages } from '@/lib/product-pages';
 export const metadata: Metadata = {
   title: 'Ramo con Oso de Peluche | LaPrincesaCta',
   description:
-    'Ramo con oso de peluche y golosinas en Catamarca: el que más se regala para novios. $26.000. Pedí por WhatsApp.',
+    'Ramo con oso de peluche y golosinas en Catamarca: el que más se regala para novios. Pedí por WhatsApp.',
   alternates: { canonical: '/ramos/ramo-con-oso' },
   openGraph: {
     title: 'Ramo con Oso de Peluche | LaPrincesaCta',
-    description: 'Ramo con oso de peluche y golosinas en Catamarca. $26.000. Pedí por WhatsApp.',
+    description: 'Ramo con oso de peluche y golosinas en Catamarca. Pedí por WhatsApp.',
     url: '/ramos/ramo-con-oso',
     type: 'article',
     locale: 'es_AR',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Ramo con Oso de Peluche | LaPrincesaCta',
-    description: 'Ramo con oso de peluche y golosinas en Catamarca. $26.000.',
+    description: 'Ramo con oso de peluche y golosinas en Catamarca.',
   },
 };
 

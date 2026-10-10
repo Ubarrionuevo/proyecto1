@@ -8,6 +8,7 @@ import JsonLd, { productJsonLd, breadcrumbJsonLd } from '@/components/JsonLd';
 import Polaroid from '@/components/ui/Polaroid';
 import StickerButton from '@/components/ui/StickerButton';
 import { getWhatsAppUrl, type Product } from '@/lib/products';
+import { siteConfig } from '@/lib/site';
 import { ArrowIcon } from '@/components/Icons';
 
 export type ProductPageData = {
@@ -19,9 +20,10 @@ export type ProductPageData = {
   related: { name: string; price: string; href: string }[];
 };
 
-/* Ficha de producto: H1 único, precio visible, galería con las fotos reales
-   del producto, qué incluye según el texto actual, CTA a WhatsApp,
-   relacionados y breadcrumbs. Sin inventar medidas, sabores ni contenido. */
+/* Ficha de producto: H1 único, galería con las fotos reales del producto,
+   qué incluye según el texto actual, CTA a WhatsApp, relacionados y
+   breadcrumbs. Los precios solo se muestran si siteConfig.showPrices.
+   Sin inventar medidas, sabores ni contenido. */
 export default function ProductDetail({ data }: { data: ProductPageData }) {
   const { product, seoName, categoryName, categoryPath, urlPath, related } = data;
   const crumbs = [
@@ -31,7 +33,7 @@ export default function ProductDetail({ data }: { data: ProductPageData }) {
   ];
 
   return (
-    <main className="min-h-screen bg-paper text-ink">
+    <main className="min-h-dvh bg-paper text-ink">
       <JsonLd
         data={[
           breadcrumbJsonLd(crumbs),
@@ -39,7 +41,6 @@ export default function ProductDetail({ data }: { data: ProductPageData }) {
             name: `${seoName} a domicilio en Catamarca`,
             description: `${product.description} ${product.detail}`,
             image: product.images[0].src,
-            price: product.price,
             urlPath,
           }),
         ]}
@@ -53,9 +54,11 @@ export default function ProductDetail({ data }: { data: ProductPageData }) {
           <h1 className="display-lg text-ink text-balance max-w-2xl">
             {seoName} a domicilio en Catamarca
           </h1>
-          <p className="font-display text-3xl sm:text-4xl font-semibold text-berry leading-none shrink-0">
-            {product.price}
-          </p>
+          {siteConfig.showPrices && (
+            <p className="font-display text-3xl sm:text-4xl font-semibold text-berry leading-none shrink-0">
+              {product.price}
+            </p>
+          )}
         </div>
         {product.tag && <p className="label text-berry mt-3">{product.tag}</p>}
 
@@ -95,19 +98,23 @@ export default function ProductDetail({ data }: { data: ProductPageData }) {
         <div className="mt-10 grid lg:grid-cols-12 gap-x-8 gap-y-8">
           <div className="lg:col-span-7">
             <h2 className="display-md text-ink">Qué incluye</h2>
-            <p className="mt-3 text-[15px] sm:text-base leading-relaxed text-ink-soft">
+            <p className="mt-3 text-base leading-relaxed text-ink-soft">
               {product.description}
             </p>
-            <p className="mt-3 text-[15px] sm:text-base leading-relaxed text-ink-soft">
+            <p className="mt-3 text-base leading-relaxed text-ink-soft">
               {product.detail}
             </p>
           </div>
           <div className="lg:col-span-5">
             <div className="border border-rule bg-paper-card p-6 sm:p-8 lg:sticky lg:top-28">
-              <p className="font-display text-3xl font-semibold text-berry leading-none">
-                {product.price}
-              </p>
-              <p className="label mt-2">Precio de lista</p>
+              {siteConfig.showPrices && (
+                <>
+                  <p className="font-display text-3xl font-semibold text-berry leading-none">
+                    {product.price}
+                  </p>
+                  <p className="label mt-2">Precio de lista</p>
+                </>
+              )}
               <StickerButton
                 href={getWhatsAppUrl(`el ${product.name}`)}
                 size="lg"
@@ -135,9 +142,11 @@ export default function ProductDetail({ data }: { data: ProductPageData }) {
                 {item.name}
                 <ArrowIcon className="w-4 h-4 text-berry transition-transform duration-200 group-hover:translate-x-1" />
               </span>
-              <span className="font-display text-2xl font-semibold text-berry mt-1 block">
-                {item.price}
-              </span>
+              {siteConfig.showPrices && (
+                <span className="font-display text-2xl font-semibold text-berry mt-1 block">
+                  {item.price}
+                </span>
+              )}
             </Link>
           ))}
         </div>

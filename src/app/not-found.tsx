@@ -14,18 +14,18 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen bg-paper text-ink">
+    <main className="min-h-dvh bg-paper text-ink">
       <Navbar />
       <section className="max-w-3xl mx-auto px-5 sm:px-8 py-20 sm:py-28 text-center">
         <span className="label">Error 404</span>
         <h1 className="display-lg mt-4 text-ink">Esa página no existe.</h1>
-        <p className="mt-5 text-[15px] text-ink-soft max-w-md mx-auto leading-relaxed">
+        <p className="mt-5 text-base text-ink-soft max-w-md mx-auto leading-relaxed">
           Pero los desayunos y ramos siguen acá. Elegí por dónde seguir:
         </p>
         <nav aria-label="Secciones principales" className="mt-8 flex flex-col gap-3 max-w-xs mx-auto">
           {[
             { href: '/', label: 'Volver al inicio' },
-            { href: '/catalogo', label: 'Ver catálogo y precios' },
+            { href: '/catalogo', label: 'Ver catálogo' },
             { href: '/desayunos-sorpresa-catamarca', label: 'Desayunos sorpresa' },
             { href: '/ramos-de-golosinas-catamarca', label: 'Ramos de golosinas' },
           ].map((link) => (

@@ -5,11 +5,11 @@ import { productPages } from '@/lib/product-pages';
 export const metadata: Metadata = {
   title: 'Ramo de Chocolates | LaPrincesaCta',
   description:
-    'Ramo de chocolates a domicilio en Catamarca: todo chocolate, envuelto fino y moño. $24.000. Pedí por WhatsApp.',
+    'Ramo de chocolates a domicilio en Catamarca: todo chocolate, envuelto fino y moño. Pedí por WhatsApp.',
   alternates: { canonical: '/ramos/ramo-de-chocolates' },
   openGraph: {
     title: 'Ramo de Chocolates | LaPrincesaCta',
-    description: 'Ramo de chocolates a domicilio en Catamarca, envuelto fino y moño. $24.000.',
+    description: 'Ramo de chocolates a domicilio en Catamarca, envuelto fino y moño.',
     url: '/ramos/ramo-de-chocolates',
     type: 'article',
     locale: 'es_AR',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Ramo de Chocolates | LaPrincesaCta',
-    description: 'Ramo de chocolates a domicilio en Catamarca. $24.000.',
+    description: 'Ramo de chocolates a domicilio en Catamarca.',
   },
 };
 

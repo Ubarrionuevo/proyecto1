@@ -5,7 +5,6 @@ import SolutionSection from '@/components/SolutionSection';
 import AdditionalGifts from '@/components/AdditionalGifts';
 import ClientsMotion from '@/components/ClientsMotion';
 import ProvinciasSection from '@/components/ProvinciasSection';
-import AdditionalCta from '@/components/AdditionalCta';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import Faq from '@/components/Faq';
@@ -18,7 +17,7 @@ const exploreLinks = [
   {
     href: '/desayunos-sorpresa-catamarca',
     title: 'Desayunos sorpresa',
-    text: 'Qué traen, cómo se entregan y los dos modelos con precio.',
+    text: 'Qué traen y cómo se entregan los dos modelos.',
   },
   {
     href: '/ramos-de-golosinas-catamarca',
@@ -27,7 +26,7 @@ const exploreLinks = [
   },
   {
     href: '/catalogo',
-    title: 'Catálogo y precios',
+    title: 'Catálogo',
     text: 'La lista completa de desayunos y ramos con lo que incluye cada uno.',
   },
   {
@@ -44,7 +43,7 @@ const exploreLinks = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-paper text-ink">
+    <main className="min-h-dvh bg-paper text-ink">
       <JsonLd data={[websiteJsonLd(), localBusinessJsonLd(), faqJsonLd(homeFaqs)]} />
       <Navbar />
       <GeoBanner />
@@ -80,7 +79,6 @@ export default function Home() {
 
       <Faq items={homeFaqs} title="Preguntas sobre cómo pedir." />
       <Reviews />
-      <AdditionalCta />
       <Footer />
       <FloatingWhatsApp />
     </main>

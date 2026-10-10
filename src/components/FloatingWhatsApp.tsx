@@ -20,7 +20,9 @@ export default function FloatingWhatsApp() {
 
   return (
     <div
-      className={`fixed bottom-5 right-5 z-50 transition-[opacity,transform] duration-300 ${
+      /* bottom-* con env(safe-area-inset-bottom): en iPhone con barra de gesto
+         el botón no queda pegado ni tapado por el área del sistema. */
+      className={`fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom))] right-5 z-50 transition-[opacity,transform] duration-300 ${
         visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
       }`}
     >

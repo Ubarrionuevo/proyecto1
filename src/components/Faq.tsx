@@ -29,7 +29,7 @@ export default function Faq({
                   +
                 </span>
               </summary>
-              <p className="pb-6 text-[15px] leading-relaxed text-ink-soft max-w-prose">
+              <p className="pb-6 text-base leading-relaxed text-ink-soft max-w-prose">
                 {faq.a}
               </p>
             </details>

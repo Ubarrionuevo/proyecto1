@@ -10,6 +10,7 @@ import SolutionSection from '@/components/SolutionSection';
 import StickerButton from '@/components/ui/StickerButton';
 import { desayunosFaqs } from '@/lib/faqs';
 import { getWhatsAppUrl } from '@/lib/products';
+import { siteConfig } from '@/lib/site';
 import { ArrowIcon } from '@/components/Icons';
 
 export const metadata: Metadata = {
@@ -40,7 +41,7 @@ const crumbs = [
 
 export default function DesayunosPage() {
   return (
-    <main className="min-h-screen bg-paper text-ink">
+    <main className="min-h-dvh bg-paper text-ink">
       <JsonLd data={[breadcrumbJsonLd(crumbs), faqJsonLd(desayunosFaqs)]} />
       <Navbar />
       <Breadcrumbs items={crumbs} />
@@ -48,7 +49,7 @@ export default function DesayunosPage() {
       <section className="max-w-3xl mx-auto px-5 sm:px-8 pt-10 sm:pt-14 pb-14">
         <span className="label">Desayunos a domicilio</span>
         <h1 className="display-lg mt-4 text-ink text-balance">Desayunos sorpresa en Catamarca</h1>
-        <div className="mt-6 space-y-5 text-[15px] sm:text-base leading-relaxed text-ink-soft max-w-prose">
+        <div className="mt-6 space-y-5 text-base leading-relaxed text-ink-soft max-w-prose">
           <p>
             Un desayuno sorpresa es la forma más linda de arrancar el día de alguien: llega a la
             puerta antes de que se despierte, con todo listo para disfrutar. Nosotras lo armamos
@@ -109,9 +110,11 @@ export default function DesayunosPage() {
                 {item.name}
                 <ArrowIcon className="w-4 h-4 text-berry transition-transform duration-200 group-hover:translate-x-1" />
               </span>
-              <span className="font-display text-2xl font-semibold text-berry mt-1 block">
-                {item.price}
-              </span>
+              {siteConfig.showPrices && (
+                <span className="font-display text-2xl font-semibold text-berry mt-1 block">
+                  {item.price}
+                </span>
+              )}
             </Link>
           ))}
         </div>

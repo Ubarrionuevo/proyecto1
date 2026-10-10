@@ -10,12 +10,13 @@ import AdditionalGifts from '@/components/AdditionalGifts';
 import StickerButton from '@/components/ui/StickerButton';
 import { ramosFaqs } from '@/lib/faqs';
 import { ramos, getWhatsAppUrl } from '@/lib/products';
+import { siteConfig } from '@/lib/site';
 import { ArrowIcon } from '@/components/Icons';
 
 export const metadata: Metadata = {
   title: 'Ramos de Golosinas en Catamarca | LaPrincesaCta',
   description:
-    'Ramos de golosinas y chocolates armados a mano en Catamarca: común, futbolero, de chocolates y con oso. Mirá precios y pedí por WhatsApp.',
+    'Ramos de golosinas y chocolates armados a mano en Catamarca: común, futbolero, de chocolates y con oso. Pedí por WhatsApp.',
   alternates: { canonical: '/ramos-de-golosinas-catamarca' },
   openGraph: {
     title: 'Ramos de Golosinas en Catamarca | LaPrincesaCta',
@@ -47,7 +48,7 @@ const ramoLinks = [
 
 export default function RamosPage() {
   return (
-    <main className="min-h-screen bg-paper text-ink">
+    <main className="min-h-dvh bg-paper text-ink">
       <JsonLd data={[breadcrumbJsonLd(crumbs), faqJsonLd(ramosFaqs)]} />
       <Navbar />
       <Breadcrumbs items={crumbs} />
@@ -57,7 +58,7 @@ export default function RamosPage() {
         <h1 className="display-lg mt-4 text-ink text-balance">
           Ramos de golosinas y chocolates en Catamarca
         </h1>
-        <div className="mt-6 space-y-5 text-[15px] sm:text-base leading-relaxed text-ink-soft max-w-prose">
+        <div className="mt-6 space-y-5 text-base leading-relaxed text-ink-soft max-w-prose">
           <p>
             Un ramo de golosinas es un regalo que se ve, se comparte y se disfruta: golosinas
             armadas en forma de ramo, envueltas para regalar y entregadas a domicilio en San
@@ -106,9 +107,11 @@ export default function RamosPage() {
                   {ramo.name}
                   <ArrowIcon className="w-4 h-4 text-berry transition-transform duration-200 group-hover:translate-x-1" />
                 </span>
-                <span className="font-display text-2xl font-semibold text-berry mt-1 block">
-                  {ramo.price}
-                </span>
+                {siteConfig.showPrices && (
+                  <span className="font-display text-2xl font-semibold text-berry mt-1 block">
+                    {ramo.price}
+                  </span>
+                )}
               </Link>
             );
           })}

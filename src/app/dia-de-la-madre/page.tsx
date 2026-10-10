@@ -7,6 +7,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import JsonLd, { breadcrumbJsonLd } from '@/components/JsonLd';
 import StickerButton from '@/components/ui/StickerButton';
 import { getWhatsAppUrl } from '@/lib/products';
+import { siteConfig } from '@/lib/site';
 import { ArrowIcon } from '@/components/Icons';
 
 const productLinks = [
@@ -50,7 +51,7 @@ const crumbs = [
 
 export default function DiaDeLaMadrePage() {
   return (
-    <main className="min-h-screen bg-paper text-ink">
+    <main className="min-h-dvh bg-paper text-ink">
       <JsonLd data={breadcrumbJsonLd(crumbs)} />
       <Navbar />
       <Breadcrumbs items={crumbs} />
@@ -60,7 +61,7 @@ export default function DiaDeLaMadrePage() {
         <h1 className="display-lg mt-4 text-ink text-balance">
           Regalos y desayunos para el Día de la Madre en Catamarca
         </h1>
-        <div className="mt-6 space-y-5 text-[15px] sm:text-base leading-relaxed text-ink-soft max-w-prose">
+        <div className="mt-6 space-y-5 text-base leading-relaxed text-ink-soft max-w-prose">
           <p>
             Para el Día de la Madre, un desayuno sorpresa que llega a la puerta a la mañana
             es de esos regalos que se acuerdan todo el año. Lo armamos completo —café o té,
@@ -99,9 +100,11 @@ export default function DiaDeLaMadrePage() {
                 {item.name}
                 <ArrowIcon className="w-4 h-4 text-berry transition-transform duration-200 group-hover:translate-x-1" />
               </span>
-              <span className="font-display text-2xl font-semibold text-berry mt-1 block">
-                {item.price}
-              </span>
+              {siteConfig.showPrices && (
+                <span className="font-display text-2xl font-semibold text-berry mt-1 block">
+                  {item.price}
+                </span>
+              )}
             </Link>
           ))}
         </div>

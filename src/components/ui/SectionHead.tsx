@@ -42,7 +42,7 @@ export default function SectionHead({
 
       {intro && (
         <p
-          className={`mt-5 text-[15px] sm:text-base leading-relaxed max-w-xl ${
+          className={`mt-5 text-base leading-relaxed max-w-xl ${
             onDark ? 'text-paper/70' : 'text-ink-soft'
           } ${align === 'center' ? 'mx-auto' : ''}`}
         >
