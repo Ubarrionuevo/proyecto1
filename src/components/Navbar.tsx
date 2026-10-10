@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { getWhatsAppUrl, contact } from '@/lib/products';
+import { contact } from '@/lib/products';
 import { GoogleGIcon, StarIcon, MenuIcon, CloseIcon } from './Icons';
 
 const navLinks = [
@@ -87,15 +87,6 @@ export default function Navbar() {
               <span className="ml-0.5 text-[12px] font-bold text-ink">{contact.rating}</span>
               <span className="text-[12px] text-ink-soft">({contact.reviews})</span>
             </div>
-
-            <a
-              href={getWhatsAppUrl('un regalo')}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="sticker sticker-wa px-4 py-2.5 text-[13px]"
-            >
-              WhatsApp
-            </a>
 
             {/* Menú mobile */}
             <button
