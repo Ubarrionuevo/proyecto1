@@ -13,7 +13,12 @@ const karla = Karla({
   style: ["normal", "italic"],
 });
 
-const gscVerification = process.env.NEXT_PUBLIC_GSC_VERIFICATION;
+/* Token publico de verificacion de Google Search Console (metodo etiqueta meta).
+   Es publico a proposito: va en el <head> de todas las paginas y no es un
+   secreto. Se puede sobrescribir con NEXT_PUBLIC_GSC_VERIFICATION. */
+const gscVerification =
+  process.env.NEXT_PUBLIC_GSC_VERIFICATION ??
+  "pfQzGupXvMO-Hc-SmXQe80tRkmLFNdESpV0aJD2UrWA";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -49,7 +54,7 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  ...(gscVerification ? { verification: { google: gscVerification } } : {}),
+  verification: { google: gscVerification },
 };
 
 export const viewport: Viewport = {

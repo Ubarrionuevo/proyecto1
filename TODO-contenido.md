@@ -33,8 +33,9 @@ Nada de lo de abajo está publicado en la web. Son datos que faltan y que
 
 ## Medición
 - [ ] ID de GA4 (para `NEXT_PUBLIC_GA_ID`).
-- [ ] Código de verificación de Search Console (para
-      `NEXT_PUBLIC_GSC_VERIFICATION`).
+- [x] Verificación de Search Console: hecha por partida doble (etiqueta meta en
+      `src/app/layout.tsx` con el token público, y archivo
+      `public/google4f54e2f7edf963e8.html`). Ninguno de los dos se borra.
 
 ## Hosting / dominio (pasos manuales)
 - [ ] Verificar que `laprincesacta.com.ar` redirija con 301 a
