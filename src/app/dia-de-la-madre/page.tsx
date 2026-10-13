@@ -7,6 +7,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import JsonLd, { breadcrumbJsonLd } from '@/components/JsonLd';
 import StickerButton from '@/components/ui/StickerButton';
 import { getWhatsAppUrl } from '@/lib/products';
+import { openGraphBase, twitterImage } from '@/lib/seo';
 import { siteConfig } from '@/lib/site';
 import { ArrowIcon } from '@/components/Icons';
 
@@ -29,6 +30,7 @@ export const metadata: Metadata = {
     'Desayunos sorpresa y ramos de golosinas para el Día de la Madre en Catamarca. Encargá por WhatsApp con anticipación y sorprendela en su día.',
   alternates: { canonical: '/dia-de-la-madre' },
   openGraph: {
+    ...openGraphBase,
     title: 'Regalos Día de la Madre en Catamarca | LaPrincesaCta',
     description:
       'Desayunos sorpresa y ramos de golosinas para el Día de la Madre en Catamarca. Encargá por WhatsApp con anticipación.',
@@ -41,6 +43,7 @@ export const metadata: Metadata = {
     title: 'Regalos Día de la Madre en Catamarca | LaPrincesaCta',
     description:
       'Desayunos sorpresa y ramos para el Día de la Madre en Catamarca. Pedí por WhatsApp.',
+    images: [twitterImage],
   },
 };
 

@@ -8,13 +8,15 @@ import JsonLd, { faqJsonLd, breadcrumbJsonLd } from '@/components/JsonLd';
 import StickerButton from '@/components/ui/StickerButton';
 import { enviarRegaloFaqs } from '@/lib/faqs';
 import { getWhatsAppUrl, contact } from '@/lib/products';
+import { openGraphBase, twitterImage } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Enviar Regalos a Catamarca desde Afuera | LaPrincesaCta',
   description:
-    'Estás lejos y querés regalarle a un familiar en Catamarca? Pedilo por WhatsApp desde donde estés: lo preparamos y entregamos en San Fernando del Valle.',
+    '¿Estás lejos y querés regalarle a un familiar en Catamarca? Pedilo por WhatsApp: lo preparamos y lo entregamos en San Fernando del Valle.',
   alternates: { canonical: '/enviar-regalo-a-catamarca' },
   openGraph: {
+    ...openGraphBase,
     title: 'Enviar Regalos a Catamarca desde Afuera | LaPrincesaCta',
     description:
       'Pedí un regalo por WhatsApp desde donde estés y lo entregamos en San Fernando del Valle de Catamarca.',
@@ -27,6 +29,7 @@ export const metadata: Metadata = {
     title: 'Enviar Regalos a Catamarca desde Afuera | LaPrincesaCta',
     description:
       'Pedí un regalo por WhatsApp desde donde estés y lo entregamos en Catamarca.',
+    images: [twitterImage],
   },
 };
 

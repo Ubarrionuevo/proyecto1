@@ -1,6 +1,7 @@
 ﻿import type { Metadata } from 'next';
 import CatalogoClient from './catalogo-client';
 import JsonLd, { breadcrumbJsonLd } from '@/components/JsonLd';
+import { openGraphBase, twitterImage } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Catálogo de Desayunos y Ramos | LaPrincesaCta',
@@ -8,6 +9,7 @@ export const metadata: Metadata = {
     'Catálogo de desayunos sorpresa y ramos de golosinas en Catamarca: caja de madera, caja de cartón, ramos con oso y de chocolates. Pedí por WhatsApp.',
   alternates: { canonical: '/catalogo' },
   openGraph: {
+    ...openGraphBase,
     title: 'Catálogo de Desayunos y Ramos | LaPrincesaCta',
     description:
       'Desayunos sorpresa y ramos de golosinas en Catamarca. Pedí por WhatsApp.',
@@ -20,6 +22,7 @@ export const metadata: Metadata = {
     title: 'Catálogo de Desayunos y Ramos | LaPrincesaCta',
     description:
       'Desayunos sorpresa y ramos de golosinas en Catamarca.',
+    images: [twitterImage],
   },
 };
 

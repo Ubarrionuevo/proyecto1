@@ -1,7 +1,9 @@
 ﻿'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { desayunos, ramos, getWhatsAppUrl, type Product } from '@/lib/products';
+import { productPages } from '@/lib/product-pages';
 import { siteConfig } from '@/lib/site';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -24,6 +26,12 @@ const catalog: (Product & { category: Exclude<Filter, 'todos'> })[] = [
   ...desayunos.map((p) => ({ ...p, category: 'desayunos' as const })),
   ...ramos.map((p) => ({ ...p, category: 'ramos' as const })),
 ];
+
+/* URL de la ficha de cada producto, para enlazar desde el catálogo. El catálogo
+   es el hub central: cada producto linkea a su página propia. */
+const productHrefById: Record<string, string> = Object.fromEntries(
+  Object.values(productPages).map((page) => [page.product.id, page.urlPath])
+);
 
 export default function CatalogoClient() {
   const [filter, setFilter] = useState<Filter>('todos');
@@ -127,7 +135,13 @@ export default function CatalogoClient() {
                 <div className={`col-span-9 ${siteConfig.showPrices ? 'sm:col-span-5' : 'sm:col-span-7'}`}>
                   <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                     <h2 className="font-display text-xl sm:text-2xl font-semibold text-ink">
-                      {item.name}
+                      {productHrefById[item.id] ? (
+                        <Link href={productHrefById[item.id]} className="link-underline">
+                          {item.name}
+                        </Link>
+                      ) : (
+                        item.name
+                      )}
                     </h2>
                     {item.tag && (
                       <span className="label text-berry text-[10px]">{item.tag}</span>

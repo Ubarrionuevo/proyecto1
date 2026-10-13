@@ -12,6 +12,7 @@ import { ramosFaqs } from '@/lib/faqs';
 import { ramos, getWhatsAppUrl } from '@/lib/products';
 import { siteConfig } from '@/lib/site';
 import { ArrowIcon } from '@/components/Icons';
+import { openGraphBase, twitterImage } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Ramos de Golosinas en Catamarca | LaPrincesaCta',
@@ -19,6 +20,7 @@ export const metadata: Metadata = {
     'Ramos de golosinas y chocolates armados a mano en Catamarca: común, futbolero, de chocolates y con oso. Pedí por WhatsApp.',
   alternates: { canonical: '/ramos-de-golosinas-catamarca' },
   openGraph: {
+    ...openGraphBase,
     title: 'Ramos de Golosinas en Catamarca | LaPrincesaCta',
     description:
       'Ramos de golosinas y chocolates armados a mano en Catamarca: común, futbolero, de chocolates y con oso. Pedí por WhatsApp.',
@@ -31,6 +33,7 @@ export const metadata: Metadata = {
     title: 'Ramos de Golosinas en Catamarca | LaPrincesaCta',
     description:
       'Ramos de golosinas y chocolates armados a mano en Catamarca. Pedí por WhatsApp.',
+    images: [twitterImage],
   },
 };
 

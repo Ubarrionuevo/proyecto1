@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import ProductDetail from '@/components/ProductDetail';
 import { productPages } from '@/lib/product-pages';
+import { openGraphBase, twitterImage } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Ramo Común de Golosinas | LaPrincesaCta',
@@ -8,6 +9,7 @@ export const metadata: Metadata = {
     'Ramo común de golosinas armado a mano en Catamarca: la combinación que más gusta, envuelto para regalar. Pedí por WhatsApp.',
   alternates: { canonical: '/ramos/ramo-comun' },
   openGraph: {
+    ...openGraphBase,
     title: 'Ramo Común de Golosinas | LaPrincesaCta',
     description: 'Ramo común de golosinas armado a mano en Catamarca. Pedí por WhatsApp.',
     url: '/ramos/ramo-comun',
@@ -18,6 +20,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Ramo Común de Golosinas | LaPrincesaCta',
     description: 'Ramo común de golosinas armado a mano en Catamarca.',
+    images: [twitterImage],
   },
 };
 

@@ -12,6 +12,7 @@ import { desayunosFaqs } from '@/lib/faqs';
 import { getWhatsAppUrl } from '@/lib/products';
 import { siteConfig } from '@/lib/site';
 import { ArrowIcon } from '@/components/Icons';
+import { openGraphBase, twitterImage } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Desayunos Sorpresa: Caja de Madera y Cartón | LaPrincesaCta',
@@ -19,6 +20,7 @@ export const metadata: Metadata = {
     'Desayunos sorpresa a domicilio en Catamarca: caja de madera y caja de cartón con café, delicias, taza y nota a mano. Pedí por WhatsApp.',
   alternates: { canonical: '/desayunos-sorpresa-catamarca' },
   openGraph: {
+    ...openGraphBase,
     title: 'Desayunos Sorpresa: Caja de Madera y Cartón | LaPrincesaCta',
     description:
       'Desayunos sorpresa a domicilio en Catamarca: caja de madera y caja de cartón con café, delicias, taza y nota a mano. Pedí por WhatsApp.',
@@ -31,6 +33,7 @@ export const metadata: Metadata = {
     title: 'Desayunos Sorpresa: Caja de Madera y Cartón | LaPrincesaCta',
     description:
       'Desayunos sorpresa a domicilio en Catamarca: caja de madera y caja de cartón. Pedí por WhatsApp.',
+    images: [twitterImage],
   },
 };
 
