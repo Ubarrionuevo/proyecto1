@@ -17,11 +17,12 @@ const routes = [
   '/ramos/ramo-futbolero',
 ];
 
+/* No se declara `lastModified`: no hay una fecha real por página que se pueda
+   determinar de forma fiable en build, y no se inventan fechas. Si en el futuro
+   se conoce la fecha real de cada página, se agrega por-url. */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
   return routes.map((route) => ({
     url: `${siteConfig.url}${route === '/' ? '' : route}`,
-    lastModified,
     changeFrequency: route === '/' ? 'weekly' : ('monthly' as const),
     priority: route === '/' ? 1 : 0.8,
   }));
