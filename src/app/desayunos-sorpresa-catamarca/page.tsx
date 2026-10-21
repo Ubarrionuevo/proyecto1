@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     description:
       'Desayunos sorpresa a domicilio en Catamarca: caja de madera y caja de cartón con café, delicias, taza y nota a mano. Pedí por WhatsApp.',
     url: '/desayunos-sorpresa-catamarca',
-    type: 'article',
+    type: 'website',
     locale: 'es_AR',
   },
   twitter: {
@@ -52,11 +52,19 @@ export default function DesayunosPage() {
       <section className="max-w-3xl mx-auto px-5 sm:px-8 pt-10 sm:pt-14 pb-14">
         <span className="label">Desayunos a domicilio</span>
         <h1 className="display-lg mt-4 text-ink text-balance">Desayunos sorpresa en Catamarca</h1>
+        <p className="display-md mt-3 text-berry italic text-balance">
+          ¿Vivís lejos de Catamarca? Mandale un desayuno sorpresa a alguien especial.
+        </p>
         <div className="mt-6 space-y-5 text-base leading-relaxed text-ink-soft max-w-prose">
           <p>
-            Un desayuno sorpresa es la forma más linda de arrancar el día de alguien: llega a la
-            puerta antes de que se despierte, con todo listo para disfrutar. Nosotras lo armamos
-            completo, lo envolvemos y lo entregamos en San Fernando del Valle de Catamarca.
+            Comprá desde otra provincia o desde otro país y sorprendé a alguien en San Fernando
+            del Valle de Catamarca. Un desayuno sorpresa llega a la puerta antes de que se
+            despierte, con todo listo para disfrutar: nosotras lo armamos completo, lo envolvemos
+            y coordinamos la entrega por WhatsApp.
+          </p>
+          <p>
+            ¿Estás en Catamarca? También podés pedirlo: hacemos desayunos a domicilio en San
+            Fernando del Valle tanto para vos como para regalar.
           </p>
           <p>
             Cada desayuno trae café o té bien caliente, delicias artesanales, taza personalizada
@@ -77,16 +85,15 @@ export default function DesayunosPage() {
             , que sale un poco menos y se ve igual de linda en la puerta.
           </p>
           <p>
-            Para pedirlo solo necesitamos dos cosas: el nombre de quien lo recibe y el motivo.
-            Del resto nos ocupamos nosotras, coordinando directamente con esa persona para que
-            la sorpresa salga bien. Se paga por transferencia y hablás directo con nosotras,
-            sin intermediarios.
+            Para enviar un desayuno sorpresa a Catamarca solo necesitamos dos cosas: el nombre de
+            quien lo recibe y el motivo. Del resto nos ocupamos nosotras, coordinando directamente
+            con esa persona para que la sorpresa salga bien. Se paga por transferencia y hablás
+            directo con nosotras, sin intermediarios.
           </p>
           <p>
-            Los desayunos sirven para cumpleaños, aniversarios, agradecimientos o simplemente
-            para alegrarle un día cualquiera a alguien. Y si quien encarga está lejos —en otra
-            provincia o en otro país— igual se puede: lo pedís por WhatsApp desde donde estés
-            y lo entregamos acá.
+            Los motivos son los de siempre: un cumpleaños, un aniversario, un agradecimiento o un
+            regalo espontáneo. Si vivís lejos y querés regalarle a alguien que está en Catamarca,
+            alcanza con contárnoslo por WhatsApp y coordinamos la entrega.
           </p>
         </div>
 

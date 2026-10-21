@@ -4,10 +4,12 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import JsonLd, { productJsonLd, breadcrumbJsonLd } from '@/components/JsonLd';
+import JsonLd, { productJsonLd, breadcrumbJsonLd, faqJsonLd } from '@/components/JsonLd';
+import Faq from '@/components/Faq';
 import Polaroid from '@/components/ui/Polaroid';
 import StickerButton from '@/components/ui/StickerButton';
 import { getWhatsAppUrl, type Product } from '@/lib/products';
+import { productFaqs } from '@/lib/faqs';
 import { siteConfig } from '@/lib/site';
 import { ArrowIcon } from '@/components/Icons';
 
@@ -31,6 +33,7 @@ export default function ProductDetail({ data }: { data: ProductPageData }) {
     { name: categoryName, path: categoryPath },
     { name: product.name },
   ];
+  const faqs = productFaqs[product.id] ?? [];
 
   return (
     <main className="min-h-dvh bg-paper text-ink">
@@ -43,6 +46,7 @@ export default function ProductDetail({ data }: { data: ProductPageData }) {
             image: product.images[0].src,
             urlPath,
           }),
+          ...(faqs.length ? [faqJsonLd(faqs)] : []),
         ]}
       />
       <Navbar />
@@ -151,6 +155,14 @@ export default function ProductDetail({ data }: { data: ProductPageData }) {
           ))}
         </div>
       </section>
+
+      {faqs.length > 0 && (
+        <Faq
+          items={faqs}
+          label={`Dudas sobre ${product.name.toLowerCase()}`}
+          title="Preguntas antes de pedir."
+        />
+      )}
 
       <Footer />
       <FloatingWhatsApp />

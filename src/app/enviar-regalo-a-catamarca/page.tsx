@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description:
       'Pedí un regalo por WhatsApp desde donde estés y lo entregamos en San Fernando del Valle de Catamarca.',
     url: '/enviar-regalo-a-catamarca',
-    type: 'article',
+    type: 'website',
     locale: 'es_AR',
   },
   twitter: {

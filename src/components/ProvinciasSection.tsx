@@ -1,5 +1,6 @@
 ﻿'use client';
 
+import Link from 'next/link';
 import { getWhatsAppUrl } from '@/lib/products';
 import StickerButton from './ui/StickerButton';
 import Reveal from './ui/Reveal';
@@ -55,6 +56,20 @@ export default function ProvinciasSection() {
               <figcaption className="label mt-4">
                 Ya nos pasó — y lo hacemos de nuevo
               </figcaption>
+            </Reveal>
+
+            <Reveal delay={180} className="mt-8">
+              <p className="text-sm leading-relaxed text-ink-soft max-w-md">
+                Te explicamos cómo{' '}
+                <Link href="/enviar-regalo-a-catamarca" className="link-underline font-bold text-ink">
+                  enviar un regalo a Catamarca desde otra provincia
+                </Link>{' '}
+                paso a paso, y si representás una empresa armamos{' '}
+                <Link href="/regalos-empresariales" className="link-underline font-bold text-ink">
+                  regalos corporativos
+                </Link>{' '}
+                para tu equipo o tus clientes.
+              </p>
             </Reveal>
           </div>
 

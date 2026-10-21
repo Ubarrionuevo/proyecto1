@@ -164,14 +164,6 @@ export const ramos: Product[] = [
   },
 ];
 
-/* ── Números para mostrar ────────────────────────────────────── */
-
-export const stats = [
-  { value: '+100', label: 'entregas hechas' },
-  { value: '5.0', label: 'en Google Maps' },
-  { value: '33', label: 'opiniones' },
-];
-
 /* ── Fotos reales de clientes ────────────────────────────────── */
 
 export const clientPhotos = [

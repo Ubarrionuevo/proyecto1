@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: 'Ramo Común de Golosinas | LaPrincesaCta',
     description: 'Ramo común de golosinas armado a mano en Catamarca. Pedí por WhatsApp.',
     url: '/ramos/ramo-comun',
-    type: 'article',
+    type: 'website',
     locale: 'es_AR',
   },
   twitter: {

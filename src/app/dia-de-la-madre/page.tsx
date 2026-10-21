@@ -4,9 +4,11 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import JsonLd, { breadcrumbJsonLd } from '@/components/JsonLd';
+import JsonLd, { breadcrumbJsonLd, faqJsonLd } from '@/components/JsonLd';
+import Faq from '@/components/Faq';
 import StickerButton from '@/components/ui/StickerButton';
 import { getWhatsAppUrl } from '@/lib/products';
+import { diaDeLaMadreFaqs } from '@/lib/faqs';
 import { openGraphBase, twitterImage } from '@/lib/seo';
 import { siteConfig } from '@/lib/site';
 import { ArrowIcon } from '@/components/Icons';
@@ -35,7 +37,7 @@ export const metadata: Metadata = {
     description:
       'Desayunos sorpresa y ramos de golosinas para el Día de la Madre en Catamarca. Encargá por WhatsApp con anticipación.',
     url: '/dia-de-la-madre',
-    type: 'article',
+    type: 'website',
     locale: 'es_AR',
   },
   twitter: {
@@ -55,12 +57,12 @@ const crumbs = [
 export default function DiaDeLaMadrePage() {
   return (
     <main className="min-h-dvh bg-paper text-ink">
-      <JsonLd data={breadcrumbJsonLd(crumbs)} />
+      <JsonLd data={[breadcrumbJsonLd(crumbs), faqJsonLd(diaDeLaMadreFaqs)]} />
       <Navbar />
       <Breadcrumbs items={crumbs} />
 
       <section className="max-w-3xl mx-auto px-5 sm:px-8 pt-10 sm:pt-14 pb-14">
-        <span className="label">Domingo 18 de octubre de 2026</span>
+        <span className="label">Día de la Madre</span>
         <h1 className="display-lg mt-4 text-ink text-balance">
           Regalos y desayunos para el Día de la Madre en Catamarca
         </h1>
@@ -77,8 +79,9 @@ export default function DiaDeLaMadrePage() {
             lo encargás por WhatsApp desde donde estés y nosotras lo llevamos hasta su puerta.
           </p>
           <p>
-            Ese día los pedidos se juntan, así que te conviene encargarlo con anticipación:
-            escribinos, contanos para quién es y coordinamos la entrega.
+            En Argentina, el Día de la Madre cae el segundo domingo de octubre. Ese día los
+            pedidos se juntan, así que te conviene encargarlo con anticipación: escribinos,
+            contanos para quién es y coordinamos la entrega.
           </p>
         </div>
 
@@ -120,6 +123,12 @@ export default function DiaDeLaMadrePage() {
           .
         </p>
       </section>
+
+      <Faq
+        items={diaDeLaMadreFaqs}
+        label="Dudas para el Día de la Madre"
+        title="Preguntas antes de encargar."
+      />
 
       <Footer />
       <FloatingWhatsApp />

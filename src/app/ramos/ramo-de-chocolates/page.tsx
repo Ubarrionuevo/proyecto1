@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: 'Ramo de Chocolates | LaPrincesaCta',
     description: 'Ramo de chocolates a domicilio en Catamarca, envuelto fino y moño.',
     url: '/ramos/ramo-de-chocolates',
-    type: 'article',
+    type: 'website',
     locale: 'es_AR',
   },
   twitter: {

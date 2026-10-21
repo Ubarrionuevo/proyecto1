@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: 'Ramo Futbolero | LaPrincesaCta',
     description: 'Ramo futbolero de golosinas en Catamarca, armado con los colores de tu club.',
     url: '/ramos/ramo-futbolero',
-    type: 'article',
+    type: 'website',
     locale: 'es_AR',
   },
   twitter: {

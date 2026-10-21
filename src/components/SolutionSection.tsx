@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { desayunos, getWhatsAppUrl } from '@/lib/products';
 import { siteConfig } from '@/lib/site';
 import SectionHead from './ui/SectionHead';
@@ -100,6 +101,25 @@ export default function SolutionSection() {
             </Reveal>
           ))}
         </div>
+
+        <p className="mt-8 text-base leading-relaxed text-ink-soft max-w-prose">
+          Conocé los{' '}
+          <Link
+            href="/desayunos-sorpresa-catamarca"
+            className="link-underline font-bold text-ink"
+          >
+            desayunos sorpresa en Catamarca
+          </Link>
+          : qué traen, las dos presentaciones disponibles y cómo se entregan. Si querés
+          sumarle un mensaje escrito a mano, también hacemos{' '}
+          <Link
+            href="/cartas-personalizadas"
+            className="link-underline font-bold text-ink"
+          >
+            cartas personalizadas
+          </Link>{' '}
+          para enviar a todo el país.
+        </p>
       </div>
     </section>
   );

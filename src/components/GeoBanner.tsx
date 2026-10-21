@@ -2,6 +2,7 @@
 
 import React from 'react';
 import StickerButton from './ui/StickerButton';
+import { getWhatsAppUrl } from '@/lib/products';
 
 export default function GeoBanner() {
   return (
@@ -39,8 +40,8 @@ export default function GeoBanner() {
             className="mt-7 flex items-center justify-center rise"
             style={{ '--rise-delay': '230ms' } as React.CSSProperties}
           >
-            <StickerButton href="/catalogo" size="lg" icon="none">
-              Ver el catálogo
+            <StickerButton href={getWhatsAppUrl('un regalo a entregar en Catamarca')} size="lg">
+              Quiero enviar un regalo
             </StickerButton>
           </div>
         </div>

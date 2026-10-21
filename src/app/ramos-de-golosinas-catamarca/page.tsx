@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     description:
       'Ramos de golosinas y chocolates armados a mano en Catamarca: común, futbolero, de chocolates y con oso. Pedí por WhatsApp.',
     url: '/ramos-de-golosinas-catamarca',
-    type: 'article',
+    type: 'website',
     locale: 'es_AR',
   },
   twitter: {

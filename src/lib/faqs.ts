@@ -148,3 +148,149 @@ export const enviarRegaloFaqs: FaqItem[] = [
     a: `De ${siteConfig.hours.toLowerCase()}.`,
   },
 ];
+
+/* ── FAQ por producto ────────────────────────────────────────────
+   Solo usan informacion que ya esta publicada en el sitio: el detalle de
+   cada producto, la entrega a domicilio en San Fernando del Valle, el pago
+   por transferencia, los horarios y el hecho de que se puede encargar
+   desde cualquier provincia. No se inventan precios, plazos ni medidas. */
+
+const fueraDeProvincia =
+  'Sí: nos escriben de toda la Argentina y de otros países. Vos lo pedís desde donde ' +
+  'estés por WhatsApp y nosotras lo preparamos y lo entregamos en San Fernando del Valle ' +
+  'de Catamarca. Cuando la entrega está hecha, te avisamos.';
+
+const pagoPorTransferencia =
+  'Por transferencia, con el detalle del pedido que te pasamos por WhatsApp. Hablás ' +
+  'directo con nosotras, sin intermediarios.';
+
+export const productFaqs: Record<string, FaqItem[]> = {
+  'desayuno-caja-madera': [
+    {
+      q: '¿Qué trae la caja de madera?',
+      a: 'Café o té bien caliente, delicias artesanales, una taza y una nota escrita a mano. Todo viene ordenado y bien envuelto, y la caja se puede volver a usar para guardar cosas.',
+    },
+    {
+      q: '¿Puedo pedirlo si estoy fuera de Catamarca?',
+      a: fueraDeProvincia,
+    },
+    {
+      q: '¿Cómo se paga?',
+      a: pagoPorTransferencia,
+    },
+    {
+      q: '¿Puedo personalizar el mensaje?',
+      a: 'Sí: contanos qué querés que diga la nota y lo armamos a tu manera. También podés sumarle una carta personalizada, que se despacha a todo el país.',
+    },
+  ],
+  'desayuno-caja-carton': [
+    {
+      q: '¿Qué trae la caja de cartón?',
+      a: 'Café, delicias, taza personalizada y la nota a mano. Es la misma sorpresa que la caja de madera, con presentación de cartón premium.',
+    },
+    {
+      q: '¿Cuál me conviene, la de madera o la de cartón?',
+      a: 'La sorpresa es la misma; cambia la presentación. La caja de madera se puede volver a usar para guardar cosas y la de cartón sale un poco menos.',
+    },
+    {
+      q: '¿Lo entregan a domicilio?',
+      a: `Lo envolvemos y lo llevamos hasta la puerta en ${siteConfig.city}. Solo necesitamos el nombre de quien lo recibe y el motivo.`,
+    },
+    {
+      q: '¿Cómo se paga y a qué horario atienden?',
+      a: `${pagoPorTransferencia} Atendemos de ${siteConfig.hours.toLowerCase()}.`,
+    },
+  ],
+  'ramo-comun': [
+    {
+      q: '¿Qué trae el ramo común?',
+      a: 'Golosinas de todo tipo armadas en forma de ramo y envueltas para regalar. Es el que más enviamos a las familias.',
+    },
+    {
+      q: '¿Puedo sumarlo a un desayuno?',
+      a: 'Las dos cosas: el ramo se suma a cualquier desayuno o va solo, como vos quieras.',
+    },
+    {
+      q: '¿Lo puedo pedir desde otra provincia?',
+      a: fueraDeProvincia,
+    },
+    {
+      q: '¿Cómo se paga?',
+      a: pagoPorTransferencia,
+    },
+  ],
+  'ramo-futbolero': [
+    {
+      q: '¿El ramo futbolero se arma con los colores de mi club?',
+      a: 'Sí: se arma por pedido con los colores de tu club y la camiseta adentro. Decinos tu equipo y lo dejamos a tu manera.',
+    },
+    {
+      q: '¿Qué trae además de la camiseta?',
+      a: 'Golosinas y escudos del club, armados y envueltos para regalar. Es el ramo que se usa para regalar en un partido, un cumple o cualquier fecha especial.',
+    },
+    {
+      q: '¿Se puede sumar a un desayuno?',
+      a: 'Sí: se suma a cualquier desayuno o va solo.',
+    },
+    {
+      q: '¿Puedo pedirlo si estoy fuera de Catamarca?',
+      a: fueraDeProvincia,
+    },
+  ],
+  'ramo-chocolates': [
+    {
+      q: '¿Qué trae el ramo de chocolates?',
+      a: 'Todo chocolate, con envuelto fino y un moño que no se deshace en el camino. Es el que se ve premium incluso sin decir el precio.',
+    },
+    {
+      q: '¿Cómo se entrega?',
+      a: `Va envuelto y listo para regalar: lo llevamos hasta la puerta en ${siteConfig.city}.`,
+    },
+    {
+      q: '¿Lo puedo encargar desde otra ciudad o país?',
+      a: fueraDeProvincia,
+    },
+    {
+      q: '¿Cómo se paga?',
+      a: pagoPorTransferencia,
+    },
+  ],
+  'ramo-oso': [
+    {
+      q: '¿Qué trae el ramo con oso?',
+      a: 'Golosinas y un oso de peluche adentro. Es el que más se regala para novios y para chicas.',
+    },
+    {
+      q: '¿Llega entero?',
+      a: 'Sí: el oso va envuelto para que llegue entero, y el ramo se entrega listo para regalar.',
+    },
+    {
+      q: '¿Se suma a un desayuno?',
+      a: 'Sí: los ramos se suman a cualquier desayuno o van solos.',
+    },
+    {
+      q: '¿A qué horario atienden?',
+      a: `De ${siteConfig.hours.toLowerCase()}. Escribinos y te respondemos con opciones en el momento.`,
+    },
+  ],
+};
+
+/* FAQ de la landing del Día de la Madre. Misma lógica: solo datos publicados. */
+export const diaDeLaMadreFaqs: FaqItem[] = [
+  {
+    q: '¿Qué puedo regalar para el Día de la Madre?',
+    a: 'Desayunos sorpresa completos —café o té, delicias, taza y nota a mano— o ramos de golosinas y de chocolates, que van solos o sumados al desayuno.',
+  },
+  {
+    q: '¿Puedo encargarlo desde otra provincia?',
+    a: fueraDeProvincia,
+  },
+  {
+    q: '¿Con cuánta anticipación conviene pedir?',
+    a: 'Ese día los pedidos se juntan, así que conviene encargarlo con anticipación. No publicamos un plazo fijo: escribinos con la fecha que necesitás y te confirmamos la disponibilidad.',
+  },
+  {
+    q: '¿Cómo se paga?',
+    a: pagoPorTransferencia,
+  },
+];

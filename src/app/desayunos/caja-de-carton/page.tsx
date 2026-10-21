@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description:
       'Desayuno sorpresa en caja de cartón a domicilio en Catamarca. Pedí por WhatsApp.',
     url: '/desayunos/caja-de-carton',
-    type: 'article',
+    type: 'website',
     locale: 'es_AR',
   },
   twitter: {

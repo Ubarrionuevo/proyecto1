@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: 'Ramo con Oso de Peluche | LaPrincesaCta',
     description: 'Ramo con oso de peluche y golosinas en Catamarca. Pedí por WhatsApp.',
     url: '/ramos/ramo-con-oso',
-    type: 'article',
+    type: 'website',
     locale: 'es_AR',
   },
   twitter: {

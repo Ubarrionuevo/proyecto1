@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description:
       'Desayunos sorpresa y ramos de golosinas en Catamarca. Pedí por WhatsApp.',
     url: '/catalogo',
-    type: 'article',
+    type: 'website',
     locale: 'es_AR',
   },
   twitter: {

@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import Navbar from '@/components/Navbar';
+import Hero from '@/components/Hero';
 import GeoBanner from '@/components/GeoBanner';
 import SolutionSection from '@/components/SolutionSection';
 import AdditionalGifts from '@/components/AdditionalGifts';
@@ -11,76 +11,18 @@ import Faq from '@/components/Faq';
 import Reviews from '@/components/Reviews';
 import JsonLd, { websiteJsonLd, localBusinessJsonLd, faqJsonLd } from '@/components/JsonLd';
 import { homeFaqs } from '@/lib/faqs';
-import { ArrowIcon } from '@/components/Icons';
-
-const exploreLinks = [
-  {
-    href: '/desayunos-sorpresa-catamarca',
-    title: 'Desayunos sorpresa',
-    text: 'Qué traen y cómo se entregan los dos modelos.',
-  },
-  {
-    href: '/ramos-de-golosinas-catamarca',
-    title: 'Ramos de golosinas',
-    text: 'Común, futbolero, de chocolates y con oso, armados a mano.',
-  },
-  {
-    href: '/catalogo',
-    title: 'Catálogo',
-    text: 'La lista completa de desayunos y ramos con lo que incluye cada uno.',
-  },
-  {
-    href: '/cartas-personalizadas',
-    title: 'Cartas personalizadas',
-    text: 'Cartas físicas con tu mensaje, enviadas a todo el país.',
-  },
-  {
-    href: '/regalos-empresariales',
-    title: 'Regalos empresariales',
-    text: 'Propuestas para empleados y clientes, en Catamarca y al país.',
-  },
-  {
-    href: '/enviar-regalo-a-catamarca',
-    title: 'Enviar un regalo a Catamarca',
-    text: 'Cómo encargarlo desde otra ciudad o país, paso a paso.',
-  },
-];
 
 export default function Home() {
   return (
     <main className="min-h-dvh bg-paper text-ink">
       <JsonLd data={[websiteJsonLd(), localBusinessJsonLd(), faqJsonLd(homeFaqs)]} />
       <Navbar />
+      <Hero />
       <GeoBanner />
       <SolutionSection />
       <AdditionalGifts />
       <ClientsMotion number="03" />
       <ProvinciasSection />
-
-      {/* Links descriptivos a las páginas internas */}
-      <section aria-label="Seguí explorando" className="border-t border-rule py-16 sm:py-24">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8">
-          <span className="label">Seguí explorando</span>
-          <h2 className="display-md mt-3 text-ink">Todo lo que hacemos, en detalle.</h2>
-          <div className="mt-8 border-t border-rule">
-            {exploreLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="group grid grid-cols-12 gap-4 items-baseline py-5 border-b border-rule"
-              >
-                <span className="col-span-10 sm:col-span-11">
-                  <span className="font-display text-xl sm:text-2xl font-semibold text-ink link-underline">
-                    {link.title}
-                  </span>
-                  <span className="block mt-1 text-sm text-ink-soft">{link.text}</span>
-                </span>
-                <ArrowIcon className="col-span-2 sm:col-span-1 w-5 h-5 text-berry justify-self-end transition-transform duration-200 group-hover:translate-x-1" />
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <Faq items={homeFaqs} title="Preguntas sobre cómo pedir." />
       <Reviews />

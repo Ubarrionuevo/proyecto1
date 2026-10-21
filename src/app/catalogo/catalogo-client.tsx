@@ -7,6 +7,7 @@ import { productPages } from '@/lib/product-pages';
 import { siteConfig } from '@/lib/site';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import ClientsMotion from '@/components/ClientsMotion';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import SectionHead from '@/components/ui/SectionHead';
@@ -27,6 +28,11 @@ const catalog: (Product & { category: Exclude<Filter, 'todos'> })[] = [
   ...ramos.map((p) => ({ ...p, category: 'ramos' as const })),
 ];
 
+const crumbs = [
+  { name: 'Inicio', path: '/' },
+  { name: 'Catálogo' },
+];
+
 /* URL de la ficha de cada producto, para enlazar desde el catálogo. El catálogo
    es el hub central: cada producto linkea a su página propia. */
 const productHrefById: Record<string, string> = Object.fromEntries(
@@ -40,6 +46,7 @@ export default function CatalogoClient() {
   return (
     <main className="min-h-dvh bg-paper text-ink">
       <Navbar />
+      <Breadcrumbs items={crumbs} />
 
       {/* 1. Banner */}
       <section className="border-b border-rule">
@@ -48,11 +55,12 @@ export default function CatalogoClient() {
             <div className="lg:col-span-7">
               <Reveal>
                 <span className="label">Catálogo</span>
-                <h1 className="display-lg mt-4 text-ink">
-                  Todo lo que armamos,
-                  <br />
-                  <span className="text-berry italic">listo para regalar.</span>
+                <h1 className="display-lg mt-4 text-ink text-balance">
+                  Catálogo de desayunos y ramos en Catamarca
                 </h1>
+                <p className="display-md mt-2 text-berry italic">
+                  Todo lo que armamos, listo para regalar.
+                </p>
               </Reveal>
             </div>
 

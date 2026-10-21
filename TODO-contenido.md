@@ -17,8 +17,25 @@ Nada de lo de abajo está publicado en la web. Son datos que faltan y que
       de reputación (navbar, hero, footer y sección de opiniones) ahora es
       clickeable y abre la ficha.
 
-## Día de la Madre 2026 (domingo 18 de octubre)
-- [ ] ¿Hay fecha límite para tomar pedidos? (si no hay, no se publica ninguna).
+## Día de la Madre
+- [x] La fecha que figuraba ("domingo 18 de octubre de 2026") era incorrecta: en
+      Argentina el Día de la Madre es el **segundo** domingo de octubre (11/10/2026);
+      el 18 de octubre es el Día del Padre. La fecha se saco del sitio y la pagina
+      quedo sin fecha fija, para que sirva todos los años.
+- [ ] Si se quiere una landing especifica por temporada, definir la fecha del año
+      que viene antes de publicarla (Dia de la Madre 2027: domingo 10 de octubre).
+
+## Cifras publicadas (revisar que sigan siendo ciertas)
+- [ ] "+100 entregas hechas" (banda del hero en el inicio). Viene del dato del
+      dueño, pero no es verificable desde afuera: confirmarlo o cambiarlo.
+- [ ] La nota y la cantidad de opiniones deben seguir coincidencia con la ficha
+      de Google: hoy son 5.0 y 42, y salen de `siteConfig` (un solo lugar).
+
+## Hero (inicio)
+- [x] `Hero.tsx` estaba escrito pero nunca se importaba: no se renderizaba en
+      ninguna pagina. Ya se conecto al inicio (masthead, cifras, banda de fotos).
+      El H1 unico de la pagina quedo en el GeoBanner, que lleva la keyword
+      "Desayunos sorpresa a domicilio en Catamarca".
 
 ## Operativa
 - [ ] ¿La entrega es solo en San Fernando del Valle o también en otras
@@ -51,7 +68,11 @@ Nada de lo de abajo está publicado en la web. Son datos que faltan y que
 - [ ] Fotos reales de pedidos empresariales.
 
 ## Medición
-- [ ] ID de GA4 (para `NEXT_PUBLIC_GA_ID`).
+- [x] ID de GA4: `G-KESWRNLJ8Y`. Ya esta cableado en `Analytics.tsx` (se activa
+      solo si existe `NEXT_PUBLIC_GA_ID`) y configurado en `.env.local`.
+- [ ] **Cargar `NEXT_PUBLIC_GA_ID=G-KESWRNLJ8Y` en las variables de entorno de
+      Vercel** (Project → Settings → Environment Variables, para Production y
+      Preview). Sin eso, en produccion no se registra nada.
 - [x] Verificación de Search Console: hecha por partida doble (etiqueta meta en
       `src/app/layout.tsx` con el token público, y archivo
       `public/google4f54e2f7edf963e8.html`). Ninguno de los dos se borra.
