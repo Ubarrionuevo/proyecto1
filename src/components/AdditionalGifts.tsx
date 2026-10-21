@@ -25,7 +25,7 @@ export default function AdditionalGifts() {
                 <br className="hidden sm:block" /> y peluches armados a mano.
               </>
             }
-            intro="Se suman a cualquier desayuno o van solos. Decinos el tema y lo armamos como vos lo quieras."
+            intro="Se suman a cualquier desayuno o van solos. Si estás lejos, también podés sumarlos: decinos el tema y lo armamos como vos lo quieras."
           />
         </Reveal>
 

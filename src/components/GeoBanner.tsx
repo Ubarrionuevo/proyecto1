@@ -1,7 +1,9 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import StickerButton from './ui/StickerButton';
+import { ArrowIcon } from './Icons';
 import { getWhatsAppUrl } from '@/lib/products';
 
 export default function GeoBanner() {
@@ -22,16 +24,15 @@ export default function GeoBanner() {
             className="display-md mt-1 text-berry italic rise"
             style={{ '--rise-delay': '80ms' } as React.CSSProperties}
           >
-            ¿Estás lejos? El regalo llega igual.
+            ¿Vivís lejos y tenés familia o amigos en Catamarca?
           </p>
 
           <p
             className="mt-5 text-base text-ink-soft max-w-2xl mx-auto leading-relaxed rise"
             style={{ '--rise-delay': '160ms' } as React.CSSProperties}
           >
-            Desayunos sorpresa para un cumpleaños, un aniversario o un regalo sin motivo. Si
-            estás en San Fernando del Valle, te lo llevamos a domicilio; si vivís en otra
-            provincia o país, lo pedís por WhatsApp y lo entregamos a quien quieras sorprender.
+            Quedate tranquilo: nos encargamos de todo. Elegís el regalo, nos decís para quién es
+            y lo entregamos en la puerta. Te avisamos por WhatsApp cuando llega.
           </p>
         </div>
       </div>
@@ -45,6 +46,19 @@ export default function GeoBanner() {
             <StickerButton href={getWhatsAppUrl('un regalo a entregar en Catamarca')} size="lg">
               Quiero enviar un regalo
             </StickerButton>
+          </div>
+
+          <div
+            className="mt-4 flex items-center justify-center rise"
+            style={{ '--rise-delay': '300ms' } as React.CSSProperties}
+          >
+            <Link
+              href="/enviar-regalo-a-catamarca"
+              className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-ink link-underline"
+            >
+              Así funciona el envío desde otra provincia
+              <ArrowIcon className="w-4 h-4 text-berry" />
+            </Link>
           </div>
         </div>
       </div>

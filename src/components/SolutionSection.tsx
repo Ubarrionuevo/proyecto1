@@ -23,7 +23,7 @@ export default function SolutionSection() {
                 <br className="hidden sm:block" /> antes de que se despierte.
               </>
             }
-            intro="Armamos el desayuno completo, lo envolvemos y lo entregamos nosotros. Vos solo nos decís el nombre de quien lo recibe y el motivo."
+            intro="Estés donde estés, nosotras nos encargamos: armamos el desayuno completo, lo envolvemos y lo entregamos a domicilio. Vos solo nos decís el nombre de quien lo recibe y el motivo."
           />
         </Reveal>
 

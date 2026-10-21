@@ -9,6 +9,10 @@ const whatsapp = siteConfig.phoneDisplay;
 
 export const homeFaqs: FaqItem[] = [
   {
+    q: 'Estoy lejos de Catamarca, ¿puedo encargar igual?',
+    a: `Sí: nos escriben de toda la Argentina y de otros países. Vos lo pedís desde donde estés y nosotras lo preparamos y lo entregamos en ${siteConfig.city}. Cuando la entrega está hecha, te avisamos por WhatsApp.`,
+  },
+  {
     q: '¿Cómo hago un pedido?',
     a: `Por WhatsApp al ${whatsapp}: contanos el nombre de quien lo recibe y el motivo, y coordinamos el resto con esa persona. Hablás directo con nosotras, sin intermediarios.`,
   },
