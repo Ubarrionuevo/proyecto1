@@ -77,6 +77,46 @@ export function breadcrumbJsonLd(items: { name: string; path?: string }[]) {
   };
 }
 
+/* Service: para páginas de servicio (cartas personalizadas, regalos
+   empresariales). Declara el alcance real (ciudad/país) y el proveedor,
+   sin precios ni valoraciones inventadas. */
+export function serviceJsonLd({
+  name,
+  description,
+  urlPath,
+  serviceType,
+  areaServed,
+}: {
+  name: string;
+  description: string;
+  urlPath: string;
+  serviceType: string;
+  areaServed: Record<string, unknown> | Record<string, unknown>[];
+}) {
+  return {
+    '@context': CONTEXT,
+    '@type': 'Service',
+    name,
+    description,
+    serviceType,
+    url: `${siteConfig.url}${urlPath}`,
+    areaServed,
+    provider: {
+      '@type': 'Store',
+      name: siteConfig.name,
+      url: siteConfig.url,
+      telephone: `+${siteConfig.whatsappNumber}`,
+      image: `${siteConfig.url}/og-laprincesacta.jpg`,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: siteConfig.city,
+        addressRegion: siteConfig.region,
+        addressCountry: siteConfig.country,
+      },
+    },
+  };
+}
+
 /* Product sin Offer: la web no publica precios, así que el schema tampoco
    los declara. Sin aggregateRating ni review propias. */
 export function productJsonLd({

@@ -93,6 +93,17 @@ export default function RamosPage() {
             nosotras, sin intermediarios. Y si estás lejos, lo pedís por WhatsApp desde donde
             estés y lo entregamos acá.
           </p>
+          <p>
+            Si además querés sumar un{' '}
+            <Link href="/desayunos-sorpresa-catamarca" className="link-underline font-bold text-ink">
+              desayuno sorpresa
+            </Link>
+            , combinamos ambos en un mismo pedido y lo entregamos junto. Mirá también{' '}
+            <Link href="/cartas-personalizadas" className="link-underline font-bold text-ink">
+              cartas personalizadas
+            </Link>{' '}
+            para acompañar el ramo con un mensaje escrito.
+          </p>
         </div>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2">

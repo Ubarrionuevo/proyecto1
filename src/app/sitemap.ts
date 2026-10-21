@@ -9,6 +9,8 @@ const routes = [
   '/ramos-de-golosinas-catamarca',
   '/dia-de-la-madre',
   '/enviar-regalo-a-catamarca',
+  '/cartas-personalizadas',
+  '/regalos-empresariales',
   '/desayunos/caja-de-madera',
   '/desayunos/caja-de-carton',
   '/ramos/ramo-comun',

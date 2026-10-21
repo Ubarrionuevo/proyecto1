@@ -3,15 +3,22 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { contact } from '@/lib/products';
-import { GoogleGIcon, StarIcon, MenuIcon, CloseIcon } from './Icons';
+import { MenuIcon, CloseIcon } from './Icons';
+import GoogleRating from './GoogleRating';
 
-const navLinks = [
+/* Cuatro destinos principales: los dos que más venden y los dos nuevos.
+   Catálogo y Enviar regalo siguen accesibles desde el grupo "Más" del menú
+   mobile y desde el footer, sin competir en la barra. */
+const primaryLinks = [
   { href: '/desayunos-sorpresa-catamarca', label: 'Desayunos' },
   { href: '/ramos-de-golosinas-catamarca', label: 'Ramos' },
+  { href: '/cartas-personalizadas', label: 'Cartas' },
+  { href: '/regalos-empresariales', label: 'Empresas' },
+];
+
+const secondaryLinks = [
   { href: '/catalogo', label: 'Catálogo' },
-  { href: '/dia-de-la-madre', label: 'Día de la Madre' },
-  { href: '/enviar-regalo-a-catamarca', label: 'Enviar regalo' },
+  { href: '/enviar-regalo-a-catamarca', label: 'Enviar regalo a Catamarca' },
 ];
 
 export default function Navbar() {
@@ -61,9 +68,9 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* Links de escritorio */}
-          <nav className="hidden lg:flex items-center gap-6">
-            {navLinks.map((link) => (
+          {/* Links de escritorio: solo los cuatro principales */}
+          <nav className="hidden lg:flex items-center gap-8">
+            {primaryLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -77,16 +84,7 @@ export default function Navbar() {
 
           {/* Rating + WhatsApp */}
           <div className="flex items-center gap-3 sm:gap-5">
-            <div className="stars-hover hidden sm:flex items-center gap-1.5">
-              <GoogleGIcon className="w-4 h-4" />
-              <span className="flex items-center gap-px" role="img" aria-label="5 de 5 estrellas">
-                {[0, 1, 2, 3, 4].map((i) => (
-                  <StarIcon key={i} className="star w-3 h-3 text-butter-deep" />
-                ))}
-              </span>
-              <span className="ml-0.5 text-[12px] font-bold text-ink">{contact.rating}</span>
-              <span className="text-[12px] text-ink-soft">({contact.reviews})</span>
-            </div>
+            <GoogleRating size="sm" hideCount className="hidden sm:inline-flex" />
 
             {/* Menú mobile */}
             <button
@@ -113,28 +111,41 @@ export default function Navbar() {
       {open && (
         <div className="lg:hidden border-t border-rule bg-paper-card animate-[rise-in_240ms_cubic-bezier(0.22,1,0.36,1)_both] motion-reduce:animate-none">
           <nav className="px-5 sm:px-8 py-2 flex flex-col">
-            {navLinks.map((link, i) => (
+            {primaryLinks.map((link, i) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="rise py-3.5 font-display text-xl text-ink border-b border-rule-soft last:border-0 transition-[color,transform] duration-200 hover:text-berry active:scale-[0.98]"
+                aria-current={pathname === link.href ? 'page' : undefined}
+                className="rise py-3.5 font-display text-xl text-ink border-b border-rule-soft transition-[color,transform] duration-200 hover:text-berry active:scale-[0.98]"
                 style={{ '--rise-delay': `${i * 35}ms` } as React.CSSProperties}
               >
                 {link.label}
               </Link>
             ))}
-            <div className="flex items-center gap-1.5 py-4">
-              <GoogleGIcon className="w-4 h-4" />
-              <span className="flex items-center gap-px">
-                {[0, 1, 2, 3, 4].map((i) => (
-                  <StarIcon key={i} className="w-3.5 h-3.5 text-butter-deep" />
+
+            {/* Secundarios: presentes pero en segundo plano */}
+            <div
+              className="rise pt-5 pb-1"
+              style={{ '--rise-delay': '140ms' } as React.CSSProperties}
+            >
+              <span className="label">Más</span>
+              <div className="mt-2.5 flex flex-col items-start gap-1">
+                {secondaryLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className="link-underline py-1.5 text-sm font-semibold text-ink-soft hover:text-ink transition-colors"
+                  >
+                    {link.label}
+                  </Link>
                 ))}
-              </span>
-              <span className="ml-1 text-[13px] text-ink-soft">
-                <span className="font-bold text-ink">{contact.rating}</span> · {contact.reviews}{' '}
-                opiniones
-              </span>
+              </div>
+            </div>
+
+            <div className="mt-3 flex items-center py-4 border-t border-rule-soft">
+              <GoogleRating size="md" />
             </div>
           </nav>
         </div>

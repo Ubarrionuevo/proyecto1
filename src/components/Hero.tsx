@@ -3,7 +3,7 @@
 import React from 'react';
 import { getWhatsAppUrl, contact } from '@/lib/products';
 import StickerButton from './ui/StickerButton';
-import { GoogleGIcon, StarIcon } from './Icons';
+import GoogleRating from './GoogleRating';
 
 /* Las tres fotos que abren la web. Todas verticales, como las reales. */
 const bandPhotos = [
@@ -18,7 +18,7 @@ export default function Hero() {
       {/* Barra utilitaria */}
       <div className="border-b border-rule">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 py-2.5 flex items-center justify-between text-[11px] uppercase tracking-[0.14em] font-semibold text-ink-soft">
-          <span className="truncate">Desayunos a domicilio · Catamarca</span>
+          <span className="truncate">Desayunos y ramos a domicilio · Catamarca</span>
           <span className="hidden sm:inline">{contact.hours}</span>
         </div>
       </div>
@@ -103,17 +103,8 @@ export default function Hero() {
             ))}
           </div>
 
-          <div className="mt-8 flex items-center gap-2 text-[13px] text-ink-soft">
-            <GoogleGIcon className="w-4 h-4 shrink-0" />
-            <span className="flex items-center gap-px" role="img" aria-label="5 de 5 estrellas">
-              {[0, 1, 2, 3, 4].map((i) => (
-                <StarIcon key={i} className="w-3.5 h-3.5 text-butter-deep" />
-              ))}
-            </span>
-            <span>
-              <span className="font-bold text-ink">{contact.rating}</span> · {contact.reviews}{' '}
-              opiniones en Google Maps
-            </span>
+          <div className="mt-8">
+            <GoogleRating size="md" />
           </div>
         </div>
       </div>

@@ -18,8 +18,11 @@ export const siteConfig = {
      dueño quiera publicarlos. */
   showPrices: false,
   googleRating: '5.0',
-  googleReviews: 33,
-  googleMapsUrl: '',
+  googleReviews: 42,
+  /* Ficha real de Google Maps (verificada). Se usa para el enlace de opiniones
+     y para el bloque de reseñas: al tocar, abre la ficha del negocio. */
+  googleMapsUrl:
+    'https://www.google.com/maps/place/?q=place_id:ChIJ-RyK7pUpJJQRijlTyxNIULk',
   instagramUrl: '',
   facebookUrl: '',
 };

@@ -80,6 +80,56 @@ export const ramosFaqs: FaqItem[] = [
   },
 ];
 
+export const cartasFaqs: FaqItem[] = [
+  {
+    q: '¿A dónde envían las cartas?',
+    a: 'A todo el país: despachamos la carta física a cualquier provincia de Argentina. Coordinamos destino, dirección y fecha por WhatsApp.',
+  },
+  {
+    q: '¿Cómo personalizo la carta?',
+    a: 'Nos pasás el nombre de quien la recibe y el mensaje que querés decirle. Nosotras la preparamos con ese texto y la enviamos.',
+  },
+  {
+    q: '¿Puede ser una sorpresa?',
+    a: 'Sí. Si la persona no sabe que va a recibirla, coordinamos la entrega con vos para que la sorpresa salga bien.',
+  },
+  {
+    q: '¿Cuánto tarda en llegar?',
+    a: 'Depende del destino y del medio de envío. No publicamos un plazo fijo: escribinos con la fecha que necesitás y te confirmamos la disponibilidad.',
+  },
+  {
+    q: '¿Cómo se paga?',
+    a: 'Por transferencia, con el detalle del pedido que te pasamos por WhatsApp. Hablás directo con nosotras, sin intermediarios.',
+  },
+  {
+    q: '¿Hacen envíos al exterior?',
+    a: 'Las cartas se envían dentro de Argentina. Si necesitás otro destino, escribinos y lo vemos.',
+  },
+];
+
+export const empresasFaqs: FaqItem[] = [
+  {
+    q: '¿Qué regalos pueden pedir las empresas?',
+    a: 'Armamos propuestas con nuestros desayunos y ramos para empleados, clientes o equipos, según la cantidad, la fecha y el presupuesto.',
+  },
+  {
+    q: '¿Dónde entregan?',
+    a: `Entregamos en ${siteConfig.city} y despachamos al resto del país. Coordinamos el destino de cada pedido por WhatsApp.`,
+  },
+  {
+    q: '¿Hay una cantidad mínima?',
+    a: 'Consultanos por la cantidad que necesitás y te pasamos una propuesta a medida.',
+  },
+  {
+    q: '¿Con cuánta anticipación conviene pedir?',
+    a: 'No tenemos un plazo publicado: escribinos con la fecha y la cantidad y te confirmamos la disponibilidad.',
+  },
+  {
+    q: '¿Cómo se paga?',
+    a: 'Por transferencia, con el detalle del pedido que te pasamos por WhatsApp.',
+  },
+];
+
 export const enviarRegaloFaqs: FaqItem[] = [
   {
     q: 'Estoy lejos de Catamarca, ¿puedo encargar igual?',

@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# herramientas de agentes/IDE (vendor, no va al repo)
+/.agent
+/.cursor
+/.gemini
+/.opencode

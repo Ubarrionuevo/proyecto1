@@ -4,7 +4,8 @@ import React from 'react';
 import Link from 'next/link';
 import { getWhatsAppUrl, contact } from '@/lib/products';
 import { siteConfig } from '@/lib/site';
-import { GoogleGIcon, StarIcon, WhatsAppIcon } from './Icons';
+import { WhatsAppIcon } from './Icons';
+import GoogleRating from './GoogleRating';
 import Reveal from './ui/Reveal';
 
 const pageLinks = [
@@ -12,7 +13,8 @@ const pageLinks = [
   { href: '/catalogo', label: 'Catálogo' },
   { href: '/desayunos-sorpresa-catamarca', label: 'Desayunos sorpresa' },
   { href: '/ramos-de-golosinas-catamarca', label: 'Ramos de golosinas' },
-  { href: '/dia-de-la-madre', label: 'Día de la Madre' },
+  { href: '/cartas-personalizadas', label: 'Cartas personalizadas' },
+  { href: '/regalos-empresariales', label: 'Regalos empresariales' },
   { href: '/enviar-regalo-a-catamarca', label: 'Enviar regalo a Catamarca' },
 ];
 
@@ -102,18 +104,7 @@ export default function Footer() {
           y={8}
           className="border-t border-ink/15 py-6 flex flex-wrap items-center justify-between gap-4"
         >
-          <div className="stars-hover flex items-center gap-2 text-sm text-ink-soft">
-            <GoogleGIcon className="w-4 h-4" />
-            <span className="flex items-center gap-px" role="img" aria-label="5 de 5 estrellas">
-              {[0, 1, 2, 3, 4].map((i) => (
-                <StarIcon key={i} className="star w-3.5 h-3.5 text-berry-deep" />
-              ))}
-            </span>
-            <span>
-              <span className="font-bold text-ink">{contact.rating}</span> · {contact.reviews}{' '}
-              opiniones
-            </span>
-          </div>
+          <GoogleRating size="lg" />
 
           <a
             href={getWhatsAppUrl('un regalo')}

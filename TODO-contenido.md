@@ -12,6 +12,10 @@ Nada de lo de abajo está publicado en la web. Son datos que faltan y que
 ## Reseñas
 - [ ] 5 o 6 reseñas reales copiadas de Google, con nombre de quien la escribió
       y confirmación de que se pueden publicar en la web.
+- [x] Nota y cantidad actualizadas a 5.0 y 42 opiniones (`siteConfig`).
+- [x] Enlace a la ficha real de Google Maps cargado en `googleMapsUrl`: el bloque
+      de reputación (navbar, hero, footer y sección de opiniones) ahora es
+      clickeable y abre la ficha.
 
 ## Día de la Madre 2026 (domingo 18 de octubre)
 - [ ] ¿Hay fecha límite para tomar pedidos? (si no hay, no se publica ninguna).
@@ -31,6 +35,21 @@ Nada de lo de abajo está publicado en la web. Son datos que faltan y que
       `products.ts` pero ocultos: para volver a mostrarlos, poner
       `showPrices: true` en `src/lib/site.ts`.
 
+## Cartas personalizadas (servicio a todo el país)
+- [ ] Formato y materiales de la carta (papel, sobre, tamaño).
+- [ ] ¿Se escribe a mano, se imprime o se diseña? (hoy la web no lo especifica).
+- [ ] Medio de envío y plazo estimado por zona (hoy no se publica ningún plazo).
+- [ ] Precio y si se puede combinar con un desayuno o ramo.
+- [ ] Fotos reales de una carta terminada.
+
+## Regalos empresariales (Catamarca + envíos al país)
+- [ ] Qué incluye la propuesta (¿solo desayunos y ramos o más opciones?).
+- [ ] Cantidad mínima, si existe.
+- [ ] Personalización con logo o marca de la empresa (si está disponible).
+- [ ] ¿Se emite factura? Datos fiscales necesarios.
+- [ ] Plazos y logística para pedidos al interior del país.
+- [ ] Fotos reales de pedidos empresariales.
+
 ## Medición
 - [ ] ID de GA4 (para `NEXT_PUBLIC_GA_ID`).
 - [x] Verificación de Search Console: hecha por partida doble (etiqueta meta en
@@ -44,4 +63,4 @@ Nada de lo de abajo está publicado en la web. Son datos que faltan y que
 - [ ] Definir `https://www.laprincesacta.com.ar` como dominio canónico en el
       hosting y en Search Console.
 - [ ] Enviar `sitemap.xml` en Search Console y solicitar indexación de
-      `/dia-de-la-madre` y las páginas nuevas.
+      `/dia-de-la-madre`, `/cartas-personalizadas` y `/regalos-empresariales`.

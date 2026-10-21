@@ -30,9 +30,14 @@ const exploreLinks = [
     text: 'La lista completa de desayunos y ramos con lo que incluye cada uno.',
   },
   {
-    href: '/dia-de-la-madre',
-    title: 'Día de la Madre',
-    text: 'Opciones para sorprender a mamá el domingo 18 de octubre.',
+    href: '/cartas-personalizadas',
+    title: 'Cartas personalizadas',
+    text: 'Cartas físicas con tu mensaje, enviadas a todo el país.',
+  },
+  {
+    href: '/regalos-empresariales',
+    title: 'Regalos empresariales',
+    text: 'Propuestas para empleados y clientes, en Catamarca y al país.',
   },
   {
     href: '/enviar-regalo-a-catamarca',

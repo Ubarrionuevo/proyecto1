@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { ramos, getWhatsAppUrl } from '@/lib/products';
 import { siteConfig } from '@/lib/site';
 import SectionHead from './ui/SectionHead';
@@ -105,6 +106,14 @@ export default function AdditionalGifts() {
         <p className="mt-8 text-sm text-ink-soft max-w-prose">
           ¿Necesitás algo que no esté en la lista? También lo armamos: escribinos y contanos qué
           tenés en mente.
+        </p>
+
+        <p className="mt-5 text-sm leading-relaxed text-ink-soft max-w-prose">
+          Conocé todos los detalles de nuestros{' '}
+          <Link href="/ramos-de-golosinas-catamarca" className="link-underline font-bold text-ink">
+            ramos de golosinas en Catamarca
+          </Link>
+          : modelos, armado por pedido y entrega a domicilio.
         </p>
       </div>
     </section>
