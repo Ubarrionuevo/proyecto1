@@ -22,14 +22,14 @@ const gscVerification =
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: "Desayunos a Domicilio en Catamarca | LaPrincesaCta",
+  title: "Desayunos Sorpresa a Domicilio en Catamarca | LaPrincesaCta",
   description:
-    "Desayunos sorpresa y ramos de golosinas a domicilio en San Fernando del Valle de Catamarca. Pedí por WhatsApp: atendemos todos los días de 8 a 23 h.",
+    "Desayunos sorpresa a domicilio en Catamarca. Caja de madera o de cartón, con café, delicias y nota a mano. Pedí por WhatsApp desde donde estés.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Desayunos a Domicilio en Catamarca | LaPrincesaCta",
+    title: "Desayunos Sorpresa a Domicilio en Catamarca | LaPrincesaCta",
     description:
-      "Desayunos sorpresa y ramos de golosinas a domicilio en San Fernando del Valle de Catamarca. Pedí por WhatsApp.",
+      "Desayunos sorpresa a domicilio en Catamarca. Caja de madera o de cartón, con café, delicias y nota a mano. Pedí por WhatsApp desde donde estés.",
     url: "/",
     siteName: siteConfig.name,
     locale: "es_AR",
@@ -45,9 +45,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Desayunos a Domicilio en Catamarca | LaPrincesaCta",
+    title: "Desayunos Sorpresa a Domicilio en Catamarca | LaPrincesaCta",
     description:
-      "Desayunos sorpresa y ramos de golosinas a domicilio en San Fernando del Valle de Catamarca. Pedí por WhatsApp.",
+      "Desayunos sorpresa a domicilio en Catamarca. Caja de madera o de cartón, con café, delicias y nota a mano. Pedí por WhatsApp desde donde estés.",
     images: ["/og-laprincesacta.jpg"],
   },
   robots: {

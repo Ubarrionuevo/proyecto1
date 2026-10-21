@@ -110,8 +110,12 @@ export default function SolutionSection() {
           >
             desayunos sorpresa en Catamarca
           </Link>
-          : qué traen, las dos presentaciones disponibles y cómo se entregan. Si querés
-          sumarle un mensaje escrito a mano, también hacemos{' '}
+          : qué traen, las dos presentaciones disponibles y cómo se entregan. Si preferís
+          comparar todo junto, mirá el{' '}
+          <Link href="/catalogo" className="link-underline font-bold text-ink">
+            catálogo de desayunos y ramos
+          </Link>
+          . Y si querés sumarle un mensaje escrito a mano, también hacemos{' '}
           <Link
             href="/cartas-personalizadas"
             className="link-underline font-bold text-ink"

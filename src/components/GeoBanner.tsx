@@ -26,10 +26,12 @@ export default function GeoBanner() {
           </p>
 
           <p
-            className="mt-5 text-base text-ink-soft max-w-lg mx-auto leading-relaxed rise"
+            className="mt-5 text-base text-ink-soft max-w-2xl mx-auto leading-relaxed rise"
             style={{ '--rise-delay': '160ms' } as React.CSSProperties}
           >
-            Pedilo desde donde estés.
+            Desayunos sorpresa para un cumpleaños, un aniversario o un regalo sin motivo. Si
+            estás en San Fernando del Valle, te lo llevamos a domicilio; si vivís en otra
+            provincia o país, lo pedís por WhatsApp y lo entregamos a quien quieras sorprender.
           </p>
         </div>
       </div>

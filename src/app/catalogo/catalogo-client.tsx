@@ -67,8 +67,9 @@ export default function CatalogoClient() {
             <div className="lg:col-span-5 lg:pt-12">
               <Reveal delay={110}>
                 <p className="text-base leading-relaxed text-ink-soft max-w-sm">
-                  Desayunos y ramos con el detalle de lo que incluyen. Si ninguno es lo que
-                  buscabas, escribinos y lo armamos a tu manera.
+                  Dos desayunos sorpresa —caja de madera o de cartón— y cuatro ramos de golosinas,
+                  cada uno con su ficha y su botón para pedir por WhatsApp. Si ninguno es lo que
+                  buscabas, lo armamos a tu manera.
                 </p>
               </Reveal>
             </div>
@@ -188,6 +189,18 @@ export default function CatalogoClient() {
               </Reveal>
             ))}
           </div>
+
+          <p className="mt-8 text-sm leading-relaxed text-ink-soft max-w-prose">
+            Si querés conocer el detalle de la entrega y las presentaciones, mirá los{' '}
+            <Link href="/desayunos-sorpresa-catamarca" className="link-underline font-bold text-ink">
+              desayunos sorpresa en Catamarca
+            </Link>{' '}
+            o los{' '}
+            <Link href="/ramos-de-golosinas-catamarca" className="link-underline font-bold text-ink">
+              ramos de golosinas
+            </Link>
+            .
+          </p>
 
           {/* A medida */}
           <Reveal className="mt-12 border border-rule bg-paper-card p-6 sm:p-8">
