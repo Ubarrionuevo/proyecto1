@@ -2,9 +2,8 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { getWhatsAppUrl, contact } from '@/lib/products';
-import { originLinks, siteConfig } from '@/lib/site';
-import { WhatsAppIcon } from './Icons';
+import { contact } from '@/lib/products';
+import { originLinks, productLinks, siteConfig } from '@/lib/site';
 import GoogleRating from './GoogleRating';
 import Reveal from './ui/Reveal';
 
@@ -15,6 +14,7 @@ const pageLinks = [
   { href: '/ramos-de-golosinas-catamarca', label: 'Ramos de golosinas' },
   { href: '/cartas-personalizadas', label: 'Cartas personalizadas' },
   { href: '/regalos-empresariales', label: 'Regalos empresariales' },
+  { href: '/dia-de-la-madre', label: 'Regalos para el Día de la Madre' },
   { href: '/navidad', label: 'Regalos de Navidad' },
   { href: '/enviar-regalo-a-catamarca', label: 'Enviar regalo a Catamarca' },
 ];
@@ -84,6 +84,20 @@ export default function Footer() {
           </Reveal>
         </div>
 
+        {/* Fichas de producto: enlace interno desde todas las páginas */}
+        <div className="border-t border-ink/15 py-6">
+          <span className="label">Productos</span>
+          <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2.5 text-sm">
+            {productLinks.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className="link-underline text-ink-soft hover:text-ink">
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
         {/* Redes: solo si hay URL en siteConfig */}
         {(siteConfig.instagramUrl || siteConfig.facebookUrl) && (
           <div className="border-t border-ink/15 py-6">
@@ -122,16 +136,6 @@ export default function Footer() {
           className="border-t border-ink/15 py-6 flex flex-wrap items-center justify-between gap-4"
         >
           <GoogleRating size="lg" />
-
-          <a
-            href={getWhatsAppUrl('un regalo')}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="sticker sticker-wa px-5 py-2.5 text-[13px]"
-          >
-            <WhatsAppIcon className="w-4 h-4" />
-            Escribinos
-          </a>
         </Reveal>
       </div>
 

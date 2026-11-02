@@ -7,8 +7,9 @@ import { WhatsAppIcon } from './Icons';
 /* Boton fijo con el mismo sistema visual que el resto de los botones
    (.sticker .sticker-wa: verde WhatsApp, radio 3px, sombra dura, hover lift
    y press). El wrapper maneja la aparicion al hacer scroll; el anchor es un
-   sticker comun, sin estilos propios. En mobile queda compacto con solo icono. */
-export default function FloatingWhatsApp() {
+   sticker comun, sin estilos propios. En mobile queda compacto con solo icono.
+   `topic` arma el mensaje precargado según la página: es el mismo texto de su CTA. */
+export default function FloatingWhatsApp({ topic = 'un regalo' }: { topic?: string }) {
   const [visible, setVisible] = useState(false);
 
   React.useEffect(() => {
@@ -27,7 +28,7 @@ export default function FloatingWhatsApp() {
       }`}
     >
       <a
-        href={getWhatsAppUrl('un regalo')}
+        href={getWhatsAppUrl(topic)}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Escribinos por WhatsApp"

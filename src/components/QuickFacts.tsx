@@ -2,7 +2,7 @@ import { siteConfig } from '@/lib/site';
 
 /* Datos rápidos en texto plano: cada fila responde una pregunta concreta y se
    arma desde siteConfig, para que los resúmenes de IA la levanten sin ambigüedad. */
-const facts = [
+export const facts = [
   { t: 'Zona de entrega', d: `Solo en ${siteConfig.city}, ${siteConfig.region}.` },
   { t: 'Horario', d: `${siteConfig.hours}, hora de Argentina.` },
   { t: 'Precios', d: 'Consultalos por WhatsApp.' },

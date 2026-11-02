@@ -190,7 +190,7 @@ export default function CartasPersonalizadasPage() {
         title="Preguntas sobre las cartas personalizadas."
       />
       <Footer />
-      <FloatingWhatsApp />
+      <FloatingWhatsApp topic="una carta personalizada" />
     </main>
   );
 }

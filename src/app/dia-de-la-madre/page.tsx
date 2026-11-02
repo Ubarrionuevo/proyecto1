@@ -131,7 +131,7 @@ export default function DiaDeLaMadrePage() {
       />
 
       <Footer />
-      <FloatingWhatsApp />
+      <FloatingWhatsApp topic="un regalo para el Día de la Madre" />
     </main>
   );
 }

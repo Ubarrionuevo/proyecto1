@@ -46,3 +46,14 @@ export const originLinks = [
   { href: '/enviar-regalo-a-catamarca/desde-suiza', label: 'Desde Suiza' },
   { href: '/enviar-regalo-a-catamarca/desde-otras-provincias', label: 'Desde otras provincias' },
 ];
+
+/* Fichas de producto. Vive acá por lo mismo: el Footer enlaza todas con su
+   nombre SEO como anchor text y product-pages.ts toma de acá las URL. */
+export const productLinks = [
+  { id: 'desayuno-caja-madera', href: '/desayunos/caja-de-madera', label: 'Desayuno sorpresa en caja de madera' },
+  { id: 'desayuno-caja-carton', href: '/desayunos/caja-de-carton', label: 'Desayuno sorpresa en caja de cartón' },
+  { id: 'ramo-comun', href: '/ramos/ramo-comun', label: 'Ramo común de golosinas' },
+  { id: 'ramo-futbolero', href: '/ramos/ramo-futbolero', label: 'Ramo futbolero de golosinas' },
+  { id: 'ramo-chocolates', href: '/ramos/ramo-de-chocolates', label: 'Ramo de chocolates' },
+  { id: 'ramo-oso', href: '/ramos/ramo-con-oso', label: 'Ramo con oso de peluche' },
+];

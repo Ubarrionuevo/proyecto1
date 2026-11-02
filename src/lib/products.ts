@@ -7,6 +7,10 @@ export const getWhatsAppUrl = (producto: string = 'regalo a domicilio') => {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 };
 
+/* Las cajas son femeninas y los ramos masculinos: "la Caja de Madera", "el Ramo Común". */
+export const isFeminineProduct = (name: string) => name.startsWith('Caja');
+export const productTopic = (name: string) => `${isFeminineProduct(name) ? 'la' : 'el'} ${name}`;
+
 /* Contacto y prueba social: salen de siteConfig para no tener dos fuentes. */
 export const contact = {
   brand: siteConfig.name,
@@ -28,6 +32,8 @@ export type Product = {
   detail: string;
   images: ProductImage[];
   video?: string;
+  /* Datos del archivo para el VideoObject del schema. */
+  videoMeta?: { uploadDate: string; duration: string };
   tag?: string;
 };
 
@@ -143,6 +149,7 @@ export const ramos: Product[] = [
       },
     ],
     video: '/video-ramo-chocolates-catamarca.mp4',
+    videoMeta: { uploadDate: '2026-10-08', duration: 'PT3.5S' },
   },
   {
     id: 'ramo-oso',

@@ -1,0 +1,56 @@
+import { facts } from '@/components/QuickFacts';
+import { desayunos, ramos } from '@/lib/products';
+import { originLinks, productLinks, siteConfig } from '@/lib/site';
+
+/* Resumen en texto plano para asistentes de IA. Sale de las mismas fuentes que
+   la web y no publica precios: los campos price de products.ts no se usan acá. */
+
+export const dynamic = 'force-static';
+
+const url = (path: string) => `${siteConfig.url}${path}`;
+
+function productLines() {
+  return [...desayunos, ...ramos].map((product) => {
+    const link = productLinks.find((item) => item.id === product.id);
+    return `- [${link?.label ?? product.name}](${url(link?.href ?? '/catalogo')}): ${product.description} ${product.detail}`;
+  });
+}
+
+function body() {
+  return [
+    `# ${siteConfig.name}`,
+    '',
+    `> Desayunos sorpresa y ramos de golosinas a domicilio en ${siteConfig.city}, ${siteConfig.region}, Argentina. Se pide por WhatsApp, también desde otras provincias y desde el exterior.`,
+    '',
+    '## Datos esenciales',
+    '',
+    ...facts.map((fact) => `- ${fact.t}: ${fact.d}`),
+    '',
+    '## Productos',
+    '',
+    ...productLines(),
+    '',
+    '## Enviar un regalo desde lejos',
+    '',
+    `- [Enviar un regalo a Catamarca](${url('/enviar-regalo-a-catamarca')}): cómo pedir y pagar si no estás en la ciudad.`,
+    ...originLinks.map((link) => `- [${link.label}](${url(link.href)})`),
+    '',
+    '## Páginas principales',
+    '',
+    `- [Inicio](${url('/')})`,
+    `- [Catálogo](${url('/catalogo')})`,
+    `- [Desayunos sorpresa en Catamarca](${url('/desayunos-sorpresa-catamarca')})`,
+    `- [Ramos de golosinas en Catamarca](${url('/ramos-de-golosinas-catamarca')})`,
+    `- [Regalos para el Día de la Madre](${url('/dia-de-la-madre')})`,
+    `- [Regalos de Navidad](${url('/navidad')})`,
+    `- [Cartas personalizadas](${url('/cartas-personalizadas')})`,
+    `- [Regalos empresariales](${url('/regalos-empresariales')})`,
+    '',
+  ].join('\n');
+}
+
+export function GET() {
+  return new Response(body(), {
+    headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+  });
+}

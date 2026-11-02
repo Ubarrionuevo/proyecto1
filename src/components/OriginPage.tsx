@@ -131,7 +131,7 @@ export default function OriginPage({ origin }: { origin: OriginData }) {
         title="Preguntas antes de pedir."
       />
       <Footer />
-      <FloatingWhatsApp />
+      <FloatingWhatsApp topic={origin.whatsapp} />
     </main>
   );
 }

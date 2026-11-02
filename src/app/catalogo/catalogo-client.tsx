@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { desayunos, ramos, getWhatsAppUrl, type Product } from '@/lib/products';
+import { desayunos, ramos, getWhatsAppUrl, productTopic, type Product } from '@/lib/products';
 import { productPageById } from '@/lib/product-pages';
 import { siteConfig } from '@/lib/site';
 import FarAwayLine from '@/components/FarAwayLine';
@@ -171,7 +171,7 @@ export default function CatalogoClient() {
                   }`}
                 >
                   <StickerButton
-                    href={getWhatsAppUrl(`el ${item.name}`)}
+                    href={getWhatsAppUrl(productTopic(item.name))}
                     size="sm"
                     className="w-full sm:w-auto"
                   >

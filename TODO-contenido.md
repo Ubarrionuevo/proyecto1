@@ -7,6 +7,8 @@ Nada de lo de abajo está publicado en la web. Son datos que faltan y que
 - [ ] Disponibilidad de entrega el 24 y el 25 de diciembre y fecha límite para
       pedir en Navidad (hoy `/navidad` dice "consultá disponibilidad por WhatsApp").
 - [ ] Anticipación mínima para pedir.
+- [ ] Para un blog futuro: historias reales de regalos enviados desde lejos, con
+      permiso del cliente. Sin material real, no se publica.
 - [ ] ¿Algún otro medio de pago internacional además de cuenta argentina y Prex?
 - [ ] Coordenadas del local para `geo` en el schema (solo si se quiere publicar).
 - [ ] URLs de Instagram y Facebook para `sameAs`.

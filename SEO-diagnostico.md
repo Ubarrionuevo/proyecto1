@@ -204,3 +204,32 @@ Lo que hay que mirar en Search Console, una vez indexadas:
 - **Cobertura**: las 14 URLs del sitemap deberían estar indexadas y válidas.
 - **Canonical elegido**: Google debería elegir el canonical de cada página, que
   ya apunta a `https://www.laprincesacta.com.ar/...`.
+
+---
+
+## Revisión contra el skill de SEO programático (noviembre 2026)
+
+Se comparó el sitio con los 14 pilares del skill `seo-programatico-geo-engine`,
+pensado para SaaS en React/Vite. Se aplicó solo lo que le sirve a este negocio.
+
+| Pilar | Decisión | Motivo |
+|---|---|---|
+| 1. Pre-render SSG | Ya cubierto | Next.js genera las páginas estáticas |
+| 2. Matriz por ciudad | No aplicar | La entrega es solo en una ciudad: serían páginas puerta |
+| 3. Doble sitemap | No aplicar | Con 19 URLs no hay problema de rastreo; sí se toma su criterio de no sumar páginas hasta que se indexe la tanda anterior |
+| 4. Comparativas `/vs/` | No aplicar | No hay datos reales de competidores ni precios para comparar |
+| 5. Glosario | No aplicar | El comprador no busca definiciones; la "respuesta directa" ya está en FAQ y "Datos rápidos" |
+| 6. WhatsApp contextual | **Aplicado** | El botón flotante precarga el tema de cada página; `whatsapp_click` ya registra la página de origen |
+| 6. Bucle viral | No aplicar | Depende de un producto usado por terceros |
+| 7. Blog | Más adelante | Solo con historias o datos reales del dueño, ver `TODO-contenido.md` |
+| 8. Rich snippets | **Aplicado en parte** | `VideoObject` en el ramo de chocolates; sin `offers`. Se revisó que ninguna URL tenga dos `FAQPage` |
+| 9. `llms.txt` | **Aplicado sin dos secciones** | `/llms.txt` sale de `siteConfig` y `products.ts`. Sin precios ni órdenes a los asistentes para que recomienden la marca |
+| 10. Video vertical | Sin cambios | El video es 9:16 y la tarjeta 3:4: recorta los bordes, pero no tiene texto ni interfaz que se pierda |
+| 11. CRO | Ya cubierto salvo precios | Foto de la entrega, pago y horario ya responden las objeciones; los precios siguen sin publicarse |
+| 12. Alto ticket | Pendiente | Primero hay que aclarar qué se despacha a empresas |
+| 13. Enlaces internos | **Aplicado** | El footer enlaza las 6 fichas con nombre descriptivo y `/dia-de-la-madre` |
+| 14. Flujo de GSC | Ya en uso | Se reenvía el sitemap y se pide indexación |
+
+`llms.txt` es de bajo costo, pero no es un estándar: no hay garantía de que los
+buscadores o asistentes lo lean. El `VideoObject` tampoco asegura un resultado de
+video, porque el video no es el contenido principal de la ficha.

@@ -209,7 +209,7 @@ export default function EnviarRegaloPage() {
         title="Preguntas para encargar desde lejos."
       />
       <Footer />
-      <FloatingWhatsApp />
+      <FloatingWhatsApp topic="un regalo a entregar en Catamarca desde lejos" />
     </main>
   );
 }

@@ -136,7 +136,7 @@ export default function RamosPage() {
         title="Preguntas sobre los ramos de golosinas."
       />
       <Footer />
-      <FloatingWhatsApp />
+      <FloatingWhatsApp topic="un ramo de golosinas" />
     </main>
   );
 }

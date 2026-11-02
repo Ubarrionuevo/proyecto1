@@ -144,7 +144,7 @@ export default function DesayunosPage() {
         title="Preguntas sobre los desayunos sorpresa."
       />
       <Footer />
-      <FloatingWhatsApp />
+      <FloatingWhatsApp topic="un desayuno sorpresa" />
     </main>
   );
 }

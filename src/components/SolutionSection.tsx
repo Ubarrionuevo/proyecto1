@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { desayunos, getWhatsAppUrl } from '@/lib/products';
+import { desayunos, getWhatsAppUrl, productTopic } from '@/lib/products';
 import { productPageById } from '@/lib/product-pages';
 import { siteConfig } from '@/lib/site';
 import SectionHead from './ui/SectionHead';
@@ -88,11 +88,11 @@ export default function SolutionSection() {
                 </div>
 
                 <StickerButton
-                  href={getWhatsAppUrl(`el ${product.name}`)}
+                  href={getWhatsAppUrl(productTopic(product.name))}
                   className="mt-6 w-full sm:w-auto"
                   size="md"
                 >
-                  Quiero este
+                  Quiero esta
                 </StickerButton>
 
                 <p className="mt-4 text-base leading-relaxed text-ink-soft max-w-prose">

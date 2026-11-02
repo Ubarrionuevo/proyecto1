@@ -160,6 +160,34 @@ export function productJsonLd({
   };
 }
 
+/* VideoObject: solo para videos reales publicados en la ficha. */
+export function videoJsonLd({
+  name,
+  description,
+  thumbnail,
+  contentPath,
+  uploadDate,
+  duration,
+}: {
+  name: string;
+  description: string;
+  thumbnail: string;
+  contentPath: string;
+  uploadDate: string;
+  duration: string;
+}) {
+  return {
+    '@context': CONTEXT,
+    '@type': 'VideoObject',
+    name,
+    description,
+    thumbnailUrl: [`${siteConfig.url}${thumbnail}`],
+    contentUrl: `${siteConfig.url}${contentPath}`,
+    uploadDate,
+    duration,
+  };
+}
+
 export default function JsonLd({
   data,
 }: {

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Polaroid from '@/components/ui/Polaroid';
 import { ArrowIcon } from '@/components/Icons';
-import { getWhatsAppUrl } from '@/lib/products';
+import { getWhatsAppUrl, productTopic } from '@/lib/products';
 import { productPages } from '@/lib/product-pages';
 import { siteConfig } from '@/lib/site';
 
@@ -31,7 +31,7 @@ export default function ProductGrid() {
             <p className="mt-3 font-display text-2xl font-semibold text-berry">{product.price}</p>
           ) : (
             <a
-              href={getWhatsAppUrl(`el ${product.name}`)}
+              href={getWhatsAppUrl(productTopic(product.name))}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-3 inline-block text-sm link-underline font-bold text-ink"

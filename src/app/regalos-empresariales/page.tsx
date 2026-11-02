@@ -208,7 +208,7 @@ export default function RegalosEmpresarialesPage() {
         title="Preguntas sobre regalos empresariales."
       />
       <Footer />
-      <FloatingWhatsApp />
+      <FloatingWhatsApp topic="regalos empresariales para mi empresa" />
     </main>
   );
 }

@@ -4,12 +4,17 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import JsonLd, { productJsonLd, breadcrumbJsonLd, faqJsonLd } from '@/components/JsonLd';
+import JsonLd, {
+  productJsonLd,
+  breadcrumbJsonLd,
+  faqJsonLd,
+  videoJsonLd,
+} from '@/components/JsonLd';
 import Faq from '@/components/Faq';
 import FarAwayLine from '@/components/FarAwayLine';
 import Polaroid from '@/components/ui/Polaroid';
 import StickerButton from '@/components/ui/StickerButton';
-import { getWhatsAppUrl, type Product } from '@/lib/products';
+import { getWhatsAppUrl, isFeminineProduct, productTopic, type Product } from '@/lib/products';
 import { productFaqs } from '@/lib/faqs';
 import { siteConfig } from '@/lib/site';
 import { ArrowIcon } from '@/components/Icons';
@@ -51,6 +56,17 @@ export default function ProductDetail({ data }: { data: ProductPageData }) {
             urlPath,
           }),
           ...(faqs.length ? [faqJsonLd(faqs)] : []),
+          ...(product.video && product.videoMeta
+            ? [
+                videoJsonLd({
+                  name: `${seoName} en video`,
+                  description: product.description,
+                  thumbnail: product.images[0].src,
+                  contentPath: product.video,
+                  ...product.videoMeta,
+                }),
+              ]
+            : []),
         ]}
       />
       <Navbar />
@@ -129,11 +145,11 @@ export default function ProductDetail({ data }: { data: ProductPageData }) {
                 </>
               )}
               <StickerButton
-                href={getWhatsAppUrl(`el ${product.name}`)}
+                href={getWhatsAppUrl(productTopic(product.name))}
                 size="lg"
                 className="mt-5 w-full"
               >
-                Quiero este {product.name.toLowerCase()}
+                Quiero {isFeminineProduct(product.name) ? 'esta' : 'este'} {product.name.toLowerCase()}
               </StickerButton>
               <p className="mt-4 text-[13px] leading-relaxed text-ink-soft">
                 {!siteConfig.showPrices && 'Consultá el precio por WhatsApp. '}
@@ -186,7 +202,7 @@ export default function ProductDetail({ data }: { data: ProductPageData }) {
       )}
 
       <Footer />
-      <FloatingWhatsApp />
+      <FloatingWhatsApp topic={productTopic(product.name)} />
     </main>
   );
 }

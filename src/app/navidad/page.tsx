@@ -122,7 +122,7 @@ export default function NavidadPage() {
       />
 
       <Footer />
-      <FloatingWhatsApp />
+      <FloatingWhatsApp topic="un regalo de Navidad" />
     </main>
   );
 }

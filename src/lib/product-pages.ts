@@ -1,26 +1,17 @@
 import { desayunos, ramos } from './products';
+import { productLinks } from './site';
 import type { ProductPageData } from '@/components/ProductDetail';
 
 /* Un slug por producto, con nombre SEO y relacionados de la misma categoría. */
 
-const hrefById: Record<string, string> = {
-  'desayuno-caja-madera': '/desayunos/caja-de-madera',
-  'desayuno-caja-carton': '/desayunos/caja-de-carton',
-  'ramo-comun': '/ramos/ramo-comun',
-  'ramo-futbolero': '/ramos/ramo-futbolero',
-  'ramo-chocolates': '/ramos/ramo-de-chocolates',
-  'ramo-oso': '/ramos/ramo-con-oso',
-};
+const hrefById: Record<string, string> = Object.fromEntries(
+  productLinks.map((link) => [link.id, link.href])
+);
 
 /* Se usa como anchor text de los enlaces internos: describe el producto. */
-const seoNameById: Record<string, string> = {
-  'desayuno-caja-madera': 'Desayuno sorpresa en caja de madera',
-  'desayuno-caja-carton': 'Desayuno sorpresa en caja de cartón',
-  'ramo-comun': 'Ramo común de golosinas',
-  'ramo-futbolero': 'Ramo futbolero de golosinas',
-  'ramo-chocolates': 'Ramo de chocolates',
-  'ramo-oso': 'Ramo con oso de peluche',
-};
+const seoNameById: Record<string, string> = Object.fromEntries(
+  productLinks.map((link) => [link.id, link.label])
+);
 
 function relatedIn(list: typeof desayunos, currentId: string) {
   return list
