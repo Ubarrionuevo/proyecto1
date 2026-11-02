@@ -12,9 +12,9 @@ import { getWhatsAppUrl, contact } from '@/lib/products';
 import { siteConfig } from '@/lib/site';
 import { openGraphBase, twitterImage } from '@/lib/seo';
 
-const title = 'Regalos Empresariales en Catamarca | LaPrincesaCta';
+const title = 'Regalos Empresariales de Fin de Año en Catamarca';
 const description =
-  'Regalos empresariales para empleados y clientes: propuestas con desayunos y ramos. Entrega en Catamarca y envíos a todo el país. Pedí por WhatsApp.';
+  'Regalos empresariales y de fin de año para empleados y clientes: propuestas con desayunos y ramos en Catamarca. Pedí tu propuesta por WhatsApp.';
 
 export const metadata: Metadata = {
   title,
@@ -165,6 +165,20 @@ export default function RegalosEmpresarialesPage() {
             </div>
           ))}
         </div>
+
+        <h2 className="display-md mt-14 text-ink text-balance">
+          Regalos de fin de año para empresas
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-ink-soft max-w-prose">
+          Diciembre es el momento en que más se nota un gesto con el equipo y con los clientes que
+          te acompañaron. Pasanos cuántos regalos necesitás y para qué fecha, y armamos una
+          propuesta de fin de año con desayunos y ramos. Si es un regalo más personal, también
+          tenemos{' '}
+          <Link href="/navidad" className="link-underline font-bold text-ink">
+            regalos de Navidad a domicilio
+          </Link>
+          .
+        </p>
 
         <div className="mt-12 border-l-2 border-butter pl-5">
           <span className="label">Alcance</span>

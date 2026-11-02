@@ -126,6 +126,70 @@ TODO-contenido.md                                 pendientes actualizados
 
 ---
 
+## Tanda noviembre 2026
+
+Fecha: 2 de noviembre de 2026. Objetivo: atraer al que vive en Catamarca y, sobre
+todo, al que manda el regalo desde otra provincia u otro país. La entrega sigue
+siendo solo en Catamarca.
+
+**Los precios no se publican.** No están en la web ni en el schema: se pasan por
+WhatsApp y `showPrices` sigue en `false`. Por eso `Product` no lleva `offers` y no
+va a tener rich results de precio.
+
+### Datos de Search Console de partida (3 semanas indexado)
+
+Total: 16 clics, 163 impresiones, posición media 5,4; 85 % de los clics desde
+celulares.
+
+| Dato | Lectura | Qué se hizo |
+|---|---|---|
+| `/dia-de-la-madre`: 8 clics, 58 impresiones | Las fechas especiales funcionan | Landing evergreen `/navidad` con banner en la home |
+| `/catalogo`: posición 4,1, 21 impresiones, 0 clics | Buena posición, mal CTR | Title y description nuevos |
+| `/desayunos-sorpresa-catamarca`: posición 7,7, 35 impresiones, 0 clics | Mal CTR | Title y description nuevos, H2 con "desayunos en Catamarca" |
+| "desayunos catamarca": posición 6,3 | Se busca sin "sorpresa" | H2 y párrafo en la home y en la categoría |
+| 12 indexadas y 2 sin indexar (probablemente futbolero y con oso, con 0 impresiones) | Contenido y enlaces flojos | Texto propio, FAQ y enlaces con anchor descriptivo |
+| IA generativa: 3 impresiones | Poca presencia | FAQ con respuesta directa y bloque "Datos rápidos" |
+
+### Qué se cambió
+
+- **Schema:** `ItemList` en las dos categorías; `logo` y `hasMap` en `Store`.
+- **CTR:** titles y descriptions de home, catálogo, categorías y las 6 fichas. Las
+  fichas y categorías usan la foto de su producto como imagen social.
+- **Fichas:** secciones "Para quién es" y "Para qué ocasiones", y FAQ ampliada en
+  futbolero y con oso.
+- **Error corregido:** los ids `ramo-chocolates` y `ramo-oso` no coincidían con las
+  claves usadas en `product-pages.ts` y en la categoría de ramos. La tarjeta de
+  chocolates y la de oso no se mostraban en la categoría, el relacionado de
+  chocolates llevaba a `/catalogo` y esa ficha se ofrecía a sí misma como relacionada.
+- **Internacional:** `/enviar-regalo-a-catamarca` reescrita con pago, horario y
+  confirmación. Cuatro páginas nuevas por origen (`src/lib/origins.ts` y
+  `OriginPage.tsx`), con textos propios.
+- **Visibilidad:** línea "¿Estás lejos?" en home, catálogo, categorías y fichas;
+  columna "Enviar desde" en el footer; enlaces por origen en `GeoBanner`.
+- **Empresas:** sección y title de fin de año en `/regalos-empresariales`.
+
+### Verificación
+
+`npx eslint src` sin errores ni avisos y `npm run build` OK (24 rutas generadas). Sobre el HTML
+generado, las 19 rutas del sitemap cumplen: 1 H1, title ≤60, description ≤155 (sin
+duplicados), canonical, `og:image`, `twitter:image`, JSON-LD parseable, sin precios
+visibles ni en el schema, breadcrumbs y FAQ donde corresponde, y ningún enlace
+interno roto. El único texto largo repetido entre páginas es "¿Cuánto sale?", que
+va en la home y en `/enviar-regalo-a-catamarca` a propósito.
+
+### Qué medir
+
+- `/navidad`: impresiones y clics hasta el 25 de diciembre, comparados con el
+  rendimiento de `/dia-de-la-madre`.
+- CTR de `/catalogo` y `/desayunos-sorpresa-catamarca`, que partían de 0 clics.
+- Posición de "desayunos catamarca" (hoy 6,3) y "desayunos a domicilio catamarca".
+- Si `/ramos/ramo-futbolero` y `/ramos/ramo-con-oso` pasan a indexadas.
+- Consultas del tipo "enviar regalo a catamarca desde..." y el filtro por país en
+  Rendimiento (Perú, Italia, Suiza).
+- En GA4, `whatsapp_click` por página de salida (requiere el pendiente 3.4).
+
+---
+
 ## 5. Cómo medir esto
 
 Con GA4 activo (pendiente 3.4) se puede ver el evento `whatsapp_click`, que

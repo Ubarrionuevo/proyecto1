@@ -3,13 +3,17 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { siteConfig } from '@/lib/site';
 import { MenuIcon, CloseIcon } from './Icons';
 import GoogleRating from './GoogleRating';
 
-/* Cuatro destinos principales: los dos que más venden y los dos nuevos.
+/* Cuatro destinos principales: los dos que más venden y los dos nuevos, más la
+   fecha de temporada mientras esté activa en siteConfig.
    Catálogo y Enviar regalo siguen accesibles desde el grupo "Más" del menú
    mobile y desde el footer, sin competir en la barra. */
+const { seasonalBanner } = siteConfig;
 const primaryLinks = [
+  ...(seasonalBanner.enabled ? [{ href: seasonalBanner.href, label: seasonalBanner.label }] : []),
   { href: '/desayunos-sorpresa-catamarca', label: 'Desayunos' },
   { href: '/ramos-de-golosinas-catamarca', label: 'Ramos' },
   { href: '/cartas-personalizadas', label: 'Cartas' },

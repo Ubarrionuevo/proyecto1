@@ -6,6 +6,7 @@ import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import JsonLd, { productJsonLd, breadcrumbJsonLd, faqJsonLd } from '@/components/JsonLd';
 import Faq from '@/components/Faq';
+import FarAwayLine from '@/components/FarAwayLine';
 import Polaroid from '@/components/ui/Polaroid';
 import StickerButton from '@/components/ui/StickerButton';
 import { getWhatsAppUrl, type Product } from '@/lib/products';
@@ -20,6 +21,8 @@ export type ProductPageData = {
   categoryPath: string;
   urlPath: string;
   related: { name: string; price: string; href: string }[];
+  forWhom: string;
+  occasions: string;
 };
 
 /* Ficha de producto: H1 único, galería con las fotos reales del producto,
@@ -27,7 +30,8 @@ export type ProductPageData = {
    breadcrumbs. Los precios solo se muestran si siteConfig.showPrices.
    Sin inventar medidas, sabores ni contenido. */
 export default function ProductDetail({ data }: { data: ProductPageData }) {
-  const { product, seoName, categoryName, categoryPath, urlPath, related } = data;
+  const { product, seoName, categoryName, categoryPath, urlPath, related, forWhom, occasions } =
+    data;
   const crumbs = [
     { name: 'Inicio', path: '/' },
     { name: categoryName, path: categoryPath },
@@ -108,6 +112,11 @@ export default function ProductDetail({ data }: { data: ProductPageData }) {
             <p className="mt-3 text-base leading-relaxed text-ink-soft">
               {product.detail}
             </p>
+            <h2 className="display-md mt-10 text-ink">Para quién es</h2>
+            <p className="mt-3 text-base leading-relaxed text-ink-soft">{forWhom}</p>
+            <h2 className="display-md mt-10 text-ink">Para qué ocasiones</h2>
+            <p className="mt-3 text-base leading-relaxed text-ink-soft">{occasions}</p>
+            <FarAwayLine className="mt-8" />
           </div>
           <div className="lg:col-span-5">
             <div className="border border-rule bg-paper-card p-6 sm:p-8 lg:sticky lg:top-28">
@@ -127,8 +136,9 @@ export default function ProductDetail({ data }: { data: ProductPageData }) {
                 Quiero este {product.name.toLowerCase()}
               </StickerButton>
               <p className="mt-4 text-[13px] leading-relaxed text-ink-soft">
-                Se paga por transferencia y se entrega a domicilio en San Fernando del Valle
-                de Catamarca.
+                {!siteConfig.showPrices && 'Consultá el precio por WhatsApp. '}
+                Se paga por transferencia (desde el exterior, también con Prex) y se entrega a
+                domicilio en San Fernando del Valle de Catamarca.
               </p>
             </div>
           </div>
@@ -154,6 +164,17 @@ export default function ProductDetail({ data }: { data: ProductPageData }) {
             </Link>
           ))}
         </div>
+        <p className="mt-6 text-sm text-ink-soft">
+          Mirá todos los{' '}
+          <Link href={categoryPath} className="link-underline font-bold text-ink">
+            {categoryName.toLowerCase()} a domicilio en Catamarca
+          </Link>{' '}
+          o el{' '}
+          <Link href="/catalogo" className="link-underline font-bold text-ink">
+            catálogo completo
+          </Link>
+          .
+        </p>
       </section>
 
       {faqs.length > 0 && (

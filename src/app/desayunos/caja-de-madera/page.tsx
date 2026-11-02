@@ -1,30 +1,18 @@
 import type { Metadata } from 'next';
 import ProductDetail from '@/components/ProductDetail';
 import { productPages } from '@/lib/product-pages';
-import { openGraphBase, twitterImage } from '@/lib/seo';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Desayuno Sorpresa en Caja de Madera | LaPrincesaCta',
+const data = productPages['caja-de-madera'];
+
+export const metadata: Metadata = pageMetadata({
+  title: 'Desayuno en Caja de Madera a Domicilio en Catamarca',
   description:
-    'Desayuno sorpresa en caja de madera a domicilio en Catamarca: café o té, delicias, taza personalizada y nota a mano. Pedí por WhatsApp.',
-  alternates: { canonical: '/desayunos/caja-de-madera' },
-  openGraph: {
-    ...openGraphBase,
-    title: 'Desayuno Sorpresa en Caja de Madera | LaPrincesaCta',
-    description:
-      'Desayuno sorpresa en caja de madera a domicilio en Catamarca. Pedí por WhatsApp.',
-    url: '/desayunos/caja-de-madera',
-    type: 'website',
-    locale: 'es_AR',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Desayuno Sorpresa en Caja de Madera | LaPrincesaCta',
-    description: 'Desayuno sorpresa en caja de madera a domicilio en Catamarca.',
-    images: [twitterImage],
-  },
-};
+    'Desayuno sorpresa en caja de madera: café o té, delicias artesanales, taza y nota a mano. A domicilio en Catamarca. Pedí por WhatsApp.',
+  path: data.urlPath,
+  image: data.product.images[0],
+});
 
 export default function Page() {
-  return <ProductDetail data={productPages['caja-de-madera']} />;
+  return <ProductDetail data={data} />;
 }

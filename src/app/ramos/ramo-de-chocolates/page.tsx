@@ -1,29 +1,18 @@
 import type { Metadata } from 'next';
 import ProductDetail from '@/components/ProductDetail';
 import { productPages } from '@/lib/product-pages';
-import { openGraphBase, twitterImage } from '@/lib/seo';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Ramo de Chocolates | LaPrincesaCta',
+const data = productPages['ramo-de-chocolates'];
+
+export const metadata: Metadata = pageMetadata({
+  title: 'Ramo de Chocolates a Domicilio en Catamarca | LaPrincesaCta',
   description:
-    'Ramo de chocolates a domicilio en Catamarca: todo chocolate, envuelto fino y moño. Pedí por WhatsApp.',
-  alternates: { canonical: '/ramos/ramo-de-chocolates' },
-  openGraph: {
-    ...openGraphBase,
-    title: 'Ramo de Chocolates | LaPrincesaCta',
-    description: 'Ramo de chocolates a domicilio en Catamarca, envuelto fino y moño.',
-    url: '/ramos/ramo-de-chocolates',
-    type: 'website',
-    locale: 'es_AR',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Ramo de Chocolates | LaPrincesaCta',
-    description: 'Ramo de chocolates a domicilio en Catamarca.',
-    images: [twitterImage],
-  },
-};
+    'Ramo de chocolates con envuelto fino y moño, listo para regalar. A domicilio en Catamarca. Pedí por WhatsApp, también desde el exterior.',
+  path: data.urlPath,
+  image: data.product.images[0],
+});
 
 export default function Page() {
-  return <ProductDetail data={productPages['ramo-de-chocolates']} />;
+  return <ProductDetail data={data} />;
 }

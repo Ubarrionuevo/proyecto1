@@ -13,10 +13,19 @@ export const siteConfig = {
   region: 'Catamarca',
   country: 'AR',
   hours: 'Lunes a domingo, 8 a 23 h',
+  /* Horario en hora de Argentina: la diferencia horaria de las páginas por
+     origen se calcula desde acá. */
+  hoursCopy: 'todos los días de 8 a 23 h',
+  openHour: 8,
+  closeHour: 23,
   /* Cuando es false, la UI no muestra precios en ningún lado (los datos de
      precio siguen en products.ts). Se activa de nuevo en true cuando el
      dueño quiera publicarlos. */
   showPrices: false,
+  /* Bloque de temporada en la home y link destacado en el navbar. Para
+     apagarlo cuando termine la fecha, poner enabled en false: la página
+     sigue publicada porque es evergreen. */
+  seasonalBanner: { enabled: true, label: 'Navidad', href: '/navidad' },
   googleRating: '5.0',
   googleReviews: 42,
   /* Ficha real de Google Maps (verificada). Se usa para el enlace de opiniones
@@ -28,3 +37,12 @@ export const siteConfig = {
 };
 
 export type SiteConfig = typeof siteConfig;
+
+/* Páginas por origen. Vive acá y no en origins.ts porque la usan Footer y
+   GeoBanner, que son componentes de cliente: así no cargan todos los textos. */
+export const originLinks = [
+  { href: '/enviar-regalo-a-catamarca/desde-peru', label: 'Desde Perú' },
+  { href: '/enviar-regalo-a-catamarca/desde-italia', label: 'Desde Italia' },
+  { href: '/enviar-regalo-a-catamarca/desde-suiza', label: 'Desde Suiza' },
+  { href: '/enviar-regalo-a-catamarca/desde-otras-provincias', label: 'Desde otras provincias' },
+];

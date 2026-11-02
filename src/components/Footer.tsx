@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { getWhatsAppUrl, contact } from '@/lib/products';
-import { siteConfig } from '@/lib/site';
+import { originLinks, siteConfig } from '@/lib/site';
 import { WhatsAppIcon } from './Icons';
 import GoogleRating from './GoogleRating';
 import Reveal from './ui/Reveal';
@@ -15,15 +15,16 @@ const pageLinks = [
   { href: '/ramos-de-golosinas-catamarca', label: 'Ramos de golosinas' },
   { href: '/cartas-personalizadas', label: 'Cartas personalizadas' },
   { href: '/regalos-empresariales', label: 'Regalos empresariales' },
+  { href: '/navidad', label: 'Regalos de Navidad' },
   { href: '/enviar-regalo-a-catamarca', label: 'Enviar regalo a Catamarca' },
 ];
 
 export default function Footer() {
   return (
     <footer className="bg-paper-deep text-ink">
-      {/* Rejilla editorial de 3 columnas con filetes */}
+      {/* Rejilla editorial de 4 columnas con filetes */}
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
-        <div className="grid sm:grid-cols-3 gap-y-10 gap-x-8 py-14">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-8 py-14">
           <Reveal y={10}>
             <p className="font-display text-2xl font-semibold text-ink">
               LaPrincesa<span className="text-berry-deep">Cta</span>
@@ -54,6 +55,22 @@ export default function Footer() {
             <span className="label">Secciones</span>
             <ul className="mt-4 space-y-2.5 text-sm">
               {pageLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="link-underline text-ink-soft hover:text-ink"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+
+          <Reveal delay={240} y={10} className="sm:border-l sm:border-ink/15 sm:pl-8">
+            <span className="label">Enviar desde</span>
+            <ul className="mt-4 space-y-2.5 text-sm">
+              {originLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}

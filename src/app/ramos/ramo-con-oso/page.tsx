@@ -1,29 +1,18 @@
 import type { Metadata } from 'next';
 import ProductDetail from '@/components/ProductDetail';
 import { productPages } from '@/lib/product-pages';
-import { openGraphBase, twitterImage } from '@/lib/seo';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Ramo con Oso de Peluche | LaPrincesaCta',
+const data = productPages['ramo-con-oso'];
+
+export const metadata: Metadata = pageMetadata({
+  title: 'Ramo con Oso a Domicilio en Catamarca | LaPrincesaCta',
   description:
-    'Ramo con oso de peluche y golosinas en Catamarca: el que más se regala para novios. Pedí por WhatsApp.',
-  alternates: { canonical: '/ramos/ramo-con-oso' },
-  openGraph: {
-    ...openGraphBase,
-    title: 'Ramo con Oso de Peluche | LaPrincesaCta',
-    description: 'Ramo con oso de peluche y golosinas en Catamarca. Pedí por WhatsApp.',
-    url: '/ramos/ramo-con-oso',
-    type: 'website',
-    locale: 'es_AR',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Ramo con Oso de Peluche | LaPrincesaCta',
-    description: 'Ramo con oso de peluche y golosinas en Catamarca.',
-    images: [twitterImage],
-  },
-};
+    'Ramo con oso de peluche y golosinas, envuelto para que llegue entero. A domicilio en Catamarca. Pedí por WhatsApp, también desde lejos.',
+  path: data.urlPath,
+  image: data.product.images[0],
+});
 
 export default function Page() {
-  return <ProductDetail data={productPages['ramo-con-oso']} />;
+  return <ProductDetail data={data} />;
 }

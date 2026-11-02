@@ -3,8 +3,9 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { desayunos, ramos, getWhatsAppUrl, type Product } from '@/lib/products';
-import { productPages } from '@/lib/product-pages';
+import { productPageById } from '@/lib/product-pages';
 import { siteConfig } from '@/lib/site';
+import FarAwayLine from '@/components/FarAwayLine';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Breadcrumbs from '@/components/Breadcrumbs';
@@ -32,12 +33,6 @@ const crumbs = [
   { name: 'Inicio', path: '/' },
   { name: 'Catálogo' },
 ];
-
-/* URL de la ficha de cada producto, para enlazar desde el catálogo. El catálogo
-   es el hub central: cada producto linkea a su página propia. */
-const productHrefById: Record<string, string> = Object.fromEntries(
-  Object.values(productPages).map((page) => [page.product.id, page.urlPath])
-);
 
 export default function CatalogoClient() {
   const [filter, setFilter] = useState<Filter>('todos');
@@ -71,6 +66,7 @@ export default function CatalogoClient() {
                   cada uno con su ficha y su botón para pedir por WhatsApp. Si ninguno es lo que
                   buscabas, lo armamos a tu manera.
                 </p>
+                <FarAwayLine className="mt-5 max-w-sm" />
               </Reveal>
             </div>
           </div>
@@ -144,13 +140,9 @@ export default function CatalogoClient() {
                 <div className={`col-span-9 ${siteConfig.showPrices ? 'sm:col-span-5' : 'sm:col-span-7'}`}>
                   <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                     <h2 className="font-display text-xl sm:text-2xl font-semibold text-ink">
-                      {productHrefById[item.id] ? (
-                        <Link href={productHrefById[item.id]} className="link-underline">
-                          {item.name}
-                        </Link>
-                      ) : (
-                        item.name
-                      )}
+                      <Link href={productPageById[item.id].urlPath} className="link-underline">
+                        {productPageById[item.id].seoName}
+                      </Link>
                     </h2>
                     {item.tag && (
                       <span className="label text-berry text-[10px]">{item.tag}</span>

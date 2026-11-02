@@ -1,8 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { Karla } from "next/font/google";
 import { siteConfig } from "@/lib/site";
+import { ratingHook } from "@/lib/seo";
 import Analytics from "@/components/Analytics";
 import "./globals.css";
+
+const homeTitle = "Desayunos Sorpresa y Ramos en Catamarca | LaPrincesaCta";
+const homeDescription = `Desayunos sorpresa y ramos de golosinas a domicilio en Catamarca. ${ratingHook}. Foto de la entrega. Pedí por WhatsApp, también desde el exterior.`;
 
 /* Una sola tipografia en toda la web. Se cargan tambien los italicos porque
    varias citas y titulares los usan en cursiva. */
@@ -22,14 +26,12 @@ const gscVerification =
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: "Desayunos Sorpresa a Domicilio en Catamarca | LaPrincesaCta",
-  description:
-    "Desayunos sorpresa a domicilio en Catamarca. Caja de madera o de cartón, con café, delicias y nota a mano. Pedí por WhatsApp desde donde estés.",
+  title: homeTitle,
+  description: homeDescription,
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Desayunos Sorpresa a Domicilio en Catamarca | LaPrincesaCta",
-    description:
-      "Desayunos sorpresa a domicilio en Catamarca. Caja de madera o de cartón, con café, delicias y nota a mano. Pedí por WhatsApp desde donde estés.",
+    title: homeTitle,
+    description: homeDescription,
     url: "/",
     siteName: siteConfig.name,
     locale: "es_AR",
@@ -45,9 +47,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Desayunos Sorpresa a Domicilio en Catamarca | LaPrincesaCta",
-    description:
-      "Desayunos sorpresa a domicilio en Catamarca. Caja de madera o de cartón, con café, delicias y nota a mano. Pedí por WhatsApp desde donde estés.",
+    title: homeTitle,
+    description: homeDescription,
     images: ["/og-laprincesacta.jpg"],
   },
   robots: {

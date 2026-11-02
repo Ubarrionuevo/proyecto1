@@ -5,54 +5,47 @@ import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import Faq from '@/components/Faq';
-import JsonLd, { faqJsonLd, breadcrumbJsonLd } from '@/components/JsonLd';
+import JsonLd, { faqJsonLd, breadcrumbJsonLd, itemListJsonLd } from '@/components/JsonLd';
 import AdditionalGifts from '@/components/AdditionalGifts';
+import FarAwayLine from '@/components/FarAwayLine';
 import StickerButton from '@/components/ui/StickerButton';
 import { ramosFaqs } from '@/lib/faqs';
 import { ramos, getWhatsAppUrl } from '@/lib/products';
+import { productPageById } from '@/lib/product-pages';
 import { siteConfig } from '@/lib/site';
 import { ArrowIcon } from '@/components/Icons';
-import { openGraphBase, twitterImage } from '@/lib/seo';
+import { pageMetadata, ratingHook } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Ramos de Golosinas en Catamarca | LaPrincesaCta',
-  description:
-    'Ramos de golosinas y chocolates armados a mano en Catamarca: común, futbolero, de chocolates y con oso. Pedí por WhatsApp.',
-  alternates: { canonical: '/ramos-de-golosinas-catamarca' },
-  openGraph: {
-    ...openGraphBase,
-    title: 'Ramos de Golosinas en Catamarca | LaPrincesaCta',
-    description:
-      'Ramos de golosinas y chocolates armados a mano en Catamarca: común, futbolero, de chocolates y con oso. Pedí por WhatsApp.',
-    url: '/ramos-de-golosinas-catamarca',
-    type: 'website',
-    locale: 'es_AR',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Ramos de Golosinas en Catamarca | LaPrincesaCta',
-    description:
-      'Ramos de golosinas y chocolates armados a mano en Catamarca. Pedí por WhatsApp.',
-    images: [twitterImage],
-  },
-};
+export const metadata: Metadata = pageMetadata({
+  title: 'Ramos de Golosinas a Domicilio en Catamarca | LaPrincesaCta',
+  description: `Ramos de golosinas y chocolates a domicilio en Catamarca: común, futbolero, de chocolates y con oso. ${ratingHook}. Pedí por WhatsApp.`,
+  path: '/ramos-de-golosinas-catamarca',
+  image: ramos[0].images[0],
+});
 
 const crumbs = [
   { name: 'Inicio', path: '/' },
   { name: 'Ramos de golosinas' },
 ];
 
-const ramoLinks = [
-  { href: '/ramos/ramo-comun', key: 'ramo-comun' },
-  { href: '/ramos/ramo-futbolero', key: 'ramo-futbolero' },
-  { href: '/ramos/ramo-de-chocolates', key: 'ramo-de-chocolates' },
-  { href: '/ramos/ramo-con-oso', key: 'ramo-con-oso' },
-];
+const items = ramos.map((ramo) => ({ ramo, page: productPageById[ramo.id] }));
 
 export default function RamosPage() {
   return (
     <main className="min-h-dvh bg-paper text-ink">
-      <JsonLd data={[breadcrumbJsonLd(crumbs), faqJsonLd(ramosFaqs)]} />
+      <JsonLd
+        data={[
+          breadcrumbJsonLd(crumbs),
+          itemListJsonLd(
+            items.map(({ ramo, page }) => ({
+              name: page.seoName,
+              urlPath: page.urlPath,
+              image: ramo.images[0].src,
+            }))
+          ),
+          faqJsonLd(ramosFaqs),
+        ]}
+      />
       <Navbar />
       <Breadcrumbs items={crumbs} />
 
@@ -106,29 +99,27 @@ export default function RamosPage() {
           </p>
         </div>
 
+        <FarAwayLine className="mt-6" />
+
         <div className="mt-8 grid gap-4 sm:grid-cols-2">
-          {ramoLinks.map((link) => {
-            const ramo = ramos.find((r) => r.id === link.key);
-            if (!ramo) return null;
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="group border border-rule bg-paper-card p-6"
-              >
-                <span className="label">Ver producto</span>
-                <span className="font-display text-xl font-semibold text-ink mt-2 flex items-center gap-2">
-                  {ramo.name}
-                  <ArrowIcon className="w-4 h-4 text-berry transition-transform duration-200 group-hover:translate-x-1" />
+          {items.map(({ ramo, page }) => (
+            <Link
+              key={page.urlPath}
+              href={page.urlPath}
+              className="group border border-rule bg-paper-card p-6"
+            >
+              <span className="label">Ver producto</span>
+              <span className="font-display text-xl font-semibold text-ink mt-2 flex items-center gap-2">
+                {page.seoName}
+                <ArrowIcon className="w-4 h-4 text-berry transition-transform duration-200 group-hover:translate-x-1" />
+              </span>
+              {siteConfig.showPrices && (
+                <span className="font-display text-2xl font-semibold text-berry mt-1 block">
+                  {ramo.price}
                 </span>
-                {siteConfig.showPrices && (
-                  <span className="font-display text-2xl font-semibold text-berry mt-1 block">
-                    {ramo.price}
-                  </span>
-                )}
-              </Link>
-            );
-          })}
+              )}
+            </Link>
+          ))}
         </div>
 
         <div className="mt-8">

@@ -1,30 +1,15 @@
 ﻿import type { Metadata } from 'next';
 import CatalogoClient from './catalogo-client';
 import JsonLd, { breadcrumbJsonLd } from '@/components/JsonLd';
-import { openGraphBase, twitterImage } from '@/lib/seo';
+import { pageMetadata, ratingHook } from '@/lib/seo';
+import { desayunos, ramos } from '@/lib/products';
+import { siteConfig } from '@/lib/site';
 
-export const metadata: Metadata = {
-  title: 'Catálogo de Desayunos y Ramos en Catamarca | LaPrincesaCta',
-  description:
-    'Catálogo de desayunos sorpresa y ramos de golosinas en Catamarca: caja de madera, de cartón y cuatro ramos. Elegí el tuyo y pedí por WhatsApp.',
-  alternates: { canonical: '/catalogo' },
-  openGraph: {
-    ...openGraphBase,
-    title: 'Catálogo de Desayunos y Ramos en Catamarca | LaPrincesaCta',
-    description:
-      'Catálogo de desayunos sorpresa y ramos de golosinas en Catamarca: mirá las opciones y pedí por WhatsApp.',
-    url: '/catalogo',
-    type: 'website',
-    locale: 'es_AR',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Catálogo de Desayunos y Ramos en Catamarca | LaPrincesaCta',
-    description:
-      'Desayunos sorpresa y ramos de golosinas en Catamarca.',
-    images: [twitterImage],
-  },
-};
+export const metadata: Metadata = pageMetadata({
+  title: 'Catálogo de Desayunos y Ramos a Domicilio en Catamarca',
+  description: `Mirá las fotos de ${desayunos.length} desayunos y ${ramos.length} ramos a domicilio en Catamarca. ${ratingHook}. Pedí por WhatsApp ${siteConfig.hoursCopy}.`,
+  path: '/catalogo',
+});
 
 const crumbs = [
   { name: 'Inicio', path: '/' },

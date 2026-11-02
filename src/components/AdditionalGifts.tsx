@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { ramos, getWhatsAppUrl } from '@/lib/products';
+import { productPageById } from '@/lib/product-pages';
 import { siteConfig } from '@/lib/site';
 import SectionHead from './ui/SectionHead';
 import StickerButton from './ui/StickerButton';
@@ -98,6 +99,12 @@ export default function AdditionalGifts() {
                 <p className="mt-4 text-sm leading-relaxed text-ink-soft/80 max-w-prose hidden md:block">
                   {ramo.detail}
                 </p>
+                <Link
+                  href={productPageById[ramo.id].urlPath}
+                  className="mt-3 inline-block text-sm link-underline font-bold text-ink"
+                >
+                  {productPageById[ramo.id].seoName}: ver detalle
+                </Link>
               </div>
             </Reveal>
           ))}

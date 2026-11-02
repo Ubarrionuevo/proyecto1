@@ -3,6 +3,23 @@
 Nada de lo de abajo está publicado en la web. Son datos que faltan y que
 **no se inventan**: cuando el dueño responda, se agregan.
 
+## Tanda noviembre 2026
+- [ ] Disponibilidad de entrega el 24 y el 25 de diciembre y fecha límite para
+      pedir en Navidad (hoy `/navidad` dice "consultá disponibilidad por WhatsApp").
+- [ ] Anticipación mínima para pedir.
+- [ ] ¿Algún otro medio de pago internacional además de cuenta argentina y Prex?
+- [ ] Coordenadas del local para `geo` en el schema (solo si se quiere publicar).
+- [ ] URLs de Instagram y Facebook para `sameAs`.
+- [ ] 5 o 6 reseñas reales de Google (ideal: de clientes del exterior).
+- [ ] **Fecha del Día de la Madre:** `/dia-de-la-madre` dice "segundo domingo de
+      octubre", pero en Argentina es el **tercer** domingo (18/10/2026). Las
+      páginas nuevas dicen solo "en octubre". Falta corregir esa página.
+- [ ] **Regalos empresariales:** `/regalos-empresariales` y sus FAQ dicen
+      "despachamos al resto del país", pero la entrega de desayunos y ramos es solo
+      en Catamarca. Confirmar qué se despacha, si algo, y corregir el H1 y el texto.
+- [ ] Los precios no se ven en la web, pero siguen en `products.ts` y viajan en el
+      JavaScript público. Si no deben estar ni ahí, hay que sacarlos del código.
+
 ## URLs y redes
 - [ ] URL de la ficha de Google Maps (para el botón "Ver nuestras opiniones en
       Google", el mapa embebido y el `sameAs` del JSON-LD).

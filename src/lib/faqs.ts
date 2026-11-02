@@ -1,97 +1,107 @@
 import { siteConfig } from '@/lib/site';
 
 /* Preguntas y respuestas con solo información que ya figura en el sitio.
-   Lo no confirmado (plazos, zonas extra, sabores) va a TODO-contenido.md. */
+   Lo no confirmado (plazos, zonas extra, sabores) va a TODO-contenido.md.
+   Regla de redacción: la primera oración responde directo (sí/no + el dato),
+   que es lo que levantan los resúmenes de IA; el detalle va después. */
 
 export type FaqItem = { q: string; a: string };
 
 const whatsapp = siteConfig.phoneDisplay;
 
+const cuantoSale: FaqItem = {
+  q: '¿Cuánto sale?',
+  a: 'Te pasamos los precios actualizados por WhatsApp, según el producto y lo que quieras agregar.',
+};
+
+const horario = `De ${siteConfig.hours.toLowerCase()}, en hora de Argentina.`;
+
 export const homeFaqs: FaqItem[] = [
   {
     q: 'Estoy lejos de Catamarca, ¿puedo encargar igual?',
-    a: `Sí: nos escriben de toda la Argentina y de otros países. Vos lo pedís desde donde estés y nosotras lo preparamos y lo entregamos en ${siteConfig.city}. Cuando la entrega está hecha, te avisamos por WhatsApp.`,
+    a: `Sí. Lo pedís por WhatsApp desde otra provincia o desde otro país, y nosotras lo preparamos y lo entregamos en ${siteConfig.city}. Te mandamos foto o video de la entrega.`,
   },
   {
     q: '¿Cómo hago un pedido?',
-    a: `Por WhatsApp al ${whatsapp}: contanos el nombre de quien lo recibe y el motivo, y coordinamos el resto con esa persona. Hablás directo con nosotras, sin intermediarios.`,
+    a: `Por WhatsApp al ${whatsapp}. Contanos el nombre de quien lo recibe y el motivo, y coordinamos el resto con esa persona. Hablás directo con nosotras, sin intermediarios.`,
   },
   {
     q: '¿Dónde entregan?',
-    a: `Entregamos a domicilio en ${siteConfig.city}: llevamos el desayuno o el ramo hasta la puerta.`,
+    a: `En ${siteConfig.city}. Llevamos el desayuno o el ramo hasta la puerta.`,
   },
+  cuantoSale,
   {
     q: '¿Cómo se paga?',
-    a: 'Por transferencia. Te pasamos el detalle del pedido por WhatsApp y abonás ahí mismo.',
+    a: 'Por transferencia en pesos. Desde el exterior también podés pagar con Prex, sin necesidad de cuenta argentina. Te pasamos los datos por WhatsApp.',
   },
   {
     q: '¿Puedo personalizar el regalo?',
-    a: 'Sí: lo armamos a tu manera con los sabores, el tema, la decoración y el mensaje que elijas. Contanos qué tenés en mente y te pasamos el presupuesto.',
+    a: 'Sí. Lo armamos a tu manera con los sabores, el tema, la decoración y el mensaje que elijas. Contanos qué tenés en mente y te pasamos el presupuesto.',
   },
   {
     q: '¿En qué horario atienden?',
-    a: `De ${siteConfig.hours.toLowerCase()}. Escribinos y te respondemos con opciones en el momento.`,
+    a: `${horario} Escribinos y te respondemos con opciones en el momento.`,
   },
   {
     q: '¿Con cuánta anticipación tengo que pedir?',
-    a: 'No tenemos un plazo publicado: escribinos por WhatsApp con la fecha que necesitás y te confirmamos la disponibilidad en el momento.',
+    a: 'No tenemos un plazo fijo publicado. Escribinos por WhatsApp con la fecha que necesitás y te confirmamos la disponibilidad en el momento.',
   },
 ];
 
 export const desayunosFaqs: FaqItem[] = [
   {
     q: '¿Qué trae un desayuno sorpresa?',
-    a: 'Café o té bien caliente, delicias artesanales, taza personalizada y una nota escrita a mano, todo presentado en caja de madera o de cartón premium.',
+    a: 'Café o té bien caliente, delicias artesanales, taza personalizada y una nota escrita a mano. Todo va presentado en caja de madera o de cartón premium.',
   },
   {
     q: '¿Cuál es la diferencia entre la caja de madera y la de cartón?',
-    a: 'La sorpresa es la misma; cambia la presentación. La caja de madera se puede volver a usar para guardar cosas y la de cartón sale un poco menos.',
+    a: 'Cambia la presentación; la sorpresa es la misma. La caja de madera se puede volver a usar para guardar cosas y la de cartón sale un poco menos.',
   },
   {
     q: '¿Cómo lo entregan?',
-    a: `Lo envolvemos y lo llevamos nosotras hasta la puerta en ${siteConfig.city}. Solo necesitamos el nombre de quien lo recibe y el motivo.`,
+    a: `Lo llevamos nosotras hasta la puerta en ${siteConfig.city}, bien envuelto. Solo necesitamos el nombre de quien lo recibe y el motivo.`,
   },
   {
     q: '¿Cómo se paga?',
-    a: 'Por transferencia, con el detalle del pedido que te pasamos por WhatsApp.',
+    a: 'Por transferencia, con el detalle del pedido que te pasamos por WhatsApp. Desde el exterior también podés pagar con Prex.',
   },
   {
     q: '¿En qué horario atienden?',
-    a: `De ${siteConfig.hours.toLowerCase()}.`,
+    a: horario,
   },
 ];
 
 export const ramosFaqs: FaqItem[] = [
   {
     q: '¿Qué traen los ramos?',
-    a: 'Golosinas armadas en forma de ramo y envueltas para regalar. Según el modelo: chocolates, golosinas surtidas, camiseta y escudos del club, u oso de peluche.',
+    a: 'Golosinas armadas en forma de ramo y envueltas para regalar. Según el modelo suman chocolates, golosinas surtidas, camiseta y escudos del club, u oso de peluche.',
   },
   {
     q: '¿El ramo futbolero se arma de mi club?',
-    a: 'Sí: se arma por pedido con los colores de tu club y la camiseta adentro. Decinos tu equipo y lo dejamos a tu manera.',
+    a: 'Sí. Se arma por pedido con los colores de tu club y la camiseta adentro. Decinos tu equipo y lo dejamos a tu manera.',
   },
   {
     q: '¿El ramo va solo o con desayuno?',
-    a: 'Las dos cosas: se suma a cualquier desayuno o va solo, como vos quieras.',
+    a: 'Las dos opciones: se suma a cualquier desayuno o va solo, como vos quieras.',
   },
   {
     q: '¿Cómo se paga?',
-    a: 'Por transferencia, con el detalle del pedido que te pasamos por WhatsApp.',
+    a: 'Por transferencia, con el detalle del pedido que te pasamos por WhatsApp. Desde el exterior también podés pagar con Prex.',
   },
   {
     q: '¿En qué horario atienden?',
-    a: `De ${siteConfig.hours.toLowerCase()}.`,
+    a: horario,
   },
 ];
 
 export const cartasFaqs: FaqItem[] = [
   {
     q: '¿A dónde envían las cartas?',
-    a: 'A todo el país: despachamos la carta física a cualquier provincia de Argentina. Coordinamos destino, dirección y fecha por WhatsApp.',
+    a: 'A todo el país. Despachamos la carta física a cualquier provincia de Argentina y coordinamos destino, dirección y fecha por WhatsApp.',
   },
   {
     q: '¿Cómo personalizo la carta?',
-    a: 'Nos pasás el nombre de quien la recibe y el mensaje que querés decirle. Nosotras la preparamos con ese texto y la enviamos.',
+    a: 'Con el nombre de quien la recibe y el mensaje que querés decirle. Nos lo pasás y nosotras la preparamos con ese texto y la enviamos.',
   },
   {
     q: '¿Puede ser una sorpresa?',
@@ -99,7 +109,7 @@ export const cartasFaqs: FaqItem[] = [
   },
   {
     q: '¿Cuánto tarda en llegar?',
-    a: 'Depende del destino y del medio de envío. No publicamos un plazo fijo: escribinos con la fecha que necesitás y te confirmamos la disponibilidad.',
+    a: 'Depende del destino y del medio de envío, y no publicamos un plazo fijo. Escribinos con la fecha que necesitás y te confirmamos la disponibilidad.',
   },
   {
     q: '¿Cómo se paga?',
@@ -107,26 +117,30 @@ export const cartasFaqs: FaqItem[] = [
   },
   {
     q: '¿Hacen envíos al exterior?',
-    a: 'Las cartas se envían dentro de Argentina. Si necesitás otro destino, escribinos y lo vemos.',
+    a: 'No: las cartas se envían dentro de Argentina. Si necesitás otro destino, escribinos y lo vemos.',
   },
 ];
 
 export const empresasFaqs: FaqItem[] = [
   {
     q: '¿Qué regalos pueden pedir las empresas?',
-    a: 'Armamos propuestas con nuestros desayunos y ramos para empleados, clientes o equipos, según la cantidad, la fecha y el presupuesto.',
+    a: 'Desayunos y ramos. Armamos propuestas para empleados, clientes o equipos, según la cantidad, la fecha y el presupuesto.',
+  },
+  {
+    q: '¿Arman regalos de fin de año para empresas?',
+    a: 'Sí. Escribinos con la cantidad y la fecha, y te pasamos una propuesta por WhatsApp para cerrar el año con tu equipo o con tus clientes.',
   },
   {
     q: '¿Dónde entregan?',
-    a: `Entregamos en ${siteConfig.city} y despachamos al resto del país. Coordinamos el destino de cada pedido por WhatsApp.`,
+    a: `En ${siteConfig.city}, y despachamos al resto del país. Coordinamos el destino de cada pedido por WhatsApp.`,
   },
   {
     q: '¿Hay una cantidad mínima?',
-    a: 'Consultanos por la cantidad que necesitás y te pasamos una propuesta a medida.',
+    a: 'No publicamos una cantidad mínima. Consultanos por la cantidad que necesitás y te pasamos una propuesta a medida.',
   },
   {
     q: '¿Con cuánta anticipación conviene pedir?',
-    a: 'No tenemos un plazo publicado: escribinos con la fecha y la cantidad y te confirmamos la disponibilidad.',
+    a: 'No tenemos un plazo fijo publicado. Escribinos con la fecha y la cantidad y te confirmamos la disponibilidad.',
   },
   {
     q: '¿Cómo se paga?',
@@ -136,20 +150,59 @@ export const empresasFaqs: FaqItem[] = [
 
 export const enviarRegaloFaqs: FaqItem[] = [
   {
-    q: 'Estoy lejos de Catamarca, ¿puedo encargar igual?',
-    a: `Sí: nos escriben de toda la Argentina y de otros países. Vos lo pedís desde donde estés y nosotras lo preparamos y lo llevamos hasta su puerta en ${siteConfig.city}.`,
+    q: '¿Puedo pagar desde el exterior?',
+    a: 'Sí. Si tenés cuenta en Argentina, transferís en pesos; si no, pagás con Prex. Te pasamos los datos por WhatsApp.',
   },
   {
-    q: '¿Cómo coordinan la entrega si no estoy allá?',
-    a: 'Nos pasás el nombre de quien recibe y el motivo, y coordinamos el resto con esa persona. Cuando la entrega está hecha, te avisamos por WhatsApp.',
+    q: '¿Cómo sé que el regalo llegó?',
+    a: 'Te mandamos foto o video de la entrega. Te llega por WhatsApp, estés donde estés.',
+  },
+  cuantoSale,
+  {
+    q: '¿En qué moneda pago?',
+    a: 'En pesos argentinos; te confirmamos el total por WhatsApp.',
   },
   {
-    q: '¿Cómo se paga desde otra ciudad o país?',
-    a: 'Por transferencia, con el detalle del pedido que te pasamos por WhatsApp. Hablás directo con nosotras, sin intermediarios.',
+    q: '¿En qué horario entregan?',
+    a: `${horario} Coordinamos el día y el horario de la entrega por WhatsApp.`,
   },
   {
-    q: '¿En qué horario atienden?',
-    a: `De ${siteConfig.hours.toLowerCase()}.`,
+    q: '¿Puedo agregar una carta?',
+    a: 'Sí. Los desayunos ya traen una nota escrita a mano con tu mensaje y también podés sumar una carta personalizada: contanos por WhatsApp qué querés decirle.',
+  },
+  {
+    q: '¿A qué lugares entregan?',
+    a: `Solo en ${siteConfig.city}. Vos podés estar en cualquier provincia o país; lo que tiene que estar en Catamarca es la persona que lo recibe.`,
+  },
+];
+
+/* FAQ de la landing de Navidad.
+   TODO: reemplazar la respuesta del 24 y el 25 de diciembre y la de anticipación
+   cuando el dueño confirme disponibilidad y fecha límite (ver TODO-contenido.md). */
+export const navidadFaqs: FaqItem[] = [
+  {
+    q: '¿Cómo pido un regalo de Navidad?',
+    a: 'Por WhatsApp. Elegís el desayuno o el ramo, nos pasás el nombre de quien lo recibe y el día que querés, y coordinamos el resto.',
+  },
+  {
+    q: '¿Entregan el 24 y el 25 de diciembre?',
+    a: 'Consultá disponibilidad por WhatsApp. Decinos qué día y en qué momento lo querés y te confirmamos si se puede.',
+  },
+  {
+    q: '¿Con cuánta anticipación tengo que pedir para Navidad?',
+    a: 'Conviene escribirnos con tiempo, porque no publicamos una fecha límite. Pasanos el día que necesitás y te confirmamos la disponibilidad.',
+  },
+  {
+    q: '¿Puedo mandarlo desde otro país?',
+    a: `Sí. Lo pedís por WhatsApp desde donde estés y lo entregamos en ${siteConfig.city}. Pagás en pesos, con transferencia desde tu cuenta argentina o con Prex.`,
+  },
+  {
+    q: '¿Puedo sumar una nota con mi saludo navideño?',
+    a: 'Sí. Los desayunos traen una nota escrita a mano: nos pasás el saludo y va adentro. Si querés algo más largo, también hacemos cartas personalizadas.',
+  },
+  {
+    q: '¿Cómo me entero de que se entregó?',
+    a: 'Te mandamos foto o video de la entrega por WhatsApp, así la ves aunque estés lejos.',
   },
 ];
 
@@ -160,13 +213,12 @@ export const enviarRegaloFaqs: FaqItem[] = [
    desde cualquier provincia. No se inventan precios, plazos ni medidas. */
 
 const fueraDeProvincia =
-  'Sí: nos escriben de toda la Argentina y de otros países. Vos lo pedís desde donde ' +
-  'estés por WhatsApp y nosotras lo preparamos y lo entregamos en San Fernando del Valle ' +
-  'de Catamarca. Cuando la entrega está hecha, te avisamos.';
+  'Sí. Lo pedís por WhatsApp desde otra provincia o desde otro país, y nosotras lo preparamos y ' +
+  'lo entregamos en San Fernando del Valle de Catamarca. Te mandamos foto o video de la entrega.';
 
 const pagoPorTransferencia =
-  'Por transferencia, con el detalle del pedido que te pasamos por WhatsApp. Hablás ' +
-  'directo con nosotras, sin intermediarios.';
+  'Por transferencia, con el detalle del pedido que te pasamos por WhatsApp. Desde el exterior ' +
+  'también podés pagar con Prex. Hablás directo con nosotras, sin intermediarios.';
 
 export const productFaqs: Record<string, FaqItem[]> = {
   'desayuno-caja-madera': [
@@ -184,7 +236,7 @@ export const productFaqs: Record<string, FaqItem[]> = {
     },
     {
       q: '¿Puedo personalizar el mensaje?',
-      a: 'Sí: contanos qué querés que diga la nota y lo armamos a tu manera. También podés sumarle una carta personalizada, que se despacha a todo el país.',
+      a: 'Sí. Contanos qué querés que diga la nota y lo armamos a tu manera. También podés sumarle una carta personalizada.',
     },
   ],
   'desayuno-caja-carton': [
@@ -194,11 +246,11 @@ export const productFaqs: Record<string, FaqItem[]> = {
     },
     {
       q: '¿Cuál me conviene, la de madera o la de cartón?',
-      a: 'La sorpresa es la misma; cambia la presentación. La caja de madera se puede volver a usar para guardar cosas y la de cartón sale un poco menos.',
+      a: 'Depende de la presentación que prefieras; la sorpresa es la misma. La caja de madera se puede volver a usar para guardar cosas y la de cartón sale un poco menos.',
     },
     {
       q: '¿Lo entregan a domicilio?',
-      a: `Lo envolvemos y lo llevamos hasta la puerta en ${siteConfig.city}. Solo necesitamos el nombre de quien lo recibe y el motivo.`,
+      a: `Sí. Lo envolvemos y lo llevamos hasta la puerta en ${siteConfig.city}. Solo necesitamos el nombre de quien lo recibe y el motivo.`,
     },
     {
       q: '¿Cómo se paga y a qué horario atienden?',
@@ -212,7 +264,7 @@ export const productFaqs: Record<string, FaqItem[]> = {
     },
     {
       q: '¿Puedo sumarlo a un desayuno?',
-      a: 'Las dos cosas: el ramo se suma a cualquier desayuno o va solo, como vos quieras.',
+      a: 'Sí. El ramo se suma a cualquier desayuno o va solo, como vos quieras.',
     },
     {
       q: '¿Lo puedo pedir desde otra provincia?',
@@ -226,15 +278,23 @@ export const productFaqs: Record<string, FaqItem[]> = {
   'ramo-futbolero': [
     {
       q: '¿El ramo futbolero se arma con los colores de mi club?',
-      a: 'Sí: se arma por pedido con los colores de tu club y la camiseta adentro. Decinos tu equipo y lo dejamos a tu manera.',
+      a: 'Sí. Se arma por pedido con los colores de tu club y la camiseta adentro. Decinos tu equipo y lo dejamos a tu manera.',
     },
     {
       q: '¿Qué trae además de la camiseta?',
       a: 'Golosinas y escudos del club, armados y envueltos para regalar. Es el ramo que se usa para regalar en un partido, un cumple o cualquier fecha especial.',
     },
     {
+      q: '¿Para quién es el ramo futbolero?',
+      a: 'Para los que no se pierden un partido. Funciona muy bien cuando querés saludar a un hincha que está en Catamarca y vos estás lejos.',
+    },
+    {
+      q: '¿Tengo que avisar con qué equipo lo quiero?',
+      a: 'Sí, porque se arma por pedido. Pasanos el club de quien lo recibe cuando nos escribas por WhatsApp.',
+    },
+    {
       q: '¿Se puede sumar a un desayuno?',
-      a: 'Sí: se suma a cualquier desayuno o va solo.',
+      a: 'Sí. Se suma a cualquier desayuno o va solo.',
     },
     {
       q: '¿Puedo pedirlo si estoy fuera de Catamarca?',
@@ -248,7 +308,7 @@ export const productFaqs: Record<string, FaqItem[]> = {
     },
     {
       q: '¿Cómo se entrega?',
-      a: `Va envuelto y listo para regalar: lo llevamos hasta la puerta en ${siteConfig.city}.`,
+      a: `Envuelto y listo para regalar: lo llevamos hasta la puerta en ${siteConfig.city}.`,
     },
     {
       q: '¿Lo puedo encargar desde otra ciudad o país?',
@@ -265,16 +325,20 @@ export const productFaqs: Record<string, FaqItem[]> = {
       a: 'Golosinas y un oso de peluche adentro. Es el que más se regala para novios y para chicas.',
     },
     {
-      q: '¿Llega entero?',
-      a: 'Sí: el oso va envuelto para que llegue entero, y el ramo se entrega listo para regalar.',
+      q: '¿El oso llega entero?',
+      a: 'Sí. El oso va envuelto para que llegue entero, y el ramo se entrega listo para regalar.',
+    },
+    {
+      q: '¿Sirve para un aniversario a distancia?',
+      a: 'Sí. Lo pedís por WhatsApp desde donde estés, lo entregamos en Catamarca y te mandamos foto o video de la entrega.',
     },
     {
       q: '¿Se suma a un desayuno?',
-      a: 'Sí: los ramos se suman a cualquier desayuno o van solos.',
+      a: 'Sí. Los ramos se suman a cualquier desayuno o van solos.',
     },
     {
       q: '¿A qué horario atienden?',
-      a: `De ${siteConfig.hours.toLowerCase()}. Escribinos y te respondemos con opciones en el momento.`,
+      a: `${horario} Escribinos y te respondemos con opciones en el momento.`,
     },
   ],
 };
@@ -283,7 +347,7 @@ export const productFaqs: Record<string, FaqItem[]> = {
 export const diaDeLaMadreFaqs: FaqItem[] = [
   {
     q: '¿Qué puedo regalar para el Día de la Madre?',
-    a: 'Desayunos sorpresa completos —café o té, delicias, taza y nota a mano— o ramos de golosinas y de chocolates, que van solos o sumados al desayuno.',
+    a: 'Desayunos sorpresa completos o ramos de golosinas y de chocolates. El desayuno trae café o té, delicias, taza y nota a mano, y el ramo va solo o sumado.',
   },
   {
     q: '¿Puedo encargarlo desde otra provincia?',
@@ -291,7 +355,7 @@ export const diaDeLaMadreFaqs: FaqItem[] = [
   },
   {
     q: '¿Con cuánta anticipación conviene pedir?',
-    a: 'Ese día los pedidos se juntan, así que conviene encargarlo con anticipación. No publicamos un plazo fijo: escribinos con la fecha que necesitás y te confirmamos la disponibilidad.',
+    a: 'Con la mayor anticipación posible, porque ese día los pedidos se juntan. No publicamos un plazo fijo: escribinos con la fecha que necesitás y te confirmamos la disponibilidad.',
   },
   {
     q: '¿Cómo se paga?',

@@ -20,6 +20,8 @@ export function localBusinessJsonLd() {
     url: siteConfig.url,
     telephone: `+${siteConfig.whatsappNumber}`,
     image: [`${siteConfig.url}/og-laprincesacta.jpg`],
+    logo: `${siteConfig.url}/og-laprincesacta.jpg`,
+    hasMap: siteConfig.googleMapsUrl,
     address: {
       '@type': 'PostalAddress',
       addressLocality: siteConfig.city,
@@ -73,6 +75,23 @@ export function breadcrumbJsonLd(items: { name: string; path?: string }[]) {
       position: i + 1,
       name: item.name,
       ...(item.path ? { item: `${siteConfig.url}${item.path}` } : {}),
+    })),
+  };
+}
+
+/* ItemList de las páginas de categoría: enlaza cada ficha, sin precios. */
+export function itemListJsonLd(
+  items: { name: string; urlPath: string; image: string }[]
+) {
+  return {
+    '@context': CONTEXT,
+    '@type': 'ItemList',
+    itemListElement: items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.name,
+      url: `${siteConfig.url}${item.urlPath}`,
+      image: `${siteConfig.url}${item.image}`,
     })),
   };
 }

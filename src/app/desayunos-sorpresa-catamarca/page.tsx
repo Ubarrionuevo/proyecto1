@@ -5,47 +5,47 @@ import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import Faq from '@/components/Faq';
-import JsonLd, { faqJsonLd, breadcrumbJsonLd } from '@/components/JsonLd';
+import JsonLd, { faqJsonLd, breadcrumbJsonLd, itemListJsonLd } from '@/components/JsonLd';
+import FarAwayLine from '@/components/FarAwayLine';
 import SolutionSection from '@/components/SolutionSection';
 import StickerButton from '@/components/ui/StickerButton';
 import { desayunosFaqs } from '@/lib/faqs';
-import { getWhatsAppUrl } from '@/lib/products';
+import { desayunos, getWhatsAppUrl } from '@/lib/products';
+import { productPageById } from '@/lib/product-pages';
 import { siteConfig } from '@/lib/site';
 import { ArrowIcon } from '@/components/Icons';
-import { openGraphBase, twitterImage } from '@/lib/seo';
+import { pageMetadata, ratingHook } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Desayunos Sorpresa: Caja de Madera y Cartón | LaPrincesaCta',
-  description:
-    'Desayunos sorpresa a domicilio en Catamarca: caja de madera y caja de cartón con café, delicias, taza y nota a mano. Pedí por WhatsApp.',
-  alternates: { canonical: '/desayunos-sorpresa-catamarca' },
-  openGraph: {
-    ...openGraphBase,
-    title: 'Desayunos Sorpresa: Caja de Madera y Cartón | LaPrincesaCta',
-    description:
-      'Desayunos sorpresa a domicilio en Catamarca: caja de madera y caja de cartón con café, delicias, taza y nota a mano. Pedí por WhatsApp.',
-    url: '/desayunos-sorpresa-catamarca',
-    type: 'website',
-    locale: 'es_AR',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Desayunos Sorpresa: Caja de Madera y Cartón | LaPrincesaCta',
-    description:
-      'Desayunos sorpresa a domicilio en Catamarca: caja de madera y caja de cartón. Pedí por WhatsApp.',
-    images: [twitterImage],
-  },
-};
+export const metadata: Metadata = pageMetadata({
+  title: 'Desayunos Sorpresa a Domicilio en Catamarca | LaPrincesaCta',
+  description: `Desayunos sorpresa a domicilio en Catamarca. ${ratingHook}. Te mandamos foto de la entrega. Pedí por WhatsApp, también desde el exterior.`,
+  path: '/desayunos-sorpresa-catamarca',
+  image: desayunos[0].images[0],
+});
 
 const crumbs = [
   { name: 'Inicio', path: '/' },
   { name: 'Desayunos sorpresa' },
 ];
 
+const items = desayunos.map((product) => ({ product, page: productPageById[product.id] }));
+
 export default function DesayunosPage() {
   return (
     <main className="min-h-dvh bg-paper text-ink">
-      <JsonLd data={[breadcrumbJsonLd(crumbs), faqJsonLd(desayunosFaqs)]} />
+      <JsonLd
+        data={[
+          breadcrumbJsonLd(crumbs),
+          itemListJsonLd(
+            items.map(({ product, page }) => ({
+              name: page.seoName,
+              urlPath: page.urlPath,
+              image: product.images[0].src,
+            }))
+          ),
+          faqJsonLd(desayunosFaqs),
+        ]}
+      />
       <Navbar />
       <Breadcrumbs items={crumbs} />
 
@@ -97,32 +97,33 @@ export default function DesayunosPage() {
           </p>
         </div>
 
+        <FarAwayLine className="mt-6" />
+
+        <h2 className="display-md mt-12 text-ink text-balance">
+          Desayunos en Catamarca, para regalar o para vos
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-ink-soft max-w-prose">
+          No hace falta que sea una sorpresa. Si buscás desayunos en Catamarca para un cumpleaños
+          en la oficina o para darte un gusto un domingo, también los llevamos: son desayunos a
+          domicilio en San Fernando del Valle, con el mismo armado y la misma nota, y los pedís{' '}
+          {siteConfig.hoursCopy}.
+        </p>
+
         <div className="mt-8 grid gap-4 sm:grid-cols-2">
-          {[
-            {
-              href: '/desayunos/caja-de-madera',
-              name: 'Desayuno sorpresa en caja de madera',
-              price: '$39.000',
-            },
-            {
-              href: '/desayunos/caja-de-carton',
-              name: 'Desayuno sorpresa en caja de cartón',
-              price: '$36.000',
-            },
-          ].map((item) => (
+          {items.map(({ product, page }) => (
             <Link
-              key={item.href}
-              href={item.href}
+              key={page.urlPath}
+              href={page.urlPath}
               className="group border border-rule bg-paper-card p-6"
             >
               <span className="label">Ver producto</span>
               <span className="font-display text-xl font-semibold text-ink mt-2 flex items-center gap-2">
-                {item.name}
+                {page.seoName}
                 <ArrowIcon className="w-4 h-4 text-berry transition-transform duration-200 group-hover:translate-x-1" />
               </span>
               {siteConfig.showPrices && (
                 <span className="font-display text-2xl font-semibold text-berry mt-1 block">
-                  {item.price}
+                  {product.price}
                 </span>
               )}
             </Link>

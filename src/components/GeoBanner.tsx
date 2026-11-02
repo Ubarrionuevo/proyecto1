@@ -5,6 +5,7 @@ import Link from 'next/link';
 import StickerButton from './ui/StickerButton';
 import { ArrowIcon } from './Icons';
 import { getWhatsAppUrl } from '@/lib/products';
+import { originLinks } from '@/lib/site';
 
 export default function GeoBanner() {
   return (
@@ -32,7 +33,7 @@ export default function GeoBanner() {
             style={{ '--rise-delay': '160ms' } as React.CSSProperties}
           >
             Quedate tranquilo: nos encargamos de todo. Elegís el regalo, nos decís para quién es
-            y lo entregamos en la puerta. Te avisamos por WhatsApp cuando llega.
+            y lo entregamos en la puerta. Te mandamos foto o video de la entrega.
           </p>
         </div>
       </div>
@@ -56,10 +57,24 @@ export default function GeoBanner() {
               href="/enviar-regalo-a-catamarca"
               className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-ink link-underline"
             >
-              Así funciona el envío desde otra provincia
-              <ArrowIcon className="w-4 h-4 text-berry" />
+              ¿Estás lejos? Lo mandás desde cualquier provincia o país y te enviamos foto de la
+              entrega
+              <ArrowIcon className="w-4 h-4 shrink-0 text-berry" />
             </Link>
           </div>
+
+          <ul
+            className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-[13px] rise"
+            style={{ '--rise-delay': '340ms' } as React.CSSProperties}
+          >
+            {originLinks.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className="link-underline text-ink-soft hover:text-ink">
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

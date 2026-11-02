@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { desayunos, getWhatsAppUrl } from '@/lib/products';
+import { productPageById } from '@/lib/product-pages';
 import { siteConfig } from '@/lib/site';
 import SectionHead from './ui/SectionHead';
 import StickerButton from './ui/StickerButton';
@@ -97,6 +98,12 @@ export default function SolutionSection() {
                 <p className="mt-4 text-base leading-relaxed text-ink-soft max-w-prose">
                   {product.detail}
                 </p>
+                <Link
+                  href={productPageById[product.id].urlPath}
+                  className="mt-3 inline-block text-sm link-underline font-bold text-ink"
+                >
+                  {productPageById[product.id].seoName}: ver detalle
+                </Link>
               </div>
             </Reveal>
           ))}

@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { siteConfig } from './site';
 
 /* Piezas de metadatos sociales compartidas por todas las páginas.
@@ -22,3 +23,41 @@ export const openGraphBase = {
 };
 
 export const twitterImage = '/og-laprincesacta.jpg';
+
+/* Gancho de reputación para descriptions: sale de siteConfig. */
+export const ratingHook = `⭐ ${siteConfig.googleRating} en Google`;
+
+/* Metadata completa de una página. Sin `image` usa la imagen social general;
+   las fichas y las categorías pasan la foto de su producto. */
+export function pageMetadata({
+  title,
+  description,
+  path,
+  image,
+}: {
+  title: string;
+  description: string;
+  path: string;
+  image?: { src: string; alt: string };
+}): Metadata {
+  return {
+    title,
+    description,
+    alternates: { canonical: path },
+    openGraph: {
+      ...openGraphBase,
+      ...(image ? { images: [{ url: image.src, alt: image.alt }] } : {}),
+      title,
+      description,
+      url: path,
+      type: 'website',
+      locale: 'es_AR',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: image ? [{ url: image.src, alt: image.alt }] : [twitterImage],
+    },
+  };
+}
