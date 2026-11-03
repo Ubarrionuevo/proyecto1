@@ -312,46 +312,6 @@ h4,
   animation-play-state: paused;
 }
 
-/* Carrusel horizontal con scroll nativo: el autoplay lo mueve el componente
-   por JS, el usuario lo desliza con el dedo. Sin scrollbar visible, con snap
-   suave y sin propagar el gesto horizontal a la pagina. */
-.carousel {
-  overflow-x: auto;
-  overflow-y: hidden;
-  max-width: 100%;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  overscroll-behavior-x: contain;
-  /* Snap APAGADO por defecto: con snap activo el navegador re-engancha cada
-     escritura programada de scrollLeft y el autoplay queda clavado.
-     El componente prende .snap-on solo mientras el usuario lo manipula. */
-  scroll-snap-type: none;
-  -webkit-overflow-scrolling: touch;
-}
-.carousel.snap-on {
-  scroll-snap-type: x proximity;
-}
-.carousel::-webkit-scrollbar {
-  display: none;
-}
-.carousel-track {
-  display: flex;
-  width: max-content;
-  align-items: stretch;
-}
-.carousel-copy {
-  display: flex;
-  align-items: stretch;
-}
-/* El margen (y no gap) hace que scrollWidth sea exactamente 2x el set,
-   que es lo que el loop del autoplay necesita para no saltar. */
-.carousel-slide {
-  flex: 0 0 auto;
-  min-width: 0;
-  scroll-snap-align: center;
-  margin-right: var(--carousel-gap, 1rem);
-}
-
 @media (prefers-reduced-motion: reduce) {
   .marquee-left,
   .marquee-right,
@@ -359,13 +319,6 @@ h4,
   .ticker-right {
     animation: none;
   }
-  /* Sin autoplay no hay nada que pelee con el snap: se prende para que el
-     swipe manual termine alineado. */
-  .carousel,
-  .carousel.snap-on {
-    scroll-snap-type: x proximity;
-  }
-
   /* Los reveals deben quedar visibles: si no, el contenido nunca aparece. */
   .reveal,
   .rise {

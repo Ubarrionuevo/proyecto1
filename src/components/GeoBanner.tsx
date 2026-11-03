@@ -1,12 +1,34 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import StickerButton from './ui/StickerButton';
 import ReadMore from './ui/ReadMore';
 import { ArrowIcon } from './Icons';
 import { getWhatsAppUrl } from '@/lib/products';
 import { originLinks } from '@/lib/site';
+
+const headlineProducts = ['Desayunos sorpresa', 'Ramos de golosinas'];
+const headlineIntervalMs = 3500;
+
+/* Producto del titular, cambia solo. El HTML del servidor trae el primero, que
+   es la palabra clave del <h1>. Con movimiento reducido cambia sin animación:
+   .rise ya se apaga en ese caso. */
+function RotatingProduct() {
+  const [changes, setChanges] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => setChanges((count) => count + 1), headlineIntervalMs);
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    /* La key remonta el span para que la animación corra en cada cambio. */
+    <span key={changes} className={`inline-block ${changes > 0 ? 'rise' : ''}`}>
+      {headlineProducts[changes % headlineProducts.length]}
+    </span>
+  );
+}
 
 export default function GeoBanner() {
   return (
@@ -19,7 +41,7 @@ export default function GeoBanner() {
             className="display-lg text-ink mx-auto text-balance rise"
             style={{ '--rise-delay': '0ms' } as React.CSSProperties}
           >
-            Desayunos sorpresa a domicilio en Catamarca
+            <RotatingProduct /> a domicilio en Catamarca
           </h1>
 
           <p
@@ -44,7 +66,15 @@ export default function GeoBanner() {
           </div>
 
           <div className="rise" style={{ '--rise-delay': '300ms' } as React.CSSProperties}>
-            <ReadMore summary="Cómo funciona" align="center" className="mt-3">
+            <ReadMore
+              summary={
+                <span className="text-lg sm:text-xl underline decoration-berry decoration-2 underline-offset-4">
+                  Cómo funciona
+                </span>
+              }
+              align="center"
+              className="mt-4"
+            >
               <p className="text-base text-ink-soft max-w-2xl mx-auto leading-relaxed">
                 Quedate tranquilo: nos encargamos de todo. Elegís el regalo, nos decís para quién
                 es y lo entregamos en la puerta. Te mandamos foto o video de la entrega.

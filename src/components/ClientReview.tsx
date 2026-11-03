@@ -1,26 +1,14 @@
 import { siteConfig } from '@/lib/site';
 import { ArrowIcon } from './Icons';
 
-/* Reseña de cliente.
-   `review` queda en null hasta tener el texto real (con permiso del cliente).
-   En producción, mientras esté vacío, la sección no se renderiza: así no se
-   publica una cita inventada. En desarrollo se muestra un mockup para revisar
-   el diseño. Para cargarla, reemplazar null por { name, text, date? }. */
-type ClientReviewData = { name: string; text: string; date?: string };
-
-const review: ClientReviewData | null = null;
-
-const mockup: ClientReviewData = {
-  name: 'Nombre del cliente',
-  text: 'Reseña de alguien que envió un regalo desde otra provincia. Reemplazar por el texto real, con permiso del cliente.',
+/* Reseña real de Google, copiada tal cual de la ficha del negocio. Si se cambia,
+   usar siempre el texto textual de una reseña publicada: no redactar ni editar. */
+const review = {
+  name: 'Brisa Magali Soria',
+  text: 'Les compro desayunos desde la provincia de Santa Cruz, para que se los entreguen a mi papá y mamá que viven en Catamarca. Siempre puntual, todo fresco, abundante, con detalles delicados que hacen que además de rico se vea lindo, me responden los mensajes rápido y me mantienen al tanto de la entrega. Super confiables!!',
 };
 
 export default function ClientReview() {
-  const isDev = process.env.NODE_ENV === 'development';
-  const data = review ?? (isDev ? mockup : null);
-
-  if (!data) return null;
-
   return (
     <section
       aria-label="Reseña de cliente"
@@ -30,20 +18,11 @@ export default function ClientReview() {
         <span className="label">Lo que dicen</span>
 
         <figure className="mt-6 border-l-2 border-butter pl-5">
-          <blockquote className="quote text-2xl sm:text-3xl leading-snug text-ink">
-            “{data.text}”
+          <blockquote className="quote text-xl sm:text-2xl leading-snug text-ink">
+            “{review.text}”
           </blockquote>
-          <figcaption className="label mt-4">
-            {data.name}
-            {data.date ? ` · ${data.date}` : ''}
-          </figcaption>
+          <figcaption className="label mt-4">{review.name}</figcaption>
         </figure>
-
-        {!review && isDev && (
-          <p className="mt-4 text-xs text-berry">
-            Mockup: reemplazar con una reseña real antes de publicar.
-          </p>
-        )}
 
         {siteConfig.googleMapsUrl && (
           <a
