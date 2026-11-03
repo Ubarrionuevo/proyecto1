@@ -5,9 +5,9 @@ import { getWhatsAppUrl } from '@/lib/products';
 import { WhatsAppIcon } from './Icons';
 
 /* Boton fijo con el mismo sistema visual que el resto de los botones
-   (.sticker .sticker-wa: verde WhatsApp, radio 3px, sombra dura, hover lift
-   y press). El wrapper maneja la aparicion al hacer scroll; el anchor es un
-   sticker comun, sin estilos propios. En mobile queda compacto con solo icono.
+   (.sticker .sticker-wa: verde WhatsApp, radio 3px, hover y press). El wrapper
+   maneja la aparicion al hacer scroll; el anchor es un sticker comun, con una
+   sombra suave porque flota sobre el contenido.
    `topic` arma el mensaje precargado según la página: es el mismo texto de su CTA. */
 export default function FloatingWhatsApp({ topic = 'un regalo' }: { topic?: string }) {
   const [visible, setVisible] = useState(false);
@@ -32,7 +32,7 @@ export default function FloatingWhatsApp({ topic = 'un regalo' }: { topic?: stri
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Escribinos por WhatsApp"
-        className="sticker sticker-wa pl-4 pr-4 py-3.5 text-sm touch-target"
+        className="sticker sticker-wa pl-4 pr-4 py-3.5 text-sm touch-target shadow-[0_8px_18px_rgb(36_26_20/0.16)]"
       >
         <WhatsAppIcon className="w-6 h-6 shrink-0" />
         <span className="whitespace-nowrap font-bold">Escribinos</span>

@@ -107,8 +107,7 @@ export default function RegalosEmpresarialesPage() {
       <Breadcrumbs items={crumbs} />
 
       <section className="max-w-3xl mx-auto px-5 sm:px-8 pt-10 sm:pt-14 pb-14">
-        <span className="label">Regalos para empresas</span>
-        <h1 className="display-lg mt-4 text-ink text-balance">
+        <h1 className="display-lg text-ink text-balance">
           Regalos empresariales en Catamarca y a todo el país
         </h1>
         <div className="mt-6 space-y-5 text-base leading-relaxed text-ink-soft max-w-prose">
@@ -181,8 +180,7 @@ export default function RegalosEmpresarialesPage() {
         </p>
 
         <div className="mt-12 border-l-2 border-butter pl-5">
-          <span className="label">Alcance</span>
-          <h2 className="font-display text-2xl sm:text-3xl font-semibold text-ink mt-2 text-balance">
+          <h2 className="font-display text-2xl sm:text-3xl font-semibold text-ink text-balance">
             En Catamarca y a todo el país.
           </h2>
           <p className="mt-2 text-base leading-relaxed text-ink-soft max-w-prose">

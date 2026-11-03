@@ -17,8 +17,7 @@ export default function NotFound() {
     <main className="min-h-dvh bg-paper text-ink">
       <Navbar />
       <section className="max-w-3xl mx-auto px-5 sm:px-8 py-20 sm:py-28 text-center">
-        <span className="label">Error 404</span>
-        <h1 className="display-lg mt-4 text-ink">Esa página no existe.</h1>
+        <h1 className="display-lg text-ink">Esa página no existe.</h1>
         <p className="mt-5 text-base text-ink-soft max-w-md mx-auto leading-relaxed">
           Pero los desayunos y ramos siguen acá. Elegí por dónde seguir:
         </p>

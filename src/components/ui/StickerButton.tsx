@@ -10,8 +10,7 @@ const variants: Record<Variant, string> = {
   wa: 'sticker sticker-wa',
 };
 
-/* Botón "sticker": relleno sólido con sombra dura desplazada.
-   Se lee como una calcomanía serigrafiada, no como un botón glossy. */
+/* Botón "sticker": relleno sólido, sin sombra. */
 export default function StickerButton({
   href,
   children,

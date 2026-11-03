@@ -35,8 +35,7 @@ export default function OriginPage({ origin }: { origin: OriginData }) {
       <Breadcrumbs items={crumbs} />
 
       <section className="max-w-3xl mx-auto px-5 sm:px-8 pt-10 sm:pt-14 pb-14">
-        <span className="label">{origin.label}</span>
-        <h1 className="display-lg mt-4 text-ink text-balance">{origin.h1}</h1>
+        <h1 className="display-lg text-ink text-balance">{origin.h1}</h1>
         <div className="mt-6 space-y-5 text-base leading-relaxed text-ink-soft max-w-prose">
           {origin.lead.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>

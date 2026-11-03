@@ -37,8 +37,7 @@ export default function NavidadPage() {
       <Breadcrumbs items={crumbs} />
 
       <section className="max-w-3xl mx-auto px-5 sm:px-8 pt-10 sm:pt-14 pb-14">
-        <span className="label">Navidad y fin de año</span>
-        <h1 className="display-lg mt-4 text-ink text-balance">
+        <h1 className="display-lg text-ink text-balance">
           Regalos de Navidad a domicilio en Catamarca
         </h1>
         <div className="mt-6 space-y-5 text-base leading-relaxed text-ink-soft max-w-prose">
@@ -94,8 +93,7 @@ export default function NavidadPage() {
         </ul>
 
         <div className="mt-14 border-l-2 border-butter pl-5">
-          <span className="label">Empresas</span>
-          <h2 className="font-display text-2xl sm:text-3xl font-semibold text-ink mt-2 text-balance">
+          <h2 className="font-display text-2xl sm:text-3xl font-semibold text-ink text-balance">
             Regalos de fin de año para empresas
           </h2>
           <p className="mt-2 text-base leading-relaxed text-ink-soft max-w-prose">

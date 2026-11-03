@@ -1,17 +1,15 @@
 import React from 'react';
 
-/* Encabezado de sección editorial: número grande en serif + label en versalitas.
+/* Encabezado de sección editorial: número grande en serif + título.
    Reemplaza los badges redondeados con gradiente. */
 export default function SectionHead({
   number,
-  label,
   title,
   intro,
   align = 'left',
   tone = 'ink',
 }: {
   number?: string;
-  label: string;
   title: React.ReactNode;
   intro?: React.ReactNode;
   align?: 'left' | 'center';
@@ -22,18 +20,16 @@ export default function SectionHead({
 
   return (
     <div className={`flex flex-col ${alignCls} max-w-3xl`}>
-      {/* Numeral puramente decorativo: oculto a lectores (el label ya anuncia
+      {/* Numeral puramente decorativo: oculto a lectores (el título ya anuncia
           la sección) y así no cuenta para contraste. */}
       {number && (
-        <span aria-hidden="true" className="num text-[4.5rem] sm:text-[6.5rem] mb-2">
+        <span aria-hidden="true" className="num text-[4.5rem] sm:text-[6.5rem] mb-5">
           {number}
         </span>
       )}
 
-      <span className={`label ${onDark ? 'text-paper/50' : ''}`}>{label}</span>
-
       <h2
-        className={`display-md mt-3 ${onDark ? 'text-paper' : 'text-ink'} ${
+        className={`display-md ${onDark ? 'text-paper' : 'text-ink'} ${
           onDark ? '' : 'text-balance'
         }`}
       >

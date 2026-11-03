@@ -19,7 +19,6 @@ export default function AdditionalGifts() {
         <Reveal>
           <SectionHead
             number="02"
-            label="Ramos de golosinas"
             title={
               <>
                 Chocolates, golosinas

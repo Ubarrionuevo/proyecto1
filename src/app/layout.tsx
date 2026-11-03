@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Karla } from "next/font/google";
+import { Karla, Piazzolla } from "next/font/google";
 import { siteConfig } from "@/lib/site";
 import { ratingHook } from "@/lib/seo";
 import Analytics from "@/components/Analytics";
@@ -8,12 +8,20 @@ import "./globals.css";
 const homeTitle = "Desayunos Sorpresa y Ramos en Catamarca | LaPrincesaCta";
 const homeDescription = `Desayunos sorpresa y ramos de golosinas a domicilio en Catamarca. ${ratingHook}. Foto de la entrega. Pedí por WhatsApp, también desde el exterior.`;
 
-/* Una sola tipografia en toda la web. Se cargan tambien los italicos porque
-   varias citas y titulares los usan en cursiva. */
+/* Karla para texto corrido. Se cargan tambien los italicos porque varias citas
+   los usan en cursiva. */
 const karla = Karla({
   variable: "--font-karla",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+});
+
+/* Piazzolla para titulos: serif angulosa, diseñada en Argentina. Es variable,
+   asi que no hace falta listar pesos. */
+const piazzolla = Piazzolla({
+  variable: "--font-piazzolla",
+  subsets: ["latin"],
   style: ["normal", "italic"],
 });
 
@@ -71,11 +79,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es-AR" className="scroll-smooth" suppressHydrationWarning>
+    /* Las variables de fuente van en <html> y no en <body>: --font-display y
+       --font-body se resuelven en :root y si no las encuentran quedan vacias. */
+    <html
+      lang="es-AR"
+      className={`${karla.variable} ${piazzolla.variable} scroll-smooth`}
+      suppressHydrationWarning
+    >
       <head>
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
       </head>
-      <body className={`${karla.variable} font-body antialiased`}>
+      <body className="font-body antialiased">
         <Analytics />
         {children}
       </body>

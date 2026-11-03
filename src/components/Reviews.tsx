@@ -89,7 +89,7 @@ export default function Reviews() {
   return (
     <section aria-label="Opiniones de clientes" className="border-t border-rule py-16 sm:py-24">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
-        <SectionHead label="Lo que dicen" title="Opiniones de quienes ya nos eligieron." />
+        <SectionHead title="Opiniones de quienes ya nos eligieron." />
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <RatingCard />

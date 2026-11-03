@@ -17,7 +17,6 @@ export default function SolutionSection() {
         <Reveal>
           <SectionHead
             number="01"
-            label="Desayunos a domicilio"
             title={
               <>
                 Lo que llega a la puerta

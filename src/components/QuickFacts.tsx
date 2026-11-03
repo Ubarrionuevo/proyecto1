@@ -26,8 +26,7 @@ export default function QuickFacts() {
   return (
     <section aria-label="Datos rápidos" className="border-t border-rule py-14 sm:py-20">
       <div className="max-w-3xl mx-auto px-5 sm:px-8">
-        <span className="label">Lo esencial</span>
-        <h2 className="display-md mt-3 text-ink">Datos rápidos</h2>
+        <h2 className="display-md text-ink">Datos rápidos</h2>
         <dl className="mt-6 border-t border-rule">
           {facts.map((fact) => (
             <div key={fact.t} className="grid sm:grid-cols-12 gap-x-6 gap-y-1 py-4 border-b border-rule">

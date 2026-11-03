@@ -73,8 +73,7 @@ export default function ProductDetail({ data }: { data: ProductPageData }) {
       <Breadcrumbs items={crumbs} />
 
       <section className="max-w-6xl mx-auto px-5 sm:px-8 pt-10 sm:pt-14 pb-14">
-        <span className="label">{categoryName}</span>
-        <div className="mt-4 flex flex-wrap items-start justify-between gap-4">
+        <div className="flex flex-wrap items-start justify-between gap-4">
           <h1 className="display-lg text-ink text-balance max-w-2xl">
             {seoName} a domicilio en Catamarca
           </h1>
@@ -147,6 +146,7 @@ export default function ProductDetail({ data }: { data: ProductPageData }) {
               <StickerButton
                 href={getWhatsAppUrl(productTopic(product.name))}
                 size="lg"
+                wrap
                 className="mt-5 w-full"
               >
                 Quiero {isFeminineProduct(product.name) ? 'esta' : 'este'} {product.name.toLowerCase()}

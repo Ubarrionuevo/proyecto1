@@ -16,12 +16,10 @@ const rotations = [-3, 2.5, -1.5, 3, -2.5, 1.5, -3, 2, -1, 2.5, -2, 3];
    recortadas en cuadrado: sin scroll horizontal ni autoplay. */
 export default function ClientsMotion({
   number,
-  label = 'Los que ya nos eligieron',
   title = 'Fotos reales de entregas.',
   intro = 'Ninguna está retocada: son personas de Catamarca que recibieron una sorpresa un día cualquiera.',
 }: {
   number?: string;
-  label?: string;
   title?: string;
   intro?: string;
 }) {
@@ -32,7 +30,7 @@ export default function ClientsMotion({
     >
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         <Reveal>
-          <SectionHead number={number} label={label} title={title} intro={intro} />
+          <SectionHead number={number} title={title} intro={intro} />
         </Reveal>
       </div>
 

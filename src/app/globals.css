@@ -23,10 +23,8 @@
      Sigue siendo verde WhatsApp a simple vista. */
   --color-wa: #146c3c;
 
-  /* Una sola tipografia en toda la web: Karla para todo.
-     --font-display se mantiene como alias para no romper las clases
-     .font-display / .display-* que ya existen en los componentes. */
-  --font-display: var(--font-karla), system-ui, -apple-system, sans-serif;
+  /* Dos tipografias: Piazzolla (serif) para titulos y Karla para texto corrido. */
+  --font-display: var(--font-piazzolla), Georgia, serif;
   --font-body: var(--font-karla), system-ui, -apple-system, sans-serif;
 
   /* Textura de papel: SVG embebido, grano fino, se repite */
@@ -43,7 +41,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Una sola fuente en toda la web. Karla para titulos y para texto.
+/* Titulos en Piazzolla.
    Tracking un poco apretado para que los titulares grandes no se abran. */
 h1,
 h2,
@@ -84,7 +82,7 @@ h4,
   border-bottom: 1px solid var(--color-rule);
 }
 
-/* Botón sticker: relleno sólido + sombra dura desplazada (serigrafía) */
+/* Botón sticker: relleno sólido, sin sombra */
 .sticker {
   position: relative;
   display: inline-flex;
@@ -98,24 +96,19 @@ h4,
   font-weight: 700;
   border-radius: 3px;
   cursor: pointer;
-  box-shadow: 4px 4px 0 0 var(--color-ink);
   transition:
     transform 140ms ease,
-    box-shadow 140ms ease,
     background-color 140ms ease;
 }
 @media (hover: hover) {
   .sticker:hover {
     background: var(--color-berry-deep);
-    transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 0 var(--color-ink);
   }
 }
-/* Press: el boton baja hacia la mesa y la sombra se comprime.
+/* Press: el boton se achica apenas.
    90ms para que se sienta inmediato, sin delay perceptible. */
 .sticker:active {
-  transform: translate(2px, 2px) scale(0.985);
-  box-shadow: 1px 1px 0 0 var(--color-ink);
+  transform: scale(0.985);
   transition-duration: 90ms;
 }
 .sticker:focus-visible {
@@ -123,28 +116,23 @@ h4,
   outline-offset: 3px;
 }
 
-/* Variante outline: texto y sombra en berry (#c0304f), fondo transparente.
-   Colores fijos en hover y press: solo se mueve la sombra, no cambian. */
+/* Variante outline: texto y borde en berry (#c0304f), fondo transparente.
+   El borde va con sombra interna para no cambiar el tamaño del boton. */
 .sticker-outline {
   background: transparent;
   color: var(--color-berry);
-  box-shadow: 4px 4px 0 0 var(--color-berry);
+  box-shadow: inset 0 0 0 1.5px var(--color-berry);
 }
 @media (hover: hover) {
   .sticker-outline:hover {
-    background: transparent;
-    color: var(--color-berry);
-    box-shadow: 6px 6px 0 0 var(--color-berry);
+    background: color-mix(in srgb, var(--color-berry) 8%, transparent);
+    color: var(--color-berry-deep);
   }
 }
-.sticker-outline:active {
-  box-shadow: 1px 1px 0 0 var(--color-berry);
-}
 
-/* Variante WhatsApp: verde, misma sombra dura */
+/* Variante WhatsApp: verde */
 .sticker-wa {
   background: var(--color-wa);
-  box-shadow: 4px 4px 0 0 var(--color-ink);
 }
 @media (hover: hover) {
   .sticker-wa:hover {

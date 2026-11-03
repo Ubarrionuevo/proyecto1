@@ -15,8 +15,7 @@ export default function Faq({
   return (
     <section aria-label={label} className="border-t border-rule py-16 sm:py-24">
       <div className="max-w-3xl mx-auto px-5 sm:px-8">
-        <span className="label">{label}</span>
-        <h2 className="display-md mt-3 text-ink text-balance">{title}</h2>
+        <h2 className="display-md text-ink text-balance">{title}</h2>
         <div className="mt-8 border-t border-rule">
           {items.map((faq) => (
             <details key={faq.q} className="group border-b border-rule">

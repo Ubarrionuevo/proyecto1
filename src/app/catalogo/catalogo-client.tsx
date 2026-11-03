@@ -49,8 +49,7 @@ export default function CatalogoClient() {
           <div className="grid lg:grid-cols-12 gap-x-8 gap-y-8">
             <div className="lg:col-span-7">
               <Reveal>
-                <span className="label">Catálogo</span>
-                <h1 className="display-lg mt-4 text-ink text-balance">
+                <h1 className="display-lg text-ink text-balance">
                   Catálogo de desayunos y ramos en Catamarca
                 </h1>
                 <p className="display-md mt-2 text-berry italic">
@@ -77,7 +76,6 @@ export default function CatalogoClient() {
       <section className="py-14 sm:py-20">
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
           <SectionHead
-            label="Catálogo"
             title="Elegí uno y pedilo por WhatsApp."
             intro="Por cantidades, temas especiales o entrega en otra ciudad, consultanos."
           />
@@ -198,8 +196,7 @@ export default function CatalogoClient() {
           <Reveal className="mt-12 border border-rule bg-paper-card p-6 sm:p-8">
             <div className="grid sm:grid-cols-12 gap-x-8 gap-y-5 items-center">
               <div className="sm:col-span-7">
-                <span className="label">A medida</span>
-                <h2 className="font-display text-2xl sm:text-3xl font-semibold text-ink mt-2">
+                <h2 className="font-display text-2xl sm:text-3xl font-semibold text-ink">
                   ¿No está lo que buscabas?
                 </h2>
                 <p className="mt-2 text-sm leading-relaxed text-ink-soft max-w-prose">
@@ -223,7 +220,6 @@ export default function CatalogoClient() {
 
       {/* 3. Clientes */}
       <ClientsMotion
-        label="Los que ya nos eligieron"
         title="También nos llegan desde lejos."
         intro="Personas de Catamarca y de todo el país que recibieron su regalo en la puerta."
       />

@@ -62,8 +62,7 @@ export default function DiaDeLaMadrePage() {
       <Breadcrumbs items={crumbs} />
 
       <section className="max-w-3xl mx-auto px-5 sm:px-8 pt-10 sm:pt-14 pb-14">
-        <span className="label">Día de la Madre</span>
-        <h1 className="display-lg mt-4 text-ink text-balance">
+        <h1 className="display-lg text-ink text-balance">
           Regalos y desayunos para el Día de la Madre en Catamarca
         </h1>
         <div className="mt-6 space-y-5 text-base leading-relaxed text-ink-soft max-w-prose">

@@ -50,8 +50,7 @@ export default function DesayunosPage() {
       <Breadcrumbs items={crumbs} />
 
       <section className="max-w-3xl mx-auto px-5 sm:px-8 pt-10 sm:pt-14 pb-14">
-        <span className="label">Desayunos a domicilio</span>
-        <h1 className="display-lg mt-4 text-ink text-balance">Desayunos sorpresa en Catamarca</h1>
+        <h1 className="display-lg text-ink text-balance">Desayunos sorpresa en Catamarca</h1>
         <p className="display-md mt-3 text-berry italic text-balance">
           ¿Vivís lejos de Catamarca? Mandale un desayuno sorpresa a alguien especial.
         </p>
@@ -116,8 +115,7 @@ export default function DesayunosPage() {
               href={page.urlPath}
               className="group border border-rule bg-paper-card p-6"
             >
-              <span className="label">Ver producto</span>
-              <span className="font-display text-xl font-semibold text-ink mt-2 flex items-center gap-2">
+              <span className="font-display text-xl font-semibold text-ink flex items-center gap-2">
                 {page.seoName}
                 <ArrowIcon className="w-4 h-4 text-berry transition-transform duration-200 group-hover:translate-x-1" />
               </span>

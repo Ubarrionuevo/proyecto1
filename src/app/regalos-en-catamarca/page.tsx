@@ -108,8 +108,7 @@ export default function RegalosEnCatamarcaPage() {
       <Breadcrumbs items={crumbs} />
 
       <section className="max-w-3xl mx-auto px-5 sm:px-8 pt-10 sm:pt-14 pb-14">
-        <span className="label">Regalos a domicilio</span>
-        <h1 className="display-lg mt-4 text-ink text-balance">Regalos en Catamarca a domicilio</h1>
+        <h1 className="display-lg text-ink text-balance">Regalos en Catamarca a domicilio</h1>
         <div className="mt-6 space-y-5 text-base leading-relaxed text-ink-soft max-w-prose">
           <p>
             {siteConfig.name} prepara regalos y los lleva a domicilio en {siteConfig.city}:

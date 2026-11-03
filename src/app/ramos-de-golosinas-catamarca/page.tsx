@@ -50,8 +50,7 @@ export default function RamosPage() {
       <Breadcrumbs items={crumbs} />
 
       <section className="max-w-3xl mx-auto px-5 sm:px-8 pt-10 sm:pt-14 pb-14">
-        <span className="label">Ramos armados a mano</span>
-        <h1 className="display-lg mt-4 text-ink text-balance">
+        <h1 className="display-lg text-ink text-balance">
           Ramos de golosinas y chocolates en Catamarca
         </h1>
         <div className="mt-6 space-y-5 text-base leading-relaxed text-ink-soft max-w-prose">
@@ -108,8 +107,7 @@ export default function RamosPage() {
               href={page.urlPath}
               className="group border border-rule bg-paper-card p-6"
             >
-              <span className="label">Ver producto</span>
-              <span className="font-display text-xl font-semibold text-ink mt-2 flex items-center gap-2">
+              <span className="font-display text-xl font-semibold text-ink flex items-center gap-2">
                 {page.seoName}
                 <ArrowIcon className="w-4 h-4 text-berry transition-transform duration-200 group-hover:translate-x-1" />
               </span>
