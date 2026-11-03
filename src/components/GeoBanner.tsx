@@ -24,7 +24,7 @@ function RotatingProduct() {
 
   return (
     /* La key remonta el span para que la animación corra en cada cambio. */
-    <span key={changes} className={`inline-block ${changes > 0 ? 'rise' : ''}`}>
+    <span key={changes} className={`inline-block text-berry ${changes > 0 ? 'rise' : ''}`}>
       {headlineProducts[changes % headlineProducts.length]}
     </span>
   );
