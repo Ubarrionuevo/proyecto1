@@ -7,7 +7,7 @@ import { originLinks, productLinks, siteConfig } from '@/lib/site';
 import GoogleRating from './GoogleRating';
 import Reveal from './ui/Reveal';
 
-const pageLinks = [
+export const pageLinks = [
   { href: '/', label: 'Inicio' },
   { href: '/regalos-en-catamarca', label: 'Regalos en Catamarca' },
   { href: '/catalogo', label: 'Catálogo' },

@@ -2,15 +2,13 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { desayunos, ramos, getWhatsAppUrl, type Product } from '@/lib/products';
+import { contact, desayunos, ramos, getWhatsAppUrl, type Product } from '@/lib/products';
 import { productPageById } from '@/lib/product-pages';
+import { originLinks } from '@/lib/site';
 import FarAwayLine from '@/components/FarAwayLine';
-import Footer from '@/components/Footer';
-import Breadcrumbs from '@/components/Breadcrumbs';
-import ClientsMotion from '@/components/ClientsMotion';
-import FloatingWhatsApp from '@/components/FloatingWhatsApp';
+import { pageLinks } from '@/components/Footer';
 import GoogleRating from '@/components/GoogleRating';
-import CatalogPromo from '@/components/CatalogPromo';
+import CatalogPromo, { CatalogPromoFooter } from '@/components/CatalogPromo';
 import ProductCard, { ProductCardButton } from '@/components/ProductCard';
 import StickerButton from '@/components/ui/StickerButton';
 import ReadMore from '@/components/ui/ReadMore';
@@ -28,19 +26,16 @@ const catalog: (Product & { category: Exclude<Filter, 'todos'> })[] = [
   ...ramos.map((p) => ({ ...p, category: 'ramos' as const })),
 ];
 
-const crumbs = [
-  { name: 'Inicio', path: '/' },
-  { name: 'Catálogo' },
-];
-
-/* Pensado para abrirse desde un link de WhatsApp en el celular: los productos
-   arriba de todo, sin el menú del sitio, y un botón de pedido en cada tarjeta. */
+/* Pensado para abrirse desde un link de WhatsApp en el celular, como una app
+   aparte: sin menú, migas ni footer del sitio, y un botón de pedido en cada
+   tarjeta. Los enlaces internos y el contacto del footer quedan en el bloque
+   plegado del final, para no perderlos en el HTML. */
 export default function CatalogoClient() {
   const [filter, setFilter] = useState<Filter>('todos');
   const visible = filter === 'todos' ? catalog : catalog.filter((p) => p.category === filter);
 
   return (
-    <main className="min-h-dvh bg-paper text-ink">
+    <main className="relative min-h-dvh bg-paper text-ink">
       <header className="border-b border-rule">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 h-14 flex items-center justify-between gap-3">
           <Link
@@ -53,8 +48,6 @@ export default function CatalogoClient() {
           <GoogleRating size="sm" hideCount />
         </div>
       </header>
-
-      <Breadcrumbs items={crumbs} />
 
       <div className="max-w-6xl mx-auto px-5 sm:px-8 pt-4">
         <h1 className="display-md text-ink text-balance">
@@ -149,18 +142,33 @@ export default function CatalogoClient() {
               .
             </p>
             <FarAwayLine className="mt-4 max-w-prose" />
+            <p className="mt-4 text-sm leading-relaxed text-ink-soft">
+              {contact.brand}: desayunos a domicilio y ramos de golosinas en {contact.city}.{' '}
+              <a
+                href={contact.phoneHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-underline font-bold text-ink"
+              >
+                {contact.phoneDisplay}
+              </a>{' '}
+              · {contact.hours}
+            </p>
+            <ul className="mt-4 space-y-2 text-sm">
+              {[...pageLinks.filter((link) => link.href !== '/catalogo'), ...originLinks].map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="link-underline text-ink-soft hover:text-ink">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </ReadMore>
         </div>
       </section>
 
-      <ClientsMotion
-        title="También nos llegan desde lejos."
-        intro="Personas de Catamarca y de todo el país que recibieron su regalo en la puerta."
-      />
-
-      <Footer />
+      <CatalogPromoFooter />
       <CatalogPromo />
-      <FloatingWhatsApp />
     </main>
   );
 }

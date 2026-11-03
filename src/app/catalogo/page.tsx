@@ -1,8 +1,9 @@
 ﻿import type { Metadata } from 'next';
 import CatalogoClient from './catalogo-client';
-import JsonLd, { breadcrumbJsonLd } from '@/components/JsonLd';
+import JsonLd, { breadcrumbJsonLd, itemListJsonLd } from '@/components/JsonLd';
 import { pageMetadata, ratingHook } from '@/lib/seo';
 import { desayunos, ramos } from '@/lib/products';
+import { productPages } from '@/lib/product-pages';
 import { siteConfig } from '@/lib/site';
 
 export const metadata: Metadata = pageMetadata({
@@ -19,7 +20,18 @@ const crumbs = [
 export default function CatalogoPage() {
   return (
     <>
-      <JsonLd data={breadcrumbJsonLd(crumbs)} />
+      <JsonLd
+        data={[
+          breadcrumbJsonLd(crumbs),
+          itemListJsonLd(
+            Object.values(productPages).map(({ product, seoName, urlPath }) => ({
+              name: seoName,
+              urlPath,
+              image: product.images[0].src,
+            }))
+          ),
+        ]}
+      />
       <CatalogoClient />
     </>
   );

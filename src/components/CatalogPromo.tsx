@@ -1,32 +1,41 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { siteConfig } from '@/lib/site';
 import { CloseIcon } from './Icons';
+import StickerButton from './ui/StickerButton';
 
 const message = `¡Hola! Vi el catálogo de ${siteConfig.name} y quiero uno igual para mi negocio.`;
 const href = `https://wa.me/${siteConfig.catalogPromoWhatsappNumber}?text=${encodeURIComponent(message)}`;
+const question = '¿Querés un catálogo igual para tu negocio?';
 
-/* Aviso fijo en la esquina inferior izquierda. El ancho deja lugar al botón
-   flotante de WhatsApp, que está en la esquina derecha. Se puede cerrar para que
-   no tape las tarjetas. */
+const visibleMs = 10000;
+
+/* Aviso arriba a la izquierda, sobre el encabezado. Va con absolute y no fixed
+   para que al bajar no tape el filtro ni las tarjetas. Se cierra solo o con la X;
+   el CTA del pie queda siempre disponible. */
 export default function CatalogPromo() {
   const [open, setOpen] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setOpen(false), visibleMs);
+    return () => clearTimeout(timer);
+  }, []);
 
   if (!open) return null;
 
   return (
     <aside
-      className="rise fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom))] left-3 z-40 w-[calc(100vw-11.5rem)] max-w-[220px]"
+      className="rise absolute left-2 top-1.5 z-40 w-[calc(100vw-11.5rem)] max-w-[220px]"
       style={{ '--rise-delay': '800ms' } as React.CSSProperties}
     >
       <a
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="block rounded-[3px] bg-butter py-2 pl-3 pr-6 text-xs font-bold leading-snug text-ink shadow-[0_8px_18px_rgb(36_26_20/0.16)]"
+        className="block rounded-[3px] bg-butter py-1.5 pl-2.5 pr-6 text-xs font-bold leading-snug text-ink shadow-[0_8px_18px_rgb(36_26_20/0.16)]"
       >
-        ¿Querés un catálogo igual para tu negocio?
+        {question}
       </a>
       <button
         type="button"
@@ -37,5 +46,18 @@ export default function CatalogPromo() {
         <CloseIcon className="h-3.5 w-3.5" />
       </button>
     </aside>
+  );
+}
+
+export function CatalogPromoFooter() {
+  return (
+    <footer className="border-t border-rule bg-paper-deep">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 py-8 flex flex-wrap items-center justify-between gap-4">
+        <p className="font-display text-lg font-semibold text-ink text-balance">{question}</p>
+        <StickerButton href={href} size="sm" wrap className="w-full sm:w-auto">
+          Quiero uno igual
+        </StickerButton>
+      </div>
+    </footer>
   );
 }
