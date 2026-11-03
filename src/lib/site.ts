@@ -9,6 +9,9 @@ export const siteConfig = {
   phoneDisplay: '+54 9 3834 90-3387',
   whatsappNumber: '5493834903387',
   phoneHref: 'https://wa.me/5493834903387',
+  /* WhatsApp de quien hizo la web: lo usa el aviso "catálogo igual" de /catalogo.
+     No es el número del negocio. */
+  catalogPromoWhatsappNumber: '5493834035119',
   city: 'San Fernando del Valle de Catamarca',
   region: 'Catamarca',
   country: 'AR',

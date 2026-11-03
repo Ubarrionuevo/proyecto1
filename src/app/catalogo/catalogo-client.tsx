@@ -2,19 +2,18 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { desayunos, ramos, getWhatsAppUrl, productTopic, type Product } from '@/lib/products';
+import { desayunos, ramos, getWhatsAppUrl, type Product } from '@/lib/products';
 import { productPageById } from '@/lib/product-pages';
-import { siteConfig } from '@/lib/site';
 import FarAwayLine from '@/components/FarAwayLine';
-import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ClientsMotion from '@/components/ClientsMotion';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
-import SectionHead from '@/components/ui/SectionHead';
+import GoogleRating from '@/components/GoogleRating';
+import CatalogPromo from '@/components/CatalogPromo';
+import ProductCard, { ProductCardButton } from '@/components/ProductCard';
 import StickerButton from '@/components/ui/StickerButton';
-import Reveal from '@/components/ui/Reveal';
-import Polaroid from '@/components/ui/Polaroid';
+import ReadMore from '@/components/ui/ReadMore';
 
 type Filter = 'todos' | 'desayunos' | 'ramos';
 
@@ -34,197 +33,133 @@ const crumbs = [
   { name: 'Catálogo' },
 ];
 
+/* Pensado para abrirse desde un link de WhatsApp en el celular: los productos
+   arriba de todo, sin el menú del sitio, y un botón de pedido en cada tarjeta. */
 export default function CatalogoClient() {
   const [filter, setFilter] = useState<Filter>('todos');
   const visible = filter === 'todos' ? catalog : catalog.filter((p) => p.category === filter);
 
   return (
     <main className="min-h-dvh bg-paper text-ink">
-      <Navbar />
+      <header className="border-b border-rule">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 h-14 flex items-center justify-between gap-3">
+          <Link
+            href="/"
+            className="font-display text-[1.35rem] font-semibold tracking-tight text-ink leading-none"
+          >
+            LaPrincesa
+            <span className="text-berry">Cta</span>
+          </Link>
+          <GoogleRating size="sm" hideCount />
+        </div>
+      </header>
+
       <Breadcrumbs items={crumbs} />
 
-      {/* 1. Banner */}
-      <section className="border-b border-rule">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-14 sm:py-20">
-          <div className="grid lg:grid-cols-12 gap-x-8 gap-y-8">
-            <div className="lg:col-span-7">
-              <Reveal>
-                <h1 className="display-lg text-ink text-balance">
-                  Catálogo de desayunos y ramos en Catamarca
-                </h1>
-                <p className="display-md mt-2 text-berry italic">
-                  Todo lo que armamos, listo para regalar.
-                </p>
-              </Reveal>
-            </div>
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 pt-4">
+        <h1 className="display-md text-ink text-balance">
+          Catálogo de desayunos y ramos en Catamarca
+        </h1>
+        <p className="mt-1.5 text-base text-ink-soft">Elegí uno y pedilo por WhatsApp.</p>
+      </div>
 
-            <div className="lg:col-span-5 lg:pt-12">
-              <Reveal delay={110}>
-                <p className="text-base leading-relaxed text-ink-soft max-w-sm">
-                  Dos desayunos sorpresa —caja de madera o de cartón— y cuatro ramos de golosinas,
-                  cada uno con su ficha y su botón para pedir por WhatsApp. Si ninguno es lo que
-                  buscabas, lo armamos a tu manera.
-                </p>
-                <FarAwayLine className="mt-5 max-w-sm" />
-              </Reveal>
-            </div>
-          </div>
+      {/* Filtro fijo arriba para cambiar de categoría sin volver a subir */}
+      <div className="sticky top-0 z-30 mt-3 bg-paper border-b border-rule">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 flex gap-6">
+          {filters.map((f) => (
+            <button
+              key={f.id}
+              type="button"
+              onClick={() => setFilter(f.id)}
+              aria-pressed={filter === f.id}
+              className={`relative h-11 text-sm font-bold transition-colors ${
+                filter === f.id ? 'text-ink' : 'text-ink-soft hover:text-ink'
+              }`}
+            >
+              {f.label}
+              {filter === f.id && (
+                <span className="absolute left-0 bottom-0 h-0.5 w-full bg-berry" />
+              )}
+            </button>
+          ))}
         </div>
-      </section>
+      </div>
 
-      {/* 2. Productos */}
-      <section className="py-14 sm:py-20">
+      <section aria-label="Productos" className="py-6 sm:py-10">
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
-          <SectionHead
-            title="Elegí uno y pedilo por WhatsApp."
-            intro="Por cantidades, temas especiales o entrega en otra ciudad, consultanos."
-          />
-
-          {/* Filtro como tabs con filete, no pills */}
-          <div className="mt-10 border-b border-rule flex gap-6">
-            {filters.map((f) => (
-              <button
-                key={f.id}
-                type="button"
-                onClick={() => setFilter(f.id)}
-                className={`relative pb-3 text-sm font-bold transition-colors ${
-                  filter === f.id ? 'text-ink' : 'text-ink-soft hover:text-ink'
-                }`}
-              >
-                {f.label}
-                {filter === f.id && (
-                  <span className="absolute left-0 -bottom-px h-0.5 w-full bg-berry" />
-                )}
-              </button>
-            ))}
-          </div>
-
-          <div className="mt-8 border-t border-rule">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8 sm:gap-x-8">
             {visible.map((item, idx) => (
-              <Reveal
-                key={item.id}
-                as="article"
-                /* El tope evita que un catalogo largo termine tardando
-                   demasiado en mostrar el ultimo producto. */
-                delay={Math.min(idx * 70, 280)}
-                className="lift-row grid grid-cols-12 gap-x-4 sm:gap-x-6 items-start py-6 sm:py-8 border-b border-rule"
-              >
-                <div className="col-span-3 sm:col-span-2">
-                  {item.video ? (
-                    <figure className="polaroid" style={{ '--rot': '-1.5deg' } as React.CSSProperties}>
-                      <video
-                        src={item.video}
-                        className="w-full aspect-[3/4] object-cover"
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        preload="none"
-                        poster={item.images[0].src}
-                      />
-                    </figure>
-                  ) : (
-                    <Polaroid
-                      src={item.images[0].src}
-                      alt={item.images[0].alt}
-                      rotate={-1.5}
-                      sizes="(max-width: 640px) 30vw, 190px"
-                      className="w-full"
-                      imgClassName="aspect-[3/4]"
-                    />
-                  )}
-                </div>
-
-                <div className={`col-span-9 ${siteConfig.showPrices ? 'sm:col-span-5' : 'sm:col-span-7'}`}>
-                  <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                    <h2 className="font-display text-xl sm:text-2xl font-semibold text-ink">
-                      <Link href={productPageById[item.id].urlPath} className="link-underline">
-                        {productPageById[item.id].seoName}
-                      </Link>
-                    </h2>
-                    {item.tag && (
-                      <span className="label text-berry text-[10px]">{item.tag}</span>
-                    )}
-                  </div>
-                  <p className="mt-2 text-sm leading-relaxed text-ink-soft">
+              <article key={item.id} className="min-w-0">
+                <ProductCard
+                  product={item}
+                  title={productPageById[item.id].seoName}
+                  Heading="h2"
+                  priority={idx < 2}
+                >
+                  <p className="mt-1 mb-3 line-clamp-3 text-[13px] leading-snug text-ink-soft">
                     {item.description}
                   </p>
-                  <p className="mt-2 text-sm leading-relaxed text-ink-soft/80 max-w-prose hidden md:block">
-                    {item.detail}
-                  </p>
-                </div>
-
-                {siteConfig.showPrices && (
-                  <div className="col-span-7 sm:col-span-2 mt-4 sm:mt-0 sm:text-right">
-                    <p className="font-display text-2xl sm:text-3xl font-semibold text-berry leading-none">
-                      {item.price}
-                    </p>
-                    <p className="label mt-1.5 sm:hidden">Precio</p>
-                  </div>
-                )}
-
-                <div
-                  className={`flex sm:justify-end mt-4 sm:mt-0 ${
-                    siteConfig.showPrices ? 'col-span-5 sm:col-span-3' : 'col-span-12 sm:col-span-3'
-                  }`}
-                >
-                  <StickerButton
-                    href={getWhatsAppUrl(productTopic(item.name))}
-                    size="sm"
-                    className="w-full sm:w-auto"
-                  >
-                    Encargar
-                  </StickerButton>
-                </div>
-              </Reveal>
+                  <ProductCardButton product={item} className="mt-auto">
+                    Pedir
+                  </ProductCardButton>
+                </ProductCard>
+              </article>
             ))}
           </div>
 
-          <p className="mt-8 text-sm leading-relaxed text-ink-soft max-w-prose">
-            Si querés conocer el detalle de la entrega y las presentaciones, mirá los{' '}
-            <Link href="/desayunos-sorpresa-catamarca" className="link-underline font-bold text-ink">
-              desayunos sorpresa en Catamarca
-            </Link>{' '}
-            o los{' '}
-            <Link href="/ramos-de-golosinas-catamarca" className="link-underline font-bold text-ink">
-              ramos de golosinas
-            </Link>
-            .
-          </p>
+          <div className="mt-10 border border-rule bg-paper-card p-5 sm:p-8">
+            <h2 className="font-display text-xl sm:text-2xl font-semibold text-ink">
+              ¿No está lo que buscabas?
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-ink-soft max-w-prose">
+              Armamos el desayuno o el ramo a tu gusto: los sabores, el tema, la decoración y el
+              mensaje. Contanos qué tenés en mente y te pasamos el presupuesto.
+            </p>
+            <StickerButton
+              href={getWhatsAppUrl('un regalo a mi manera')}
+              variant="wa"
+              wrap
+              className="mt-4 w-full sm:w-auto"
+            >
+              Quiero uno a mi manera
+            </StickerButton>
+          </div>
 
-          {/* A medida */}
-          <Reveal className="mt-12 border border-rule bg-paper-card p-6 sm:p-8">
-            <div className="grid sm:grid-cols-12 gap-x-8 gap-y-5 items-center">
-              <div className="sm:col-span-7">
-                <h2 className="font-display text-2xl sm:text-3xl font-semibold text-ink">
-                  ¿No está lo que buscabas?
-                </h2>
-                <p className="mt-2 text-sm leading-relaxed text-ink-soft max-w-prose">
-                  Armamos el desayuno o el ramo a tu gusto: los sabores, el tema, la decoración y
-                  el mensaje. Contanos qué tenés en mente y te pasamos el presupuesto.
-                </p>
-              </div>
-              <div className="sm:col-span-5 sm:text-right">
-                <StickerButton
-                  href={getWhatsAppUrl('un regalo a mi manera')}
-                  variant="wa"
-                  className="w-full sm:w-auto"
-                >
-                  Quiero uno a mi manera
-                </StickerButton>
-              </div>
-            </div>
-          </Reveal>
+          <ReadMore summary="Más sobre el catálogo" className="mt-6">
+            <p className="text-sm leading-relaxed text-ink-soft max-w-prose">
+              Dos desayunos sorpresa —caja de madera o de cartón— y cuatro ramos de golosinas, cada
+              uno con su ficha y su botón para pedir por WhatsApp. Por cantidades, temas especiales
+              o entrega en otra ciudad, consultanos.
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-ink-soft max-w-prose">
+              Si querés conocer el detalle de la entrega y las presentaciones, mirá los{' '}
+              <Link
+                href="/desayunos-sorpresa-catamarca"
+                className="link-underline font-bold text-ink"
+              >
+                desayunos sorpresa en Catamarca
+              </Link>{' '}
+              o los{' '}
+              <Link
+                href="/ramos-de-golosinas-catamarca"
+                className="link-underline font-bold text-ink"
+              >
+                ramos de golosinas
+              </Link>
+              .
+            </p>
+            <FarAwayLine className="mt-4 max-w-prose" />
+          </ReadMore>
         </div>
       </section>
 
-      {/* 3. Clientes */}
       <ClientsMotion
         title="También nos llegan desde lejos."
         intro="Personas de Catamarca y de todo el país que recibieron su regalo en la puerta."
       />
 
       <Footer />
+      <CatalogPromo />
       <FloatingWhatsApp />
     </main>
   );

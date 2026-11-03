@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import StickerButton from './ui/StickerButton';
+import ReadMore from './ui/ReadMore';
 import { ArrowIcon } from './Icons';
 import { getWhatsAppUrl } from '@/lib/products';
 import { originLinks } from '@/lib/site';
@@ -28,13 +29,6 @@ export default function GeoBanner() {
             ¿Vivís lejos y tenés familia o amigos en Catamarca?
           </p>
 
-          <p
-            className="mt-5 text-base text-ink-soft max-w-2xl mx-auto leading-relaxed rise"
-            style={{ '--rise-delay': '160ms' } as React.CSSProperties}
-          >
-            Quedate tranquilo: nos encargamos de todo. Elegís el regalo, nos decís para quién es
-            y lo entregamos en la puerta. Te mandamos foto o video de la entrega.
-          </p>
         </div>
       </div>
 
@@ -49,32 +43,35 @@ export default function GeoBanner() {
             </StickerButton>
           </div>
 
-          <div
-            className="mt-4 flex items-center justify-center rise"
-            style={{ '--rise-delay': '300ms' } as React.CSSProperties}
-          >
-            <Link
-              href="/enviar-regalo-a-catamarca"
-              className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-ink link-underline"
-            >
-              ¿Estás lejos? Lo mandás desde cualquier provincia o país y te enviamos foto de la
-              entrega
-              <ArrowIcon className="w-4 h-4 shrink-0 text-berry" />
-            </Link>
-          </div>
+          <div className="rise" style={{ '--rise-delay': '300ms' } as React.CSSProperties}>
+            <ReadMore summary="Cómo funciona" align="center" className="mt-3">
+              <p className="text-base text-ink-soft max-w-2xl mx-auto leading-relaxed">
+                Quedate tranquilo: nos encargamos de todo. Elegís el regalo, nos decís para quién
+                es y lo entregamos en la puerta. Te mandamos foto o video de la entrega.
+              </p>
 
-          <ul
-            className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-[13px] rise"
-            style={{ '--rise-delay': '340ms' } as React.CSSProperties}
-          >
-            {originLinks.map((link) => (
-              <li key={link.href}>
-                <Link href={link.href} className="link-underline text-ink-soft hover:text-ink">
-                  {link.label}
+              <div className="mt-4 flex items-center justify-center">
+                <Link
+                  href="/enviar-regalo-a-catamarca"
+                  className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-ink link-underline"
+                >
+                  ¿Estás lejos? Lo mandás desde cualquier provincia o país y te enviamos foto de la
+                  entrega
+                  <ArrowIcon className="w-4 h-4 shrink-0 text-berry" />
                 </Link>
-              </li>
-            ))}
-          </ul>
+              </div>
+
+              <ul className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-[13px]">
+                {originLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href} className="link-underline text-ink-soft hover:text-ink">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </ReadMore>
+          </div>
         </div>
       </div>
     </section>
