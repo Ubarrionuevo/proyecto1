@@ -1,7 +1,8 @@
 import type { MetadataRoute } from 'next';
 import { siteConfig } from '@/lib/site';
 
-/* Todas las páginas indexables. Cuando se agregue una página, sumarla acá. */
+/* Páginas indexables escritas a mano. Cuando se agregue una, sumarla acá. Las
+   que salen de una plantilla (por origen y fichas) van en sitemap-pseo.xml. */
 const routes = [
   '/',
   '/regalos-en-catamarca',
@@ -11,18 +12,8 @@ const routes = [
   '/dia-de-la-madre',
   '/navidad',
   '/enviar-regalo-a-catamarca',
-  '/enviar-regalo-a-catamarca/desde-peru',
-  '/enviar-regalo-a-catamarca/desde-italia',
-  '/enviar-regalo-a-catamarca/desde-suiza',
-  '/enviar-regalo-a-catamarca/desde-otras-provincias',
   '/cartas-personalizadas',
   '/regalos-empresariales',
-  '/desayunos/caja-de-madera',
-  '/desayunos/caja-de-carton',
-  '/ramos/ramo-comun',
-  '/ramos/ramo-con-oso',
-  '/ramos/ramo-de-chocolates',
-  '/ramos/ramo-futbolero',
 ];
 
 /* No se declara `lastModified`: no hay una fecha real por página que se pueda
