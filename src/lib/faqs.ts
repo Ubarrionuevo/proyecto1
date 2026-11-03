@@ -48,6 +48,38 @@ export const homeFaqs: FaqItem[] = [
   },
 ];
 
+export const regalosFaqs: FaqItem[] = [
+  {
+    q: '¿Qué regalos se pueden mandar a domicilio en Catamarca?',
+    a: `En ${siteConfig.name} podés mandar desayunos sorpresa en caja de madera o de cartón y ramos de golosinas, de chocolates, futboleros o con oso de peluche. Los llevamos hasta la puerta en ${siteConfig.city}.`,
+  },
+  {
+    q: '¿Dónde comprar un regalo en Catamarca sin salir de casa?',
+    a: `Lo podés pedir por WhatsApp a ${siteConfig.name}, al ${whatsapp}. Atendemos ${siteConfig.hoursCopy} y hablás directo con nosotras, sin intermediarios.`,
+  },
+  {
+    q: '¿Venden flores?',
+    a: 'No. Nuestros ramos son de golosinas y de chocolates, y son una alternativa si querés regalar algo distinto a las flores.',
+  },
+  {
+    q: '¿Entregan en toda la provincia de Catamarca?',
+    a: `No. Los desayunos y los ramos se entregan solo en ${siteConfig.city}.`,
+  },
+  {
+    q: '¿Puedo mandar un regalo a Catamarca desde otra provincia o desde otro país?',
+    a: 'Sí. Lo pedís por WhatsApp y pagás por transferencia en pesos o, desde el exterior, con Prex. Te mandamos foto o video de la entrega.',
+  },
+  {
+    q: '¿Se puede personalizar el regalo?',
+    a: 'Sí. Podés elegir los sabores, el tema, la decoración y el mensaje. Contanos qué tenés en mente y te pasamos el presupuesto.',
+  },
+  {
+    q: '¿Con cuánta anticipación conviene pedir un regalo?',
+    a: 'No hay un plazo fijo publicado. Escribinos por WhatsApp con la fecha que necesitás y te confirmamos la disponibilidad.',
+  },
+  cuantoSale,
+];
+
 export const desayunosFaqs: FaqItem[] = [
   {
     q: '¿Qué trae un desayuno sorpresa?',

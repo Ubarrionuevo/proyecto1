@@ -22,6 +22,14 @@ Nada de lo de abajo está publicado en la web. Son datos que faltan y que
 - [ ] Los precios no se ven en la web, pero siguen en `products.ts` y viajan en el
       JavaScript público. Si no deben estar ni ahí, hay que sacarlos del código.
 
+## Fuera de la web (para "regalos en Catamarca")
+- [ ] Perfil de Google: sumar "Tienda de regalos" como categoría, si Google la
+      ofrece, y mencionar "regalos a domicilio" en la descripción.
+- [ ] Cargar los 6 productos en el perfil de Google, con foto y sin precio.
+- [ ] Pedir opiniones que cuenten qué se regaló y para qué ocasión, sin dictarles
+      el texto.
+- [ ] Conseguir menciones reales en medios o guías locales de Catamarca.
+
 ## URLs y redes
 - [ ] URL de la ficha de Google Maps (para el botón "Ver nuestras opiniones en
       Google", el mapa embebido y el `sameAs` del JSON-LD).

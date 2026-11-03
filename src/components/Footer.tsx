@@ -9,6 +9,7 @@ import Reveal from './ui/Reveal';
 
 const pageLinks = [
   { href: '/', label: 'Inicio' },
+  { href: '/regalos-en-catamarca', label: 'Regalos en Catamarca' },
   { href: '/catalogo', label: 'Catálogo' },
   { href: '/desayunos-sorpresa-catamarca', label: 'Desayunos sorpresa' },
   { href: '/ramos-de-golosinas-catamarca', label: 'Ramos de golosinas' },

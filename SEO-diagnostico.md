@@ -207,6 +207,24 @@ Lo que hay que mirar en Search Console, una vez indexadas:
 
 ---
 
+## "Regalos en Catamarca" y respuestas de IA (noviembre 2026)
+
+Ninguna página apuntaba a esta búsqueda. Se creó `/regalos-en-catamarca`, con la
+respuesta y la marca en el primer párrafo, ideas según para quién sea, pasos para
+pedir, FAQ y enlaces desde la home y el footer.
+
+En una búsqueda de prueba aparecieron sobre todo sitios nacionales, y no apareció
+LaPrincesaCta. Esa prueba no reemplaza mirar Google desde Catamarca.
+
+La página sola no alcanza: Google indica que las respuestas de IA usan el índice
+normal y que el perfil de empresa ayuda a mostrar negocios locales. Falta trabajo
+fuera del sitio, ver "Fuera de la web" en `TODO-contenido.md`.
+
+**"Regalo flores":** el negocio no vende flores, confirmado por el dueño. Por eso
+no se usa en titles ni hay página propia: solo una sección y una FAQ que aclaran
+que no se venden y ofrecen los ramos como alternativa. La intención de esa búsqueda
+es comprar flores, así que no se espera mucho tráfico.
+
 ## Revisión contra el skill de SEO programático (noviembre 2026)
 
 Se comparó el sitio con los 14 pilares del skill `seo-programatico-geo-engine`,

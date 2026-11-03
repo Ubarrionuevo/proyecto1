@@ -3,6 +3,10 @@ import { siteConfig } from '@/lib/site';
 /* Datos rápidos en texto plano: cada fila responde una pregunta concreta y se
    arma desde siteConfig, para que los resúmenes de IA la levanten sin ambigüedad. */
 export const facts = [
+  {
+    t: 'Qué regalos hacemos',
+    d: 'Desayunos sorpresa y ramos de golosinas, de chocolates, futboleros o con oso de peluche.',
+  },
   { t: 'Zona de entrega', d: `Solo en ${siteConfig.city}, ${siteConfig.region}.` },
   { t: 'Horario', d: `${siteConfig.hours}, hora de Argentina.` },
   { t: 'Precios', d: 'Consultalos por WhatsApp.' },

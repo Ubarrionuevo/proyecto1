@@ -4,6 +4,7 @@ import { siteConfig } from '@/lib/site';
 /* Todas las páginas indexables. Cuando se agregue una página, sumarla acá. */
 const routes = [
   '/',
+  '/regalos-en-catamarca',
   '/catalogo',
   '/desayunos-sorpresa-catamarca',
   '/ramos-de-golosinas-catamarca',

@@ -48,6 +48,13 @@ export default function Home() {
             </Link>
             .
           </p>
+          <p className="mt-4 text-base leading-relaxed text-ink-soft max-w-prose">
+            ¿Buscás otra idea? Mirá todos nuestros{' '}
+            <Link href="/regalos-en-catamarca" className="link-underline font-bold text-ink">
+              regalos en Catamarca a domicilio
+            </Link>
+            , según para quién sea.
+          </p>
         </div>
       </section>
 

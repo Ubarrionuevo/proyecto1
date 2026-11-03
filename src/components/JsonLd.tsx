@@ -17,6 +17,8 @@ export function localBusinessJsonLd() {
     '@context': CONTEXT,
     '@type': 'Store',
     name: siteConfig.name,
+    alternateName: 'La Princesa Cta',
+    description: `Regalos a domicilio en ${siteConfig.city}: desayunos sorpresa y ramos de golosinas.`,
     url: siteConfig.url,
     telephone: `+${siteConfig.whatsappNumber}`,
     image: [`${siteConfig.url}/og-laprincesacta.jpg`],
