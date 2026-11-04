@@ -23,7 +23,7 @@ export default function Home() {
       <GeoBanner />
       <SeasonalBanner />
 
-      <SolutionSection compact />
+      <SolutionSection />
       <AdditionalGifts />
       <ClientsMotion />
       <ClientReview />
