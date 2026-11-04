@@ -60,7 +60,9 @@ export default function DesayunosPage() {
       <section className="max-w-3xl mx-auto px-5 sm:px-8 pt-4 sm:pt-8 pb-12 sm:pb-16">
         <h1 className="display-md text-ink text-balance">Desayunos sorpresa en Catamarca</h1>
         <p className="mt-1.5 text-base text-ink-soft max-w-prose">
-          Café o té, delicias y una nota escrita a mano, a domicilio en {siteConfig.city}.
+          Café o té, delicias, taza personalizada y una nota escrita a mano, a domicilio en{' '}
+          {siteConfig.city}. Se pide por WhatsApp al {siteConfig.phoneDisplay},{' '}
+          {siteConfig.hoursCopy}.
         </p>
 
         <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-8">

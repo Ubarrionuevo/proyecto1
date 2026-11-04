@@ -82,6 +82,10 @@ export const regalosFaqs: FaqItem[] = [
 
 export const desayunosFaqs: FaqItem[] = [
   {
+    q: '¿Dónde comprar un desayuno sorpresa en Catamarca?',
+    a: `En ${siteConfig.name}, por WhatsApp al ${whatsapp}. Atendemos ${siteConfig.hoursCopy} y lo llevamos hasta la puerta en ${siteConfig.city}.`,
+  },
+  {
     q: '¿Qué trae un desayuno sorpresa?',
     a: 'Café o té bien caliente, delicias artesanales, taza personalizada y una nota escrita a mano. Todo va presentado en caja de madera o de cartón premium.',
   },
@@ -92,6 +96,10 @@ export const desayunosFaqs: FaqItem[] = [
   {
     q: '¿Cómo lo entregan?',
     a: `Lo llevamos nosotras hasta la puerta en ${siteConfig.city}, bien envuelto. Solo necesitamos el nombre de quien lo recibe y el motivo.`,
+  },
+  {
+    q: '¿Se puede mandar un desayuno sorpresa desde otra provincia o desde otro país?',
+    a: `Sí. Lo pedís por WhatsApp y lo entregamos en ${siteConfig.city}. Te mandamos foto o video de la entrega.`,
   },
   {
     q: '¿Cómo se paga?',
