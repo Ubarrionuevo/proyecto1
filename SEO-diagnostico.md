@@ -20,7 +20,7 @@ Fecha: 21 de octubre de 2026.
 | 1.5 | Cifras de confianza ausentes en el home | `Hero.tsx` (sin renderizar) | La home en vivo solo mostraba el rating en Reviews, muy abajo del scroll | Medio-alto (conversión) | P1 |
 | 1.6 | `stats` en `products.ts` con "33 opiniones", número viejo y en conflicto con el real (42) | `src/lib/products.ts:169` | `stats` no lo importaba nadie; `siteConfig.googleReviews = 42` | Medio (dato contradictorio) | P1 |
 | 1.7 | Analytics nunca se cargaba: faltaba `NEXT_PUBLIC_GA_ID` | `src/components/Analytics.tsx:11` | `if (!GA_ID) return null` → sin script en producción | Alto (no había medición de nada) | P1 |
-| 1.8 | Fecha del Día de la Madre incorrecta: "Domingo 18 de octubre de 2026" | `src/app/dia-de-la-madre/page.tsx:63` | En Argentina el Día de la Madre es el **segundo** domingo de octubre (11/10/2026). El 18/10/2026 es el **Día del Padre**. Además la fecha ya pasó | Alto (error factual en una URL indexada) | P1 |
+| 1.8 | **Corrección errónea, revertida en noviembre de 2026.** Se sacó "Domingo 18 de octubre de 2026" de `/dia-de-la-madre` | `src/app/dia-de-la-madre/page.tsx` | Esa fecha estaba bien: en Argentina es el **tercer** domingo de octubre (18/10/2026). No era el segundo domingo ni el Día del Padre, que es en junio | Alto (error factual en una URL indexada) | P1 |
 | 1.9 | `og:type: 'article'` en 11 páginas que no son artículos | 11 `page.tsx` | Open Graph: `article` es para piezas con fecha de publicación; estas son páginas comerciales | Bajo | P3 |
 | 1.10 | Catálogo sin breadcrumbs visibles (solo el JSON-LD) | `src/app/catalogo/catalogo-client.tsx` | `breadcrumbJsonLd` presente pero `<Breadcrumbs>` ausente, a diferencia de las otras 13 rutas | Bajo | P3 |
 | 1.11 | 6 fichas de producto y la landing del Día de la Madre sin FAQ ni `faqJsonLd` | `ProductDetail.tsx`, `dia-de-la-madre/page.tsx` | 5 de 14 rutas ya tenían FAQ; las fichas de producto (las de intención de compra más alta) no | Medio-alto (long tail + objeciones) | P1 |
@@ -251,3 +251,28 @@ pensado para SaaS en React/Vite. Se aplicó solo lo que le sirve a este negocio.
 `llms.txt` es de bajo costo, pero no es un estándar: no hay garantía de que los
 buscadores o asistentes lo lean. El `VideoObject` tampoco asegura un resultado de
 video, porque el video no es el contenido principal de la ficha.
+
+## Revisión contra la guía de John Rush (4 de noviembre de 2026)
+
+Ya se cumplían: redirecciones a `www`, 404 real, `robots.txt`, HTML armado, un H1
+por página, title y description únicos, canonical, alt y ninguna página huérfana.
+
+- **Categorías:** el rediseño de productos primero bajaba el texto de ~660 a 273
+  palabras en desayunos y de ~630 a 291 en ramos. Se devolvió parte en un bloque
+  plegado debajo de los productos, sin repetir lo que ya está en las FAQ.
+- **H1 de la home:** el HTML decía "Desayunos sorpresa a domicilio en Catamarca", casi
+  igual que el title de la categoría. Ahora arranca con "Desayunos y ramos". Falta
+  confirmar en Search Console si había competencia real entre las dos páginas.
+- **Día de la Madre:** fecha corregida a tercer domingo, y fotos de entregas.
+- **Enlaces:** `/dia-de-la-madre` y `/regalos-en-catamarca` ahora reciben enlaces
+  desde las dos categorías.
+
+**Pendiente:** velocidad sin medir (cuota de PageSpeed agotada). `Product` sin
+`offers`, `review` ni `aggregateRating`: mirar si Search Console marca error antes
+de tocarlo.
+
+### Qué medir
+
+Posición y clics de `/desayunos-sorpresa-catamarca` y `/ramos-de-golosinas-catamarca`
+a las 2 o 3 semanas del deploy, y si la home sigue saliendo para "desayunos sorpresa
+catamarca".

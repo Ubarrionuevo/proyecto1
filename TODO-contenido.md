@@ -13,9 +13,8 @@ Nada de lo de abajo está publicado en la web. Son datos que faltan y que
 - [ ] Coordenadas del local para `geo` en el schema (solo si se quiere publicar).
 - [ ] URLs de Instagram y Facebook para `sameAs`.
 - [ ] 5 o 6 reseñas reales de Google (ideal: de clientes del exterior).
-- [ ] **Fecha del Día de la Madre:** `/dia-de-la-madre` dice "segundo domingo de
-      octubre", pero en Argentina es el **tercer** domingo (18/10/2026). Las
-      páginas nuevas dicen solo "en octubre". Falta corregir esa página.
+- [x] **Fecha del Día de la Madre:** `/dia-de-la-madre` ya dice "tercer domingo de
+      octubre" (18/10/2026). Las páginas por origen dicen solo "en octubre".
 - [ ] **Regalos empresariales:** `/regalos-empresariales` y sus FAQ dicen
       "despachamos al resto del país", pero la entrega de desayunos y ramos es solo
       en Catamarca. Confirmar qué se despacha, si algo, y corregir el H1 y el texto.
@@ -45,12 +44,10 @@ Nada de lo de abajo está publicado en la web. Son datos que faltan y que
       clickeable y abre la ficha.
 
 ## Día de la Madre
-- [x] La fecha que figuraba ("domingo 18 de octubre de 2026") era incorrecta: en
-      Argentina el Día de la Madre es el **segundo** domingo de octubre (11/10/2026);
-      el 18 de octubre es el Día del Padre. La fecha se saco del sitio y la pagina
-      quedo sin fecha fija, para que sirva todos los años.
+- [x] En Argentina el Día de la Madre es el **tercer** domingo de octubre. La pagina
+      no lleva una fecha con año, para que sirva todos los años.
 - [ ] Si se quiere una landing especifica por temporada, definir la fecha del año
-      que viene antes de publicarla (Dia de la Madre 2027: domingo 10 de octubre).
+      que viene antes de publicarla (Dia de la Madre 2027: domingo 17 de octubre).
 
 ## Cifras publicadas (revisar que sigan siendo ciertas)
 - [ ] "+100 entregas hechas" (banda del hero en el inicio). Viene del dato del
@@ -61,8 +58,8 @@ Nada de lo de abajo está publicado en la web. Son datos que faltan y que
 ## Hero (inicio)
 - [x] `Hero.tsx` estaba escrito pero nunca se importaba: no se renderizaba en
       ninguna pagina. Ya se conecto al inicio (masthead, cifras, banda de fotos).
-      El H1 unico de la pagina quedo en el GeoBanner, que lleva la keyword
-      "Desayunos sorpresa a domicilio en Catamarca".
+      El H1 unico de la pagina quedo en el GeoBanner y en el HTML dice
+      "Desayunos y ramos a domicilio en Catamarca".
 
 ## Operativa
 - [ ] ¿La entrega es solo en San Fernando del Valle o también en otras

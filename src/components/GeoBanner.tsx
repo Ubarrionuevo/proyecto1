@@ -8,12 +8,14 @@ import { ArrowIcon } from './Icons';
 import { getWhatsAppUrl } from '@/lib/products';
 import { originLinks } from '@/lib/site';
 
-const headlineProducts = ['Desayunos sorpresa', 'Ramos de golosinas'];
+/* El primero es el que queda en el HTML del servidor: nombra los dos productos,
+   como el title de la home. Si dijera solo "Desayunos sorpresa" competiría con
+   /desayunos-sorpresa-catamarca por la misma búsqueda. */
+const headlineProducts = ['Desayunos y ramos', 'Desayunos sorpresa', 'Ramos de golosinas'];
 const headlineIntervalMs = 3500;
 
-/* Producto del titular, cambia solo. El HTML del servidor trae el primero, que
-   es la palabra clave del <h1>. Con movimiento reducido cambia sin animación:
-   .rise ya se apaga en ese caso. */
+/* Producto del titular, cambia solo. Con movimiento reducido cambia sin
+   animación: .rise ya se apaga en ese caso. */
 function RotatingProduct() {
   const [changes, setChanges] = useState(0);
 

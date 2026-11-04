@@ -9,6 +9,7 @@ import JsonLd, { faqJsonLd, breadcrumbJsonLd, itemListJsonLd } from '@/component
 import DeliveredPhotos from '@/components/DeliveredPhotos';
 import FarAwayLine from '@/components/FarAwayLine';
 import ProductCard, { ProductCardButton } from '@/components/ProductCard';
+import ReadMore from '@/components/ui/ReadMore';
 import StickerButton from '@/components/ui/StickerButton';
 import { ramosFaqs } from '@/lib/faqs';
 import { clientPhotos, ramos, getWhatsAppUrl } from '@/lib/products';
@@ -33,7 +34,8 @@ const items = ramos.map((ramo) => ({ ramo, page: productPageById[ramo.id] }));
 const deliveredPhotos = clientPhotos.filter((photo) => photo.image.includes('-ramo-'));
 
 /* Primero los productos. El detalle de qué traen y el pago está en las
-   preguntas frecuentes: no repetirlo en párrafos. */
+   preguntas frecuentes: no repetirlo en párrafos. El bloque plegado presenta los
+   modelos con enlaces a sus fichas: no recortarlo sin mirar antes Search Console. */
 export default function RamosPage() {
   return (
     <main className="min-h-dvh bg-paper text-ink">
@@ -102,6 +104,55 @@ export default function RamosPage() {
           </StickerButton>
           <FarAwayLine className="mt-5 max-w-prose" />
         </div>
+
+        <ReadMore
+          variant="section"
+          summary={
+            <h2 className="font-display text-xl sm:text-2xl font-semibold text-ink text-balance">
+              Cómo son nuestros ramos de golosinas a domicilio
+            </h2>
+          }
+          className="mt-8"
+        >
+          <div className="mt-4 space-y-4 text-base leading-relaxed text-ink-soft max-w-prose">
+            <p>
+              Un ramo de golosinas es un regalo que se ve, se comparte y se disfruta: golosinas
+              armadas en forma de ramo, envueltas para regalar y entregadas a domicilio en{' '}
+              {siteConfig.city}. Van solos o sumados a cualquier desayuno.
+            </p>
+            <p>
+              Tenemos cuatro modelos. El{' '}
+              <Link href="/ramos/ramo-comun" className="link-underline font-bold text-ink">
+                ramo común
+              </Link>
+              , el de siempre, con la combinación que más gusta y el que más enviamos a las
+              familias. El{' '}
+              <Link href="/ramos/ramo-futbolero" className="link-underline font-bold text-ink">
+                ramo futbolero
+              </Link>
+              , que se arma por pedido con los colores de tu club y la camiseta adentro. El{' '}
+              <Link href="/ramos/ramo-de-chocolates" className="link-underline font-bold text-ink">
+                ramo de chocolates
+              </Link>
+              , todo chocolate con envuelto fino y moño. Y el{' '}
+              <Link href="/ramos/ramo-con-oso" className="link-underline font-bold text-ink">
+                ramo con oso
+              </Link>
+              , con peluche adentro, el que más se regala para novios.
+            </p>
+            <p>
+              También van muy bien entre los{' '}
+              <Link href="/dia-de-la-madre" className="link-underline font-bold text-ink">
+                regalos para el Día de la Madre
+              </Link>
+              , si tu mamá es más de lo dulce. Si buscás otra idea, mirá todos nuestros{' '}
+              <Link href="/regalos-en-catamarca" className="link-underline font-bold text-ink">
+                regalos en Catamarca a domicilio
+              </Link>
+              .
+            </p>
+          </div>
+        </ReadMore>
       </section>
 
       <DeliveredPhotos title="Ramos que ya entregamos" photos={deliveredPhotos} />

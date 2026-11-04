@@ -5,9 +5,10 @@ import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import JsonLd, { breadcrumbJsonLd, faqJsonLd } from '@/components/JsonLd';
+import DeliveredPhotos from '@/components/DeliveredPhotos';
 import Faq from '@/components/Faq';
 import StickerButton from '@/components/ui/StickerButton';
-import { getWhatsAppUrl } from '@/lib/products';
+import { clientPhotos, getWhatsAppUrl } from '@/lib/products';
 import { diaDeLaMadreFaqs } from '@/lib/faqs';
 import { openGraphBase, twitterImage } from '@/lib/seo';
 import { siteConfig } from '@/lib/site';
@@ -78,7 +79,7 @@ export default function DiaDeLaMadrePage() {
             lo encargás por WhatsApp desde donde estés y nosotras lo llevamos hasta su puerta.
           </p>
           <p>
-            En Argentina, el Día de la Madre cae el segundo domingo de octubre. Ese día los
+            En Argentina, el Día de la Madre cae el tercer domingo de octubre. Ese día los
             pedidos se juntan, así que te conviene encargarlo con anticipación: escribinos,
             contanos para quién es y coordinamos la entrega.
           </p>
@@ -122,6 +123,8 @@ export default function DiaDeLaMadrePage() {
           .
         </p>
       </section>
+
+      <DeliveredPhotos title="Regalos que ya entregamos" photos={clientPhotos.slice(0, 4)} />
 
       <Faq
         items={diaDeLaMadreFaqs}
