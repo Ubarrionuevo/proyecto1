@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -6,14 +7,14 @@ import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import Faq from '@/components/Faq';
 import JsonLd, { faqJsonLd, breadcrumbJsonLd, itemListJsonLd } from '@/components/JsonLd';
-import AdditionalGifts from '@/components/AdditionalGifts';
 import FarAwayLine from '@/components/FarAwayLine';
+import ProductCard, { ProductCardButton } from '@/components/ProductCard';
 import StickerButton from '@/components/ui/StickerButton';
+import ReadMore from '@/components/ui/ReadMore';
 import { ramosFaqs } from '@/lib/faqs';
-import { ramos, getWhatsAppUrl } from '@/lib/products';
+import { clientPhotos, ramos, getWhatsAppUrl } from '@/lib/products';
 import { productPageById } from '@/lib/product-pages';
 import { siteConfig } from '@/lib/site';
-import { ArrowIcon } from '@/components/Icons';
 import { pageMetadata, ratingHook } from '@/lib/seo';
 
 export const metadata: Metadata = pageMetadata({
@@ -30,6 +31,10 @@ const crumbs = [
 
 const items = ramos.map((ramo) => ({ ramo, page: productPageById[ramo.id] }));
 
+const deliveredPhotos = clientPhotos.filter((photo) => photo.image.includes('-ramo-'));
+
+/* Primero los productos, con foto y botón de pedido. El texto largo para SEO
+   queda plegado al final: sigue en el HTML, ver ReadMore. */
 export default function RamosPage() {
   return (
     <main className="min-h-dvh bg-paper text-ink">
@@ -49,90 +54,142 @@ export default function RamosPage() {
       <Navbar />
       <Breadcrumbs items={crumbs} />
 
-      <section className="max-w-3xl mx-auto px-5 sm:px-8 pt-10 sm:pt-14 pb-14">
-        <h1 className="display-lg text-ink text-balance">
+      <section className="max-w-6xl mx-auto px-5 sm:px-8 pt-4 sm:pt-8 pb-12 sm:pb-16">
+        <h1 className="display-md text-ink text-balance">
           Ramos de golosinas y chocolates en Catamarca
         </h1>
-        <div className="mt-6 space-y-5 text-base leading-relaxed text-ink-soft max-w-prose">
-          <p>
-            Un ramo de golosinas es un regalo que se ve, se comparte y se disfruta: golosinas
-            armadas en forma de ramo, envueltas para regalar y entregadas a domicilio en San
-            Fernando del Valle de Catamarca. Van solos o sumados a cualquier desayuno.
-          </p>
-          <p>
-            Tenemos cuatro modelos. El{' '}
-            <Link href="/ramos/ramo-comun" className="link-underline font-bold text-ink">
-              ramo común
-            </Link>
-            , el de siempre, con la combinación que más gusta y el que más enviamos a las
-            familias. El{' '}
-            <Link href="/ramos/ramo-futbolero" className="link-underline font-bold text-ink">
-              ramo futbolero
-            </Link>
-            , que se arma por pedido con los colores de tu club y la camiseta adentro. El{' '}
-            <Link href="/ramos/ramo-de-chocolates" className="link-underline font-bold text-ink">
-              ramo de chocolates
-            </Link>
-            , todo chocolate con envuelto fino y moño. Y el{' '}
-            <Link href="/ramos/ramo-con-oso" className="link-underline font-bold text-ink">
-              ramo con oso
-            </Link>
-            , con peluche adentro, el que más se regala para novios.
-          </p>
-          <p>
-            Todos se arman a mano y por pedido: decinos el tema —un club, un personaje, un
-            color— y lo dejamos a tu manera. Se paga por transferencia y hablás directo con
-            nosotras, sin intermediarios. Y si estás lejos, lo pedís por WhatsApp desde donde
-            estés y lo entregamos acá.
-          </p>
-          <p>
-            Si además querés sumar un{' '}
-            <Link href="/desayunos-sorpresa-catamarca" className="link-underline font-bold text-ink">
-              desayuno sorpresa
-            </Link>
-            , combinamos ambos en un mismo pedido y lo entregamos junto. Mirá también{' '}
-            <Link href="/cartas-personalizadas" className="link-underline font-bold text-ink">
-              cartas personalizadas
-            </Link>{' '}
-            para acompañar el ramo con un mensaje escrito.
-          </p>
-        </div>
+        <p className="mt-1.5 text-base text-ink-soft max-w-prose">
+          Armados a mano y entregados a domicilio en {siteConfig.city}.
+        </p>
 
-        <FarAwayLine className="mt-6" />
-
-        <div className="mt-8 grid gap-4 sm:grid-cols-2">
-          {items.map(({ ramo, page }) => (
-            <Link
-              key={page.urlPath}
-              href={page.urlPath}
-              className="group border border-rule bg-paper-card p-6"
-            >
-              <span className="font-display text-xl font-semibold text-ink flex items-center gap-2">
-                {page.seoName}
-                <ArrowIcon className="w-4 h-4 text-berry transition-transform duration-200 group-hover:translate-x-1" />
-              </span>
-              {siteConfig.showPrices && (
-                <span className="font-display text-2xl font-semibold text-berry mt-1 block">
-                  {ramo.price}
-                </span>
-              )}
-            </Link>
+        <div className="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-8 sm:gap-x-8">
+          {items.map(({ ramo, page }, idx) => (
+            <article key={ramo.id} className="min-w-0">
+              <ProductCard product={ramo} title={page.seoName} Heading="h2" priority={idx < 2}>
+                <p className="mt-1 mb-3 text-[13px] leading-snug text-ink-soft sm:text-sm">
+                  {ramo.description}
+                </p>
+                <ProductCardButton product={ramo} className="mt-auto">
+                  Pedir
+                </ProductCardButton>
+              </ProductCard>
+            </article>
           ))}
         </div>
 
-        <div className="mt-8">
-          <StickerButton href={getWhatsAppUrl('un ramo de golosinas')} size="lg">
-            Quiero un ramo
+        <div className="mt-10 border border-rule bg-paper-card p-5 sm:p-8">
+          <h2 className="font-display text-xl sm:text-2xl font-semibold text-ink">
+            ¿Lo querés a tu manera?
+          </h2>
+          <p className="mt-2 text-sm leading-relaxed text-ink-soft max-w-prose">
+            Decinos el tema —un club, un personaje, un color— y lo armamos por pedido. Va solo o
+            sumado a un{' '}
+            <Link href="/desayunos-sorpresa-catamarca" className="link-underline font-bold text-ink">
+              desayuno sorpresa
+            </Link>
+            .
+          </p>
+          <StickerButton
+            href={getWhatsAppUrl('un ramo de golosinas')}
+            variant="wa"
+            wrap
+            className="mt-4 w-full sm:w-auto"
+          >
+            Quiero un ramo a mi manera
           </StickerButton>
+          <FarAwayLine className="mt-5 max-w-prose" />
         </div>
       </section>
 
-      <AdditionalGifts />
+      <section className="border-t border-rule bg-paper-deep py-12 sm:py-16">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8">
+          <h2 className="display-md text-ink text-balance">Ramos que ya entregamos</h2>
+          <ul className="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
+            {deliveredPhotos.map((photo) => (
+              <li
+                key={photo.image}
+                className="relative aspect-square overflow-hidden border border-rule bg-paper-deep"
+              >
+                <Image
+                  src={photo.image}
+                  alt={photo.alt}
+                  fill
+                  sizes="(max-width: 1024px) 50vw, 280px"
+                  className="object-cover"
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       <Faq
         items={ramosFaqs}
         label="Dudas sobre los ramos"
         title="Preguntas sobre los ramos de golosinas."
       />
+
+      <section aria-label="Más sobre los ramos" className="border-t border-rule py-8 sm:py-10">
+        <div className="max-w-3xl mx-auto px-5 sm:px-8">
+          <ReadMore
+            variant="section"
+            summary={
+              <h2 className="font-display text-xl sm:text-2xl font-semibold text-ink">
+                Más sobre los ramos de golosinas en Catamarca
+              </h2>
+            }
+          >
+            <div className="mt-5 space-y-5 text-base leading-relaxed text-ink-soft max-w-prose">
+              <p>
+                Un ramo de golosinas es un regalo que se ve, se comparte y se disfruta: golosinas
+                armadas en forma de ramo, envueltas para regalar y entregadas a domicilio en San
+                Fernando del Valle de Catamarca. Van solos o sumados a cualquier desayuno.
+              </p>
+              <p>
+                Tenemos cuatro modelos. El{' '}
+                <Link href="/ramos/ramo-comun" className="link-underline font-bold text-ink">
+                  ramo común
+                </Link>
+                , el de siempre, con la combinación que más gusta y el que más enviamos a las
+                familias. El{' '}
+                <Link href="/ramos/ramo-futbolero" className="link-underline font-bold text-ink">
+                  ramo futbolero
+                </Link>
+                , que se arma por pedido con los colores de tu club y la camiseta adentro. El{' '}
+                <Link href="/ramos/ramo-de-chocolates" className="link-underline font-bold text-ink">
+                  ramo de chocolates
+                </Link>
+                , todo chocolate con envuelto fino y moño. Y el{' '}
+                <Link href="/ramos/ramo-con-oso" className="link-underline font-bold text-ink">
+                  ramo con oso
+                </Link>
+                , con peluche adentro, el que más se regala para novios.
+              </p>
+              <p>
+                Todos se arman a mano y por pedido: decinos el tema —un club, un personaje, un
+                color— y lo dejamos a tu manera. Se paga por transferencia y hablás directo con
+                nosotras, sin intermediarios. Y si estás lejos, lo pedís por WhatsApp desde donde
+                estés y lo entregamos acá.
+              </p>
+              <p>
+                Si además querés sumar un{' '}
+                <Link
+                  href="/desayunos-sorpresa-catamarca"
+                  className="link-underline font-bold text-ink"
+                >
+                  desayuno sorpresa
+                </Link>
+                , combinamos ambos en un mismo pedido y lo entregamos junto. Mirá también{' '}
+                <Link href="/cartas-personalizadas" className="link-underline font-bold text-ink">
+                  cartas personalizadas
+                </Link>{' '}
+                para acompañar el ramo con un mensaje escrito.
+              </p>
+            </div>
+          </ReadMore>
+        </div>
+      </section>
+
       <Footer />
       <FloatingWhatsApp topic="un ramo de golosinas" />
     </main>

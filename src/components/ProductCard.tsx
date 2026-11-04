@@ -48,7 +48,7 @@ export default function ProductCard({
             alt={image.alt}
             fill
             sizes="(max-width: 1024px) 50vw, 360px"
-            priority={priority}
+            preload={priority}
             className="zoom-media object-cover"
           />
         )}

@@ -24,7 +24,7 @@ export default function Home() {
       <SeasonalBanner />
 
       <SolutionSection compact />
-      <AdditionalGifts compact />
+      <AdditionalGifts />
       <ClientsMotion />
       <ClientReview />
 
