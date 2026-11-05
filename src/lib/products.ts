@@ -169,7 +169,7 @@ export const ramos: Product[] = [
     price: '$26.000',
     description: 'Una combinación tierna: golosinas y un oso de peluche adentro.',
     detail:
-      'El ramo con peluche es el que más se regala para novios y para chicas. El oso va envuelto para que llegue entero.',
+      'El ramo con oso es el que más se regala para novios y para chicas. El oso va envuelto para que llegue entero.',
     images: [
       {
         src: '/ramo-oso-peluche-catamarca-1.webp',
@@ -177,7 +177,7 @@ export const ramos: Product[] = [
       },
       {
         src: '/ramo-oso-peluche-catamarca-2.webp',
-        alt: 'Detalle del peluche envuelto del ramo con oso',
+        alt: 'Detalle del oso de peluche envuelto del ramo con oso',
       },
     ],
   },
@@ -186,9 +186,11 @@ export const ramos: Product[] = [
     name: 'Ramo de Peluche',
     /* Sin precio confirmado: no se muestra porque showPrices está en false. */
     price: '',
-    description: 'Golosinas armadas en ramo alrededor de un peluche, con moño y tarjeta.',
+    /* Se diferencia del Ramo con Oso por el peluche: este va con un conejito u
+       otro peluche. No nombrarlo como ramo con oso para que Google no los mezcle. */
+    description: 'Golosinas armadas en ramo alrededor de un conejito u otro peluche, con moño y tarjeta.',
     detail:
-      'Bombones, alfajores y chocolates rodeando un peluche, envueltos para regalar. El de la foto lleva un conejito: preguntanos por WhatsApp qué peluches hay.',
+      'Bombones, alfajores y chocolates rodeando el peluche, envueltos para regalar. El de la foto lleva un conejito: preguntanos por WhatsApp qué otros peluches hay. Si lo querés con oso, es el Ramo con Oso.',
     images: [
       {
         src: '/ramo-de-peluche-golosinas-catamarca-1.webp',
@@ -223,11 +225,11 @@ export const cajas: Product[] = [
     price: '',
     description: 'Una caja con ventana en forma de corazón, llena de bombones y chocolates.',
     detail:
-      'Por la ventana se ven los chocolates de adentro. Lleva moño rojo y una tarjeta para escribir tu mensaje a mano, como en la foto.',
+      'Por la ventana se ven los chocolates de adentro. Lleva moño rojo y una tarjeta para tu mensaje.',
     images: [
       {
         src: '/caja-ventana-corazon-chocolates-catamarca-1.webp',
-        alt: 'Caja con ventana de corazón llena de chocolates, moño rojo y tarjeta escrita a mano',
+        alt: 'Caja con ventana de corazón llena de chocolates, con moño rojo y tarjeta',
       },
     ],
   },

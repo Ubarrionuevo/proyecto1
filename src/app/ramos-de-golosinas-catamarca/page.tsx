@@ -19,7 +19,7 @@ import { pageMetadata, ratingHook } from '@/lib/seo';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Ramos de Golosinas a Domicilio en Catamarca | LaPrincesaCta',
-  description: `Ramos de golosinas y chocolates a domicilio en Catamarca: común, futbolero, de chocolates y con oso. ${ratingHook}. Pedí por WhatsApp.`,
+  description: `Ramos de golosinas y chocolates a domicilio en Catamarca: común, futbolero, de chocolates, con oso y de peluche. ${ratingHook}. Pedí por WhatsApp.`,
   path: '/ramos-de-golosinas-catamarca',
   image: ramos[0].images[0],
 });
@@ -142,7 +142,7 @@ export default function RamosPage() {
               <Link href="/ramos/ramo-de-peluche" className="link-underline font-bold text-ink">
                 ramo de peluche
               </Link>
-              , con las golosinas alrededor de un peluche, moño y tarjeta.
+              , con un conejito u otro peluche en el centro, moño y tarjeta.
             </p>
             <p>
               También van muy bien entre los{' '}

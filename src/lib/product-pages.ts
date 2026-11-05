@@ -100,7 +100,7 @@ export const productPages: Record<string, ProductPageData> = {
     urlPath: hrefById['ramo-peluche'],
     related: relatedIn(ramos, 'ramo-peluche'),
     forWhom:
-      'Para quien quiere un regalo que dure: las golosinas se comen y el peluche queda de recuerdo.',
+      'Para quien prefiere un conejito u otro peluche en vez del clásico oso: las golosinas se comen y el peluche queda de recuerdo.',
     occasions:
       'Un cumpleaños, un saludo de felicidades o un mimo sin motivo. Va solo o sumado a un desayuno.',
   },
@@ -125,7 +125,7 @@ export const productPages: Record<string, ProductPageData> = {
     urlPath: hrefById['caja-ventana-corazon'],
     related: relatedIn(cajas, 'caja-ventana-corazon'),
     forWhom:
-      'Para tu pareja o para alguien especial: se abre como un regalo y la tarjeta lleva tus palabras escritas a mano.',
+      'Para tu pareja o para alguien especial: se abre como un regalo y la tarjeta lleva tus palabras.',
     occasions:
       'Un aniversario, San Valentín, un cumpleaños o un mimo para decirle lo que sentís.',
   },

@@ -369,6 +369,10 @@ export const productFaqs: Record<string, FaqItem[]> = {
       a: 'Sí. El oso va envuelto para que llegue entero, y el ramo se entrega listo para regalar.',
     },
     {
+      q: '¿En qué se diferencia del ramo de peluche?',
+      a: 'En el peluche: este lleva un oso. El ramo de peluche va con un conejito u otro peluche.',
+    },
+    {
       q: '¿Sirve para un aniversario a distancia?',
       a: 'Sí. Lo pedís por WhatsApp desde donde estés, lo entregamos en Catamarca y te mandamos foto o video de la entrega.',
     },
@@ -388,7 +392,11 @@ export const productFaqs: Record<string, FaqItem[]> = {
     },
     {
       q: '¿Qué peluche lleva?',
-      a: 'Preguntanos por WhatsApp qué peluches hay. El de la foto es un conejito.',
+      a: 'Un conejito, como el de la foto, u otro peluche. Preguntanos por WhatsApp qué peluches hay.',
+    },
+    {
+      q: '¿En qué se diferencia del ramo con oso?',
+      a: 'En el peluche: el ramo con oso lleva un oso, y este va con un conejito u otro peluche.',
     },
     {
       q: '¿Lo puedo pedir desde otra provincia o desde otro país?',

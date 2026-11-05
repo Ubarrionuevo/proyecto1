@@ -6,9 +6,9 @@ import { pageMetadata } from '@/lib/seo';
 const data = productPages['ramo-de-peluche'];
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Ramo de Peluche y Golosinas a Domicilio en Catamarca | LaPrincesaCta',
+  title: 'Ramo de Peluche con Conejito y Golosinas en Catamarca | LaPrincesaCta',
   description:
-    'Ramo de golosinas con peluche, moño y tarjeta, listo para regalar. A domicilio en Catamarca. Pedí por WhatsApp, también desde lejos.',
+    'Ramo de golosinas con un conejito u otro peluche, moño y tarjeta. A domicilio en Catamarca. Pedí por WhatsApp, también desde lejos.',
   path: data.urlPath,
   image: data.product.images[0],
 });
