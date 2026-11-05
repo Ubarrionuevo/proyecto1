@@ -99,12 +99,24 @@ export const ramos: Product[] = [
       'Golosinas de todo tipo armadas en forma de ramo y envueltas para regalar. Es el que más enviamos a las familias.',
     images: [
       {
+        src: '/ramo-comun-golosinas-catamarca-4.webp',
+        alt: 'Ramo común de golosinas envuelto en papel rosa, listo para regalar en Catamarca',
+      },
+      {
         src: '/ramo-comun-golosinas-catamarca-1.webp',
         alt: 'Ramo común de golosinas armado y envuelto para regalar',
       },
       {
+        src: '/ramo-comun-golosinas-catamarca-5.webp',
+        alt: 'Ramo de golosinas de cumpleaños envuelto en celeste, con tarjeta de saludo',
+      },
+      {
         src: '/ramo-comun-golosinas-catamarca-2.webp',
         alt: 'Detalle del armado del ramo común de golosinas',
+      },
+      {
+        src: '/ramo-comun-golosinas-catamarca-6.webp',
+        alt: 'Ramo de golosinas grande con tarjeta de Feliz Día, envuelto para regalar',
       },
       {
         src: '/ramo-comun-golosinas-catamarca-3.webp',
@@ -183,6 +195,11 @@ export const clientPhotos = [
     image: '/foto-cliente-caja-carton-catamarca-1.webp',
     tag: 'Caja de cartón',
     alt: 'Desayuno en caja de cartón entregado a domicilio',
+  },
+  {
+    image: '/foto-cliente-ramo-cumpleanos-catamarca.webp',
+    tag: 'Cumpleaños',
+    alt: 'Recibió su ramo de golosinas de cumpleaños en la puerta de su casa en Catamarca',
   },
   {
     image: '/foto-cliente-ramo-golosinas-catamarca-1.webp',

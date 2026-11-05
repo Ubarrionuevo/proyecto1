@@ -27,21 +27,22 @@ export default function ClientsMotion({
       </div>
 
       {/* Grilla con todas las fotos, cada una una sola vez, en cuadrados
-          recortados. Sin autoplay ni scroll horizontal. Son 11: la última ocupa
-          dos celdas para cerrar la grilla a 2, 3 y 4 columnas. */}
+          recortados. Sin autoplay ni scroll horizontal. Son 12, que cierran la
+          grilla a 2, 3 y 4 columnas. Si se agrega o se saca una, revisar que el
+          total siga siendo múltiplo de 12 o que la última fila quede pareja. */}
       <div className="max-w-6xl mx-auto px-5 sm:px-8 mt-10 lg:mt-12">
         <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-4">
-          {clientPhotos.map((photo, i) => (
+          {clientPhotos.map((photo) => (
             <li
               key={photo.image}
-              className="relative aspect-square last:col-span-2 last:aspect-[2/1] sm:last:aspect-auto overflow-hidden border border-rule bg-paper-deep"
+              className="relative aspect-square overflow-hidden border border-rule bg-paper-deep"
             >
               <Image
                 src={photo.image}
                 alt={photo.alt}
                 fill
                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 280px"
-                className={`object-cover ${i === clientPhotos.length - 1 ? 'object-[center_28%]' : ''}`}
+                className="object-cover"
               />
             </li>
           ))}
