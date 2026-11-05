@@ -60,4 +60,7 @@ export const productLinks = [
   { id: 'ramo-chocolates', href: '/ramos/ramo-de-chocolates', label: 'Ramo de chocolates' },
   { id: 'ramo-oso', href: '/ramos/ramo-con-oso', label: 'Ramo con oso de peluche' },
   { id: 'ramo-peluche', href: '/ramos/ramo-de-peluche', label: 'Ramo de peluche y golosinas' },
+  { id: 'corazon-transparente', href: '/cajas/corazon-transparente', label: 'Corazón transparente con bombones' },
+  { id: 'caja-ventana-corazon', href: '/cajas/caja-ventana-corazon', label: 'Caja de ventana de corazón con chocolates' },
+  { id: 'caja-crema-te-amo', href: '/cajas/caja-crema-te-amo', label: 'Caja crema Te amo' },
 ];

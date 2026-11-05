@@ -2,13 +2,13 @@
 import CatalogoClient from './catalogo-client';
 import JsonLd, { breadcrumbJsonLd, itemListJsonLd } from '@/components/JsonLd';
 import { pageMetadata, ratingHook } from '@/lib/seo';
-import { desayunos, ramos } from '@/lib/products';
+import { cajas, desayunos, ramos } from '@/lib/products';
 import { productPages } from '@/lib/product-pages';
 import { siteConfig } from '@/lib/site';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Catálogo de Desayunos y Ramos a Domicilio en Catamarca',
-  description: `Mirá las fotos de ${desayunos.length} desayunos y ${ramos.length} ramos a domicilio en Catamarca. ${ratingHook}. Pedí por WhatsApp ${siteConfig.hoursCopy}.`,
+  description: `Mirá las fotos de ${desayunos.length} desayunos, ${ramos.length} ramos y ${cajas.length} cajas de regalo a domicilio en Catamarca. ${ratingHook}. Pedí por WhatsApp ${siteConfig.hoursCopy}.`,
   path: '/catalogo',
 });
 

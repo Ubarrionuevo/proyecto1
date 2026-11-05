@@ -403,7 +403,43 @@ export const productFaqs: Record<string, FaqItem[]> = {
       a: pagoPorTransferencia,
     },
   ],
+  'corazon-transparente': cajaFaqs(
+    '¿Qué trae el corazón transparente?',
+    'Bombones y chocolates dentro de un corazón transparente, con moño dorado y una tarjeta para tu mensaje.'
+  ),
+  'caja-ventana-corazon': cajaFaqs(
+    '¿Qué trae la caja de ventana de corazón?',
+    'Bombones y chocolates que se ven por la ventana en forma de corazón, con moño rojo y una tarjeta para escribir tu mensaje.'
+  ),
+  'caja-crema-te-amo': cajaFaqs(
+    '¿Qué trae la caja crema Te amo?',
+    'Preguntanos por WhatsApp qué trae adentro y cómo la podés armar. Por fuera es una caja crema con “Te amo” en letras doradas y moño blanco.'
+  ),
 };
+
+/* Las cinco preguntas de las cajas: qué trae (propia de cada una) y cuatro
+   comunes con datos ya publicados en el sitio. */
+function cajaFaqs(q: string, a: string): FaqItem[] {
+  return [
+    { q, a },
+    {
+      q: '¿Puedo elegir el mensaje de la tarjeta?',
+      a: 'Sí. Contanos qué querés que diga y lo dejamos a tu manera.',
+    },
+    {
+      q: '¿Lo puedo pedir desde otra provincia o desde otro país?',
+      a: fueraDeProvincia,
+    },
+    {
+      q: '¿Cómo se entrega?',
+      a: `Listo para regalar: lo llevamos hasta la puerta en ${siteConfig.city}.`,
+    },
+    {
+      q: '¿Cómo se paga?',
+      a: pagoPorTransferencia,
+    },
+  ];
+}
 
 /* FAQ de la landing del Día de la Madre. Misma lógica: solo datos publicados. */
 export const diaDeLaMadreFaqs: FaqItem[] = [

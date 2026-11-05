@@ -1,4 +1,4 @@
-import { desayunos, ramos } from './products';
+import { cajas, desayunos, ramos } from './products';
 import { productLinks } from './site';
 import type { ProductPageData } from '@/components/ProductDetail';
 
@@ -103,6 +103,42 @@ export const productPages: Record<string, ProductPageData> = {
       'Para quien quiere un regalo que dure: las golosinas se comen y el peluche queda de recuerdo.',
     occasions:
       'Un cumpleaños, un saludo de felicidades o un mimo sin motivo. Va solo o sumado a un desayuno.',
+  },
+  /* Cajas: no tienen landing propia, así que la categoría es la página de regalos. */
+  'corazon-transparente': {
+    product: cajas[0],
+    seoName: seoNameById['corazon-transparente'],
+    categoryName: 'Regalos',
+    categoryPath: '/regalos-en-catamarca',
+    urlPath: hrefById['corazon-transparente'],
+    related: relatedIn(cajas, 'corazon-transparente'),
+    forWhom:
+      'Para quien es más de chocolate que de flores: un detalle chico y lindo de ver, que se regala entero o se comparte.',
+    occasions:
+      'Un aniversario, San Valentín, un “te amo” sin fecha o un perdón. También sirve para saludar desde lejos.',
+  },
+  'caja-ventana-corazon': {
+    product: cajas[1],
+    seoName: seoNameById['caja-ventana-corazon'],
+    categoryName: 'Regalos',
+    categoryPath: '/regalos-en-catamarca',
+    urlPath: hrefById['caja-ventana-corazon'],
+    related: relatedIn(cajas, 'caja-ventana-corazon'),
+    forWhom:
+      'Para tu pareja o para alguien especial: se abre como un regalo y la tarjeta lleva tus palabras escritas a mano.',
+    occasions:
+      'Un aniversario, San Valentín, un cumpleaños o un mimo para decirle lo que sentís.',
+  },
+  'caja-crema-te-amo': {
+    product: cajas[2],
+    seoName: seoNameById['caja-crema-te-amo'],
+    categoryName: 'Regalos',
+    categoryPath: '/regalos-en-catamarca',
+    urlPath: hrefById['caja-crema-te-amo'],
+    related: relatedIn(cajas, 'caja-crema-te-amo'),
+    forWhom:
+      'Para quien busca una presentación elegante y un mensaje claro desde antes de abrirla: “Te amo” en letras doradas.',
+    occasions: 'Un aniversario, San Valentín o cualquier día en que quieras decirle “te amo”.',
   },
 };
 

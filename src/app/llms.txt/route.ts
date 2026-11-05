@@ -1,5 +1,5 @@
 import { facts } from '@/components/QuickFacts';
-import { desayunos, ramos } from '@/lib/products';
+import { cajas, desayunos, ramos } from '@/lib/products';
 import { originLinks, productLinks, siteConfig } from '@/lib/site';
 
 /* Resumen en texto plano para asistentes de IA. Sale de las mismas fuentes que
@@ -10,7 +10,7 @@ export const dynamic = 'force-static';
 const url = (path: string) => `${siteConfig.url}${path}`;
 
 function productLines() {
-  return [...desayunos, ...ramos].map((product) => {
+  return [...desayunos, ...ramos, ...cajas].map((product) => {
     const link = productLinks.find((item) => item.id === product.id);
     return `- [${link?.label ?? product.name}](${url(link?.href ?? '/catalogo')}): ${product.description} ${product.detail}`;
   });

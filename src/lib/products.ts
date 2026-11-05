@@ -198,6 +198,55 @@ export const ramos: Product[] = [
   },
 ];
 
+/* ── Cajas de regalo ─────────────────────────────────────────── */
+
+/* Sin precio confirmado: no se muestra porque showPrices está en false. El
+   contenido sale solo de lo que se ve en las fotos. */
+export const cajas: Product[] = [
+  {
+    id: 'corazon-transparente',
+    name: 'Corazón transparente',
+    price: '',
+    description: 'Un corazón transparente lleno de bombones y chocolates, con moño dorado y tarjeta.',
+    detail:
+      'Se ve todo lo que trae desde afuera. Va con una tarjeta para tu mensaje, como el “Te Amo!!” de la foto.',
+    images: [
+      {
+        src: '/corazon-transparente-bombones-catamarca-1.webp',
+        alt: 'Corazón transparente con bombones y chocolates, moño dorado y tarjeta Te Amo',
+      },
+    ],
+  },
+  {
+    id: 'caja-ventana-corazon',
+    name: 'Caja de ventana de corazón',
+    price: '',
+    description: 'Una caja con ventana en forma de corazón, llena de bombones y chocolates.',
+    detail:
+      'Por la ventana se ven los chocolates de adentro. Lleva moño rojo y una tarjeta para escribir tu mensaje a mano, como en la foto.',
+    images: [
+      {
+        src: '/caja-ventana-corazon-chocolates-catamarca-1.webp',
+        alt: 'Caja con ventana de corazón llena de chocolates, moño rojo y tarjeta escrita a mano',
+      },
+    ],
+  },
+  {
+    id: 'caja-crema-te-amo',
+    name: 'Caja crema Te amo',
+    price: '',
+    description: 'Una caja crema con “Te amo” en letras doradas y moño blanco.',
+    detail:
+      'Una presentación elegante para decirlo sin vueltas. Preguntanos por WhatsApp qué trae adentro y cómo la podés armar.',
+    images: [
+      {
+        src: '/caja-crema-te-amo-catamarca-1.webp',
+        alt: 'Caja crema con Te amo en letras doradas y moño blanco, para regalar en Catamarca',
+      },
+    ],
+  },
+];
+
 /* ── Fotos reales de clientes ────────────────────────────────── */
 
 export const clientPhotos = [
