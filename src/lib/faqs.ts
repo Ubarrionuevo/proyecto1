@@ -381,6 +381,28 @@ export const productFaqs: Record<string, FaqItem[]> = {
       a: `${horario} Escribinos y te respondemos con opciones en el momento.`,
     },
   ],
+  'ramo-peluche': [
+    {
+      q: '¿Qué trae el ramo de peluche?',
+      a: 'Golosinas armadas en forma de ramo alrededor de un peluche, con moño y tarjeta. Se entrega envuelto y listo para regalar.',
+    },
+    {
+      q: '¿Qué peluche lleva?',
+      a: 'Preguntanos por WhatsApp qué peluches hay. El de la foto es un conejito.',
+    },
+    {
+      q: '¿Lo puedo pedir desde otra provincia o desde otro país?',
+      a: fueraDeProvincia,
+    },
+    {
+      q: '¿Se suma a un desayuno?',
+      a: 'Sí. Los ramos se suman a cualquier desayuno o van solos.',
+    },
+    {
+      q: '¿Cómo se paga?',
+      a: pagoPorTransferencia,
+    },
+  ],
 };
 
 /* FAQ de la landing del Día de la Madre. Misma lógica: solo datos publicados. */

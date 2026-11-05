@@ -120,7 +120,7 @@ export default function CatalogoClient() {
 
           <ReadMore summary="Más sobre el catálogo" className="mt-6">
             <p className="text-sm leading-relaxed text-ink-soft max-w-prose">
-              Dos desayunos sorpresa —caja de madera o de cartón— y cuatro ramos de golosinas, cada
+              Dos desayunos sorpresa —caja de madera o de cartón— y cinco ramos de golosinas, cada
               uno con su ficha y su botón para pedir por WhatsApp. Por cantidades, temas especiales
               o entrega en otra ciudad, consultanos.
             </p>

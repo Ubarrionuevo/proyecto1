@@ -121,7 +121,7 @@ export default function RamosPage() {
               {siteConfig.city}. Van solos o sumados a cualquier desayuno.
             </p>
             <p>
-              Tenemos cuatro modelos. El{' '}
+              Tenemos cinco modelos. El{' '}
               <Link href="/ramos/ramo-comun" className="link-underline font-bold text-ink">
                 ramo común
               </Link>
@@ -134,11 +134,15 @@ export default function RamosPage() {
               <Link href="/ramos/ramo-de-chocolates" className="link-underline font-bold text-ink">
                 ramo de chocolates
               </Link>
-              , todo chocolate con envuelto fino y moño. Y el{' '}
+              , todo chocolate con envuelto fino y moño. El{' '}
               <Link href="/ramos/ramo-con-oso" className="link-underline font-bold text-ink">
                 ramo con oso
               </Link>
-              , con peluche adentro, el que más se regala para novios.
+              , con peluche adentro, el que más se regala para novios. Y el{' '}
+              <Link href="/ramos/ramo-de-peluche" className="link-underline font-bold text-ink">
+                ramo de peluche
+              </Link>
+              , con las golosinas alrededor de un peluche, moño y tarjeta.
             </p>
             <p>
               También van muy bien entre los{' '}

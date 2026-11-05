@@ -92,6 +92,18 @@ export const productPages: Record<string, ProductPageData> = {
     occasions:
       'Un aniversario, un cumpleaños o una reconciliación, y esos días en que la distancia pesa y querés que tenga algo tuyo cerca.',
   },
+  'ramo-de-peluche': {
+    product: ramos[4],
+    seoName: seoNameById['ramo-peluche'],
+    categoryName: 'Ramos de golosinas',
+    categoryPath: '/ramos-de-golosinas-catamarca',
+    urlPath: hrefById['ramo-peluche'],
+    related: relatedIn(ramos, 'ramo-peluche'),
+    forWhom:
+      'Para quien quiere un regalo que dure: las golosinas se comen y el peluche queda de recuerdo.',
+    occasions:
+      'Un cumpleaños, un saludo de felicidades o un mimo sin motivo. Va solo o sumado a un desayuno.',
+  },
 };
 
 /* Ficha de cada producto por id, para enlazar desde home, catálogo y landings. */

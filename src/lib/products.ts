@@ -181,6 +181,21 @@ export const ramos: Product[] = [
       },
     ],
   },
+  {
+    id: 'ramo-peluche',
+    name: 'Ramo de Peluche',
+    /* Sin precio confirmado: no se muestra porque showPrices está en false. */
+    price: '',
+    description: 'Golosinas armadas en ramo alrededor de un peluche, con moño y tarjeta.',
+    detail:
+      'Bombones, alfajores y chocolates rodeando un peluche, envueltos para regalar. El de la foto lleva un conejito: preguntanos por WhatsApp qué peluches hay.',
+    images: [
+      {
+        src: '/ramo-de-peluche-golosinas-catamarca-1.webp',
+        alt: 'Ramo de peluche con conejito y golosinas envuelto en celeste, entregado en Catamarca',
+      },
+    ],
+  },
 ];
 
 /* ── Fotos reales de clientes ────────────────────────────────── */

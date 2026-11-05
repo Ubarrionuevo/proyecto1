@@ -5,7 +5,7 @@ import { getWhatsAppUrl, productTopic } from '@/lib/products';
 import { productPages } from '@/lib/product-pages';
 import { siteConfig } from '@/lib/site';
 
-/* Los seis productos con foto, nombre, descripción corta y enlace a la ficha.
+/* Todos los productos con foto, nombre, descripción corta y enlace a la ficha.
    Los precios se pasan por WhatsApp: solo aparecen si siteConfig.showPrices. */
 export default function ProductGrid() {
   return (

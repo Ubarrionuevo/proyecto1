@@ -59,4 +59,5 @@ export const productLinks = [
   { id: 'ramo-futbolero', href: '/ramos/ramo-futbolero', label: 'Ramo futbolero de golosinas' },
   { id: 'ramo-chocolates', href: '/ramos/ramo-de-chocolates', label: 'Ramo de chocolates' },
   { id: 'ramo-oso', href: '/ramos/ramo-con-oso', label: 'Ramo con oso de peluche' },
+  { id: 'ramo-peluche', href: '/ramos/ramo-de-peluche', label: 'Ramo de peluche y golosinas' },
 ];
