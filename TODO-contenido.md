@@ -4,8 +4,8 @@ Nada de lo de abajo está publicado en la web. Son datos que faltan y que
 **no se inventan**: cuando el dueño responda, se agregan.
 
 ## Tanda noviembre 2026
-- [ ] Disponibilidad de entrega el 24 y el 25 de diciembre y fecha límite para
-      pedir en Navidad (hoy `/navidad` dice "consultá disponibilidad por WhatsApp").
+- [x] Entrega el 24 y el 25 de diciembre: sí, hasta las 20 h (publicado en `/navidad`).
+- [ ] Fecha límite para pedir en Navidad.
 - [ ] Anticipación mínima para pedir.
 - [ ] Para un blog futuro: historias reales de regalos enviados desde lejos, con
       permiso del cliente. Sin material real, no se publica.

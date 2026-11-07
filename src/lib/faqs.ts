@@ -217,8 +217,8 @@ export const enviarRegaloFaqs: FaqItem[] = [
 ];
 
 /* FAQ de la landing de Navidad.
-   TODO: reemplazar la respuesta del 24 y el 25 de diciembre y la de anticipación
-   cuando el dueño confirme disponibilidad y fecha límite (ver TODO-contenido.md). */
+   El 24 y el 25 se entrega hasta las 20 h (confirmado por el dueño).
+   TODO: la respuesta de anticipación, cuando el dueño confirme una fecha límite. */
 export const navidadFaqs: FaqItem[] = [
   {
     q: '¿Qué puedo regalar en Navidad en Catamarca?',
@@ -230,7 +230,7 @@ export const navidadFaqs: FaqItem[] = [
   },
   {
     q: '¿Entregan el 24 y el 25 de diciembre?',
-    a: 'Consultá disponibilidad por WhatsApp. Decinos qué día y en qué momento lo querés y te confirmamos si se puede.',
+    a: 'Sí. El 24 y el 25 de diciembre entregamos hasta las 20 h. Son los días con más pedidos: escribinos con tiempo por WhatsApp y reservá el día y el horario.',
   },
   {
     q: '¿Con cuánta anticipación tengo que pedir para Navidad?',
