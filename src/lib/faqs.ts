@@ -221,6 +221,10 @@ export const enviarRegaloFaqs: FaqItem[] = [
    cuando el dueño confirme disponibilidad y fecha límite (ver TODO-contenido.md). */
 export const navidadFaqs: FaqItem[] = [
   {
+    q: '¿Qué puedo regalar en Navidad en Catamarca?',
+    a: `Un desayuno sorpresa, un ramo de golosinas o de chocolates, o una caja con chocolates en forma de corazón, entregados a domicilio en ${siteConfig.city}. Se piden por WhatsApp, ${siteConfig.hoursCopy}.`,
+  },
+  {
     q: '¿Cómo pido un regalo de Navidad?',
     a: 'Por WhatsApp. Elegís el desayuno o el ramo, nos pasás el nombre de quien lo recibe y el día que querés, y coordinamos el resto.',
   },
@@ -243,6 +247,10 @@ export const navidadFaqs: FaqItem[] = [
   {
     q: '¿Cómo me entero de que se entregó?',
     a: 'Te mandamos foto o video de la entrega por WhatsApp, así la ves aunque estés lejos.',
+  },
+  {
+    q: '¿Hacen regalos de fin de año para empresas?',
+    a: 'Sí. Armamos propuestas con los mismos desayunos y ramos para tu equipo o tus clientes. Escribinos por WhatsApp con la cantidad y la fecha que necesitás.',
   },
 ];
 
