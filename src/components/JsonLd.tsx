@@ -138,30 +138,6 @@ export function serviceJsonLd({
   };
 }
 
-/* Product sin Offer: la web no publica precios, así que el schema tampoco
-   los declara. Sin aggregateRating ni review propias. */
-export function productJsonLd({
-  name,
-  description,
-  image,
-  urlPath,
-}: {
-  name: string;
-  description: string;
-  image: string;
-  urlPath: string;
-}) {
-  return {
-    '@context': CONTEXT,
-    '@type': 'Product',
-    name,
-    description,
-    image: [`${siteConfig.url}${image}`],
-    brand: { '@type': 'Brand', name: siteConfig.name },
-    url: `${siteConfig.url}${urlPath}`,
-  };
-}
-
 /* VideoObject: solo para videos reales publicados en la ficha. */
 export function videoJsonLd({
   name,

@@ -5,7 +5,6 @@ import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import JsonLd, {
-  productJsonLd,
   breadcrumbJsonLd,
   faqJsonLd,
   videoJsonLd,
@@ -48,13 +47,9 @@ export default function ProductDetail({ data }: { data: ProductPageData }) {
     <main className="min-h-dvh bg-paper text-ink">
       <JsonLd
         data={[
+          /* Sin schema Product: Google lo exige con precio, reseñas o
+             calificación, y la web no publica precios (daba error en GSC). */
           breadcrumbJsonLd(crumbs),
-          productJsonLd({
-            name: `${seoName} a domicilio en Catamarca`,
-            description: `${product.description} ${product.detail}`,
-            image: product.images[0].src,
-            urlPath,
-          }),
           ...(faqs.length ? [faqJsonLd(faqs)] : []),
           ...(product.video && product.videoMeta
             ? [
