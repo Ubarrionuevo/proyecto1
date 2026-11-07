@@ -16,8 +16,8 @@ import { pageMetadata } from '@/lib/seo';
 import { originLinks, siteConfig } from '@/lib/site';
 
 /* Evergreen: sin año en la URL, el H1 ni el texto, para reutilizarla cada año.
-   El 24 y el 25 de diciembre se entrega hasta las 20 h (confirmado por el dueño).
-   TODO: sumar la fecha límite para pedir cuando el dueño la confirme. */
+   Confirmado por el dueño: se toman pedidos hasta el 25 de diciembre y el 24
+   y el 25 se trabaja hasta las 20 h. */
 
 export const metadata: Metadata = pageMetadata({
   title: 'Regalos de Navidad a Domicilio en Catamarca | LaPrincesaCta',
@@ -96,8 +96,9 @@ export default function NavidadPage() {
             y del resto nos ocupamos.
           </p>
           <p>
-            El 24 y el 25 de diciembre también entregamos, hasta las 20 h. Son los días con más
-            pedidos, así que escribinos con tiempo y reservá el día y el horario que necesitás.
+            Tomamos pedidos hasta el mismo 25 de diciembre: el 24 y el 25 trabajamos hasta las
+            20 h. Son los días con más pedidos, así que escribinos con tiempo y reservá el día y
+            el horario que necesitás.
           </p>
         </div>
 

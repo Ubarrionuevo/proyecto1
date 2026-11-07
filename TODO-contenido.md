@@ -5,7 +5,7 @@ Nada de lo de abajo está publicado en la web. Son datos que faltan y que
 
 ## Tanda noviembre 2026
 - [x] Entrega el 24 y el 25 de diciembre: sí, hasta las 20 h (publicado en `/navidad`).
-- [ ] Fecha límite para pedir en Navidad.
+- [x] Fecha límite para pedir en Navidad: hasta el 25 de diciembre, 20 h (publicado).
 - [ ] Anticipación mínima para pedir.
 - [ ] Para un blog futuro: historias reales de regalos enviados desde lejos, con
       permiso del cliente. Sin material real, no se publica.
