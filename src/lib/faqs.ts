@@ -172,7 +172,7 @@ export const empresasFaqs: FaqItem[] = [
   },
   {
     q: '¿Dónde entregan?',
-    a: `En ${siteConfig.city}, y despachamos al resto del país. Coordinamos el destino de cada pedido por WhatsApp.`,
+    a: `Solo en ${siteConfig.city}. Tu empresa puede estar en otra provincia, pero quien recibe el regalo tiene que estar acá. Coordinamos cada entrega por WhatsApp.`,
   },
   {
     q: '¿Hay una cantidad mínima?',

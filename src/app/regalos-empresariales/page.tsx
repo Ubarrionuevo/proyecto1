@@ -45,7 +45,7 @@ const pasos = [
   {
     n: '01',
     t: 'Nos contás qué necesitás',
-    d: 'Cantidad de regalos, fecha, destino y para quién son: empleados, clientes o equipo.',
+    d: 'Cantidad de regalos, fecha, dirección y para quién son: empleados, clientes o equipo.',
   },
   {
     n: '02',
@@ -55,12 +55,12 @@ const pasos = [
   {
     n: '03',
     t: 'Confirmás el pedido',
-    d: 'Se paga por transferencia y coordinamos la entrega o el envío de cada regalo.',
+    d: 'Se paga por transferencia y coordinamos la entrega de cada regalo.',
   },
   {
     n: '04',
     t: 'Entregamos',
-    d: 'Llevamos los regalos en Catamarca o los despachamos al resto del país.',
+    d: `Llevamos los regalos hasta cada dirección en ${siteConfig.city}.`,
   },
 ];
 
@@ -90,15 +90,11 @@ export default function RegalosEmpresarialesPage() {
         data={[
           breadcrumbJsonLd(crumbs),
           serviceJsonLd({
-            name: 'Regalos empresariales en Catamarca y todo el país',
-            description:
-              'Propuestas de desayunos y ramos para empleados y clientes de empresas, con entrega en Catamarca y envíos al resto del país.',
+            name: 'Regalos empresariales en Catamarca',
+            description: `Propuestas de desayunos y ramos para empleados y clientes de empresas, con entrega en ${siteConfig.city}.`,
             urlPath: '/regalos-empresariales',
             serviceType: 'Regalos empresariales',
-            areaServed: [
-              { '@type': 'City', name: siteConfig.city },
-              { '@type': 'Country', name: 'Argentina' },
-            ],
+            areaServed: { '@type': 'City', name: siteConfig.city },
           }),
           faqJsonLd(empresasFaqs),
         ]}
@@ -108,7 +104,7 @@ export default function RegalosEmpresarialesPage() {
 
       <section className="max-w-3xl mx-auto px-5 sm:px-8 pt-10 sm:pt-14 pb-14">
         <h1 className="display-lg text-ink text-balance">
-          Regalos empresariales en Catamarca y a todo el país
+          Regalos empresariales en Catamarca
         </h1>
         <div className="mt-6 space-y-5 text-base leading-relaxed text-ink-soft max-w-prose">
           <p>
@@ -122,8 +118,8 @@ export default function RegalosEmpresarialesPage() {
             y te pasamos una propuesta por WhatsApp.
           </p>
           <p>
-            Entregamos en San Fernando del Valle de Catamarca y despachamos pedidos al resto del
-            país. Se paga por transferencia y hablás directo con nosotras, sin intermediarios.
+            Entregamos solo en San Fernando del Valle de Catamarca. Se paga por transferencia y
+            hablás directo con nosotras, sin intermediarios.
           </p>
           <p>
             Si además querés sumar una carta personalizada a cada regalo, mirá{' '}
@@ -181,11 +177,12 @@ export default function RegalosEmpresarialesPage() {
 
         <div className="mt-12 border-l-2 border-butter pl-5">
           <h2 className="font-display text-2xl sm:text-3xl font-semibold text-ink text-balance">
-            En Catamarca y a todo el país.
+            Entregamos en Catamarca.
           </h2>
           <p className="mt-2 text-base leading-relaxed text-ink-soft max-w-prose">
-            Entregamos en San Fernando del Valle y despachamos pedidos al resto de Argentina.
-            Contanos el destino de cada regalo y coordinamos la entrega.
+            Los regalos se entregan solo en San Fernando del Valle de Catamarca. Tu empresa puede
+            estar en otra provincia: lo que tiene que estar acá es quien los recibe. Pasanos las
+            direcciones y coordinamos cada entrega.
           </p>
         </div>
 

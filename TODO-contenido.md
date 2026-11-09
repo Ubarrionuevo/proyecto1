@@ -15,9 +15,8 @@ Nada de lo de abajo está publicado en la web. Son datos que faltan y que
 - [ ] 5 o 6 reseñas reales de Google (ideal: de clientes del exterior).
 - [x] **Fecha del Día de la Madre:** `/dia-de-la-madre` ya dice "tercer domingo de
       octubre" (18/10/2026). Las páginas por origen dicen solo "en octubre".
-- [ ] **Regalos empresariales:** `/regalos-empresariales` y sus FAQ dicen
-      "despachamos al resto del país", pero la entrega de desayunos y ramos es solo
-      en Catamarca. Confirmar qué se despacha, si algo, y corregir el H1 y el texto.
+- [x] **Regalos empresariales:** el dueño confirmó que se entregan solo en Catamarca.
+      Corregidos el H1, el texto, la FAQ y el schema de `/regalos-empresariales`.
 - [ ] Los precios no se ven en la web, pero siguen en `products.ts` y viajan en el
       JavaScript público. Si no deben estar ni ahí, hay que sacarlos del código.
 
