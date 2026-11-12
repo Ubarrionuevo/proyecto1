@@ -1,4 +1,5 @@
 import { facts } from '@/components/QuickFacts';
+import { guides } from '@/lib/guias';
 import { cajas, desayunos, ramos } from '@/lib/products';
 import { localityLinks, originLinks, productLinks, provinceLinks, siteConfig } from '@/lib/site';
 
@@ -39,6 +40,11 @@ function body() {
     '',
     `Desde el interior de Catamarca (la entrega es siempre en ${siteConfig.city}, no en estas localidades):`,
     ...localityLinks.map((link) => `- [${link.label}](${url(link.href)})`),
+    '',
+    '## Guías de regalo',
+    '',
+    `- [Guías de regalo](${url('/guias-de-regalo')}): qué regalar según para quién y cómo sorprender.`,
+    ...guides.map((g) => `- [${g.label}](${url(`/guias-de-regalo/${g.slug}`)}): ${g.description}`),
     '',
     '## Páginas principales',
     '',

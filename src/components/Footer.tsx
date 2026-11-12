@@ -18,6 +18,7 @@ export const pageLinks = [
   { href: '/dia-de-la-madre', label: 'Regalos para el Día de la Madre' },
   { href: '/navidad', label: 'Regalos de Navidad' },
   { href: '/enviar-regalo-a-catamarca', label: 'Enviar regalo a Catamarca' },
+  { href: '/guias-de-regalo', label: 'Guías de regalo' },
 ];
 
 export default function Footer() {
