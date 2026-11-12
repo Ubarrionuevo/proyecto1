@@ -50,6 +50,26 @@ export const originLinks = [
   { href: '/enviar-regalo-a-catamarca/desde-otras-provincias', label: 'Desde otras provincias' },
 ];
 
+/* Provincias más pobladas y localidades del interior de Catamarca. Los textos
+   están en origins-argentina.ts; si se agrega una página allá, sumarla acá. */
+export const provinceLinks = [
+  { href: '/enviar-regalo-a-catamarca/desde-buenos-aires', label: 'Desde Buenos Aires' },
+  { href: '/enviar-regalo-a-catamarca/desde-cordoba', label: 'Desde Córdoba' },
+  { href: '/enviar-regalo-a-catamarca/desde-santa-fe', label: 'Desde Santa Fe' },
+  { href: '/enviar-regalo-a-catamarca/desde-tucuman', label: 'Desde Tucumán' },
+  { href: '/enviar-regalo-a-catamarca/desde-mendoza', label: 'Desde Mendoza' },
+  { href: '/enviar-regalo-a-catamarca/desde-salta', label: 'Desde Salta' },
+];
+
+export const localityLinks = [
+  { href: '/enviar-regalo-a-catamarca/desde-belen', label: 'Desde Belén' },
+  { href: '/enviar-regalo-a-catamarca/desde-andalgala', label: 'Desde Andalgalá' },
+  { href: '/enviar-regalo-a-catamarca/desde-tinogasta', label: 'Desde Tinogasta' },
+  { href: '/enviar-regalo-a-catamarca/desde-santa-maria', label: 'Desde Santa María' },
+  { href: '/enviar-regalo-a-catamarca/desde-recreo', label: 'Desde Recreo' },
+  { href: '/enviar-regalo-a-catamarca/desde-fiambala', label: 'Desde Fiambalá' },
+];
+
 /* Fichas de producto. Vive acá por lo mismo: el Footer enlaza todas con su
    nombre SEO como anchor text y product-pages.ts toma de acá las URL. */
 export const productLinks = [

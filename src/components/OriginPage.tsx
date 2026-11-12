@@ -19,8 +19,18 @@ export function originMetadata(origin: OriginData) {
   });
 }
 
-/* Página por origen: la estructura es común y todo el texto viene de origins.ts. */
-export default function OriginPage({ origin }: { origin: OriginData }) {
+export type RelatedLinks = { title: string; links: { href: string; label: string }[] };
+
+/* Página por origen: la estructura es común y todo el texto viene de origins.ts
+   (exterior y "otras provincias") u origins-argentina.ts (provincias y
+   localidades). `related` enlaza con las páginas hermanas. */
+export default function OriginPage({
+  origin,
+  related,
+}: {
+  origin: OriginData;
+  related?: RelatedLinks;
+}) {
   const crumbs = [
     { name: 'Inicio', path: '/' },
     { name: 'Enviar regalo a Catamarca', path: '/enviar-regalo-a-catamarca' },
@@ -36,6 +46,12 @@ export default function OriginPage({ origin }: { origin: OriginData }) {
 
       <section className="max-w-3xl mx-auto px-5 sm:px-8 pt-10 sm:pt-14 pb-14">
         <h1 className="display-lg text-ink text-balance">{origin.h1}</h1>
+        {origin.notice && (
+          <div className="mt-6 border-l-2 border-berry bg-paper-card px-5 py-4 max-w-prose">
+            <p className="font-display text-lg font-semibold text-ink">{origin.notice.t}</p>
+            <p className="mt-1 text-sm leading-relaxed text-ink-soft">{origin.notice.d}</p>
+          </div>
+        )}
         <div className="mt-6 space-y-5 text-base leading-relaxed text-ink-soft max-w-prose">
           {origin.lead.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
@@ -114,6 +130,21 @@ export default function OriginPage({ origin }: { origin: OriginData }) {
             {origin.cta}
           </StickerButton>
         </div>
+
+        {related && related.links.length > 0 && (
+          <>
+            <h2 className="display-md mt-14 text-ink text-balance">{related.title}</h2>
+            <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+              {related.links.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="link-underline font-bold text-ink">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
 
         <p className="mt-6 text-sm text-ink-soft max-w-prose">
           ¿Querés ver cómo funciona en general? Te lo contamos en{' '}

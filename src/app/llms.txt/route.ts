@@ -1,6 +1,6 @@
 import { facts } from '@/components/QuickFacts';
 import { cajas, desayunos, ramos } from '@/lib/products';
-import { originLinks, productLinks, siteConfig } from '@/lib/site';
+import { localityLinks, originLinks, productLinks, provinceLinks, siteConfig } from '@/lib/site';
 
 /* Resumen en texto plano para asistentes de IA. Sale de las mismas fuentes que
    la web y no publica precios: los campos price de products.ts no se usan acá. */
@@ -35,6 +35,10 @@ function body() {
     '',
     `- [Enviar un regalo a Catamarca](${url('/enviar-regalo-a-catamarca')}): cómo pedir y pagar si no estás en la ciudad.`,
     ...originLinks.map((link) => `- [${link.label}](${url(link.href)})`),
+    ...provinceLinks.map((link) => `- [${link.label}](${url(link.href)})`),
+    '',
+    `Desde el interior de Catamarca (la entrega es siempre en ${siteConfig.city}, no en estas localidades):`,
+    ...localityLinks.map((link) => `- [${link.label}](${url(link.href)})`),
     '',
     '## Páginas principales',
     '',

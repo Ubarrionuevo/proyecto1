@@ -1,4 +1,4 @@
-import { originLinks, productLinks, siteConfig } from '@/lib/site';
+import { localityLinks, originLinks, productLinks, provinceLinks, siteConfig } from '@/lib/site';
 
 /* Páginas que salen de una plantilla: por origen (OriginPage) y fichas de
    producto. Se arma desde las mismas listas que usa el Footer, así una página
@@ -8,7 +8,7 @@ import { originLinks, productLinks, siteConfig } from '@/lib/site';
 export const dynamic = 'force-static';
 
 function body() {
-  const urls = [...originLinks, ...productLinks].map((link) =>
+  const urls = [...originLinks, ...provinceLinks, ...localityLinks, ...productLinks].map((link) =>
     [
       '  <url>',
       `    <loc>${siteConfig.url}${link.href}</loc>`,

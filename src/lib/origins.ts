@@ -24,6 +24,8 @@ export type OriginData = {
   proofTitle: string;
   proof: string;
   quote?: string;
+  /* Aviso destacado arriba (páginas de localidad: dónde se entrega). */
+  notice?: { t: string; d: string };
   faqs: FaqItem[];
 };
 

@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { contact } from '@/lib/products';
-import { originLinks, productLinks, siteConfig } from '@/lib/site';
+import { localityLinks, originLinks, productLinks, provinceLinks, siteConfig } from '@/lib/site';
 import GoogleRating from './GoogleRating';
 import Reveal from './ui/Reveal';
 
@@ -97,6 +97,34 @@ export default function Footer() {
               </li>
             ))}
           </ul>
+        </div>
+
+        {/* Envíos por provincia y desde el interior de Catamarca */}
+        <div className="border-t border-ink/15 py-6 grid gap-6 sm:grid-cols-2">
+          <div>
+            <span className="label">Desde tu provincia</span>
+            <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2.5 text-sm">
+              {provinceLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="link-underline text-ink-soft hover:text-ink">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <span className="label">Desde el interior a la Capital</span>
+            <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2.5 text-sm">
+              {localityLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="link-underline text-ink-soft hover:text-ink">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         {/* Redes: solo si hay URL en siteConfig */}

@@ -11,7 +11,7 @@ import StickerButton from '@/components/ui/StickerButton';
 import { enviarRegaloFaqs } from '@/lib/faqs';
 import { getWhatsAppUrl, contact } from '@/lib/products';
 import { pageMetadata } from '@/lib/seo';
-import { originLinks, siteConfig } from '@/lib/site';
+import { localityLinks, originLinks, provinceLinks, siteConfig } from '@/lib/site';
 
 const title = 'Enviar Regalos a Catamarca desde Cualquier Lugar';
 const description =
@@ -181,6 +181,34 @@ export default function EnviarRegaloPage() {
             </Link>
           ))}
         </div>
+
+        <h2 className="display-md mt-14 text-ink">Desde tu provincia</h2>
+        <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+          {provinceLinks.map((link) => (
+            <li key={link.href}>
+              <Link href={link.href} className="link-underline font-bold text-ink">
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        <h2 className="display-md mt-14 text-ink text-balance">
+          Desde el interior de Catamarca
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-ink-soft max-w-prose">
+          Entregamos solo en la Capital. Si estás en el interior y querés sorprender a alguien
+          que vive acá:
+        </p>
+        <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+          {localityLinks.map((link) => (
+            <li key={link.href}>
+              <Link href={link.href} className="link-underline font-bold text-ink">
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
 
         <h2 className="display-md mt-14 text-ink">Qué podés mandar</h2>
         <ProductGrid />
