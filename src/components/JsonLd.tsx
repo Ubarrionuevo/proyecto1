@@ -161,7 +161,11 @@ export function videoJsonLd({
     description,
     thumbnailUrl: [`${siteConfig.url}${thumbnail}`],
     contentUrl: `${siteConfig.url}${contentPath}`,
-    uploadDate,
+    /* Google pide fecha con hora y zona horaria: si viene solo la fecha
+       (AAAA-MM-DD), se completa con el mediodía de Argentina. */
+    uploadDate: /^\d{4}-\d{2}-\d{2}$/.test(uploadDate)
+      ? `${uploadDate}T12:00:00-03:00`
+      : uploadDate,
     duration,
   };
 }
