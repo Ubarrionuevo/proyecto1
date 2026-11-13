@@ -37,7 +37,7 @@ Nada de lo de abajo está publicado en la web. Son datos que faltan y que
 ## Reseñas
 - [ ] 5 o 6 reseñas reales copiadas de Google, con nombre de quien la escribió
       y confirmación de que se pueden publicar en la web.
-- [x] Nota y cantidad actualizadas a 5.0 y 42 opiniones (`siteConfig`).
+- [x] Nota y cantidad actualizadas a 5.0 y 50 opiniones (`siteConfig`, nov 2026).
 - [x] Enlace a la ficha real de Google Maps cargado en `googleMapsUrl`: el bloque
       de reputación (navbar, hero, footer y sección de opiniones) ahora es
       clickeable y abre la ficha.
@@ -52,7 +52,7 @@ Nada de lo de abajo está publicado en la web. Son datos que faltan y que
 - [ ] "+100 entregas hechas" (banda del hero en el inicio). Viene del dato del
       dueño, pero no es verificable desde afuera: confirmarlo o cambiarlo.
 - [ ] La nota y la cantidad de opiniones deben seguir coincidencia con la ficha
-      de Google: hoy son 5.0 y 42, y salen de `siteConfig` (un solo lugar).
+      de Google: hoy son 5.0 y 50, y salen de `siteConfig` (un solo lugar).
 
 ## Hero (inicio)
 - [x] `Hero.tsx` estaba escrito pero nunca se importaba: no se renderizaba en
@@ -65,7 +65,8 @@ Nada de lo de abajo está publicado en la web. Son datos que faltan y que
       localidades? ¿Cuáles, confirmadas?
 - [ ] ¿Anticipación mínima para pedir? (hoy no figura en el sitio).
 - [ ] ¿Medios de pago además de transferencia?
-- [ ] Dirección exacta del local/taller (solo si se quiere publicar; hoy no figura).
+- [x] Dirección: Hualfín 28 (confirmada, igual que el perfil de Google). Publicada en la web y el schema.
+- [x] Horario: todos los días de 8 a 23:30 h (confirmado, igual que el perfil de Google).
 
 ## Productos (lo que falte por producto va acá, no se publica sin confirmar)
 - [ ] Contenido detallado, medidas, sabores y opciones de cada desayuno y ramo.

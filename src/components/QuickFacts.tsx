@@ -9,6 +9,7 @@ export const facts = [
     d: 'Desayunos sorpresa y ramos de golosinas, de chocolates, futboleros o con oso de peluche.',
   },
   { t: 'Zona de entrega', d: `Solo en ${siteConfig.city}, ${siteConfig.region}.` },
+  { t: 'Dirección', d: `${siteConfig.streetAddress}, ${siteConfig.city}, ${siteConfig.region}.` },
   { t: 'Horario', d: `${siteConfig.hours}, hora de Argentina.` },
   { t: 'Precios', d: 'Consultalos por WhatsApp.' },
   { t: 'Cómo pedir', d: `Por WhatsApp al ${siteConfig.phoneDisplay}.` },

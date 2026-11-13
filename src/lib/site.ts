@@ -13,14 +13,17 @@ export const siteConfig = {
      No es el número del negocio. */
   catalogPromoWhatsappNumber: '5493834035119',
   city: 'San Fernando del Valle de Catamarca',
+  /* Misma dirección que el perfil de Google (confirmada por el dueño). */
+  streetAddress: 'Hualfín 28',
   region: 'Catamarca',
   country: 'AR',
-  hours: 'Lunes a domingo, 8 a 23 h',
+  hours: 'Lunes a domingo, 8 a 23:30 h',
   /* Horario en hora de Argentina: la diferencia horaria de las páginas por
      origen se calcula desde acá. */
-  hoursCopy: 'todos los días de 8 a 23 h',
+  hoursCopy: 'todos los días de 8 a 23:30 h',
+  /* Horas en número: 23.5 = 23:30. Coinciden con el perfil de Google. */
   openHour: 8,
-  closeHour: 23,
+  closeHour: 23.5,
   /* Cuando es false, la UI no muestra precios en ningún lado (los datos de
      precio siguen en products.ts). Se activa de nuevo en true cuando el
      dueño quiera publicarlos. */
@@ -30,7 +33,7 @@ export const siteConfig = {
      sigue publicada porque es evergreen. */
   seasonalBanner: { enabled: true, label: 'Navidad', href: '/navidad' },
   googleRating: '5.0',
-  googleReviews: 42,
+  googleReviews: 50,
   /* Ficha real de Google Maps (verificada). Se usa para el enlace de opiniones
      y para el bloque de reseñas: al tocar, abre la ficha del negocio. */
   googleMapsUrl:

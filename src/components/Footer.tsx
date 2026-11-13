@@ -13,6 +13,7 @@ export const pageLinks = [
   { href: '/catalogo', label: 'Catálogo' },
   { href: '/desayunos-sorpresa-catamarca', label: 'Desayunos sorpresa' },
   { href: '/ramos-de-golosinas-catamarca', label: 'Ramos de golosinas' },
+  { href: '/regalos-personalizados-catamarca', label: 'Regalos personalizados' },
   { href: '/cartas-personalizadas', label: 'Cartas personalizadas' },
   { href: '/regalos-empresariales', label: 'Regalos empresariales' },
   { href: '/dia-de-la-madre', label: 'Regalos para el Día de la Madre' },
@@ -50,7 +51,9 @@ export default function Footer() {
               <span className="text-ink-soft"> · </span>
               <strong className="font-bold text-ink">{contact.hours}</strong>
             </p>
-            <p className="mt-2 text-sm text-ink-soft">{contact.city}</p>
+            <p className="mt-2 text-sm text-ink-soft">
+              {siteConfig.streetAddress}, {contact.city}
+            </p>
           </Reveal>
 
           <Reveal delay={160} y={10} className="sm:border-l sm:border-ink/15 sm:pl-8">

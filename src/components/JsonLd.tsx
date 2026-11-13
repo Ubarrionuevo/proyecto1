@@ -18,7 +18,7 @@ export function localBusinessJsonLd() {
     '@type': 'Store',
     name: siteConfig.name,
     alternateName: 'La Princesa Cta',
-    description: `Regalos a domicilio en ${siteConfig.city}: desayunos sorpresa y ramos de golosinas.`,
+    description: `Regalería de ${siteConfig.city}: desayunos sorpresa y ramos de golosinas a domicilio.`,
     url: siteConfig.url,
     telephone: `+${siteConfig.whatsappNumber}`,
     image: [`${siteConfig.url}/og-laprincesacta.jpg`],
@@ -26,6 +26,7 @@ export function localBusinessJsonLd() {
     hasMap: siteConfig.googleMapsUrl,
     address: {
       '@type': 'PostalAddress',
+      streetAddress: siteConfig.streetAddress,
       addressLocality: siteConfig.city,
       addressRegion: siteConfig.region,
       addressCountry: siteConfig.country,
@@ -34,7 +35,7 @@ export function localBusinessJsonLd() {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
       opens: '08:00',
-      closes: '23:00',
+      closes: '23:30',
     },
     areaServed: {
       '@type': 'City',
@@ -130,6 +131,7 @@ export function serviceJsonLd({
       image: `${siteConfig.url}/og-laprincesacta.jpg`,
       address: {
         '@type': 'PostalAddress',
+        streetAddress: siteConfig.streetAddress,
         addressLocality: siteConfig.city,
         addressRegion: siteConfig.region,
         addressCountry: siteConfig.country,

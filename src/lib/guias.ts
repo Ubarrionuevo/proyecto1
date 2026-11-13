@@ -534,6 +534,95 @@ const queRegalar: Guide[] = [
     whatsapp: 'un ramo de golosinas',
     cta: 'Quiero un ramo de golosinas',
   },
+  {
+    slug: 'que-regalarle-a-un-hombre',
+    kind: 'que-regalar',
+    label: 'Qué regalarle a un hombre',
+    crumb: 'Qué regalarle a un hombre',
+    title: 'Qué Regalarle a un Hombre en Catamarca: Ideas por Edad',
+    description:
+      'Ideas de regalos para hombres de 30, 40, 50, 60 y 70 años en Catamarca: desayunos, ramo futbolero y chocolates, con entrega a domicilio.',
+    h1: 'Qué regalarle a un hombre en Catamarca: ideas según su edad',
+    lead: [
+      'A los hombres se les regala poco y casi siempre lo mismo. Por eso un regalo que llega a su puerta, armado para él y con un mensaje tuyo, sorprende más de lo que parece.',
+      `Ordenamos las ideas por edad porque es como más se busca, pero lo que manda es lo que le gusta. Todo se entrega a domicilio en ${city}.`,
+    ],
+    sections: [
+      {
+        h2: 'Regalos para hombres de 30 a 40 años',
+        paragraphs: [
+          'A esta edad suele pesar lo que le apasiona: su club, el chocolate, algo para compartir con amigos.',
+        ],
+        items: [
+          { t: 'Si es futbolero', d: 'El ramo futbolero se arma con los colores de su club, escudos, golosinas y la camiseta adentro.', links: [P.futbolero] },
+          { t: 'Si es goloso', d: 'Un ramo de chocolates con envuelto fino y moño, o un ramo de golosinas.', links: [P.chocolates, P.comun] },
+        ],
+      },
+      {
+        h2: 'Regalos para hombres de 40 años',
+        paragraphs: [
+          'Para un cumpleaños de 40 funciona algo que le cambie la mañana: un desayuno que llega a su casa con una nota tuya.',
+        ],
+        items: [
+          { t: 'Desayuno sorpresa', d: 'Café o té, delicias artesanales, una taza y una nota escrita a mano.', links: [P.madera, P.carton] },
+        ],
+      },
+      {
+        h2: 'Regalos para hombres de 50 años',
+        paragraphs: [
+          'Para los 50 conviene algo que quede: la caja de madera del desayuno se vuelve a usar para guardar cosas.',
+        ],
+        items: [
+          { t: 'Desayuno en caja de madera', d: 'La sorpresa del desayuno y una caja que se queda en su casa.', links: [P.madera] },
+          { t: 'Con una carta', d: 'Sumale una carta personalizada con lo que querés decirle en una fecha así.', links: [P.cartas] },
+        ],
+      },
+      {
+        h2: 'Regalos para hombres de 60 y 70 años',
+        paragraphs: [
+          'Para papás y abuelos, muchas veces lo que más se valora es que alguien se acordó y se tomó el trabajo. Un desayuno en su casa y unas palabras escritas para él.',
+        ],
+        items: [
+          { t: 'Desayuno y carta', d: 'Un desayuno sorpresa con una carta personalizada de toda la familia.', links: [P.madera, P.cartas] },
+          { t: 'Si es hincha de toda la vida', d: 'El ramo futbolero con los colores de su club.', links: [P.futbolero] },
+        ],
+      },
+      {
+        h2: 'Para su cumpleaños',
+        list: [
+          'Un desayuno sorpresa para que arranque el día festejando.',
+          'Un ramo de golosinas o de chocolates si no sabés a qué hora va a estar en casa.',
+          'Si están lejos, te mandamos foto o video de la entrega.',
+        ],
+      },
+      {
+        h2: 'Ideas originales',
+        list: [
+          'Un ramo de golosinas en lugar de flores: a un hombre casi nunca le regalan un ramo.',
+          'El ramo futbolero de su club.',
+          'Un desayuno que llega sin aviso un día cualquiera.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: '¿Qué le puedo regalar a un hombre en Catamarca?',
+        a: `Un desayuno sorpresa, un ramo de chocolates o de golosinas, o el ramo futbolero con los colores de su club. Se entregan a domicilio en ${city}.`,
+      },
+      {
+        q: '¿Qué le regalo a un hombre de 50 o 60 años?',
+        a: 'Un desayuno en caja de madera, que después le queda para guardar cosas, y una carta personalizada con tu mensaje.',
+      },
+      {
+        q: '¿El ramo futbolero se arma de cualquier club?',
+        a: 'Se arma por pedido con los colores del club que nos digas y la camiseta adentro. Consultanos por WhatsApp.',
+      },
+      entrega,
+      precio,
+    ],
+    whatsapp: 'un regalo para un hombre',
+    cta: 'Quiero un regalo para él',
+  },
 ];
 
 /* ---------- Cómo ---------- */

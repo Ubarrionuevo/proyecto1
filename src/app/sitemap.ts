@@ -14,6 +14,7 @@ const routes = [
   '/enviar-regalo-a-catamarca',
   '/cartas-personalizadas',
   '/regalos-empresariales',
+  '/regalos-personalizados-catamarca',
 ];
 
 /* No se declara `lastModified`: no hay una fecha real por página que se pueda

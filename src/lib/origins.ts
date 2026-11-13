@@ -31,8 +31,12 @@ export type OriginData = {
 
 const { openHour, closeHour } = siteConfig;
 
+/* Hora en texto: 23.5 -> "23:30", 8 -> "8". */
+const fmtHour = (hour: number) =>
+  Number.isInteger(hour) ? `${hour}` : `${Math.floor(hour)}:${String(Math.round((hour % 1) * 60)).padStart(2, '0')}`;
+
 /* Hora local a la que equivale una hora de Argentina, según la diferencia. */
-const localHour = (hour: number, diff: number) => (hour + diff + 24) % 24;
+const localHour = (hour: number, diff: number) => fmtHour((hour + diff + 24) % 24);
 
 const pagoCuentaArgentina = {
   t: '¿Todavía tenés cuenta en Argentina?',
@@ -62,7 +66,7 @@ export const origins: Record<'peru' | 'italia' | 'suiza' | 'provincias', OriginD
     timeTitle: 'Dos horas de diferencia, todo el año',
     time: [
       `En Perú son 2 horas menos que en Argentina. Por ejemplo, si pedís a las 10 en Lima, en Catamarca son las 12. Perú no cambia la hora durante el año, así que la cuenta siempre es la misma.`,
-      `Atendemos de ${openHour} a ${closeHour} h, hora de Argentina: en Lima, eso es de ${localHour(openHour, -2)} a ${localHour(closeHour, -2)} h. Para el día y la hora de la entrega, hablamos siempre en hora de Argentina y así nadie se confunde.`,
+      `Atendemos de ${openHour} a ${fmtHour(closeHour)} h, hora de Argentina: en Lima, eso es de ${localHour(openHour, -2)} a ${localHour(closeHour, -2)} h. Para el día y la hora de la entrega, hablamos siempre en hora de Argentina y así nadie se confunde.`,
     ],
     paymentTitle: 'Cómo pagás desde Perú',
     payment: [pagoCuentaArgentina, pagoPrex],
@@ -113,7 +117,7 @@ export const origins: Record<'peru' | 'italia' | 'suiza' | 'provincias', OriginD
     timeTitle: 'Cuatro o cinco horas de diferencia',
     time: [
       'Italia va 4 horas adelante de Argentina durante el invierno europeo y 5 horas durante el verano europeo. Por ejemplo, si pedís a las 9 en Roma, en Catamarca son las 5 o las 4.',
-      `Atendemos de ${openHour} a ${closeHour} h, hora de Argentina. En invierno, en Italia eso es de las ${localHour(openHour, 4)} a las ${localHour(closeHour, 4)} de la madrugada; en verano, de las ${localHour(openHour, 5)} a las ${localHour(closeHour, 5)} de la madrugada. Tu mañana es nuestra madrugada, así que escribinos desde el mediodía de Italia en adelante y te contestamos en el momento.`,
+      `Atendemos de ${openHour} a ${fmtHour(closeHour)} h, hora de Argentina. En invierno, en Italia eso es de las ${localHour(openHour, 4)} a las ${localHour(closeHour, 4)} de la madrugada; en verano, de las ${localHour(openHour, 5)} a las ${localHour(closeHour, 5)} de la madrugada. Tu mañana es nuestra madrugada, así que escribinos desde el mediodía de Italia en adelante y te contestamos en el momento.`,
     ],
     paymentTitle: 'Cómo pagás desde Italia',
     payment: [pagoCuentaArgentina, pagoPrex],
@@ -166,7 +170,7 @@ export const origins: Record<'peru' | 'italia' | 'suiza' | 'provincias', OriginD
     timeTitle: 'Organizate con la diferencia horaria',
     time: [
       'Suiza va 4 horas adelante de Argentina durante el invierno europeo y 5 horas durante el verano europeo. Por ejemplo, si escribís a las 9 en Zúrich, en Catamarca son las 5 o las 4.',
-      `Nuestro horario es de ${openHour} a ${closeHour} h, hora de Argentina, así que antes del mediodía suizo todavía no arrancamos. Podés dejarnos el mensaje cuando quieras y lo vemos apenas abrimos, a las ${localHour(openHour, 4)} de Suiza en invierno y a las ${localHour(openHour, 5)} en verano.`,
+      `Nuestro horario es de ${openHour} a ${fmtHour(closeHour)} h, hora de Argentina, así que antes del mediodía suizo todavía no arrancamos. Podés dejarnos el mensaje cuando quieras y lo vemos apenas abrimos, a las ${localHour(openHour, 4)} de Suiza en invierno y a las ${localHour(openHour, 5)} en verano.`,
     ],
     paymentTitle: 'Cómo pagás desde Suiza',
     payment: [pagoCuentaArgentina, pagoPrex],

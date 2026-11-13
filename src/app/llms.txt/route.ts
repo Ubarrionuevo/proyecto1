@@ -21,7 +21,7 @@ function body() {
   return [
     `# ${siteConfig.name}`,
     '',
-    `> Regalos a domicilio en Catamarca: desayunos sorpresa y ramos de golosinas, con entrega en ${siteConfig.city}, ${siteConfig.region}, Argentina. Se pide por WhatsApp, también desde otras provincias y desde el exterior.`,
+    `> Regalería de Catamarca con regalos a domicilio: desayunos sorpresa y ramos de golosinas, con entrega en ${siteConfig.city}, ${siteConfig.region}, Argentina. Se pide por WhatsApp, también desde otras provincias y desde el exterior.`,
     '',
     '## Datos esenciales',
     '',
@@ -55,6 +55,7 @@ function body() {
     `- [Ramos de golosinas en Catamarca](${url('/ramos-de-golosinas-catamarca')})`,
     `- [Regalos para el Día de la Madre](${url('/dia-de-la-madre')})`,
     `- [Regalos de Navidad](${url('/navidad')})`,
+    `- [Regalos personalizados en Catamarca](${url('/regalos-personalizados-catamarca')})`,
     `- [Cartas personalizadas](${url('/cartas-personalizadas')})`,
     `- [Regalos empresariales](${url('/regalos-empresariales')})`,
     '',
