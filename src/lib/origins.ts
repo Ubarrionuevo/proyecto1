@@ -32,18 +32,18 @@ export type OriginData = {
 const { openHour, closeHour } = siteConfig;
 
 /* Hora en texto: 23.5 -> "23:30", 8 -> "8". */
-const fmtHour = (hour: number) =>
+export const fmtHour = (hour: number) =>
   Number.isInteger(hour) ? `${hour}` : `${Math.floor(hour)}:${String(Math.round((hour % 1) * 60)).padStart(2, '0')}`;
 
 /* Hora local a la que equivale una hora de Argentina, según la diferencia. */
-const localHour = (hour: number, diff: number) => fmtHour((hour + diff + 24) % 24);
+export const localHour = (hour: number, diff: number) => fmtHour((hour + diff + 24) % 24);
 
-const pagoCuentaArgentina = {
+export const pagoCuentaArgentina = {
   t: '¿Todavía tenés cuenta en Argentina?',
   d: 'Transferís en pesos, como si estuvieras acá.',
 };
 
-const pagoPrex = {
+export const pagoPrex = {
   t: '¿Solo tenés Prex?',
   d: 'Pagás desde Prex, sin necesidad de cuenta argentina.',
 };

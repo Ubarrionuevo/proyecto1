@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { contact } from '@/lib/products';
-import { localityLinks, originLinks, productLinks, provinceLinks, siteConfig } from '@/lib/site';
+import { countryLinks, localityLinks, originLinks, productLinks, provinceLinks, siteConfig } from '@/lib/site';
 import GoogleRating from './GoogleRating';
 import Reveal from './ui/Reveal';
 
@@ -75,7 +75,7 @@ export default function Footer() {
           <Reveal delay={240} y={10} className="sm:border-l sm:border-ink/15 sm:pl-8">
             <span className="label">Enviar desde</span>
             <ul className="mt-4 space-y-2.5 text-sm">
-              {originLinks.map((link) => (
+              {[...originLinks, ...countryLinks].map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}

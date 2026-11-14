@@ -62,6 +62,22 @@ export const provinceLinks = [
   { href: '/enviar-regalo-a-catamarca/desde-tucuman', label: 'Desde Tucumán' },
   { href: '/enviar-regalo-a-catamarca/desde-mendoza', label: 'Desde Mendoza' },
   { href: '/enviar-regalo-a-catamarca/desde-salta', label: 'Desde Salta' },
+  { href: '/enviar-regalo-a-catamarca/desde-jujuy', label: 'Desde Jujuy' },
+  { href: '/enviar-regalo-a-catamarca/desde-santiago-del-estero', label: 'Desde Santiago del Estero' },
+  { href: '/enviar-regalo-a-catamarca/desde-la-rioja', label: 'Desde La Rioja' },
+  { href: '/enviar-regalo-a-catamarca/desde-entre-rios', label: 'Desde Entre Ríos' },
+  { href: '/enviar-regalo-a-catamarca/desde-neuquen', label: 'Desde Neuquén' },
+];
+
+/* Países sin pedidos confirmados todavía (textos en origins-exterior.ts). No
+   van en originLinks, que se muestra como "Nos compran desde". */
+export const countryLinks = [
+  { href: '/enviar-regalo-a-catamarca/desde-espana', label: 'Desde España' },
+  { href: '/enviar-regalo-a-catamarca/desde-estados-unidos', label: 'Desde Estados Unidos' },
+  { href: '/enviar-regalo-a-catamarca/desde-chile', label: 'Desde Chile' },
+  { href: '/enviar-regalo-a-catamarca/desde-uruguay', label: 'Desde Uruguay' },
+  { href: '/enviar-regalo-a-catamarca/desde-brasil', label: 'Desde Brasil' },
+  { href: '/enviar-regalo-a-catamarca/desde-mexico', label: 'Desde México' },
 ];
 
 export const localityLinks = [
