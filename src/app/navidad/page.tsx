@@ -147,7 +147,7 @@ export default function NavidadPage() {
         <h2 className="display-md mt-14 text-ink">Qué regalar en Navidad según para quién</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
           {ideas.map((idea) => (
-            <div key={idea.para} className="border border-rule bg-paper-card p-6">
+            <div key={idea.para} className="rounded-3xl border border-rule bg-paper-card p-6">
               <h3 className="font-display text-xl font-semibold text-ink">{idea.para}</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink-soft">{idea.texto}</p>
               <ul className="mt-4 space-y-2 text-sm">
@@ -190,7 +190,7 @@ export default function NavidadPage() {
         <h2 className="display-md mt-14 text-ink">Más regalos de fin de año</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
           {finDeAnio.map((idea) => (
-            <div key={idea.t} className="border border-rule bg-paper-card p-6">
+            <div key={idea.t} className="rounded-3xl border border-rule bg-paper-card p-6">
               <h3 className="font-display text-xl font-semibold text-ink">{idea.t}</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink-soft">{idea.d}</p>
               <Link

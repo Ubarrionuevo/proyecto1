@@ -29,7 +29,7 @@ export default function ProductCard({
       <Link
         href={href}
         aria-label={`Ver ${title}`}
-        className="zoom-host relative block aspect-[3/4] overflow-hidden bg-paper-deep"
+        className="zoom-host relative block aspect-[3/4] overflow-hidden rounded-3xl bg-paper-deep"
       >
         {product.video ? (
           <video

@@ -100,7 +100,7 @@ export default function DiaDeLaMadrePage() {
             <Link
               key={item.href}
               href={item.href}
-              className="group border border-rule bg-paper-card p-6"
+              className="group rounded-3xl border border-rule bg-paper-card p-6"
             >
               <span className="font-display text-xl font-semibold text-ink flex items-center gap-2">
                 {item.name}

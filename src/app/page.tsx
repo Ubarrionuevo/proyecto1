@@ -1,11 +1,17 @@
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
-import GeoBanner from '@/components/GeoBanner';
-import SeasonalBanner from '@/components/SeasonalBanner';
-import SolutionSection from '@/components/SolutionSection';
-import AdditionalGifts from '@/components/AdditionalGifts';
-import ClientsMotion from '@/components/ClientsMotion';
-import ClientReview from '@/components/ClientReview';
+import {
+  AnnounceBar,
+  CajasPop,
+  DesayunosPop,
+  FarPop,
+  HowPop,
+  PhotosPop,
+  PopHero,
+  PopTicker,
+  RamosPop,
+  ReviewPop,
+} from '@/components/home/PopHome';
 import QuickFacts from '@/components/QuickFacts';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
@@ -17,16 +23,20 @@ import { siteConfig } from '@/lib/site';
 
 export default function Home() {
   return (
-    <main className="min-h-dvh bg-paper text-ink">
+    <main className="min-h-dvh overflow-x-clip bg-cream text-ink">
       <JsonLd data={[websiteJsonLd(), localBusinessJsonLd(), faqJsonLd(homeFaqs)]} />
+      <AnnounceBar />
       <Navbar />
-      <GeoBanner />
-      <SeasonalBanner />
+      <PopHero />
+      <PopTicker />
 
-      <SolutionSection />
-      <AdditionalGifts />
-      <ClientsMotion />
-      <ClientReview />
+      <DesayunosPop />
+      <RamosPop />
+      <CajasPop />
+      <HowPop />
+      <FarPop />
+      <PhotosPop />
+      <ReviewPop />
 
       <section className="border-t border-rule py-8 sm:py-10">
         <div className="max-w-3xl mx-auto px-5 sm:px-8">

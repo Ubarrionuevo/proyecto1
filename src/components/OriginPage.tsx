@@ -75,7 +75,7 @@ export default function OriginPage({
         <h2 className="display-md mt-14 text-ink text-balance">{origin.paymentTitle}</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
           {origin.payment.map((option) => (
-            <div key={option.t} className="border border-rule bg-paper-card p-5">
+            <div key={option.t} className="rounded-3xl border border-rule bg-paper-card p-5">
               <h3 className="font-display text-xl font-semibold text-ink">{option.t}</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink-soft">{option.d}</p>
             </div>
@@ -88,7 +88,7 @@ export default function OriginPage({
         <h2 className="display-md mt-14 text-ink text-balance">{origin.occasionsTitle}</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
           {origin.occasions.map((occasion) => (
-            <div key={occasion.t} className="border border-rule bg-paper-card p-5">
+            <div key={occasion.t} className="rounded-3xl border border-rule bg-paper-card p-5">
               <h3 className="font-display text-xl font-semibold text-ink">{occasion.t}</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink-soft">{occasion.d}</p>
             </div>

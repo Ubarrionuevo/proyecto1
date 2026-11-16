@@ -1,21 +1,21 @@
 @import "tailwindcss";
 
 @theme {
-  /* Paleta clara: papel crema + tinta vino.
-     Todo el sitio va sobre fondo claro; el vino se usa para texto y
-     acentos, nunca como fondo de seccion completa. */
-  --color-paper: #f7f1ea;
-  --color-paper-deep: #efe6da;
-  --color-paper-card: #fdfaf6;
-  --color-ink: #3d1e33;
-  --color-ink-soft: #6f5263;
-  --color-rule: #ddcbbd;
-  --color-rule-soft: #ece1d6;
+  /* Paleta "claro y colorido" en todo el sitio. Los nombres viejos (paper,
+     ink, berry...) se mantienen para no tocar cada página: ahora apuntan a
+     crema, ciruela y fucsia. */
+  --color-paper: #fff7ef;
+  --color-paper-deep: #ffeadf;
+  --color-paper-card: #ffffff;
+  --color-ink: #2b1530;
+  --color-ink-soft: #5e4560;
+  --color-rule: #f1d6cb;
+  --color-rule-soft: #f7e4dc;
 
-  /* Acentos: calidos, sin azul ni verde frio */
-  --color-berry: #c0304f;
-  --color-berry-deep: #9e2540;
-  --color-butter: #d6a244;
+  /* Acentos */
+  --color-berry: #d6246e;
+  --color-berry-deep: #b01a59;
+  --color-butter: #f2b705;
   /* Version oscura del butter: sobre fondo claro el color original
      no llega a 4.5:1 y el texto queda ilegible. */
   --color-butter-deep: #8a6318;
@@ -23,8 +23,20 @@
      Sigue siendo verde WhatsApp a simple vista. */
   --color-wa: #146c3c;
 
-  /* Dos tipografias: Piazzolla (serif) para titulos y Karla para texto corrido. */
-  --font-display: var(--font-piazzolla), Georgia, serif;
+  /* Bloques de color del rediseño: rosa chicle, durazno y amarillo. El fucsia
+     es para botones con texto blanco (contraste 6.5:1). */
+  --color-cream: #fff7ef;
+  --color-plum: #2b1530;
+  --color-plum-soft: #5e4560;
+  --color-bubble: #ff8fb5;
+  --color-peach: #ffbf96;
+  --color-lemon: #ffe27a;
+  --color-fuchsia: #d6246e;
+  --color-fuchsia-deep: #b01a59;
+  --font-pop: var(--font-bricolage), system-ui, sans-serif;
+
+  /* Dos tipografias: Bricolage Grotesque para titulos y Karla para texto corrido. */
+  --font-display: var(--font-bricolage), system-ui, sans-serif;
   --font-body: var(--font-karla), system-ui, -apple-system, sans-serif;
 
   /* Textura de papel: SVG embebido, grano fino, se repite */
@@ -34,23 +46,23 @@
 body {
   font-family: var(--font-body);
   background-color: var(--color-paper);
-  background-image: var(--texture-grain);
   color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
-/* Titulos en Piazzolla.
-   Tracking un poco apretado para que los titulares grandes no se abran. */
+/* Titulos en Bricolage, un poco angosta. Los titulares grandes (display-*)
+   van además en mayúsculas, como en el inicio. */
 h1,
 h2,
 h3,
 h4,
 .font-display {
   font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: -0.015em;
+  font-weight: 700;
+  font-variation-settings: "wdth" 85;
+  letter-spacing: -0.01em;
 }
 
 /* ── Editorial primitives ─────────────────────────────────────── */
@@ -71,7 +83,7 @@ h4,
   font-family: var(--font-display);
   font-weight: 700;
   line-height: 0.85;
-  color: #937d6a;
+  color: var(--color-berry);
 }
 
 /* Filete: hairline en vez de sombra */
@@ -90,11 +102,11 @@ h4,
   justify-content: center;
   gap: 0.6rem;
   /* Alto tactil minimo (>=44px) en todas las variantes, tambien en size sm. */
-  min-height: 44px;
+  min-height: 48px;
   background: var(--color-berry);
   color: #fff;
   font-weight: 700;
-  border-radius: 3px;
+  border-radius: 999px;
   cursor: pointer;
   transition:
     transform 140ms ease,
@@ -121,7 +133,7 @@ h4,
 .sticker-outline {
   background: transparent;
   color: var(--color-berry);
-  box-shadow: inset 0 0 0 1.5px var(--color-berry);
+  box-shadow: inset 0 0 0 2px var(--color-berry);
 }
 @media (hover: hover) {
   .sticker-outline:hover {
@@ -162,17 +174,27 @@ h4,
 }
 
 /* Tamano display fluido, sin escala agresiva de "tech" */
+.display-xl,
+.display-lg,
+.display-md {
+  font-family: var(--font-pop);
+  font-weight: 800;
+  font-variation-settings: "wdth" 75, "opsz" 96;
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  font-style: normal;
+}
 .display-xl {
-  font-size: clamp(2.5rem, 9vw, 6.5rem);
-  line-height: 0.92;
+  font-size: clamp(3rem, 14vw, 6.5rem);
+  line-height: 0.9;
 }
 .display-lg {
-  font-size: clamp(2rem, 6vw, 4rem);
-  line-height: 1;
+  font-size: clamp(2.4rem, 11vw, 5rem);
+  line-height: 0.92;
 }
 .display-md {
-  font-size: clamp(1.5rem, 3.6vw, 2.25rem);
-  line-height: 1.12;
+  font-size: clamp(1.75rem, 7.5vw, 3rem);
+  line-height: 0.95;
 }
 
 /* Polaroid: marco de papel, rotacion sutil, sombra fisica minima.
@@ -181,6 +203,7 @@ h4,
 .polaroid {
   --rot: 0deg;
   background: var(--color-paper-card);
+  border-radius: 1.25rem;
   padding: 9px 9px 34px;
   box-shadow: 0 1px 3px rgb(36 26 20 / 0.14);
   transform: rotate(var(--rot));
@@ -205,6 +228,13 @@ h4,
   .polaroid:hover .zoom-media {
     transform: none;
   }
+}
+
+/* Foto redondeada dentro del marco */
+.polaroid img,
+.polaroid video,
+.polaroid > span {
+  border-radius: 0.85rem;
 }
 
 /* Zoom muy leve de la foto dentro de un contenedor con overflow hidden.
@@ -376,5 +406,78 @@ h4,
   /* Sin hover en tactil: el desplazamiento de fila sobra y puede quedar pegado. */
   .lift-row:hover {
     transform: none;
+  }
+}
+
+/* ── Rediseño del inicio ("pop") ──────────────────────────────── */
+
+/* Titular angosto en mayúsculas. */
+.pop-display {
+  font-family: var(--font-pop);
+  font-weight: 800;
+  font-variation-settings: "wdth" 75, "opsz" 96;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 0.9;
+}
+.pop-xl {
+  font-size: clamp(3rem, 15vw, 6.5rem);
+}
+.pop-lg {
+  font-size: clamp(2.5rem, 12vw, 5rem);
+}
+.pop-md {
+  font-size: clamp(1.9rem, 8.5vw, 3.25rem);
+}
+.pop-kicker {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Botón píldora */
+.pop-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 3.5rem;
+  padding: 0 1.6rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: transform 160ms ease, background-color 160ms ease;
+}
+.pop-btn:active {
+  transform: scale(0.97);
+}
+.pop-btn:focus-visible {
+  outline: 3px solid var(--color-plum);
+  outline-offset: 3px;
+}
+.pop-btn-main {
+  background: var(--color-fuchsia);
+  color: #fff;
+}
+@media (hover: hover) {
+  .pop-btn-main:hover {
+    background: var(--color-fuchsia-deep);
+  }
+}
+
+/* Sticker redondo girado sobre las fotos */
+.pop-sticker {
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  text-align: center;
+  transform: rotate(-10deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pop-btn {
+    transition: none;
   }
 }

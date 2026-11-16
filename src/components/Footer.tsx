@@ -24,12 +24,12 @@ export const pageLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-paper-deep text-ink">
+    <footer className="rounded-t-[2rem] bg-paper-deep text-ink">
       {/* Rejilla editorial de 4 columnas con filetes */}
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-8 py-14">
           <Reveal y={10}>
-            <p className="font-display text-2xl font-semibold text-ink">
+            <p className="pop-display text-4xl text-ink">
               LaPrincesa<span className="text-berry-deep">Cta</span>
             </p>
             <p className="mt-3 text-sm leading-relaxed text-ink-soft max-w-xs">

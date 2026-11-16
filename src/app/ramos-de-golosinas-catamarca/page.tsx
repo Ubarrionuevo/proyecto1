@@ -79,7 +79,7 @@ export default function RamosPage() {
           ))}
         </div>
 
-        <div className="mt-10 border border-rule bg-paper-card p-5 sm:p-8">
+        <div className="mt-10 rounded-3xl border border-rule bg-paper-card p-5 sm:p-8">
           <h2 className="font-display text-xl sm:text-2xl font-semibold text-ink">
             ¿Lo querés a tu manera?
           </h2>

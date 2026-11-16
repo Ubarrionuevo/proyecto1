@@ -62,7 +62,7 @@ export default function Navbar() {
             href="/"
             className="flex items-baseline gap-2 shrink-0 group transition-opacity duration-200 hover:opacity-70"
           >
-            <span className="font-display text-[1.35rem] sm:text-[1.6rem] font-semibold tracking-tight text-ink leading-none">
+            <span className="pop-display text-[1.7rem] sm:text-[2rem] text-ink leading-none">
               LaPrincesa
               <span className="text-berry">Cta</span>
             </span>

@@ -130,7 +130,7 @@ export default function ProductDetail({ data }: { data: ProductPageData }) {
             <FarAwayLine className="mt-8" />
           </div>
           <div className="lg:col-span-5">
-            <div className="border border-rule bg-paper-card p-6 sm:p-8 lg:sticky lg:top-28">
+            <div className="rounded-3xl border border-rule bg-paper-card p-6 sm:p-8 lg:sticky lg:top-28">
               {siteConfig.showPrices && (
                 <>
                   <p className="font-display text-3xl font-semibold text-berry leading-none">
@@ -162,7 +162,7 @@ export default function ProductDetail({ data }: { data: ProductPageData }) {
             <Link
               key={item.href}
               href={item.href}
-              className="group border border-rule bg-paper-card p-6"
+              className="group rounded-3xl border border-rule bg-paper-card p-6"
             >
               <span className="font-display text-xl font-semibold text-ink flex items-center gap-2">
                 {item.name}

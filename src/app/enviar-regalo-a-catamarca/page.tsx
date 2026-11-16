@@ -127,7 +127,7 @@ export default function EnviarRegaloPage() {
         <h2 className="display-md mt-14 text-ink">Cómo pagar desde el exterior</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
           {pagos.map((pago) => (
-            <div key={pago.t} className="border border-rule bg-paper-card p-5">
+            <div key={pago.t} className="rounded-3xl border border-rule bg-paper-card p-5">
               <h3 className="font-display text-xl font-semibold text-ink">{pago.t}</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink-soft">{pago.d}</p>
             </div>
@@ -175,7 +175,7 @@ export default function EnviarRegaloPage() {
             <Link
               key={link.href}
               href={link.href}
-              className="border border-rule bg-paper-card p-4 font-display text-lg font-semibold text-ink link-underline"
+              className="rounded-3xl border border-rule bg-paper-card p-4 font-display text-lg font-semibold text-ink link-underline"
             >
               Enviar regalo a Catamarca {link.label.toLowerCase()}
             </Link>

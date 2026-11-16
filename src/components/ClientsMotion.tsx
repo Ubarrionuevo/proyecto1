@@ -35,7 +35,7 @@ export default function ClientsMotion({
           {clientPhotos.map((photo) => (
             <li
               key={photo.image}
-              className="relative aspect-square overflow-hidden border border-rule bg-paper-deep"
+              className="relative aspect-square overflow-hidden rounded-3xl border border-rule bg-paper-deep"
             >
               <Image
                 src={photo.image}

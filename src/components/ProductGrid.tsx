@@ -11,7 +11,7 @@ export default function ProductGrid() {
   return (
     <div className="mt-6 grid gap-4 sm:grid-cols-2">
       {Object.values(productPages).map(({ product, seoName, urlPath }, i) => (
-        <article key={urlPath} className="border border-rule bg-paper-card p-4 sm:p-5">
+        <article key={urlPath} className="rounded-3xl border border-rule bg-paper-card p-4 sm:p-5">
           <Link href={urlPath} className="group block">
             <Polaroid
               src={product.images[0].src}

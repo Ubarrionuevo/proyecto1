@@ -24,7 +24,7 @@ export function GoogleReviewsButton() {
 export function GoogleMapEmbed() {
   if (!siteConfig.googleMapsUrl) return null;
   return (
-    <div className="mt-10 overflow-hidden border border-rule">
+    <div className="mt-10 overflow-hidden rounded-3xl border border-rule">
       <iframe
         title={`Mapa: ${siteConfig.name} en ${siteConfig.city}`}
         src={siteConfig.googleMapsUrl}
@@ -74,7 +74,7 @@ function RatingCard() {
     </>
   );
 
-  const classes = 'group border border-rule bg-paper-card p-6';
+  const classes = 'group rounded-3xl border border-rule bg-paper-card p-6';
 
   if (!href) return <div className={classes}>{inner}</div>;
 
@@ -94,7 +94,7 @@ export default function Reviews() {
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <RatingCard />
           {reviews.map((review) => (
-            <figure key={review.name} className="border border-rule bg-paper-card p-6">
+            <figure key={review.name} className="rounded-3xl border border-rule bg-paper-card p-6">
               <blockquote className="quote text-base leading-relaxed text-ink">
                 {review.text}
               </blockquote>

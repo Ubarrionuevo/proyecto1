@@ -143,7 +143,7 @@ export default function RegalosPersonalizadosPage() {
         <h2 className="display-md mt-14 text-ink text-balance">Qué podés personalizar</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
           {opciones.map((op) => (
-            <div key={op.t} className="border border-rule bg-paper-card p-5">
+            <div key={op.t} className="rounded-3xl border border-rule bg-paper-card p-5">
               <h3 className="font-display text-xl font-semibold text-ink">{op.t}</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink-soft">{op.d}</p>
               <ul className="mt-3 space-y-1 text-sm">

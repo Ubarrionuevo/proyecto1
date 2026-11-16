@@ -47,7 +47,7 @@ export default function GuiasPage() {
                   <Link
                     key={g.slug}
                     href={`${GUIDES_PATH}/${g.slug}`}
-                    className="block border border-rule bg-paper-card p-5 hover:border-ink/40"
+                    className="block rounded-3xl border border-rule bg-paper-card p-5 hover:border-ink/40"
                   >
                     <span className="font-display text-xl font-semibold text-ink link-underline">
                       {g.label}

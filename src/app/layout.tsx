@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Karla, Piazzolla } from "next/font/google";
+import { Bricolage_Grotesque, Karla } from "next/font/google";
 import { siteConfig } from "@/lib/site";
 import { ratingHook } from "@/lib/seo";
 import Analytics from "@/components/Analytics";
@@ -17,12 +17,12 @@ const karla = Karla({
   style: ["normal", "italic"],
 });
 
-/* Piazzolla para titulos: serif angulosa, diseñada en Argentina. Es variable,
-   asi que no hace falta listar pesos. */
-const piazzolla = Piazzolla({
-  variable: "--font-piazzolla",
+/* Bricolage Grotesque para los titulos: variable, con eje de ancho para
+   usarla angosta y en mayúsculas. */
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
   subsets: ["latin"],
-  style: ["normal", "italic"],
+  axes: ["wdth", "opsz"],
 });
 
 /* Token publico de verificacion de Google Search Console (metodo etiqueta meta).
@@ -70,7 +70,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#F7F1EA",
+  themeColor: "#FFF7EF",
 };
 
 export default function RootLayout({
@@ -83,7 +83,7 @@ export default function RootLayout({
        --font-body se resuelven en :root y si no las encuentran quedan vacias. */
     <html
       lang="es-AR"
-      className={`${karla.variable} ${piazzolla.variable} scroll-smooth`}
+      className={`${karla.variable} ${bricolage.variable} scroll-smooth`}
       suppressHydrationWarning
     >
       <head>

@@ -35,7 +35,7 @@ export default function ProvinciasSection() {
         <div className="grid lg:grid-cols-12 gap-x-8 gap-y-12">
           {/* CTA directo en el lugar del bloque eliminado */}
           <div className="lg:col-span-5">
-            <Reveal className="border border-rule bg-paper-card p-5 sm:p-6">
+            <Reveal className="rounded-3xl border border-rule bg-paper-card p-5 sm:p-6">
               <StickerButton
                 href={getWhatsAppUrl('un regalo para un familiar en Catamarca desde otra provincia')}
                 variant="wa"
