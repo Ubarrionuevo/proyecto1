@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import SeasonalLink from '@/components/SeasonalLink';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
@@ -100,7 +101,9 @@ export default function GuidePage({ guide }: { guide: Guide }) {
           ))}
         </ul>
 
-        <p className="mt-6 text-sm text-ink-soft max-w-prose">
+        <SeasonalLink className="mt-6" />
+
+        <p className="mt-4 text-sm text-ink-soft max-w-prose">
           ¿Ya sabés qué querés? Mirá el{' '}
           <Link href="/catalogo" className="link-underline font-bold text-ink">
             catálogo de regalos a domicilio en Catamarca

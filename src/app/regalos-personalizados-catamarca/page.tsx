@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import SeasonalLink from '@/components/SeasonalLink';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
@@ -185,6 +186,8 @@ export default function RegalosPersonalizadosPage() {
           </Link>
           .
         </p>
+
+        <SeasonalLink />
 
         <h2 className="display-md mt-14 text-ink">Todos los regalos</h2>
         <ProductGrid />

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import SeasonalLink from '@/components/SeasonalLink';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
@@ -157,6 +158,7 @@ export default function RamosPage() {
             </p>
           </div>
         </ReadMore>
+        <SeasonalLink className="mt-8" />
       </section>
 
       <DeliveredPhotos title="Ramos que ya entregamos" photos={deliveredPhotos} />

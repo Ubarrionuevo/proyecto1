@@ -252,6 +252,14 @@ export const navidadFaqs: FaqItem[] = [
     q: '¿Hacen regalos de fin de año para empresas?',
     a: 'Sí. Armamos propuestas con los mismos desayunos y ramos para tu equipo o tus clientes. Escribinos por WhatsApp con la cantidad y la fecha que necesitás.',
   },
+  {
+    q: '¿Qué puedo regalar para el amigo invisible?',
+    a: `Un ramo de golosinas, un ramo de chocolates o un ramo de peluche, entregados a domicilio en ${siteConfig.city}. Si tienen un monto acordado, contanos por WhatsApp y te decimos qué opciones entran.`,
+  },
+  {
+    q: '¿Entregan regalos de Navidad en el interior de Catamarca?',
+    a: `No: entregamos solo en ${siteConfig.city}. Si estás en el interior, igual podés pedir para alguien que vive en la Capital.`,
+  },
 ];
 
 /* ── FAQ por producto ────────────────────────────────────────────

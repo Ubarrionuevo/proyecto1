@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import SeasonalLink from '@/components/SeasonalLink';
 import type { CSSProperties } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -186,6 +187,7 @@ export default function ProductDetail({ data }: { data: ProductPageData }) {
           </Link>
           .
         </p>
+        <SeasonalLink className="mt-3" />
       </section>
 
       {faqs.length > 0 && (

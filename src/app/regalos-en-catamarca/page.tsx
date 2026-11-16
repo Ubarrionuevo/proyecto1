@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import SeasonalLink from '@/components/SeasonalLink';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
@@ -206,6 +207,7 @@ export default function RegalosEnCatamarcaPage() {
           </Link>
           .
         </p>
+        <SeasonalLink />
 
         <div className="mt-10">
           <StickerButton href={getWhatsAppUrl(topic)} variant="wa" size="lg">

@@ -623,6 +623,118 @@ const queRegalar: Guide[] = [
     whatsapp: 'un regalo para un hombre',
     cta: 'Quiero un regalo para él',
   },
+  {
+    slug: 'que-regalar-para-el-amigo-invisible',
+    kind: 'que-regalar',
+    label: 'Qué regalar para el amigo invisible',
+    crumb: 'Regalo para el amigo invisible',
+    title: 'Qué Regalar para el Amigo Invisible en Catamarca',
+    description:
+      'Ideas para el amigo invisible de fin de año en Catamarca: ramos de golosinas, de chocolates o con peluche, entregados a domicilio. Pedilo por WhatsApp.',
+    h1: 'Qué regalar para el amigo invisible: ideas que llegan a domicilio',
+    lead: [
+      'El amigo invisible de fin de año tiene una trampa: te toca alguien que conocés poco y no sabés qué le gusta. Lo dulce casi nunca falla.',
+      `Estas ideas se entregan a domicilio en ${city}, así que también sirven si el intercambio es a distancia o si no llegás a la juntada.`,
+    ],
+    sections: [
+      {
+        h2: 'Ideas según a quién te tocó',
+        items: [
+          { t: 'Si no lo conocés mucho', d: 'Un ramo común de golosinas: tiene un poco de todo y le gusta a casi todos.', links: [P.comun] },
+          { t: 'Si es fan del chocolate', d: 'Un ramo de chocolates con envuelto fino y moño.', links: [P.chocolates] },
+          { t: 'Si es futbolero', d: 'El ramo futbolero con los colores de su club.', links: [P.futbolero] },
+          { t: 'Si es para alguien tierno', d: 'Un ramo de peluche con conejito o un ramo con oso.', links: [P.peluche, P.oso] },
+        ],
+      },
+      {
+        h2: 'Para que salga bien',
+        list: [
+          'Si tienen un monto acordado, contanos por WhatsApp y te decimos qué opciones entran.',
+          'Si el intercambio es en un lugar y un día fijo, avisanos con tiempo para coordinar la entrega.',
+          'Pasanos el mensaje para la tarjeta y cómo querés firmarlo.',
+          'Si estás lejos, te mandamos foto o video de la entrega.',
+        ],
+      },
+      {
+        h2: 'Más regalos de fin de año',
+        paragraphs: ['Si además buscás algo para tu familia, mirá las ideas para estas fiestas.'],
+        items: [{ t: 'Regalos de Navidad', d: 'Desayunos, ramos y cajas para regalar en Navidad.', links: [{ href: '/navidad', name: 'Regalos de Navidad a domicilio en Catamarca' }] }],
+      },
+    ],
+    faqs: [
+      {
+        q: '¿Qué le regalo al amigo invisible si no lo conozco?',
+        a: 'Un ramo común de golosinas: tiene un poco de todo. Si sabés que le gusta el chocolate o el fútbol, el ramo de chocolates o el futbolero.',
+      },
+      {
+        q: '¿Entregan el regalo del amigo invisible a domicilio?',
+        a: `Sí, en ${city}. Coordinamos el día y el horario por WhatsApp.`,
+      },
+      {
+        q: '¿Qué pasa si tenemos un monto fijo?',
+        a: 'Contanos el monto por WhatsApp y te decimos qué opciones entran.',
+      },
+      entrega,
+    ],
+    whatsapp: 'un regalo para el amigo invisible',
+    cta: 'Quiero un regalo para el amigo invisible',
+  },
+  {
+    slug: 'regalo-de-fin-de-ano-para-la-seno',
+    kind: 'que-regalar',
+    label: 'Regalo de fin de año para la seño',
+    crumb: 'Regalo de fin de año para la seño',
+    title: 'Regalo de Fin de Año para la Seño o el Profe en Catamarca',
+    description:
+      'Ideas para agradecerle a la seño o al profe a fin de año en Catamarca: ramos de golosinas y de chocolates con tarjeta, entregados a domicilio.',
+    h1: 'Regalo de fin de año para la seño o el profe',
+    lead: [
+      'Fin de clases es el momento de decir gracias a quien acompañó a los chicos todo el año. Un detalle dulce con una tarjeta escrita por ellos dice mucho.',
+      `Estas ideas se entregan a domicilio en ${city}. Sirven para un regalo de una familia o de todo el grado.`,
+    ],
+    sections: [
+      {
+        h2: 'Ideas para agradecer',
+        items: [
+          { t: 'Un ramo de chocolates', d: 'Elegante y fácil de recibir: envuelto fino y moño.', links: [P.chocolates] },
+          { t: 'Un ramo de golosinas', d: 'El ramo común, armado y envuelto para regalar.', links: [P.comun] },
+          { t: 'Con un peluche', d: 'Para la seño de jardín, un ramo de peluche con conejito.', links: [P.peluche] },
+          { t: 'Con una carta', d: 'Una carta personalizada con los mensajes de los chicos.', links: [P.cartas] },
+        ],
+      },
+      {
+        h2: 'Si lo regalan entre todo el grado',
+        list: [
+          'Que una sola persona nos escriba por WhatsApp y coordine todo.',
+          'Juntá los mensajes de los chicos para la tarjeta o la carta.',
+          'Contanos el monto que juntaron y te decimos qué opciones entran.',
+          'Coordinamos el día y el lugar de la entrega, siempre en la Capital de Catamarca.',
+        ],
+      },
+      {
+        h2: 'Qué escribir en la tarjeta',
+        list: [
+          '"Gracias por tanta paciencia y tanto cariño este año. ¡Felices vacaciones!"',
+          '"Seño: gracias por enseñarnos tanto. Te vamos a extrañar."',
+          '"Profe, gracias por este año. Disfrute el descanso, se lo ganó."',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: '¿Qué le regalo a la seño a fin de año?',
+        a: `Un ramo de chocolates o de golosinas con una tarjeta de los chicos, entregado a domicilio en ${city}.`,
+      },
+      {
+        q: '¿Se puede organizar entre todo el grado?',
+        a: 'Sí. Que una persona nos escriba por WhatsApp con el monto que juntaron y los mensajes, y coordinamos la entrega.',
+      },
+      entrega,
+      precio,
+    ],
+    whatsapp: 'un regalo de fin de año para la seño',
+    cta: 'Quiero un regalo para la seño',
+  },
 ];
 
 /* ---------- Cómo ---------- */

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import SeasonalLink from '@/components/SeasonalLink';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
@@ -93,13 +94,7 @@ export default function OriginPage({
             </div>
           ))}
         </div>
-        <p className="mt-4 text-sm leading-relaxed text-ink-soft max-w-prose">
-          Se acerca fin de año: mirá las opciones de{' '}
-          <Link href="/navidad" className="link-underline font-bold text-ink">
-            regalos de Navidad a domicilio en Catamarca
-          </Link>
-          .
-        </p>
+        <SeasonalLink />
 
         <div className="mt-14 border-l-2 border-butter pl-5">
           <h2 className="font-display text-2xl sm:text-3xl font-semibold text-ink text-balance">

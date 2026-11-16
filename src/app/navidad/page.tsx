@@ -13,14 +13,14 @@ import { ArrowIcon } from '@/components/Icons';
 import { clientPhotos, getWhatsAppUrl } from '@/lib/products';
 import { navidadFaqs } from '@/lib/faqs';
 import { pageMetadata } from '@/lib/seo';
-import { originLinks, siteConfig } from '@/lib/site';
+import { countryLinks, originLinks, siteConfig } from '@/lib/site';
 
 /* Evergreen: sin año en la URL, el H1 ni el texto, para reutilizarla cada año.
    Confirmado por el dueño: se toman pedidos hasta el 25 de diciembre y el 24
    y el 25 se trabaja hasta las 20 h. */
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Regalos de Navidad a Domicilio en Catamarca | LaPrincesaCta',
+  title: 'Regalos de Navidad y Fin de Año a Domicilio en Catamarca | LaPrincesaCta',
   description:
     'Desayunos sorpresa, ramos de golosinas y cajas con chocolates para regalar en Navidad, a domicilio en Catamarca. Mandalos desde donde estés y recibí foto de la entrega.',
   path: '/navidad',
@@ -65,6 +65,42 @@ const ideas = [
 const crumbs = [
   { name: 'Inicio', path: '/' },
   { name: 'Navidad' },
+];
+
+/* Fin de año: cada idea enlaza a una guía o página propia. */
+const finDeAnio = [
+  {
+    t: 'Para el amigo invisible',
+    d: 'Un ramo de golosinas o de chocolates que llega a la puerta de quien te tocó.',
+    href: '/guias-de-regalo/que-regalar-para-el-amigo-invisible',
+    link: 'Ideas para el amigo invisible',
+  },
+  {
+    t: 'Para la seño o el profe',
+    d: 'Un gracias de fin de año de parte de toda la familia o de todo el grado.',
+    href: '/guias-de-regalo/regalo-de-fin-de-ano-para-la-seno',
+    link: 'Ideas para la seño o el profe',
+  },
+  {
+    t: 'El desayuno del 25',
+    d: 'Para arrancar el día de Navidad con un desayuno sorpresa y tu saludo en la nota.',
+    href: '/desayunos-sorpresa-catamarca',
+    link: 'Desayunos sorpresa en Catamarca',
+  },
+  {
+    t: 'Para tu equipo o tus clientes',
+    d: 'Propuestas con los mismos desayunos y ramos para cerrar el año.',
+    href: '/regalos-empresariales',
+    link: 'Regalos empresariales de fin de año',
+  },
+];
+
+/* Ejemplos propios para la tarjeta (no copiados). */
+const mensajes = [
+  '“Este año no llego a la mesa, pero quería estar en el desayuno. ¡Feliz Navidad!”',
+  '“Gracias por bancarme todo el año. Que estas fiestas sean tan lindas como vos.”',
+  '“Para que arranques la Navidad con algo dulce. Te quiero mucho.”',
+  '“Feliz Navidad, ma. El abrazo te lo debo; esto va en su lugar.”',
 ];
 
 export default function NavidadPage() {
@@ -131,6 +167,63 @@ export default function NavidadPage() {
           ))}
         </div>
 
+        <h2 className="display-md mt-14 text-ink">Fechas clave de diciembre</h2>
+        <ul className="mt-4 space-y-2 list-disc pl-5 text-base leading-relaxed text-ink-soft max-w-prose marker:text-berry">
+          <li>
+            <strong className="font-bold text-ink">24 y 25 de diciembre:</strong> entregamos hasta
+            las 20 h.
+          </li>
+          <li>
+            <strong className="font-bold text-ink">Último momento para pedir:</strong> el 25 de
+            diciembre, hasta las 20 h.
+          </li>
+          <li>
+            <strong className="font-bold text-ink">Reservá con tiempo:</strong> el 24 y el 25 son
+            los días con más pedidos.
+          </li>
+          <li>
+            <strong className="font-bold text-ink">El resto de diciembre:</strong>{' '}
+            {siteConfig.hours.toLowerCase()}.
+          </li>
+        </ul>
+
+        <h2 className="display-md mt-14 text-ink">Más regalos de fin de año</h2>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2">
+          {finDeAnio.map((idea) => (
+            <div key={idea.t} className="border border-rule bg-paper-card p-6">
+              <h3 className="font-display text-xl font-semibold text-ink">{idea.t}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-ink-soft">{idea.d}</p>
+              <Link
+                href={idea.href}
+                className="group mt-4 inline-flex items-center gap-2 text-sm font-bold text-ink link-underline"
+              >
+                {idea.link}
+                <ArrowIcon className="w-3.5 h-3.5 text-berry transition-transform duration-200 group-hover:translate-x-1" />
+              </Link>
+            </div>
+          ))}
+        </div>
+
+        <h2 className="display-md mt-14 text-ink">Qué escribir en la tarjeta de Navidad</h2>
+        <p className="mt-4 text-base leading-relaxed text-ink-soft max-w-prose">
+          Los desayunos traen una nota escrita a mano y las cajas de corazón llevan tarjeta. Si no
+          sabés qué poner, tomá una de estas ideas y cambiala a tu manera:
+        </p>
+        <ul className="mt-4 space-y-3 text-base leading-relaxed text-ink max-w-prose">
+          {mensajes.map((m) => (
+            <li key={m} className="border-l-2 border-butter pl-4 quote">
+              {m}
+            </li>
+          ))}
+        </ul>
+        <p className="mt-4 text-sm text-ink-soft max-w-prose">
+          Más ejemplos en{' '}
+          <Link href="/guias-de-regalo/que-escribir-en-la-tarjeta" className="link-underline font-bold text-ink">
+            qué escribir en la tarjeta de un regalo
+          </Link>
+          .
+        </p>
+
         <h2 className="display-md mt-14 text-ink">Todos los regalos para Navidad</h2>
         <ProductGrid />
 
@@ -150,7 +243,7 @@ export default function NavidadPage() {
           </p>
         </div>
         <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm">
-          {originLinks.map((link) => (
+          {[...originLinks.filter((l) => !l.href.endsWith('otras-provincias')), ...countryLinks].map((link) => (
             <li key={link.href}>
               <Link href={link.href} className="link-underline font-bold text-ink">
                 {link.label}
