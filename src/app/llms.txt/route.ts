@@ -53,6 +53,7 @@ function body() {
     `- [Regalos en Catamarca a domicilio](${url('/regalos-en-catamarca')})`,
     `- [Catálogo](${url('/catalogo')})`,
     `- [Desayunos sorpresa en Catamarca](${url('/desayunos-sorpresa-catamarca')})`,
+    `- [Meriendas sorpresa en Catamarca](${url('/meriendas-sorpresa-catamarca')})`,
     `- [Ramos de golosinas en Catamarca](${url('/ramos-de-golosinas-catamarca')})`,
     `- [Regalos para el Día de la Madre](${url('/dia-de-la-madre')})`,
     `- [Regalos de Navidad](${url('/navidad')})`,

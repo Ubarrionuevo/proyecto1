@@ -5,8 +5,8 @@ import { ratingHook } from "@/lib/seo";
 import Analytics from "@/components/Analytics";
 import "./globals.css";
 
-const homeTitle = "Desayunos Sorpresa y Ramos en Catamarca | LaPrincesaCta";
-const homeDescription = `Desayunos sorpresa y ramos de golosinas a domicilio en Catamarca. ${ratingHook}. Foto de la entrega. Pedí por WhatsApp, también desde el exterior.`;
+const homeTitle = "Regalería en Catamarca: Desayunos Sorpresa y Ramos | LaPrincesaCta";
+const homeDescription = `Regalería en Catamarca: desayunos sorpresa, ramos de golosinas y cajas de chocolates a domicilio. ${ratingHook}. Foto de la entrega. Pedí por WhatsApp, también desde el exterior.`;
 
 /* Karla para texto corrido. Se cargan tambien los italicos porque varias citas
    los usan en cursiva. */

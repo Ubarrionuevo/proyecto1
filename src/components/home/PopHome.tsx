@@ -172,6 +172,10 @@ export function DesayunosPop() {
         <Link href="/desayunos-sorpresa-catamarca" className={plainLink}>
           desayunos sorpresa en Catamarca
         </Link>
+        . ¿Mejor a la tarde? También hacemos{' '}
+        <Link href="/meriendas-sorpresa-catamarca" className={plainLink}>
+          meriendas sorpresa
+        </Link>
         .
       </PopHead>
 

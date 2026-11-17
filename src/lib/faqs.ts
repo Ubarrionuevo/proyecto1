@@ -90,6 +90,14 @@ export const desayunosFaqs: FaqItem[] = [
     a: 'Café o té bien caliente, delicias artesanales, taza personalizada y una nota escrita a mano. Todo va presentado en caja de madera o de cartón premium.',
   },
   {
+    q: '¿Hacen meriendas sorpresa?',
+    a: 'Sí. La merienda sorpresa trae lo mismo que el desayuno y se entrega a la tarde. Mirá las meriendas sorpresa en Catamarca.',
+  },
+  {
+    q: '¿Hacen box de desayuno?',
+    a: 'Sí. Cada desayuno sorpresa va armado en una caja (box) de madera o de cartón premium, bien envuelta y lista para regalar.',
+  },
+  {
     q: '¿Cuál es la diferencia entre la caja de madera y la de cartón?',
     a: 'Cambia la presentación; la sorpresa es la misma. La caja de madera se puede volver a usar para guardar cosas y la de cartón sale un poco menos.',
   },

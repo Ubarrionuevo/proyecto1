@@ -320,9 +320,9 @@ const queRegalar: Guide[] = [
     kind: 'que-regalar',
     label: 'Qué regalar de cumpleaños',
     crumb: 'Qué regalar de cumpleaños',
-    title: 'Qué Regalar de Cumpleaños en Catamarca: Ideas a Domicilio',
+    title: 'Regalos de Cumpleaños a Domicilio en Catamarca: Ideas',
     description:
-      'Ideas de regalos de cumpleaños a domicilio en Catamarca: desayuno sorpresa para la mañana, ramos de golosinas y chocolates. Pedí por WhatsApp.',
+      'Regalos de cumpleaños a domicilio en Catamarca: desayuno sorpresa para la mañana, ramos de golosinas y chocolates. Pedí por WhatsApp.',
     h1: 'Qué regalar de cumpleaños: ideas para que llegue a su puerta',
     lead: [
       'Un cumpleaños tiene una ventaja: sabés la fecha. Eso permite que el regalo llegue justo ese día, a primera hora o cuando la persona esté en casa.',
@@ -539,7 +539,7 @@ const queRegalar: Guide[] = [
     kind: 'que-regalar',
     label: 'Qué regalarle a un hombre',
     crumb: 'Qué regalarle a un hombre',
-    title: 'Qué Regalarle a un Hombre en Catamarca: Ideas por Edad',
+    title: 'Regalos para Hombre en Catamarca: Ideas por Edad',
     description:
       'Ideas de regalos para hombres de 30, 40, 50, 60 y 70 años en Catamarca: desayunos, ramo futbolero y chocolates, con entrega a domicilio.',
     h1: 'Qué regalarle a un hombre en Catamarca: ideas según su edad',

@@ -8,6 +8,7 @@ const routes = [
   '/regalos-en-catamarca',
   '/catalogo',
   '/desayunos-sorpresa-catamarca',
+  '/meriendas-sorpresa-catamarca',
   '/ramos-de-golosinas-catamarca',
   '/dia-de-la-madre',
   '/navidad',

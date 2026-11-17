@@ -20,7 +20,7 @@ import { pageMetadata, ratingHook } from '@/lib/seo';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Desayunos Sorpresa a Domicilio en Catamarca | LaPrincesaCta',
-  description: `Desayunos sorpresa a domicilio en Catamarca. ${ratingHook}. Te mandamos foto de la entrega. Pedí por WhatsApp, también desde el exterior.`,
+  description: `Desayunos sorpresa y box de desayuno a domicilio en Catamarca. ${ratingHook}. Te mandamos foto de la entrega. Pedí por WhatsApp, también desde el exterior.`,
   path: '/desayunos-sorpresa-catamarca',
   image: desayunos[0].images[0],
 });
@@ -139,6 +139,13 @@ export default function DesayunosPage() {
                 caja de cartón premium
               </Link>
               , que se ve igual de linda en la puerta.
+            </p>
+            <p>
+              ¿La persona no está a la mañana? Hacemos{' '}
+              <Link href="/meriendas-sorpresa-catamarca" className="link-underline font-bold text-ink">
+                meriendas sorpresa a domicilio
+              </Link>
+              : la misma caja, entregada a la tarde.
             </p>
             <p>
               Los motivos son los de siempre: un cumpleaños, un aniversario, un agradecimiento o un

@@ -13,7 +13,7 @@ import { getWhatsAppUrl, contact } from '@/lib/products';
 import { pageMetadata } from '@/lib/seo';
 import { countryLinks, localityLinks, originLinks, provinceLinks, siteConfig } from '@/lib/site';
 
-const title = 'Enviar Regalos a Catamarca desde Cualquier Lugar';
+const title = 'Enviar Regalos a Catamarca a Domicilio desde Cualquier Lugar';
 const description =
   'Mandá un regalo a Catamarca desde otra provincia o país. Pagás con transferencia o Prex y te enviamos foto o video de la entrega. Pedí por WhatsApp.';
 

@@ -12,6 +12,7 @@ export const pageLinks = [
   { href: '/regalos-en-catamarca', label: 'Regalos en Catamarca' },
   { href: '/catalogo', label: 'Catálogo' },
   { href: '/desayunos-sorpresa-catamarca', label: 'Desayunos sorpresa' },
+  { href: '/meriendas-sorpresa-catamarca', label: 'Meriendas sorpresa' },
   { href: '/ramos-de-golosinas-catamarca', label: 'Ramos de golosinas' },
   { href: '/regalos-personalizados-catamarca', label: 'Regalos personalizados' },
   { href: '/cartas-personalizadas', label: 'Cartas personalizadas' },
