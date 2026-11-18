@@ -109,7 +109,7 @@ export default function OriginPage({
               {origin.quote}
             </blockquote>
             <figcaption className="label mt-4 text-ink-soft">
-              Ya nos pasó — y lo hacemos de nuevo
+              {origin.quoteBy ?? 'Ya nos pasó — y lo hacemos de nuevo'}
             </figcaption>
           </figure>
         )}

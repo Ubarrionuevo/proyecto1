@@ -13,7 +13,9 @@ function body() {
     { href: '/guias-de-regalo' },
     ...guides.map((g) => ({ href: `/guias-de-regalo/${g.slug}` })),
   ];
-  const urls = [...originLinks, ...countryLinks, ...provinceLinks, ...localityLinks, ...productLinks, ...guideLinks].map((link) =>
+  /* Santa Cruz está en originLinks y en provinceLinks: sin repetidos. */
+  const hrefs = [...new Set([...originLinks, ...countryLinks, ...provinceLinks, ...localityLinks, ...productLinks, ...guideLinks].map((l) => l.href))];
+  const urls = hrefs.map((href) => ({ href })).map((link) =>
     [
       '  <url>',
       `    <loc>${siteConfig.url}${link.href}</loc>`,

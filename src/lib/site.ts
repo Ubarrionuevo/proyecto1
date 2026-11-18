@@ -50,6 +50,8 @@ export const originLinks = [
   { href: '/enviar-regalo-a-catamarca/desde-peru', label: 'Desde Perú' },
   { href: '/enviar-regalo-a-catamarca/desde-italia', label: 'Desde Italia' },
   { href: '/enviar-regalo-a-catamarca/desde-suiza', label: 'Desde Suiza' },
+  /* Santa Cruz: pedidos confirmados por una reseña real en Google. */
+  { href: '/enviar-regalo-a-catamarca/desde-santa-cruz', label: 'Desde Santa Cruz' },
   { href: '/enviar-regalo-a-catamarca/desde-otras-provincias', label: 'Desde otras provincias' },
 ];
 
@@ -67,6 +69,15 @@ export const provinceLinks = [
   { href: '/enviar-regalo-a-catamarca/desde-la-rioja', label: 'Desde La Rioja' },
   { href: '/enviar-regalo-a-catamarca/desde-entre-rios', label: 'Desde Entre Ríos' },
   { href: '/enviar-regalo-a-catamarca/desde-neuquen', label: 'Desde Neuquén' },
+  { href: '/enviar-regalo-a-catamarca/desde-santa-cruz', label: 'Desde Santa Cruz' },
+  { href: '/enviar-regalo-a-catamarca/desde-chubut', label: 'Desde Chubut' },
+  { href: '/enviar-regalo-a-catamarca/desde-tierra-del-fuego', label: 'Desde Tierra del Fuego' },
+  { href: '/enviar-regalo-a-catamarca/desde-rio-negro', label: 'Desde Río Negro' },
+  { href: '/enviar-regalo-a-catamarca/desde-san-juan', label: 'Desde San Juan' },
+  { href: '/enviar-regalo-a-catamarca/desde-san-luis', label: 'Desde San Luis' },
+  { href: '/enviar-regalo-a-catamarca/desde-chaco', label: 'Desde Chaco' },
+  { href: '/enviar-regalo-a-catamarca/desde-corrientes', label: 'Desde Corrientes' },
+  { href: '/enviar-regalo-a-catamarca/desde-misiones', label: 'Desde Misiones' },
 ];
 
 /* Países sin pedidos confirmados todavía (textos en origins-exterior.ts). No
@@ -78,6 +89,12 @@ export const countryLinks = [
   { href: '/enviar-regalo-a-catamarca/desde-uruguay', label: 'Desde Uruguay' },
   { href: '/enviar-regalo-a-catamarca/desde-brasil', label: 'Desde Brasil' },
   { href: '/enviar-regalo-a-catamarca/desde-mexico', label: 'Desde México' },
+  { href: '/enviar-regalo-a-catamarca/desde-australia', label: 'Desde Australia' },
+  { href: '/enviar-regalo-a-catamarca/desde-nueva-zelanda', label: 'Desde Nueva Zelanda' },
+  { href: '/enviar-regalo-a-catamarca/desde-canada', label: 'Desde Canadá' },
+  { href: '/enviar-regalo-a-catamarca/desde-alemania', label: 'Desde Alemania' },
+  { href: '/enviar-regalo-a-catamarca/desde-francia', label: 'Desde Francia' },
+  { href: '/enviar-regalo-a-catamarca/desde-reino-unido', label: 'Desde Reino Unido' },
 ];
 
 export const localityLinks = [

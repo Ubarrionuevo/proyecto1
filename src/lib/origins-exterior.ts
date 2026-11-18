@@ -12,7 +12,12 @@ import { fmtHour, localHour, pagoCuentaArgentina, pagoPrex, type OriginData } fr
      costa oeste -5 y -4.
    - Chile continental: misma hora en su verano (sep-abr), -1 en su invierno.
    - Uruguay y Brasil (Brasilia, São Paulo, Río): misma hora todo el año.
-   - México (Ciudad de México): -3 todo el año. */
+   - México (Ciudad de México): -3 todo el año.
+   - Australia (Sídney, Melbourne): +13 de abril a octubre, +14 de octubre a abril.
+   - Nueva Zelanda: +15 de abril a septiembre, +16 de septiembre a abril.
+   - Canadá: Toronto/Montreal -2 y -1; Vancouver -5 y -4.
+   - Alemania y Francia: +4 en invierno europeo, +5 en verano europeo.
+   - Reino Unido: +3 en su invierno, +4 en su verano. */
 
 const { city, hoursCopy, openHour, closeHour } = siteConfig;
 const horario = `de ${openHour} a ${fmtHour(closeHour)} h`;
@@ -292,6 +297,264 @@ export const countryOrigins: OriginData[] = [
       },
       enPesos('pesos mexicanos'),
       noDespachas('México'),
+    ],
+  },
+  {
+    path: '/enviar-regalo-a-catamarca/desde-australia',
+    crumb: 'Desde Australia',
+    title: 'Enviar Regalo a Catamarca desde Australia | LaPrincesaCta',
+    description:
+      'Desde Sídney, Melbourne o Brisbane: mandá un desayuno sorpresa o un ramo a Catamarca. Pedís por WhatsApp, pagás en pesos o con Prex y recibís foto de la entrega.',
+    label: 'Desde Australia',
+    h1: 'Mandá un regalo a Catamarca desde Australia',
+    whatsapp: 'un regalo desde Australia',
+    cta: 'Quiero mandar un regalo desde Australia',
+    lead: [
+      'Muchos argentinos jóvenes se fueron a Australia a trabajar y viajar. Desde Sídney, Melbourne o Brisbane, la familia en Catamarca queda del otro lado del mundo.',
+      'Igual podés estar en su cumpleaños: nos escribís por WhatsApp y nosotras llevamos el regalo hasta su puerta en la Capital de Catamarca.',
+    ],
+    timeTitle: 'Del otro lado del reloj',
+    time: [
+      'Sídney y Melbourne van 13 horas adelante de Argentina entre abril y octubre, y 14 horas adelante entre octubre y abril.',
+      'Atendemos de día en Argentina, que en Australia es de madrugada. Lo más cómodo: escribinos a tu noche, que acá ya es la mañana, y te contestamos en el momento.',
+    ],
+    paymentTitle: 'Cómo pagás desde Australia',
+    payment: [pagoCuentaArgentina, pagoPrex],
+    occasionsTitle: 'Fechas para no dejar pasar desde Australia',
+    occasions: [
+      { t: 'El cumpleaños de mamá', d: 'Lo recibe en su mañana mientras vos ya estás en tu noche.' },
+      { t: 'El Día de la Madre argentino', d: 'En Australia es en mayo; en Argentina, el tercer domingo de octubre.' },
+      { t: 'Navidad', d: 'Las fiestas en verano, igual que allá, pero lejos de la mesa familiar.' },
+      { t: 'Un amigo que te extraña', d: 'Un ramo de golosinas o el futbolero de su club.' },
+    ],
+    proofTitle: 'Lo ves cuando te levantás',
+    proof: 'Te mandamos foto o video de la entrega por WhatsApp.',
+    faqs: [
+      {
+        q: '¿Qué diferencia horaria hay entre Australia y Catamarca?',
+        a: 'Sídney y Melbourne van 13 horas adelante de Argentina entre abril y octubre, y 14 entre octubre y abril.',
+      },
+      {
+        q: '¿Puedo pagar desde Australia sin cuenta argentina?',
+        a: 'Sí, con Prex. Si conservás tu cuenta en Argentina, también podés transferir en pesos.',
+      },
+      enPesos('dólares australianos'),
+      noDespachas('Australia'),
+    ],
+  },
+  {
+    path: '/enviar-regalo-a-catamarca/desde-nueva-zelanda',
+    crumb: 'Desde Nueva Zelanda',
+    title: 'Enviar Regalo a Catamarca desde Nueva Zelanda | LaPrincesaCta',
+    description:
+      'Desde Auckland, Wellington o Queenstown: mandá un desayuno sorpresa o un ramo a Catamarca. Pedís por WhatsApp y recibís foto de la entrega.',
+    label: 'Desde Nueva Zelanda',
+    h1: 'Mandá un regalo a Catamarca desde Nueva Zelanda',
+    whatsapp: 'un regalo desde Nueva Zelanda',
+    cta: 'Quiero mandar un regalo desde Nueva Zelanda',
+    lead: [
+      'Con la working holiday, muchos argentinos pasan una temporada en Nueva Zelanda. Desde Auckland o Queenstown, Catamarca está literalmente del otro lado del planeta.',
+      'Un mensaje de WhatsApp alcanza: lo armamos en Catamarca y lo llevamos nosotras hasta la puerta de quien lo recibe.',
+    ],
+    timeTitle: 'Quince o dieciséis horas adelante',
+    time: [
+      'Nueva Zelanda va 15 horas adelante de Argentina entre abril y septiembre, y 16 horas adelante entre septiembre y abril.',
+      'Escribinos a tu noche, que en Argentina es la mañana: atendemos en hora de Argentina y te contestamos en el momento.',
+    ],
+    paymentTitle: 'Cómo pagás desde Nueva Zelanda',
+    payment: [pagoCuentaArgentina, pagoPrex],
+    occasionsTitle: 'Fechas para no dejar pasar',
+    occasions: [
+      { t: 'El cumpleaños de mamá', d: 'Un desayuno sorpresa en su puerta.' },
+      { t: 'El Día de la Madre argentino', d: 'El tercer domingo de octubre.' },
+      { t: 'Navidad', d: 'Un regalo en la mesa de Catamarca.' },
+      { t: 'Tu pareja', d: 'Un ramo con oso o chocolates mientras dura la temporada afuera.' },
+    ],
+    proofTitle: 'Lo ves cuando te levantás',
+    proof: 'Te mandamos foto o video de la entrega por WhatsApp.',
+    faqs: [
+      {
+        q: '¿Qué diferencia horaria hay entre Nueva Zelanda y Catamarca?',
+        a: 'Nueva Zelanda va 15 horas adelante de Argentina entre abril y septiembre, y 16 entre septiembre y abril.',
+      },
+      {
+        q: '¿Puedo pagar desde Nueva Zelanda sin cuenta argentina?',
+        a: 'Sí, con Prex. Si conservás tu cuenta en Argentina, también podés transferir en pesos.',
+      },
+      enPesos('dólares neozelandeses'),
+      noDespachas('Nueva Zelanda'),
+    ],
+  },
+  {
+    path: '/enviar-regalo-a-catamarca/desde-canada',
+    crumb: 'Desde Canadá',
+    title: 'Enviar Regalo a Catamarca desde Canadá | LaPrincesaCta',
+    description:
+      'Desde Toronto, Montreal o Vancouver: mandá un desayuno sorpresa o un ramo a Catamarca. Pedís por WhatsApp, pagás en pesos o con Prex y recibís foto.',
+    label: 'Desde Canadá',
+    h1: 'Mandá un regalo a Catamarca desde Canadá',
+    whatsapp: 'un regalo desde Canadá',
+    cta: 'Quiero mandar un regalo desde Canadá',
+    lead: [
+      'Desde Toronto, Montreal o Vancouver, la familia en Catamarca está a un largo vuelo con escalas.',
+      'Nos escribís por WhatsApp, elegís el regalo y nosotras lo llevamos hasta la puerta en la Capital de Catamarca.',
+    ],
+    timeTitle: 'Depende de la costa',
+    time: [
+      'Toronto y Montreal van 2 horas atrás de Argentina en el invierno de allá y 1 hora atrás en el verano. Vancouver va 5 horas atrás en invierno y 4 en verano.',
+      `Atendemos ${horario}, hora de Argentina: en el este de Canadá nos encontrás casi todo el día.`,
+    ],
+    paymentTitle: 'Cómo pagás desde Canadá',
+    payment: [pagoCuentaArgentina, pagoPrex],
+    occasionsTitle: 'Fechas para no dejar pasar desde Canadá',
+    occasions: [
+      { t: 'El cumpleaños de mamá', d: 'Un desayuno sorpresa a la mañana de Catamarca.' },
+      { t: 'El Día de la Madre argentino', d: 'En Canadá es en mayo; en Argentina, el tercer domingo de octubre.' },
+      { t: 'Navidad', d: 'Vos en la nieve y ellos en pleno verano.' },
+      { t: 'Un aniversario a distancia', d: 'Chocolates en caja de corazón con tu mensaje.' },
+    ],
+    proofTitle: 'Desde Canadá, lo ves',
+    proof: 'Te mandamos foto o video de la entrega por WhatsApp.',
+    faqs: [
+      {
+        q: '¿Qué diferencia horaria hay entre Canadá y Catamarca?',
+        a: 'Toronto y Montreal van 1 o 2 horas atrás de Argentina, según la época del año. Vancouver, 4 o 5 horas atrás.',
+      },
+      {
+        q: '¿Puedo pagar desde Canadá sin cuenta argentina?',
+        a: 'Sí, con Prex. Si conservás tu cuenta en Argentina, también podés transferir en pesos.',
+      },
+      enPesos('dólares canadienses'),
+      noDespachas('Canadá'),
+    ],
+  },
+  {
+    path: '/enviar-regalo-a-catamarca/desde-alemania',
+    crumb: 'Desde Alemania',
+    title: 'Enviar Regalo a Catamarca desde Alemania | LaPrincesaCta',
+    description:
+      'Desde Berlín, Múnich o Hamburgo: mandá un desayuno sorpresa o un ramo a domicilio en Catamarca. Pedís por WhatsApp y recibís foto de la entrega.',
+    label: 'Desde Alemania',
+    h1: 'Mandá un regalo a Catamarca desde Alemania',
+    whatsapp: 'un regalo desde Alemania',
+    cta: 'Quiero mandar un regalo desde Alemania',
+    lead: [
+      'Desde Berlín, Múnich o Hamburgo, la familia que quedó en Catamarca está a un océano.',
+      'Pedís por WhatsApp, elegís el regalo y nosotras lo armamos y lo entregamos en la puerta en la Capital de Catamarca. Vos no despachás nada.',
+    ],
+    timeTitle: 'Cuatro o cinco horas de diferencia',
+    time: [
+      'Alemania va 4 horas adelante de Argentina en el invierno europeo y 5 horas en el verano europeo.',
+      `Atendemos ${horario}, hora de Argentina: en Alemania es desde el mediodía hasta la madrugada.`,
+    ],
+    paymentTitle: 'Cómo pagás desde Alemania',
+    payment: [pagoCuentaArgentina, pagoPrex],
+    occasionsTitle: 'Fechas para no dejar pasar desde Alemania',
+    occasions: [
+      { t: 'El cumpleaños de mamá', d: 'Le llega a la mañana de Catamarca, tu tarde.' },
+      { t: 'El Día de la Madre argentino', d: 'En Alemania es en mayo; en Argentina, el tercer domingo de octubre.' },
+      { t: 'Navidad', d: 'Vos en invierno y ellos en verano.' },
+      { t: 'Sorprender a un amigo', d: 'Un ramo de golosinas o de chocolates.' },
+    ],
+    proofTitle: 'Desde Alemania, lo ves',
+    proof: 'Te mandamos foto o video de la entrega por WhatsApp.',
+    faqs: [
+      {
+        q: '¿Qué diferencia horaria hay entre Alemania y Catamarca?',
+        a: 'Alemania va 4 horas adelante en el invierno europeo y 5 en el verano europeo.',
+      },
+      {
+        q: '¿Puedo pagar desde Alemania sin cuenta argentina?',
+        a: 'Sí, con Prex. Si conservás tu cuenta en Argentina, también podés transferir en pesos.',
+      },
+      enPesos('euros'),
+      noDespachas('Alemania'),
+    ],
+  },
+  {
+    path: '/enviar-regalo-a-catamarca/desde-francia',
+    crumb: 'Desde Francia',
+    title: 'Enviar Regalo a Catamarca desde Francia | LaPrincesaCta',
+    description:
+      'Desde París, Lyon o Marsella: mandá un desayuno sorpresa o un ramo a Catamarca. Pedís por WhatsApp, pagás en pesos o con Prex y recibís foto de la entrega.',
+    label: 'Desde Francia',
+    h1: 'Mandá un regalo a Catamarca desde Francia',
+    whatsapp: 'un regalo desde Francia',
+    cta: 'Quiero mandar un regalo desde Francia',
+    lead: [
+      'Desde París, Lyon o Marsella, extrañar a la familia de Catamarca es parte de la rutina.',
+      'Para las fechas importantes, nos escribís por WhatsApp y nosotras llevamos el regalo hasta su puerta en la Capital de Catamarca.',
+    ],
+    timeTitle: 'Cuatro o cinco horas de diferencia',
+    time: [
+      'Francia va 4 horas adelante de Argentina en el invierno europeo y 5 horas en el verano europeo.',
+      `Atendemos ${horario}, hora de Argentina: en Francia es desde el mediodía hasta la madrugada.`,
+    ],
+    paymentTitle: 'Cómo pagás desde Francia',
+    payment: [pagoCuentaArgentina, pagoPrex],
+    occasionsTitle: 'Fechas para no dejar pasar desde Francia',
+    occasions: [
+      { t: 'El cumpleaños de mamá', d: 'Un desayuno sorpresa en su puerta.' },
+      { t: 'El Día de la Madre argentino', d: 'En Francia es a fines de mayo o en junio; en Argentina, el tercer domingo de octubre.' },
+      { t: 'Navidad', d: 'Un regalo en la mesa de Catamarca.' },
+      { t: 'Un aniversario a distancia', d: 'Chocolates en caja de corazón con tu mensaje.' },
+    ],
+    proofTitle: 'Desde Francia, lo ves',
+    proof: 'Te mandamos foto o video de la entrega por WhatsApp.',
+    faqs: [
+      {
+        q: '¿Qué diferencia horaria hay entre Francia y Catamarca?',
+        a: 'Francia va 4 horas adelante en el invierno europeo y 5 en el verano europeo.',
+      },
+      {
+        q: '¿Puedo pagar desde Francia sin cuenta argentina?',
+        a: 'Sí, con Prex. Si conservás tu cuenta en Argentina, también podés transferir en pesos.',
+      },
+      enPesos('euros'),
+      noDespachas('Francia'),
+    ],
+  },
+  {
+    path: '/enviar-regalo-a-catamarca/desde-reino-unido',
+    crumb: 'Desde Reino Unido',
+    title: 'Enviar Regalo a Catamarca desde Reino Unido | LaPrincesaCta',
+    description:
+      'Desde Londres, Mánchester o Edimburgo: mandá un desayuno sorpresa o un ramo a domicilio en Catamarca. Pedís por WhatsApp y recibís foto de la entrega.',
+    label: 'Desde Reino Unido',
+    h1: 'Mandá un regalo a Catamarca desde Reino Unido',
+    whatsapp: 'un regalo desde Reino Unido',
+    cta: 'Quiero mandar un regalo desde Reino Unido',
+    lead: [
+      'Desde Londres, Mánchester o Edimburgo, la familia en Catamarca está lejos, pero un regalo puede llegar igual.',
+      'Pedís por WhatsApp, elegís el desayuno o el ramo, y nosotras lo llevamos a la puerta en la Capital de Catamarca.',
+    ],
+    timeTitle: 'Tres o cuatro horas de diferencia',
+    time: [
+      'Reino Unido va 3 horas adelante de Argentina en el invierno de allá y 4 horas en el verano.',
+      `Atendemos ${horario}, hora de Argentina: en Londres es desde media mañana hasta la madrugada.`,
+    ],
+    paymentTitle: 'Cómo pagás desde Reino Unido',
+    payment: [pagoCuentaArgentina, pagoPrex],
+    occasionsTitle: 'Fechas para no dejar pasar',
+    occasions: [
+      { t: 'El cumpleaños de mamá', d: 'Un desayuno sorpresa a la mañana de Catamarca.' },
+      { t: 'El Día de la Madre argentino', d: 'En Reino Unido es en marzo; en Argentina, el tercer domingo de octubre.' },
+      { t: 'Navidad', d: 'Un regalo en la mesa familiar.' },
+      { t: 'Sorprender a un amigo', d: 'Un ramo de golosinas o el futbolero de su club.' },
+    ],
+    proofTitle: 'Desde Reino Unido, lo ves',
+    proof: 'Te mandamos foto o video de la entrega por WhatsApp.',
+    faqs: [
+      {
+        q: '¿Qué diferencia horaria hay entre Reino Unido y Catamarca?',
+        a: 'Reino Unido va 3 horas adelante de Argentina en su invierno y 4 en su verano.',
+      },
+      {
+        q: '¿Puedo pagar desde Reino Unido sin cuenta argentina?',
+        a: 'Sí, con Prex. Si conservás tu cuenta en Argentina, también podés transferir en pesos.',
+      },
+      enPesos('libras'),
+      noDespachas('Reino Unido'),
     ],
   },
 ];
